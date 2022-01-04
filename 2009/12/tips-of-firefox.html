@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="kisa747用firefox这个可爱的小狐狸已经有3年了，最早从1.5版到现在的3.5版，亲眼看着firefox的成长，如今chrome是强势来袭，怕是再不写关于firefox的应用，很快chrome即将成为我的主浏览器了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Firefox使用技巧汇总">
+<meta property="og:url" content="https://kisa747.top/2009/12/tips-of-firefox.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="kisa747用firefox这个可爱的小狐狸已经有3年了，最早从1.5版到现在的3.5版，亲眼看着firefox的成长，如今chrome是强势来袭，怕是再不写关于firefox的应用，很快chrome即将成为我的主浏览器了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kisa747.top/2009/12/4180906191_855d42dfd5_o.jpg">
+<meta property="og:image" content="http://localhost/img/2009/4181669628_dd94c81920_o.gif">
+<meta property="og:image" content="http://localhost/img/2009/4181669700_e349cd71d4_o.gif">
+<meta property="og:image" content="https://kisa747.top/2009/12/4180906269_849b84c32c_o.gif">
+<meta property="og:image" content="https://kisa747.top/2009/12/4181669412_e6ba5e51ba_o.gif">
+<meta property="og:image" content="https://kisa747.top/2009/12/4181169681_c5dee325fd_o.jpg">
+<meta property="og:image" content="https://kisa747.top/2009/12/4184356796_d1f94b8193_o.jpg">
+<meta property="article:published_time" content="2009-12-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.101Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="技巧分享">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="firefox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kisa747.top/2009/12/4180906191_855d42dfd5_o.jpg">
+
+<link rel="canonical" href="https://kisa747.top/2009/12/tips-of-firefox.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Firefox使用技巧汇总 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2009/12/tips-of-firefox.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Firefox使用技巧汇总
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2009-12-14 00:00:00" itemprop="dateCreated datePublished" datetime="2009-12-14T00:00:00+08:00">2009-12-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>kisa747用firefox这个可爱的小狐狸已经有3年了，最早从1.5版到现在的3.5版，亲眼看着firefox的成长，如今chrome是强势来袭，怕是再不写关于firefox的应用，很快chrome即将成为我的主浏览器了。</p>
+<span id="more"></span>
+
+<h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><p>当然推荐安装官方的简体中文版，官方下载地址：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.mozilla.com/" title="http://www.mozilla.com/">http://www.mozilla.com</a>或<a target="_blank" rel="noopener" href="http://www.mozillaonline.com/">http://www.mozillaonline.com</a><br>下载中文最新版，不要安装”火狐中国版”，里面带了一大堆无用的插件。</p>
+</blockquote>
+<p>安装插件：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/13288">Super Tab Mode</a></p>
+<p>这个必装。轻量级的标签增强工具，还有其它多种个性功能：老板键迅速隐藏firefox，屏蔽图片和广告，设置firefox缓存移到虚拟硬盘。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/10909">Coral IE Tab</a></p>
+<p>添加一个临时切换为IE的按钮。IETab的增强版本，除具备 IETab 的全部功能外，还可以在 IE 引擎中用 Adblock Plus 过滤广告，以及同步 Cookie 使得切换到 IE 引擎时不需要重新登录。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/6366/">FireGestures</a></p>
+<p>鼠标手势扩展。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/10868/">Firefox Sync</a></p>
+<p>Mozilla官方出品的同步书签、设置等的扩展。</p>
+<p>更多的扩展可以查看：<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/collection/kisa747">我收藏的Firefox扩展</a></p>
+<h3 id="二、外观设置"><a href="#二、外观设置" class="headerlink" title="二、外观设置"></a>二、外观设置</h3><p><img src="4180906191_855d42dfd5_o.jpg"></p>
+<p>上一步中，点击”定制”，可以设置工具栏。</p>
+<p><a href="4181669628_dd94c81920_o.gif"><img src="http://localhost/img/2009/4181669628_dd94c81920_o.gif"></a></p>
+<p>最终达到这个效果</p>
+<p><a href="4181669700_e349cd71d4_o.gif"><img src="http://localhost/img/2009/4181669700_e349cd71d4_o.gif"></a></p>
+<h3 id="三、扩展设置"><a href="#三、扩展设置" class="headerlink" title="三、扩展设置"></a>三、扩展设置</h3><p>其中的Tab Mix Lite CE还是需要设置一下才能符合使用习惯。</p>
+<p>在菜单的”工具”–”附加组件”–”扩展”</p>
+<p><img src="4180906269_849b84c32c_o.gif"></p>
+<p><img src="4181669412_e6ba5e51ba_o.gif"></p>
+<p>默认的Google搜索地址是<a target="_blank" rel="noopener" href="http://www.google.com/firefox%EF%BC%8C%E5%8D%81%E5%88%86%E4%B8%8D%E7%88%BD%E3%80%82">http://www.google.com/firefox，十分不爽。</a></p>
+<p>修改安装目录下的searchplugins\google.xml</p>
+<blockquote>
+<p>查找”<a target="_blank" rel="noopener" href="http://www.google.com/firefox&quot;%E6%9B%BF%E6%8D%A2%E4%B8%BA&quot;">http://www.google.com/firefox&quot;替换为&quot;</a> <a target="_blank" rel="noopener" href="http://www.google.com/">http://www.google.com/</a> “即可。<br>其实firefox的搜索还可安装Google.cn，作为Google.com被重置时的临时替代品。在附加组件里面找了半天，竟没找到，一怒之下，自己做了一个，不就是个搜索嘛。<br>安装地址：<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/54454/">Google.com.hk谷歌中国搜索</a></p>
+</blockquote>
+<h3 id="四、修改配置文件到其它盘"><a href="#四、修改配置文件到其它盘" class="headerlink" title="四、修改配置文件到其它盘"></a>四、修改配置文件到其它盘</h3><p>默认火狐的配置都会在系统盘，如何设置配置文件到其它盘，以避免重装系统后配置丢失？</p>
+<p>其实只要修改下火狐的快捷方式就行了</p>
+<p>1、现在D盘创建”firefox-profile”文件夹，作为配置文件的位置。</p>
+<p>即 d:\firefox-profile</p>
+<p>2、右击火狐的快捷方式–”属性”</p>
+<p>修改目标项目，在firefox.exe后面添加 <span style="color: #ff0000;">-profile “D:\firefox-profile”</span> 的选项</p>
+<p>以后随便重装系统，所有配置都在D盘。不过打开火狐要用这个修改过的快捷方式哦！</p>
+<p><img src="4181169681_c5dee325fd_o.jpg"></p>
+<p>3、删除多余的右键菜单选项 → “<span style="color: #ff0000;">在新窗口打开(W)</span>“</p>
+<p>找到以下位置，编辑serChrome.css，如果没有自己动手新建一个</p>
+<blockquote>
+<p>D:\firefox-profile\chrome\userChrome.css<br>添加以下内容：</p>
+</blockquote>
+<p><code>#context-openlink &#123; display:none !important; &#125;</code></p>
+<p>效果如图：</p>
+<p><img src="4184356796_d1f94b8193_o.jpg"></p>
+<p>如果要更高级地编辑右键菜单，可以参考<a target="_blank" rel="noopener" href="http://wiki.mozcn.org/index.php/Firefox:%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9">这里</a>，也可以直接安装<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/710">Menu Editor</a>这个扩展。</p>
+<p>通过修改userChrome来实现Firefox自定义界面可以查看该文件  <a target="_blank" rel="noopener" href="http://dl.dropbox.com/u/3633907/file/userchrome.css">userchrome.css</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\3-tips-of-win7.html" rel="bookmark">Windows 7三个小技巧</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\04\witopia.html" rel="bookmark">跨栏利器 — WiTopia</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\11\windowblinds-6.html" rel="bookmark">WindowBlinds 6</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\avast-5-release.html" rel="bookmark">Avast 5 release !</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\avast-guider.html" rel="bookmark">Avast!免费杀毒软件图文教程</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2009/12/tips-of-firefox.html" title="Firefox使用技巧汇总">https://kisa747.top/2009/12/tips-of-firefox.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+              <a href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag"># 技巧</a>
+              <a href="/tags/firefox/" rel="tag"># firefox</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2009/12/review-of-2009-02.html" rel="prev" title="回顾2009年(2) - 现实篇">
+      <i class="fa fa-chevron-left"></i> 回顾2009年(2) - 现实篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2009/12/nfzm-far-away.html" rel="next" title="南方周末离我们越来越远">
+      南方周末离我们越来越远 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">一、安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二、外观设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%89%A9%E5%B1%95%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">三、扩展设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%88%B0%E5%85%B6%E5%AE%83%E7%9B%98"><span class="nav-number">4.</span> <span class="nav-text">四、修改配置文件到其它盘</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

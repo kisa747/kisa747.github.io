@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="PS：今天是默哀日，让我们为玉树的人民祈福。 等捐款时，再贡献一点我的力量，我所能作的只能是这些了。像我这种XP重度用户，必须要找到Win 7的许多优点，才会死心塌地的使用win 7。所以嘛，我就不断探索它的新功能和一些设置，逐渐找到以前的那种感觉。  之前的Windows 7三个小技巧文章里已经提到了Windows 7的几个小问题的解决方法。其实win 7有更多很拉风的功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 7小技巧与设置">
+<meta property="og:url" content="https://kisa747.top/2010/04/tips-of-windows7.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="PS：今天是默哀日，让我们为玉树的人民祈福。 等捐款时，再贡献一点我的力量，我所能作的只能是这些了。像我这种XP重度用户，必须要找到Win 7的许多优点，才会死心塌地的使用win 7。所以嘛，我就不断探索它的新功能和一些设置，逐渐找到以前的那种感觉。  之前的Windows 7三个小技巧文章里已经提到了Windows 7的几个小问题的解决方法。其实win 7有更多很拉风的功能。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://localhost/img/2010/042101.gif">
+<meta property="article:published_time" content="2010-04-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.148Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="技巧分享">
+<meta property="article:tag" content="注册表">
+<meta property="article:tag" content="windows 7">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="代码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost/img/2010/042101.gif">
+
+<link rel="canonical" href="https://kisa747.top/2010/04/tips-of-windows7.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Windows 7小技巧与设置 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2010/04/tips-of-windows7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows 7小技巧与设置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2010-04-21 00:00:00" itemprop="dateCreated datePublished" datetime="2010-04-21T00:00:00+08:00">2010-04-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>PS：今天是默哀日，让我们为玉树的人民祈福。</p>
+<p>等捐款时，再贡献一点我的力量，我所能作的只能是这些了。<br>像我这种XP重度用户，必须要找到Win 7的许多优点，才会死心塌地的使用win 7。所以嘛，我就不断探索它的新功能和一些设置，逐渐找到以前的那种感觉。</p>
+</blockquote>
+<p>之前的<a target="_blank" rel="noopener" href="http://www.kisa747.com/3-tips-of-win7.html">Windows 7三个小技巧</a>文章里已经提到了Windows 7的几个小问题的解决方法。其实win 7有更多很拉风的功能。</p>
+<span id="more"></span>
+
+<h3 id="1-、窗口管理"><a href="#1-、窗口管理" class="headerlink" title="1.、窗口管理"></a>1.、窗口管理</h3><p>①、拖动窗口放到到屏幕的左边、右边、顶部三个边缘，就能把实现dock到屏幕的左半边、右半边、最大化窗口的拉风效果。</p>
+<p>②、上下调整窗口大小，拖到顶部或下部边缘位置时，会自动高度最大化。</p>
+<p>③、拖住一个窗口晃一晃，即可最小化其它窗口。或者是猛击Win+Home键。</p>
+<p>尤其是靠左、右dock的特性在宽屏上特别有用。</p>
+<h3 id="2、-windows移动中心"><a href="#2、-windows移动中心" class="headerlink" title="2、 windows移动中心"></a>2、 windows移动中心</h3><p>如果是笔记本，右击右下角电源或电池图标，打开windows移动中心。包括：连接显示器、屏幕亮度、无线网络等设置选项。</p>
+<p>连接显示器这个功能很方便，只要猛击”Win+P”快捷键即可直接唤出该界面。</p>
+<p><a href="042101.gif"><img src="http://localhost/img/2010/042101.gif"></a></p>
+<blockquote>
+<p>PS：该功能还有另外一个用处，设置宽屏为4：3。</p>
+<p>比如当用宽屏笔记本全屏玩跑跑卡丁车时，画面比例会被破坏，而笔记本没有显示器的设置选项。这时设置连接显示器为”复制”，画面比例即可变为4：3。</p>
+</blockquote>
+<h3 id="3、-在此处打开命令窗口"><a href="#3、-在此处打开命令窗口" class="headerlink" title="3、 在此处打开命令窗口"></a>3、 在此处打开命令窗口</h3><p>Windows 7根本不用任何设置或修改，只需在资源管理器中，按住shift，右键空白处，即可在当前目录下打开命令行。</p>
+<h3 id="4、快速复制文件路径"><a href="#4、快速复制文件路径" class="headerlink" title="4、快速复制文件路径"></a>4、快速复制文件路径</h3><p>选中要操作的文件，按住shift，然后右击-&gt;”复制为路径”即可。</p>
+<h3 id="5、资源管理器临时显示经典菜单栏"><a href="#5、资源管理器临时显示经典菜单栏" class="headerlink" title="5、资源管理器临时显示经典菜单栏"></a>5、资源管理器临时显示经典菜单栏</h3><p>在资源管理器窗口下，按”ALT：键，即可让资源管理器临时显示经典菜单栏。</p>
+<h3 id="6、转移”用户的文件”"><a href="#6、转移”用户的文件”" class="headerlink" title="6、转移”用户的文件”"></a>6、转移”用户的文件”</h3><p>进入”C:\用户\你的用户名”，在需要转移的文件夹上，右击→属性→位置→转移。</p>
+<p>推荐转移这4个用户文件夹：我的文档，桌面，我的图片、我的音乐。</p>
+<h3 id="7、设置自动登录"><a href="#7、设置自动登录" class="headerlink" title="7、设置自动登录"></a>7、设置自动登录</h3><p>这个设置对XP也有效。</p>
+<p>猛击”Win+R”快捷键，打开”运行”对话框，输入 “control userpasswords2”</p>
+<p>在弹出的对话框中选中你打算自动登陆的用户，然后将上面的那个”要使用本机,用户必须输入用户名和密码”的复选框取消。点击应用，就会又出现一个设置密码的对话框，输入密码，确认即可。</p>
+<h3 id="8、为文件属性添加”文件校验”"><a href="#8、为文件属性添加”文件校验”" class="headerlink" title="8、为文件属性添加”文件校验”"></a>8、为文件属性添加”文件校验”</h3><p>其实只是注册了一个”hashtab.dll”而已。</p>
+<p>【下载地址】：<a target="_blank" rel="noopener" href="https://dl.dropbox.com/u/3633907/download/hashtab.7z">hashtab.7z</a></p>
+<h3 id="9、右键添加”管理员取得所有权”"><a href="#9、右键添加”管理员取得所有权”" class="headerlink" title="9、右键添加”管理员取得所有权”"></a>9、右键添加”管理员取得所有权”</h3><p>Windows 7采用了更高级的权限管理（这是相对于XP、vista来说。然而相对于Linux的权限管理，这仍旧是小儿科），在系统盘里面，许多文件即使管理员帐户都无法对其进行修改和删除。这时，这个小功能就派上用户场了，通过右键可以取得文件夹和文件的权限。</p>
+<p>注册表代码如下，复制代码保存为”*.reg”，双击导入即可。或是直接下面的注册表文件。</p>
+<pre>Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\runas]
+@="管理员取得所有权"
+"NoWorkingDirectory"=""
+"Icon"="imageres.dll,-78"
+
+[HKEY_CLASSES_ROOT\*\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+[HKEY_CLASSES_ROOT\exefile\shell\runas2]
+@="管理员取得所有权"
+"NoWorkingDirectory"=""
+"Icon"="imageres.dll,-78"
+
+[HKEY_CLASSES_ROOT\exefile\shell\runas2\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+[HKEY_CLASSES_ROOT\Directory\shell\runas]
+@="管理员取得所有权"
+"NoWorkingDirectory"=""
+"Icon"="imageres.dll,-78"
+
+[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"</pre>
+<p>【注册表文件下载】：<a target="_blank" rel="noopener" href="https://dl.dropbox.com/u/3633907/download/administrator.reg.7z">administrator.reg.7z</a></p>
+<h3 id="10、右键”用记事本编辑”"><a href="#10、右键”用记事本编辑”" class="headerlink" title="10、右键”用记事本编辑”"></a>10、右键”用记事本编辑”</h3><p>对于任意的文件，都可以直右键用记事本进行编辑，很方便。</p>
+<p>注册表代码如下，复制代码保存为”*.reg”，双击导入即可。或是直接下面的注册表文件。</p>
+<pre>Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\notepad]
+@="用记事本编辑"
+"Icon"="SHELL32.dll,-152"
+
+[HKEY_CLASSES_ROOT\*\shell\notepad\command]
+@="C:\\windows\\system32\\notepad.exe %1"</pre>
+<p>【注册表文件下载】：<a target="_blank" rel="noopener" href="https://dl.dropbox.com/u/3633907/download/notepad.reg.7z">notepad.reg.7z</a></p>
+<p>11、关闭视频预览的缩略图</p>
+<p>默认Win 7的资源管理器会将支持的视频文件，显示为缩略图。完全的鸡肋功能，而且当文件夹下视频文件过多时会很卡，而且很容易导致资源管理器假死。所以最好直接K掉这个功能。</p>
+<p><code>Windows Registry Editor Version 5.00 [-HKEY_CLASSES_ROOT\.mp4\ShellEx] [-HKEY_CLASSES_ROOT\.m4v\ShellEx] [-HKEY_CLASSES_ROOT\.wmv\ShellEx] [-HKEY_CLASSES_ROOT\.avi\ShellEx] [-HKEY_CLASSES_ROOT\.asf\ShellEx] [-HKEY_CLASSES_ROOT\.mpg\ShellEx] [-HKEY_CLASSES_ROOT\.mkv\ShellEx] [-HKEY_CLASSES_ROOT\.rmvb\ShellEx] [-HKEY_CLASSES_ROOT\.rm\ShellEx] [-HKEY_CLASSES_ROOT\.flv\ShellEx] [-HKEY_CLASSES_ROOT\.mov\ShellEx] [-HKEY_CLASSES_ROOT\.dat\ShellEx] </code></p>
+<p>12、”打开方式”窗口，禁用提示”在互联网上搜索”</p>
+<p>如果你尝试过更换一个文件的打开方式的话，你会发现win7多么的打击人。首先它会弹出一个在互联网搜索的界面，且不说这个功能有多蛋疼，关键是它慢慢搜索后，结果仍然是提示没有搜索到打开的程序。所以直接K掉这个功能，让选择打开方式时直接切换到本机已有的程序列表。</p>
+<p><code>Windows Registry Editor Version 5.00 ;&quot;NoInternetOpenWith&quot;=dword:00000000 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer] &quot;NoInternetOpenWith&quot;=dword:00000001 </code></p>
+<p>四、删除创建快捷方式后的”快捷方式”字样</p>
+<p><code>Windows Registry Editor Version 5.00 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer] &quot;link&quot;=hex:00,00,00,00 </code></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\3-tips-of-win7.html" rel="bookmark">Windows 7三个小技巧</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\kavkis-free-active.html" rel="bookmark">KAV/KIS  6.0 / 7.0 永久免费激活方法！</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\07\windows-7-simple-optimization.html" rel="bookmark">Windows 7 简单优化指南</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\07\windows-7-msdn.html" rel="bookmark">Windows 7 MSDN版介绍</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\04\advanced-usage-of-grub.html" rel="bookmark">Grub4DOS高级应用</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2010/04/tips-of-windows7.html" title="Windows 7小技巧与设置">https://kisa747.top/2010/04/tips-of-windows7.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
+              <a href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" rel="tag"># 注册表</a>
+              <a href="/tags/windows-7/" rel="tag"># windows 7</a>
+              <a href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag"># 技巧</a>
+              <a href="/tags/%E4%BB%A3%E7%A0%81/" rel="tag"># 代码</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2010/04/witopia.html" rel="prev" title="跨栏利器 — WiTopia">
+      <i class="fa fa-chevron-left"></i> 跨栏利器 — WiTopia
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2010/04/windows-security.html" rel="next" title="Windows安全四条军规">
+      Windows安全四条军规 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E3%80%81%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1.、窗口管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81-windows%E7%A7%BB%E5%8A%A8%E4%B8%AD%E5%BF%83"><span class="nav-number">2.</span> <span class="nav-text">2、 windows移动中心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81-%E5%9C%A8%E6%AD%A4%E5%A4%84%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3"><span class="nav-number">3.</span> <span class="nav-text">3、 在此处打开命令窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%BF%AB%E9%80%9F%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-number">4.</span> <span class="nav-text">4、快速复制文件路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%B4%E6%97%B6%E6%98%BE%E7%A4%BA%E7%BB%8F%E5%85%B8%E8%8F%9C%E5%8D%95%E6%A0%8F"><span class="nav-number">5.</span> <span class="nav-text">5、资源管理器临时显示经典菜单栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E8%BD%AC%E7%A7%BB%E2%80%9D%E7%94%A8%E6%88%B7%E7%9A%84%E6%96%87%E4%BB%B6%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">6、转移”用户的文件”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95"><span class="nav-number">7.</span> <span class="nav-text">7、设置自动登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E4%B8%BA%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E6%B7%BB%E5%8A%A0%E2%80%9D%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C%E2%80%9D"><span class="nav-number">8.</span> <span class="nav-text">8、为文件属性添加”文件校验”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E5%8F%B3%E9%94%AE%E6%B7%BB%E5%8A%A0%E2%80%9D%E7%AE%A1%E7%90%86%E5%91%98%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E6%9D%83%E2%80%9D"><span class="nav-number">9.</span> <span class="nav-text">9、右键添加”管理员取得所有权”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81%E5%8F%B3%E9%94%AE%E2%80%9D%E7%94%A8%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E8%BE%91%E2%80%9D"><span class="nav-number">10.</span> <span class="nav-text">10、右键”用记事本编辑”</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

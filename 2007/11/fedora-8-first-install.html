@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1，将当前用户加入sudoer组中，以根用户运行 echo ‘kisa747 ALL&#x3D;(ALL) ALL’ &gt;&gt; &#x2F;etc&#x2F;sudoers 其中  kisa747  是我当前使用的用户名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora 8 初装手记">
+<meta property="og:url" content="https://kisa747.top/2007/11/fedora-8-first-install.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="1，将当前用户加入sudoer组中，以根用户运行 echo ‘kisa747 ALL&#x3D;(ALL) ALL’ &gt;&gt; &#x2F;etc&#x2F;sudoers 其中  kisa747  是我当前使用的用户名">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2007-11-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.054Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="安装">
+<meta property="article:tag" content="fedora">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kisa747.top/2007/11/fedora-8-first-install.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Fedora 8 初装手记 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2007/11/fedora-8-first-install.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fedora 8 初装手记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2007-11-14 00:00:00" itemprop="dateCreated datePublished" datetime="2007-11-14T00:00:00+08:00">2007-11-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>1，将当前用户加入sudoer组中，以根用户运行</p>
+<p><span style="color: #800000;">echo ‘kisa747 ALL=(ALL) ALL’ &gt;&gt; /etc/sudoers</span></p>
+<p>其中  kisa747  是我当前使用的用户名</p>
+<span id="more"></span>
+
+<p>2，设置yum<br>安装 yum-fastestmirror  插件</p>
+<p><span style="color: #800000;">sudo yum install yum-fastestmirror</span></p>
+<p>安装图形化的yum</p>
+<p><span style="color: #800000;">sudo yum install yumex</span></p>
+<p>使用livna软件仓库</p>
+<p><a target="_blank" rel="noopener" href="http://rpm.livna.org/livna-release-8.rpm">http://rpm.livna.org/livna-release-8.rpm</a></p>
+<p>下载后并安装就可以了</p>
+<p>3，然后对系统进行整体的升级</p>
+<p><span style="color: #800000;">sudo yum update</span></p>
+<p>4，安装对应的显卡驱动，我的机子是ati的<br><span style="color: #800000;">sudo yum install kmod-fglrx</span></p>
+<p>nvidia驱动安装</p>
+<p><span style="color: #800000;">yum -y install kmod-nvidia</span></p>
+<p>5,Fedora 8的firefox的字体大小总比gnome设置的小一些, 而且模糊不清<br>在firefox的地址栏里输入 about:config<br>layout.css.dpi 的值由原来的-1设置为0</p>
+<p>6，配置多媒体</p>
+<p>安装audacious<br><span style="color: #800000;">sudo yum install audacious audacious-plugins-nonfree-mp3 audacious-plugins-nonfree-wma</span></p>
+<p>配置totem</p>
+<p><span style="color: #800000;">sudo yum install gstreamer-ffmpeg gstreamer-plugins-bad gstreamer-plugins-ugly</span></p>
+<p>也可以使用totem－xine替换tetem<br><span style="color: #800000;">sudo yum remove totem<br>sudo yum install totem-xine</span></p>
+<p>安装mplayer<br><span style="color: #800000;">sudo yum install mplayer mplayer-gui</span></p>
+<p>下载并安装mplayer的解码器</p>
+<p><a target="_blank" rel="noopener" href="http://ftp.gwdg.de/pub/linux/misc/packman/suse/10.2/i586/w32codec-all-20071007-0.pm.1.i586.rpm">http://ftp.gwdg.de/pub/linux/misc/packman/suse/10.2/i586/w32codec-all-20071007-0.pm.1.i586.rpm</a></p>
+<p>7,安装rar支持<br><span style="color: #800000;">sudo yum install unrar</span></p>
+<p>8，关掉不需要的服务</p>
+<p>点击 系统－管理－服务  ，如果不想下次开机启动某个服务，把服务前面的 √ 选掉就可以了。</p>
+<p>ConsoleKit Fedota 的新功能，如果你想要使用这个新功能就开着，反之关掉吧。<br>anacron atd              crond<br>这是一些调试程序的后台服务，一般的桌面用户可以把anacron, atd关了，如果你打算常时间开机，那就把crond打开。 建议始终把crond开着。<br>auditd<br>用于存放内核生成的系统审查记录，这些记录会被一些程序使用。特别是对于SELinux用户来说，还是开着吧。<br>avahi-daemon<br>主要用于Zero&amp;nbspConfiguration&amp;nbspNetworking ，关吧，一般无用。<br>bluetooth<br>蓝牙相关，无蓝牙者，关关关。<br>btseed,&amp;nbspbttrack<br>BT相关，无法用BT的，可以关了<br>capi<br>ISDN硬件支持，大部分用户可以关了<br>cpuspeed<br>CPU 速度调整，如果cpu不支持调速还是关了吧，开着也无用。<br>cupsd<br>CUPS打印机支持，没有打印机或者是其他类型打印机的，可以关了<br>firstboot<br>Fedora安装完之后的那个用户向导，一般可以关了<br>gpm<br>Text&amp;nbspconsole（CTRL-ALT-F1,F2..）鼠标支持，如果你不经常用Text&amp;nbspconsole，可以关了<br>haldaemon<br>HAL（Hardware&amp;nbspAbstraction&amp;nbspLayer）服务，开着吧<br>hplip,&amp;nbsphpiod,&amp;nbsphpssd<br>HPLIP打印机支持，如果你有开着吧。<br>httpd<br>Apache  HTTP网页服务器， 如果你不开发网页，关吧<br>ip6tables 如果你不用&amp;nbspIPv6，关了</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\05\first-install-ubuntu.html" rel="bookmark">终于安装上ubuntu了</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\ubuntu-710-after-install.html" rel="bookmark">Ubuntu 7.10安装后做的几件事</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\ubuntu-710-alternate-install.html" rel="bookmark">硬盘安装Ubuntu 7.10（alternate版）（转）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\06\fedora-7-media-config.html" rel="bookmark">Fedora 7 下配置多媒体</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\06\fedora-7-use-sudo.html" rel="bookmark">fedora 7 中也用sudo 命令</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2007/11/fedora-8-first-install.html" title="Fedora 8 初装手记">https://kisa747.top/2007/11/fedora-8-first-install.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
+              <a href="/tags/fedora/" rel="tag"># fedora</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2007/11/sentiment.html" rel="prev" title="感悟!">
+      <i class="fa fa-chevron-left"></i> 感悟!
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2007/11/add-dos-fast-track.html" rel="next" title="右键添加“DOS快速通道”">
+      右键添加“DOS快速通道” <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

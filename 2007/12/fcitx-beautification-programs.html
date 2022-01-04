@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="附上美化后的效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的Fcitx美化方案">
+<meta property="og:url" content="https://kisa747.top/2007/12/fcitx-beautification-programs.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="附上美化后的效果">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kisa747.top/2007/12/4081092221_3056d76271_o.gif">
+<meta property="article:published_time" content="2007-12-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.054Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="输入法">
+<meta property="article:tag" content="fcitx">
+<meta property="article:tag" content="美化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kisa747.top/2007/12/4081092221_3056d76271_o.gif">
+
+<link rel="canonical" href="https://kisa747.top/2007/12/fcitx-beautification-programs.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>我的Fcitx美化方案 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2007/12/fcitx-beautification-programs.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我的Fcitx美化方案
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2007-12-12 00:00:00" itemprop="dateCreated datePublished" datetime="2007-12-12T00:00:00+08:00">2007-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>附上美化后的效果</p>
+<p><img src="4081092221_3056d76271_o.gif"></p>
+<span id="more"></span>
+
+<p>我是在在终端中输入命令修改配置文件实现的:</p>
+<span style="color: #800000;">
+gedit </span><span style="color: #800000;">~/.fcitx/</span><span style="color: #800000;">config
+</span>
+
+<p>我的配置文件如下：</p>
+<p><span style="color: #0000ff;">[程序]<br>显示字体(中)=*<br>显示字体(英)=DejaVu Sans<br>显示字体大小=17<br>主窗口字体大小=11<br>字体区域=zh_CN.UTF-8<br>是否使用AA字体=1<br>是否使用粗体=1</span></p>
+<p><span style="color: #0000ff;">[输出]<br>数字后跟半角符号=1<br>Enter键行为=2<br>分号键行为=2<br>大写字母输入英文=1<br>转换英文中的标点=1<br>联想方式禁止翻页=1</span></p>
+<p><span style="color: #0000ff;">[界面]<br>候选词个数=9<br>主窗口是否使用3D界面=0<br>输入条使用3D界面=1<br>主窗口隐藏模式=1<br>显示虚拟键盘=0<br>是否自动隐藏输入条=1<br>输入条是否居中=0<br>首次显示输入条=0<br>#输入条固定宽度(仅适用于码表输入法)，0表示不固定宽度<br>输入条固定宽度=0<br>输入条偏移量X=0<br>输入条偏移量Y=12<br>序号后加点=1<br>显示打字速度=1<br>显示版本=1<br>光标色=102 159 66<br>主窗口背景色=255 255 255<br>主窗口线条色=203 202 186<br>主窗口输入法名称色=153 153 153 102 159 66 56 134 230<br>输入窗背景色=255 255 255<br>输入窗提示色=2 89 196<br>输入窗用户输入色=255 0 132<br>输入窗序号色=0 66 200<br>输入窗第一个候选字色=0 99 200<br>#该颜色值只用于拼音中的用户自造词<br>输入窗用户词组色=0 99 200<br>输入窗提示编码色=255 0 132<br>#五笔、拼音的单字/系统词组均使用该颜色<br>输入窗其它文本色=56 134 230<br>输入窗线条色=203 202 186<br>输入窗箭头色=193 227 151<br>虚拟键盘窗背景色=220 220 220<br>虚拟键盘窗字母色=80 0 0<br>虚拟键盘窗符号色=0 0 0</span></p>
+<p><span style="color: #0000ff;">#除了”中英文快速切换键”外，其它的热键均可设置为两个，中间用空格分隔<br>[热键]<br>打开/关闭输入法=CTRL_SPACE<br>#中英文快速切换键 可以设置为L_CTRL R_CTRL L_SHIFT R_SHIFT<br>中英文快速切换键=L_CTRL<br>双击中英文切换=0<br>击键时间间隔=250<br>光标跟随=CTRL_K<br>GBK支持=CTRL_M<br>GBK繁体切换键=CTRL_ALT_F<br>联想支持=CTRL_L<br>反查拼音=CTRL_ALT_E<br>全半角=SHIFT_SPACE<br>中文标点=ALT_SPACE<br>上一页=- ,<br>下一页== .<br>第二三候选词选择键=SHIFT</span></p>
+<p><span style="color: #0000ff;">[输入法]<br>使用拼音=1<br>使用双拼=1<br>默认双拼方案=自然码<br>使用区位=1<br>使用码表=1<br>提示词库中的词组=1</span></p>
+<p><span style="color: #0000ff;">[拼音]<br>使用全拼=0<br>拼音自动组词=1<br>保存自动组词=0<br>增加拼音常用字=CTRL_8<br>删除拼音常用字=CTRL_7<br>删除拼音用户词组=CTRL_DELETE<br>#拼音以词定字键，等号后面紧接键，不要有空格<br>拼音以词定字键=[]<br>#重码调整方式说明：0–&gt;不调整  1–&gt;快速调整  2–&gt;按频率调整<br>拼音单字重码调整方式=2<br>拼音词组重码调整方式=1<br>拼音常用词重码调整方式=0<br>是否模糊an和ang=0<br>是否模糊en和eng=0<br>是否模糊ian和iang=0<br>是否模糊in和ing=0<br>是否模糊ou和u=0<br>是否模糊uan和uang=0<br>是否模糊c和ch=0<br>是否模糊f和h=0<br>是否模糊l和n=0<br>是否模糊s和sh=0<br>是否模糊z和zh=0</span></p>
+<p><span style="color: #0000ff;"> </span></p>
+<p>保存后按在fcitx打开的状态下ctrl+5重新读取配置文件再重新启动fcitx即可。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\12\fcitx-thought.html" rel="bookmark">由fcitx想到的......</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\06\ubuntu-scim-config.html" rel="bookmark">ubuntu下设置scim输入法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\05\first-install-ubuntu.html" rel="bookmark">终于安装上ubuntu了</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\05\samba-study.html" rel="bookmark">linux太强大了 ─ 之学习samba</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\ubuntu-710-after-install.html" rel="bookmark">Ubuntu 7.10安装后做的几件事</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2007/12/fcitx-beautification-programs.html" title="我的Fcitx美化方案">https://kisa747.top/2007/12/fcitx-beautification-programs.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag"># 输入法</a>
+              <a href="/tags/fcitx/" rel="tag"># fcitx</a>
+              <a href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag"># 美化</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2007/12/puzzled-thunder.html" rel="prev" title="疑惑？我上传的部分文件用迅雷无法下载！">
+      <i class="fa fa-chevron-left"></i> 疑惑？我上传的部分文件用迅雷无法下载！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2007/12/google-sougou-input-battle.html" rel="next" title="google，sougou输入法之争 ─ 只是游戏的开始">
+      google，sougou输入法之争 ─ 只是游戏的开始 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

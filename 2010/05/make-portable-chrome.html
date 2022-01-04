@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="由于Chrome默认采用的是在线安装形式，秉承Google软件的一贯风格，甚至无法自定义安装位置。各个版本的在线安装地址如下： Chrome稳定版（Stable）在线安装: 【点击这里】Chrome测试版（Beta）在线安装： 【点击这里】Chrome开发版（Dev）在线安装： 【点击这里】Chromium下载地址: 【点击这里】 通过上面的地址安装，显然DIY度不高。显然这是一个Geeker不愿">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何制作绿色版 Google Chrome">
+<meta property="og:url" content="https://kisa747.top/2010/05/make-portable-chrome.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="由于Chrome默认采用的是在线安装形式，秉承Google软件的一贯风格，甚至无法自定义安装位置。各个版本的在线安装地址如下： Chrome稳定版（Stable）在线安装: 【点击这里】Chrome测试版（Beta）在线安装： 【点击这里】Chrome开发版（Dev）在线安装： 【点击这里】Chromium下载地址: 【点击这里】 通过上面的地址安装，显然DIY度不高。显然这是一个Geeker不愿">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2010-05-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.148Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="技巧分享">
+<meta property="article:tag" content="google">
+<meta property="article:tag" content="绿色版">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="diy">
+<meta property="article:tag" content="chrome">
+<meta property="article:tag" content="谷歌浏览器">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kisa747.top/2010/05/make-portable-chrome.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何制作绿色版 Google Chrome | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2010/05/make-portable-chrome.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何制作绿色版 Google Chrome
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2010-05-21 00:00:00" itemprop="dateCreated datePublished" datetime="2010-05-21T00:00:00+08:00">2010-05-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>由于Chrome默认采用的是在线安装形式，秉承Google软件的一贯风格，甚至无法自定义安装位置。各个版本的在线安装地址如下：</p>
+<p>Chrome稳定版（Stable）在线安装: 【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html">点击这里</a>】<br>Chrome测试版（Beta）在线安装： 【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html?extra=betachannel">点击这里</a>】<br>Chrome开发版（Dev）在线安装： 【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html?extra=devchannel">点击这里</a>】<br>Chromium下载地址: 【<a target="_blank" rel="noopener" href="http://build.chromium.org/buildbot/snapshots/chromium-rel-xp/?O=D">点击这里</a>】</p>
+<p>通过上面的地址安装，显然DIY度不高。显然这是一个Geeker不愿看到的，所以本文主要介绍制作绿色的Chrome，即使重装系统，仍可以使用，而且修改用户数据位置非系统盘。</p>
+<span id="more"></span>
+
+<h3 id="如何制作Chrome绿色版："><a href="#如何制作Chrome绿色版：" class="headerlink" title="如何制作Chrome绿色版："></a>如何制作Chrome绿色版：</h3><blockquote>
+<p>PS：只有离线版的Chrome才可以做成绿色版。离线版Chrome不会自动更新。<br>1、下载Chrome离线安装包</p>
+</blockquote>
+<p>①、稳定版下载：</p>
+<p>Chrome稳定版（Stable）：【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html?standalone=1">下载地址</a>】</p>
+<p>下载得到名为 ChromeStandaloneSetup.exe 的离线安装包。</p>
+<p>②、Beta 版和 Dev 版下载：</p>
+<p>首先要知道最新Beta版或Dev版Chrome的版本号，查看它的官方博客： <a target="_blank" rel="noopener" href="http://googlechromereleases.blogspot.com/">Chrome Releases Blog</a>，得到最新版的版本号（需翻墙）。取版本号第二个小数点的数字，比如5.0.375.53的下载地址就是：</p>
+<p><a target="_blank" rel="noopener" href="http://dl.google.com/chrome/install/375.53/chrome_installer.exe">http://dl.google.com/chrome/install/375.53/chrome_installer.exe</a></p>
+<p>下载得到名为 chrome_installer.exe 的离线安装包。</p>
+<p>下面以 Google Chrome 5.0.375.38 为例，它的离线安装包是chrome_installer.exe。</p>
+<p>3、解压下载的离线安装包，并修改目录结构。</p>
+<blockquote>
+<p>PS：如果你的winrar无法解压，不要惊讶。安装7-zip即可。</p>
+<p>7-zip官方主页地址：【<a target="_blank" rel="noopener" href="http://www.7-zip.org/">7-zip官方主页</a>】<br>解压chrome_installer.exe，得到一个名为chrome.7z的压缩文件。</p>
+</blockquote>
+<p>再次解压，得到一个Chrome-bin文件夹。</p>
+<p>剪切 Chrome-bin 里的 5.0.375.38 文件夹（其它版本的也是类似的名字）里面的所有文件到 Chrome-bin 文件夹下。</p>
+<p>3、新建一个D:\program\chrome 的文件夹，在chrome文件夹下新建一个名为： User Data的文件夹。</p>
+<p>然后将 Chrome-bin 文件夹剪切至Chrome文件夹下。</p>
+<p>最终得到以下目录结构:</p>
+<p><code>D:\PROGRAM\CHROME ├─Chrome-bin │      ├─&lt;span style=&quot;color: #0000ff;&quot;&gt;chrome.exe&lt;/span&gt; │      ├─Dictionaries │      ├─Extensions │      ├─Locales │      ├─Resources │      └─Themes └─User Data </code></p>
+<p>4、为Chrome-bin文件夹下的Chrome.exe创建快捷方式到桌面。</p>
+<p>接着，我们来自定义Chrome用户数据存放的位置（Chrome默认的用户数据在C盘）。</p>
+<p>修改Chrome的快捷方式的目标为：</p>
+<p><code>&quot;D:\PROGRAM\Chrome\Chrome-bin\chrome.exe&quot; --user-data-dir=&quot;D:\program\chrome\User Data&quot;</code></p>
+<p>这样，Chrome 就会把数据存放在 chrome 文件夹下。</p>
+<p>5、我们自己制作的DIY版的绿色版Chrome就诞生了。</p>
+<blockquote>
+<p>缺点：DIY的Chrome不会自动更新。</p>
+<p>如需更新绿色版的Chrome，仅需手动下载新版Chrome的离线安装包，解压修改后替换原来的 Chrome-bin 文件夹。</p>
+<p>但对于经常恢复系统，追求软件稳定性，有计划更新软件的朋友，这种方法似乎更适合。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\11\windowblinds-6.html" rel="bookmark">WindowBlinds 6</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\05\use-https-google.html" rel="bookmark">如何使用Google的https加密搜索引擎</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\3-tips-of-win7.html" rel="bookmark">Windows 7三个小技巧</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\avast-5-release.html" rel="bookmark">Avast 5 release !</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\avast-guider.html" rel="bookmark">Avast!免费杀毒软件图文教程</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2010/05/make-portable-chrome.html" title="如何制作绿色版 Google Chrome">https://kisa747.top/2010/05/make-portable-chrome.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
+              <a href="/tags/google/" rel="tag"># google</a>
+              <a href="/tags/%E7%BB%BF%E8%89%B2%E7%89%88/" rel="tag"># 绿色版</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+              <a href="/tags/diy/" rel="tag"># diy</a>
+              <a href="/tags/chrome/" rel="tag"># chrome</a>
+              <a href="/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag"># 谷歌浏览器</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2010/05/ubuntu-auto-login-wireless.html" rel="prev" title="Ubuntu设置自动连接无线网络">
+      <i class="fa fa-chevron-left"></i> Ubuntu设置自动连接无线网络
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2010/05/use-https-google.html" rel="next" title="如何使用Google的https加密搜索引擎">
+      如何使用Google的https加密搜索引擎 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9CChrome%E7%BB%BF%E8%89%B2%E7%89%88%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">如何制作Chrome绿色版：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

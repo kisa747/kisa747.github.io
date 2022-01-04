@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="电脑上的music数量疯狂的增长，可是面对如此混乱不堪的专辑和单曲，音乐格式和标签问题也让人头疼不已，所以特地写篇文章汇总下经验。 一、格式现在主流的音频格式为：ape、flac、ogg、aac、mp3 PS：由于苹果将aac编码的音频文件后缀名规定为m4a，而我们大部分的aac编码的音乐都来自itunes，所以aac编码的就以m4a为后缀名了。 关于各种音频格式的测评可以围观强帖:原创测评: M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理音乐札记 - 音频格式和标签">
+<meta property="og:url" content="https://kisa747.top/2010/12/digital-music-management.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="电脑上的music数量疯狂的增长，可是面对如此混乱不堪的专辑和单曲，音乐格式和标签问题也让人头疼不已，所以特地写篇文章汇总下经验。 一、格式现在主流的音频格式为：ape、flac、ogg、aac、mp3 PS：由于苹果将aac编码的音频文件后缀名规定为m4a，而我们大部分的aac编码的音乐都来自itunes，所以aac编码的就以m4a为后缀名了。 关于各种音频格式的测评可以围观强帖:原创测评: M">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2010-12-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.163Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="技巧分享">
+<meta property="article:tag" content="windows 7">
+<meta property="article:tag" content="开源">
+<meta property="article:tag" content="格式">
+<meta property="article:tag" content="音乐">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kisa747.top/2010/12/digital-music-management.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>管理音乐札记 - 音频格式和标签 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2010/12/digital-music-management.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          管理音乐札记 - 音频格式和标签
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2010-12-07 00:00:00" itemprop="dateCreated datePublished" datetime="2010-12-07T00:00:00+08:00">2010-12-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>电脑上的music数量疯狂的增长，可是面对如此混乱不堪的专辑和单曲，音乐格式和标签问题也让人头疼不已，所以特地写篇文章汇总下经验。</p>
+<h3 id="一、格式"><a href="#一、格式" class="headerlink" title="一、格式"></a>一、格式</h3><p>现在主流的音频格式为：ape、flac、ogg、aac、mp3</p>
+<p>PS：由于苹果将aac编码的音频文件后缀名规定为m4a，而我们大部分的aac编码的音乐都来自itunes，所以aac编码的就以m4a为后缀名了。</p>
+<p>关于各种音频格式的测评可以围观强帖:<a target="_blank" rel="noopener" href="http://billboard.5d6d.com/thread-2472-1-1.html">原创测评: MP3、WMA、AAC、OGG 格式 简单对比 (外加FLAC APE WV MP3pro)</a>，我这里并不做测评，只是总结经验而已。</p>
+<p>1、 无损格式</p>
+<blockquote>
+<p>ape：ape作为老牌的无损压缩格式，曾经无损压缩的典范。缺点：无容错机制，一点的编码错误可能导致整个音轨报废。</p>
+<p>flac：优点：开源、新兴的无损压缩格式，有容错机制。缺点：同样的文件，无损压缩后，flac比ape体积略大2%～3%。<br>由于喜欢无损格式的大都是音乐发烧友，对音质有终极的追求，而现在的硬盘动辄都在500G以上，所以flac唯一的瑕疵完全可以忽略不计了。而flac开源，有容错机制众多优点，显然是是无损压缩的最佳选择。</p>
+</blockquote>
+<p>综上，<strong>无损压缩格式可以毫不犹豫地选择flac</strong>。</p>
+<p>2、 有损格式。</p>
+<p>有损格式是互联网上音乐的主流，格式和标准比较混乱，尤其是mp3的标签，简直是混乱不堪。</p>
+<blockquote>
+<p>mp3：最早也是网上最多的格式。由于格式标准比较古老，所以音质各方面已经比较落后了。</p>
+<p>优点：网上资源多，支持作为流媒体在线播放，支持内嵌专辑封面。缺点：音质差，最高码率仅支持到320kbps，仅支持双声道，不支持5.1声道，标签混乱。</p>
+<p>aac：苹果itunes出售的正版音乐的格式，相比MP3，音质表现也很好。优点：支持内嵌专辑封面。缺点：不支持作为流媒体播放。</p>
+<p>ogg：开源的音频解决方案，技术先进，在相同码率下，音质表现最出色。优点：音质出色，支持作为流媒体播放。缺点：内嵌的专辑封面很多播放器不支持（windows也不支持）。<br>内嵌专辑封面还是很酷的，在windows 7下的资源管理器下，可以直接显示为专辑封面的缩略图，很酷。</p>
+</blockquote>
+<p>综上：</p>
+<p>1、 音质方面，ogg&gt;aac&gt;mp3，如果追求音质，对专辑封面无所谓，通过在专辑文件夹的cover.jpg来实现专辑封面的效果。这样的话，ogg绝对是最佳的选择。</p>
+<p>2、 如果使用win 7系统，喜欢内嵌专辑封面的话，可以使用aac作为解决方案。</p>
+<p>下面是实测将一个4分钟的flac无损音乐音乐，分别转换为Q=8的ogg和aac后的参数对照表。</p>
+<table width="400" border="0" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td valign="top" width="87">音乐时间</td>
+<td valign="top" width="88">编码格式</td>
+<td valign="top" width="65">品质</td>
+<td valign="top" width="80">码率</td>
+<td valign="top" width="80">文件大小</td>
+</tr>
+<tr>
+<td valign="top" width="87">4min</td>
+<td valign="top" width="88">OGG</td>
+<td valign="top" width="65">Q=8</td>
+<td valign="top" width="80">306k</td>
+<td valign="top" width="80">8.75M</td>
+</tr>
+<tr>
+<td valign="top" width="87">4min</td>
+<td valign="top" width="88">AAC</td>
+<td valign="top" width="65">Q=8</td>
+<td valign="top" width="80">273k</td>
+<td valign="top" width="80">7.76M</td>
+</tr>
+</tbody>
+</table>
+
+<p>综上：如果是从CD或无损音乐转换为有损格式的话，我的做法是转换为Q=8的ogg或aac，音质与文件大小都很平衡。</p>
+<h3 id="二、标签问题"><a href="#二、标签问题" class="headerlink" title="二、标签问题"></a>二、标签问题</h3><p>Mp3：MP3作为经典的音乐格式，最初采用ID3v1，由于字符字数等诸多限制，后来升级为ID3v2，然而它又分为ID3v2.3和ID3v2.4。而且mp3还支持ape的标签格式apev2。</p>
+<p>下面是详细的参数：</p>
+<blockquote>
+<p>ID3v1 – 不支持专辑封面和内嵌歌词</p>
+<p>ID3v2.3 ISO-8859-1 – 西文编码（原生并不支持中文，windows下被改造成支持GBK中文）。支持专辑封面和内嵌歌词</p>
+<p><span style="color: #ff0000;">ID3v2.3 UTF-16 – 国际编码。支持专辑封面和内嵌歌词。→强力推荐作为Mp3的标签格式。</span></p>
+<p>ID3v2.4 UTF-8 – 国际编码，2.3的升级版。Windows全系列不支持（包括最新的windows 7）。</p>
+<p>APEv2 – UTF-8编码，可惜很多设备还不支持。<br>尽管ID3v2.4 UTF-8是最新的版本，但鉴于windows 7的不支持，所以放弃之。而ID3v2.3 UTF-16，在linux下也不会乱码，支持专辑封面和内嵌歌词，windows原生支持，大部分音乐播放器都支持。</p>
+</blockquote>
+<p>所以考虑各种因素，<span style="color: #ff0000;"><strong>ID3v2.3 UTF-16的兼容性最好，无疑是最佳的选择</strong>。</span></p>
+<blockquote>
+<p>PS：foobar的兼容模式即ID3v2.3 UTF-16。<br>既然选定了使用ID3v2.3 UTF-16，下面就要解决如何为所有的mp3转换标签。</p>
+</blockquote>
+<p>使用工具：foobar2000或mp3tag。</p>
+<p>1、统一写入标准的ID3v2.3 UTF-16标签。</p>
+<p>MP3tag直接选”ID3v2.3 UTF-16”写入格式即可。</p>
+<p>foobar选择”ID3v2 兼容模式”。</p>
+<p>2、 选中所有的MP3，批量编辑，随便修改一个不重要的区域，就可以全部写入ID3v2.3 UTF-16标签了。</p>
+<p>3、 清除多余的标签。对于mp3tag，先设置要清除的标签类型，然后选中MP3，清除标签即可。对于foobar，选中mp3，然后点标签类型，去掉要清除的标签类型即可。</p>
+<blockquote>
+<p><strong>这时肯定好奇了，讲了这么久，怎么一直未提国内的大牛”千千静听”呢？</strong></p>
+</blockquote>
+<p>其实呢，作为winamp的山寨克隆版，千千静听在4.6.9版前都一直很优秀的，但从升级到5.0之后就变了，开始提供盗版音乐和弹出广告了。</p>
+<p>嗯，先抛开这些不谈，下面介绍下为什么前面的几种方法都不用千千静听。</p>
+<p>1、 尽管千千静听可以设置对MP3以ID3v2.3 UTF-16 写入标签，但在此模式下，无法编辑专辑封面，只有设置到ID3v2.3 ISO 模式，才可以编辑封面，很囧。</p>
+<p>另外貌似千千仅支持读取和编辑ID3和m4a标签的专辑封面，其它的ape、ogg、flac均不支持。</p>
+<p>2、 千千静听似乎对所有音频格式都按照ID3v2.3 UTF-16标准写入标签，对ape、flac、ogg等格式来说可能还无所谓，但是对于m4a格式，如果编辑了标签的话，可能会导致内嵌专辑封面丢失。</p>
+<p>综上：编辑歌曲标签的话建议不要用千千静听，而使用支持更好的mp3tag或foobar2000。</p>
+<blockquote>
+<p>PS：如果有什么错误，我会及时更正和补充。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\3-tips-of-win7.html" rel="bookmark">Windows 7三个小技巧</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\07\windows-7-simple-optimization.html" rel="bookmark">Windows 7 简单优化指南</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\07\windows-7-msdn.html" rel="bookmark">Windows 7 MSDN版介绍</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\04\tips-of-windows7.html" rel="bookmark">Windows 7小技巧与设置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\04\windows7-kill-autorun.html" rel="bookmark">Windows 7上杜绝可移动磁盘病毒</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2010/12/digital-music-management.html" title="管理音乐札记 - 音频格式和标签">https://kisa747.top/2010/12/digital-music-management.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
+              <a href="/tags/windows-7/" rel="tag"># windows 7</a>
+              <a href="/tags/%E5%BC%80%E6%BA%90/" rel="tag"># 开源</a>
+              <a href="/tags/%E6%A0%BC%E5%BC%8F/" rel="tag"># 格式</a>
+              <a href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag"># 音乐</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2010/11/miracle-on-the-land.html" rel="prev" title="这片热土上的奇迹">
+      <i class="fa fa-chevron-left"></i> 这片热土上的奇迹
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2011/01/say-goodbye-to-2010.html" rel="next" title="告别2010">
+      告别2010 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">一、格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A0%87%E7%AD%BE%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">二、标签问题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

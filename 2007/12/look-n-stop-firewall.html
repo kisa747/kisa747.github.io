@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="简介：一款十分强大而小巧的个人防火墙软件，超强，软件本身才800K，内存占用1.5～4M，虚拟内存占用4～8M，很省资源地哦～～。默认设置简直是堵”墙”将你的电脑与外界隔开，任何数据包在没有允许的情况下都会被拦截住，国产的金山网镖，瑞星防火墙等跟她简直是没法比，XP默认会开放好多端口，而我们做为日常应用就根本用不到这些功能，手动关掉这些端口又过于复杂，look n stop正好可以解决这个问题，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="look n stop 个人防火墙（超强！）">
+<meta property="og:url" content="https://kisa747.top/2007/12/look-n-stop-firewall.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="简介：一款十分强大而小巧的个人防火墙软件，超强，软件本身才800K，内存占用1.5～4M，虚拟内存占用4～8M，很省资源地哦～～。默认设置简直是堵”墙”将你的电脑与外界隔开，任何数据包在没有允许的情况下都会被拦截住，国产的金山网镖，瑞星防火墙等跟她简直是没法比，XP默认会开放好多端口，而我们做为日常应用就根本用不到这些功能，手动关掉这些端口又过于复杂，look n stop正好可以解决这个问题，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2007-12-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.054Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="技巧分享">
+<meta property="article:tag" content="防火墙">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kisa747.top/2007/12/look-n-stop-firewall.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>look n stop 个人防火墙（超强！） | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2007/12/look-n-stop-firewall.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          look n stop 个人防火墙（超强！）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2007-12-09 00:00:00" itemprop="dateCreated datePublished" datetime="2007-12-09T00:00:00+08:00">2007-12-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>简介：一款十分强大而小巧的个人防火墙软件，超强，软件本身才800K，内存占用1.5～4M，虚拟内存占用4～8M，很省资源地哦～～。默认设置简直是堵”墙”将你的电脑与外界隔开，任何数据包在没有允许的情况下都会被拦截住，国产的金山网镖，瑞星防火墙等跟她简直是没法比，XP默认会开放好多端口，而我们做为日常应用就根本用不到这些功能，手动关掉这些端口又过于复杂，look n stop正好可以解决这个问题，因为她默认就不开放任何的端口。但同时又由于该软件的小巧，必然要牺牲其易用性，真正用透她，需要学习好多东西，不过我们日常用她，相比其他的软件还是很简单的！</p>
+</blockquote>
+<span id="more"></span>
+<p>点击可以下载软件：**<a target="_blank" rel="noopener" href="http://cid-6abece639ad907b9.skydrive.live.com/self.aspx/public/LookNstop206p3%e5%85%a8%e9%9b%86.7z"> LookNstop206p3全集.7z</a>**</p>
+<p>一. 规则与通信</p>
+<p>“防火墙规则”（Firewall Rules），规则是防火墙的思维，它们其实是一条条描述语句，用于设置防火墙行为等，每一条规则都对应了一种特定的行为判断，防火墙根据规则的内容对符合条件（端口、协议类型、甚至包数据）的数据包给予拦截或通行，当然也可以记录数据。众多的规则结合，防火墙工具才得以给我们带来一个牢固而灵活的安全保护体系。</p>
+<p>配置防火墙规则往往是网络管理员最头痛的事情，一个防火墙的工作效率、拦截放行、总体安全系数除了要求防火墙的引擎功能强大以外，就全看规则的设置了，如果防火墙引擎不能识别复杂的数据包结构，那么一些描述复杂的规则就不能正常工作，但是一个防火墙越强大，其相应的规则设置也就更复杂，对这种防火墙而言，一条好的规则就比什么都重要了。</p>
+<p>规则并不是随便设置的，它围绕着一定的”安全策略”实施，许多防火墙产品在市场上出售时，就已经有了默认规则，而这些规则就是厂商的”安全策略”的实体对象，许多用户安装或购买一个防火墙产品后，就一直没对这些规则做过修改，或者不知道防火墙规则的存在，但是他们依然能得到防火墙的保护，就是因为厂商已经为广大群体套用了”兼容的”规则集合，换句话说，就是用户在接受一款防火墙产品的时候，就已经得到了厂商为大家定制的”安全策略”。但是这种面对大众的策略并不一定适合每一个人，有时候，一些用户会觉得默认规则不太适合自己的实际环境，他们便会根据自己的要求，修改增加这个规则集合，例如一台网站服务器，使用的防火墙默认规则里限制了外部对1024以下低端口号的访问，这显然就和做网站需要开放80端口的要求冲突了，所以网络管理员会修改防火墙规则，去掉这条限制规则或者从规则里除掉80端口的条件。许多用户并不知道，他们删改或增加规则的行为，其实就是自身”安全策略”的实施过程。但是在把安全策略转化为规则实体之前，我们还必须慎密的思考一件事情，那就是”安全体系结构”。</p>
+<p>所谓”安全体系结构”，就是整个防火墙最终为用户带来的安全效果，安全策略可以是片面的，管理员在思考策略的时候不一定要考虑到整体效果，但是当一条条安全策略作为规则集合出现之前，它就必须先转化为面向整体的”安全体系结构”，这是一种考虑全局的策略集，还是上面的网站服务器例子，管理员需要开放基本的80端口，如果有FTP，还要开放21端口，甚至SSL端口443防火墙的性能取决于最终的规则设定，稍有疏错，再强大的核心也只能发挥入门级的防御了。同样，LooknStop在为用户带来强大防御功能的同时也带来了规则复杂难以设置的代价</p>
+<p>二. LooknStop防火墙的规则设置</p>
+<p>1.概述</p>
+<p>LooknStop 作为一款强大的防火墙，其采用的原型是非常严格的，首先，LooknStop先禁止所有本地和远程的网络访问操作，然后才逐项允许，在初始时不信任任何程序和网络操作，正是因为这过于严厉的策略原型，LooknStop才能成为一堵树立在系统和网络之间的”墙”，而也正是因为这样的模型， LooknStop也造成了一部分用户安装完毕后无法连接网络的问题–它把所有数据包都拦截了。所以我们首先要解决的就是大部分用户面对 LooknStop时吃的第一个下马威：无法连接网络。</p>
+<p>LooknStop的主界面并不难理解，从左到右分别为”欢迎”、”应用程序过滤”、”互联网过滤”、”日志”、”选项”和”注册”，欢迎界面</p>
+<p>主要用于显示一些概要信息如连接状态、IP地址、数据包情况等。</p>
+<p>我们先解决第一个燃眉之急：如果你不幸成为安装LooknStop后无法成功进行ADSL拨号的用户，请先进入”互联网过滤”界面，然后双击最后一条规则”All other packets”，它就是罪魁祸首，选择”以太网类型”为IP，保存应用即可。</p>
+<p>这一故障是LooknStop默认的严格规则造成的，它把所有未在规则里定义的数据包都过滤了，于是计算机向远程MODEM设备发送的PPPoE协议包全部被扼杀在了系统的门口里……由此可见，与某些防火墙比起来，LooknStop是多么的严格！</p>
+<p>解决这个问题后，我们回到正题。</p>
+<p>2.基于界面的设置</p>
+<p>既然LooknStop的规则如此严格，我们也遵循它的规则，严格依照从左到右的顺序讲解吧：</p>
+<p>首先是”欢迎”界面，这里是作为快捷数据统计而设的，用户可以在这个界面看到基本的数据流量情况以及网络信息，如果网络已经连通，LooknStop会报告你的计算机IP地址，如果这里为0.0.0.0，则说明没有连接网络或者LooknStop没能检测出活动的连接，用户必须自己到”选项”的”网络接口” 里手工选择一个作为LooknStop的监控对象。</p>
+<p>其次，是众多软件防火墙都会提供的”应用程序过滤”功能， LooknStop”不信任任何人”的思想在这里又一次得到了发挥，每个程序第一次启动的时候都会被拦截询问，用户允许通过的程序都在里面列举出来，并且在左边出现一个活动列表，可是即使这样，LooknStop仍然为每个程序列表设置了四个不同性质的可以随时中断该程序访问的按钮，分别为”过滤激活”、 “过滤类型”、”进程调用”、”连接记录”。在”过滤激活”里可以选择两种状态，分别为”启用”和”禁止”，用于告诉防火墙是否允许该应用程序按照后面的规则运行，如果状态为”<br>禁止”，则后面设置的独立应用程序规则不起作用，但是这并不意味着程序能摆脱防火墙的限制–每次这个程序访问网络的时候，防火墙都会再次询问你是否允许这个程序访问网络。”过滤类型”里提供了3种类型选择，分别为”允许”、”自定义”和”禁止”，如果用户没有为这个程序设置特殊规则，则只会在”允许”和”禁止”两种类型之间选择，否则为三种。直接双击程序名字就可以设置”过滤类型”，里面分别提供了TCP和UDP协议的端口和IP设置，LooknStop强大的灵活设置性能再次体现了出来：单独输入IP或端口，则规定这个程序只能访问用户指定的IP或端口，多个端口之间用分号”;”分隔，IP同上。看到这里，一些用户可能会想，是不是只能设置允许访问的地址呀？其实不然，LooknStop的强大之处正是在于它能通过尽量少的对话框完成尽量多的操作–要设置程序禁止访问的IP，只需要在同样的设置对话框里设定IP或端口时在前面加一个感叹号”!”即可，可以说，LooknStop把”简洁就是美”的信奉发挥到了极致！</p>
+<p>现在让我们来看看”进程调用”，首先我要简单介绍一下”进程调用”的概念，有时候，一个程序要访问网络并不是通过它自身实现的，而是调用了外置的DLL函数，这样的话，最终访问网络的程序就是那个DLL文件而不是程序本身，许多防火墙都认为，通过程序宿主进程启动进而访问网络的模块也是符合条件的，因此不会做任何阻拦，但是LooknStop仍然不信任任何模块，它会忠实的报告并控制每个子进程DLL的网络连接<br>并提示用户，在如今这个”代码插上翅膀”（线程注射）越来越猖獗的年代里，这样的限制是十分有必要的，很多防火墙正因为过于信任程序调用的进程模块，导致一些DLL类型的木马得以搭载顺风车，给用户的系统安全带来威胁。针对这种情况，LooknStop提供了”进程调用”的控制功能，分别为”允许”（双箭头标志）和”禁止”（红色停止标志），一旦某个程序的”进程调用”被设置为禁止，该程序就只能通过自身访问网络了，所有通过它调用的模块都无法突破限制，这个设置对一些经常被后门搭顺风车的系统程序是很有用的，设置禁止后，我们就不用再怕灰鸽子之流通过IEXPLORE.EXE、Svchost.exe等程序突破传统意义的防火墙连接了。</p>
+<p>最后，是一个标示为感叹号的设置项，它代表”连接记录”：灰色的点表示不记录，两个感叹号表示记录该程序的所有连接，而单独一个感叹号则是与”过滤激活”配合使用的，如果你把一个程序的”过滤激活”设置为”禁止”，以后这个程序再次请求访问网络的时候就会被LooknStop记录下来，如果一个奇怪的程序频频要求连接网络，那么它是木马的可能性将会很大！从”应用程序过滤”这一部分就可以看出，LooknStop对程序的控制非常灵活和精巧，仅使用一个界面和一个对话框就能完成对4种程序控制方式，包括多达10个属性36种不同组合的控制能力，其对程序的控制能力可见一斑。那么，LooknStop对网络协议的控制功能又如何呢？让我们进入”互联网过滤”，这里正是用户噩梦开始的地方。这里同样是简洁而复杂的界面，简洁在于按钮的稀少，复杂在于太多列表控制的项目，一眼看去，几乎能让人摸不到头脑，但是这里正是所有防火墙思维的起点：防火墙规则集合。从左到右依次为”启用规则”、”规则模式”、”匹配时记录”、”匹配规则后是否执行后续规则”、”匹配规则时声音或警报提示”。”启用规则”里提供了3种类型选择，分别为”默认方式启用规则”、”自定义方式启用规则”和”不启用规则”，如果用户没有设置自定义规则，则只能在”默认方式启用规则”和”不启用规则”之间切换。</p>
+<p>“自定义方式启用规则”取决于规则里定义的”应用程序”项目，表示该规则只对特定的应用程序起作用，当符合条件的程序启动后，这个暗红色带绿勾标志变为绿色带红勾标志，代表程序已经启动并处于防火墙规则控制之下。”规则模式”允许两种选择：”拦截”和”允许”，LooknStop通过这里的标识决定符合该规则的程序是该允许访问网络还是被阻止访问网络，与其它防火墙产品对比，这样的设置方法是非常方便的，用户不需要重新进入规则设置便能直接修改规则行为。”匹配时记录”提供了两个选项，”记录”和”不记录”，顾名思义，当一个满足规则设定的操作发生时，防火墙会根据这里的设置决定是否在日志里记录下这次操作信息。</p>
+<p>“匹配规则后是否执行后续规则”是一个非常重要的规则行为标志，它提供两种选择，分别为”不匹配下一规则”和”匹配下一规则”，前面说过LooknStop的思想是阻止所有连接，而这里的规则设定就是其思想的具体实施方案，为了让程序能正常连接网络，同时也为了提高自身的执行效率，LooknStop提出了这个选项，它决定当一个符合防火墙设定的规则被执行后，是否要继续匹配下一条相同性质的规则，在这里我们可以</p>
+<p>方便的设置一些复杂的规则，例如我们需要增加一条允许本机打开80端口的规则，但是又不想为此开放所有低端口连接，那么就可以添加一条允许80端口的规则，并设置其”后续规则”为”不匹配”，那么就可以在保留原规则不变的同时增加本机开放80端口的功能了。</p>
+<p>“匹配规则时声音或警报提示”有3种类型选择，分别为”声音报警”、”可视报警”和”不报警”，这个选项要与选项里的”声音”和”消息框”配合使用，第一种表示规则匹配时发出声音报警，第二种表示规则匹配时弹出消息框并同时发出声音报警，如果你觉得噪音扰民，可以设置为最后一种，还你一个安静的环境。</p>
+<p>3.防火墙的灵魂–规则设置</p>
+<p>任何防火墙都在各种规则的引导下运行，LooknStop也不会例外，而其恰恰正是因为规则难以配置而”闻名”的，要真正驯服这个强悍的小家伙，就必须理解并解决规则设置，在”互联网过滤”界面里点击”添加”，会弹出一个略显复杂的对话框出来。相对于大部分国内防火墙产品而言，LooknStop提供的可供设置的数据类型和模式多了不少，如果用户对各种协议的概念不是很了解，在面对这部分的时候就会很头痛了，LooknStop在这个设置对话框里提供了8大类设置，分别为”规则名称”、”方向”、”规则说明”、”以太网”、”IP”、”TCP标识”、”来源”和”目标”。”规则名称”很容易理解，用户就是在这里设置特定规则名称的，”规则说明”则是为了描述这条规则的功能和用途，除了这两个选项不需要特别讲解以外，其他部分请仔细听好！</p>
+<p>在开始动手之前，必须先了解一件LooknStop特有的事情，这款防火墙在编辑规则时是中性的，我们不能从这个界面里设置某条规则是给予通行还是拦截，一旦你保存这条规则，LooknStop则默认了此规则是”允许通行”的，要设置为”拦截”的话必须在保存后自行到主界面上相应的”规则模式”里设置为”拦截”。</p>
+<p>其次，LooknStop的信任关系是基于IP地址和MAC地址双重检测的，这是一种理想的信任关系模式，IP地址和MAC地址分别都是可以欺骗的，但是如果IP和MAC结合起来，就很难实施欺骗了，而且也正是这种信任模式，它的规则设置才容易让人迷惑，其实只要理解了其思想，对这款防火墙的规则设置就不复杂了。</p>
+<p>明白这两个基本概念后，我们正式开始吧。</p>
+<p>首先是”以太网:类型”区，这部分到底表达了什么，笔者最初也是头痛了很久，经过多次试验后终于发现，这里其实是让防火墙知道你的机器环境是在局域网内还是互联网中的独立机器，或者说，控制某条规则是适合在局域网中使用还是在单机环境中使用。</p>
+<p>这个区域里提供了4种选择，分别是”全部”、”IP”、”ARP”和”其它”，”全部”表示包含后面三种类型的协议，一般很少用到，除非你的机器所处的网络环境非常复杂，有多种系统一起运作，否则只需要选择”IP”类型即可，这是一种最兼容最常用的类型。</p>
+<p>“ARP”类型只能在局域网内使用，也就是专为局域网环境设定的，由于它涉及MAC地址，故脱离了局域网环境就无效了，除非你是在局域网内使用机器，否则不要选择这个类型。</p>
+<p>其次是”IP”区，这里又分为3个小区，最左边的”协议”用于为当前规则指定协议，LooknStop提供了9种选择，除了”全部”以外，几乎包含了各种常见协议类型，一般只需要设置TCP、UDP或ICMP其中之一即可，虽然曾经有过IGMP Nuke，可是现在也基本上没有人用Windows 98作为工作环境了吧，所以连IGMP防御都可以免了……</p>
+<p>右侧的”碎片偏移”和”碎片标志”分别用于更详细的检测过滤IP头部的偏移位和标志位，可以用于防止特定标志位的碎片数据报攻击，不过对于普通用户来说，我们并不需要特别指定这里的内容，一般选择”全部”即可。</p>
+<p>然后到”TCP标识”区，这里其实不是只有一个功能设定的，它还可以变为”ICMP”区或”IGMP”区，视前一个”IP”区的协议类型而定，用户只有选择了TCP协议以后才能进入TCP标识里设置要具体控制的TCP标志位，里面一共有URG、ACK、PSH、RST、SYN和FIN这6种标志位供用户选择，主要针对一些有特殊TCP要求的用户，例如某台机器被用作Internet网关时，如果想阻止局域网内的某台机器通过TCP协议连接某个外部端口，则可把TCP标志位设置为ACK，阻止远程连接传回的应答请求，该连接自然就无法成功建立，最终达到拦截的目的。</p>
+<p>现在到”来源”区，许多人觉得LooknStop难以配置，除了”以太网类型”难以理解以外，最容易混淆的就是”来源”区和旁边的”目标”区，要成功配置 LooknStop，首先要弄清楚一件事情：在LooknStop的规则设置里，”来源”完全表示本地，”目标”则表示远程，而不管实际的连接请求或者数据包方向是从哪里发出的。所有与本机网络有关的设置如开放本地某个端口、允许或阻止本地网络的某个IP，都是在”来源”里设置的，这里通常是和”目标”区搭配使用的，例如配置开放本机的80端口，那么就不应该去管”目标”区的任何设置，除非你要限制对方IP范围或端口范围那就另当别论。要开放本机80端口，首先应该在”来源”区的”IP:地址”里选择”等于本机在”，”TCP/UDP:端口”里选择”等于”，下面的第一个选项里输入端口80，第二个选项置空即可。如果要开放一段连续的端口，则在第二个选项里填入另一个数字，然后把”全部”改为”在A:B范围内”即可，需要提醒一点，普通的开放本机端口操作在”目标”区里不用填写任何东西！其他更多的选项可以根据这个举一反三。</p>
+<p>最后是”目标”区，这里和”来源”区相反，它表示远程主机连接的参数，无论你在”方向”里选了什么，这个地方出现的都必须是远程机器的数据，永远不要出现你的本地数据！</p>
+<p>“目标”区主要是作为限制本机对远程访问数据而设置的，例如阻止本机程序访问任何外部地址的8000端口，则在”目标”区里设置”IP:地址”为”全部”，”TCP/UDP:端口”为”8000”即可，而”来源”区里完全不用设置任何东西。</p>
+<p>在上面几个大区之外，还有个名为”应用程序”的按钮，这里用于设置特定的程序规则，其中可供选择的程序在右边列出的已经被记录访问过网络的程序列表中选择添加，以后此条规则就专门针对这个列表里的程序使用了，LooknStop这种思想大大增加了应用程序访问规则的灵活性</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2014\fix-pdfcreatorv1-7-2.html" rel="bookmark">解决PDFCreator(v1.7.2）打印为空白页</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\04\xp-lan-config.html" rel="bookmark">解决XP局域网访问故障(转)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\kavkis-free-active.html" rel="bookmark">KAV/KIS  6.0 / 7.0 永久免费激活方法！</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\11\clear-autorun-command.html" rel="bookmark">彻底清除autorun.inf病毒一个批处理命令</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\11\deepin-xp-settings.html" rel="bookmark">deepin xp lite V5.7 两点小设置</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2007/12/look-n-stop-firewall.html" title="look n stop 个人防火墙（超强！）">https://kisa747.top/2007/12/look-n-stop-firewall.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
+              <a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" rel="tag"># 防火墙</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2007/12/upgrade-memory.html" rel="prev" title="升级内存了！！">
+      <i class="fa fa-chevron-left"></i> 升级内存了！！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2007/12/puzzled-thunder.html" rel="next" title="疑惑？我上传的部分文件用迅雷无法下载！">
+      疑惑？我上传的部分文件用迅雷无法下载！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我们日常上网，一般都是动态IP上网，每次上网前，ISP提供者随机分配一个IP地址，由于IP不停在变化，被Hacker盯上的概率很小。而我们的网站就大不相同了，网站的域名一般是固定的，而且IP地址是固定的，一旦被盯上，被黑的可能性很大，不是被植入恶意代码就是沦为肉鸡，所以加强网站的安全是很有必要的。 其实只需通过修改 .htaccess 和在主题的 functions.php 函数，就可以显著提高">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轻松几招增强wordpress安全">
+<meta property="og:url" content="https://kisa747.top/2010/07/wordpress-security.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="我们日常上网，一般都是动态IP上网，每次上网前，ISP提供者随机分配一个IP地址，由于IP不停在变化，被Hacker盯上的概率很小。而我们的网站就大不相同了，网站的域名一般是固定的，而且IP地址是固定的，一旦被盯上，被黑的可能性很大，不是被植入恶意代码就是沦为肉鸡，所以加强网站的安全是很有必要的。 其实只需通过修改 .htaccess 和在主题的 functions.php 函数，就可以显著提高">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kisa747.top/2010/07/072301.jpg">
+<meta property="article:published_time" content="2010-07-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.163Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="wordpress">
+<meta property="article:tag" content="安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kisa747.top/2010/07/072301.jpg">
+
+<link rel="canonical" href="https://kisa747.top/2010/07/wordpress-security.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>轻松几招增强wordpress安全 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2010/07/wordpress-security.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          轻松几招增强wordpress安全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2010-07-23 00:00:00" itemprop="dateCreated datePublished" datetime="2010-07-23T00:00:00+08:00">2010-07-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="072301.jpg" alt="Wordpress Security 安全" title="Wordpress Security 安全"></p>
+<p>我们日常上网，一般都是动态IP上网，每次上网前，ISP提供者随机分配一个IP地址，由于IP不停在变化，被Hacker盯上的概率很小。而我们的网站就大不相同了，网站的域名一般是固定的，而且IP地址是固定的，一旦被盯上，被黑的可能性很大，不是被植入恶意代码就是沦为肉鸡，所以加强网站的安全是很有必要的。</p>
+<p>其实只需通过修改 .htaccess 和在主题的 functions.php 函数，就可以显著提高wordpress的安全性，很简单，但很有效。</p>
+<span id="more"></span>
+
+<h3 id="1、禁止访问-htaccess-文件"><a href="#1、禁止访问-htaccess-文件" class="headerlink" title="1、禁止访问 _.htaccess _文件"></a>1、禁止访问 _.htaccess _文件</h3><p>在网站根目录下的 <em>.htaccess</em> 文件中加入如下代码：</p>
+<p><code>&lt;Files .htaccess&gt; order allow,deny deny from all &lt;/Files&gt; </code></p>
+<p>设置后，即可禁止任何人访问 <em>.htaccess</em> 文件：</p>
+<h3 id="2、保护-wp-config-php-文件"><a href="#2、保护-wp-config-php-文件" class="headerlink" title="2、保护 wp-config.php 文件"></a>2、保护 <em>wp-config.php</em> 文件</h3><p>由于 _wp-config.php _文件记录了Wordpress的核心配置信息，例如：数据库用户名、密码，重要性不言而喻，所以限制对 _wp-config.php _的访问权限就变得尤为必要。</p>
+<p>在网站根目录下的 <em>.htaccess</em> 文件中加入如下代码：</p>
+<p><code>&lt;files wp-config.php&gt; order allow,deny deny from all &lt;/files&gt; </code></p>
+<p>修改后会即可拒绝任何人访问 _wp-config.php _文件。</p>
+<h3 id="3、禁止目录浏览"><a href="#3、禁止目录浏览" class="headerlink" title="3、禁止目录浏览"></a>3、禁止目录浏览</h3><p>默认情况下，大多数主机允许目录列表。如果在浏览器的地址栏键入 <a target="_blank" rel="noopener" href="http://www.***.com/wp-includes/">http://www.***.com/wp-includes/</a> ，就会以列表形式看到该目录下的所有文件，无疑增加了网站的安全风险，因此我们要做的是就是设置禁止目录浏览。</p>
+<p>在网站根目录下的 <em>.htaccess</em> 文件中加入如下代码：</p>
+<p><code>Options -Indexes </code></p>
+<p>注意：修改后只是禁止目录浏览，并不会影响用户正常的访问这些文件。</p>
+<h3 id="4、删除登录WordPress后台失败时会显示的错误信息提示"><a href="#4、删除登录WordPress后台失败时会显示的错误信息提示" class="headerlink" title="4、删除登录WordPress后台失败时会显示的错误信息提示"></a>4、删除登录WordPress后台失败时会显示的错误信息提示</h3><p>作用不言而喻。在 <em>functions.php</em> 中添加并添加如下代码：</p>
+<p><code>//删除登录WordPress后台失败时显示错误信息提示 add_filter(&#39;login_errors&#39;,create_function(&#39;$a&#39;, &quot;return null;&quot;)); </code></p>
+<p>设置后，如果登录后台密码错误，不会显示任何错误信息提示。</p>
+<h3 id="5、删除WordPress版本号"><a href="#5、删除WordPress版本号" class="headerlink" title="5、删除WordPress版本号"></a>5、删除WordPress版本号</h3><p>默认wordpress会自动显示版本号，如果你的wordpress没有及时升级至最新版本，这无疑是向任何人暴露了自己的漏洞，因此终极的解决方法就是让它不显示wordpress的版本号。</p>
+<p>在 <em>functions.php</em> 中添加并添加如下代码：</p>
+<p><code>//删除WordPress版本号 remove_action(&#39;wp_head&#39;, &#39;wp_generator&#39;); </code></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2012\04\fuck-website-is-hacked.html" rel="bookmark">FUCK，网站被人插了！</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\alex-change-domain.html" rel="bookmark">为alex做域名转移</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\escape-from-flickr.html" rel="bookmark">A计划逃离Flickr</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\set-wordpress.html" rel="bookmark">安装wordpress后要做的8件事</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\02\social-button.html" rel="bookmark">社会化分享按钮代码</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2010/07/wordpress-security.html" title="轻松几招增强wordpress安全">https://kisa747.top/2010/07/wordpress-security.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
+              <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2010/07/mini-pagenavi-modified.html" rel="prev" title="Mini Pagenavi强力修改版">
+      <i class="fa fa-chevron-left"></i> Mini Pagenavi强力修改版
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2010/07/windows-7-msdn.html" rel="next" title="Windows 7 MSDN版介绍">
+      Windows 7 MSDN版介绍 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E7%A6%81%E6%AD%A2%E8%AE%BF%E9%97%AE-htaccess-%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">1、禁止访问 _.htaccess _文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%BF%9D%E6%8A%A4-wp-config-php-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">2、保护 wp-config.php 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%A6%81%E6%AD%A2%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88"><span class="nav-number">3.</span> <span class="nav-text">3、禁止目录浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%88%A0%E9%99%A4%E7%99%BB%E5%BD%95WordPress%E5%90%8E%E5%8F%B0%E5%A4%B1%E8%B4%A5%E6%97%B6%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9A%84%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E6%8F%90%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">4、删除登录WordPress后台失败时会显示的错误信息提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%88%A0%E9%99%A4WordPress%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="nav-number">5.</span> <span class="nav-text">5、删除WordPress版本号</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

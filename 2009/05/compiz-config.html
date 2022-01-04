@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Advanced Desktop Effects Settings设置：Desktop Size–设置桌面个数。Commands–设置gnome下的全局快捷键。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="compiz设置">
+<meta property="og:url" content="https://kisa747.top/2009/05/compiz-config.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="Advanced Desktop Effects Settings设置：Desktop Size–设置桌面个数。Commands–设置gnome下的全局快捷键。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-05-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.070Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="快捷键">
+<meta property="article:tag" content="compiz">
+<meta property="article:tag" content="特效">
+<meta property="article:tag" content="透明">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kisa747.top/2009/05/compiz-config.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>compiz设置 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2009/05/compiz-config.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          compiz设置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2009-05-26 00:00:00" itemprop="dateCreated datePublished" datetime="2009-05-26T00:00:00+08:00">2009-05-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Advanced Desktop Effects Settings设置：<br>Desktop Size–设置桌面个数。<br>Commands–设置gnome下的全局快捷键。</p>
+<span id="more"></span>
+
+<p>Opacity Setting–设置不透明度。<br>展开”Window opacities”，点击”Add”按钮。设置菜单透明：在打开的对话框中输入”Tooltip ‘ Menu ‘ PopupMenu ‘ DropdownMenu”，并设置透明值为 85。你可根据自己的需要酌情修改该值。设置标题透明： Utility ‘ ModalDialog</p>
+<p>&lt;辅助功能&gt;<br>Enabale Zoom Desktop –手动放大/缩小 = Super + 滚轮<br>opacify –移动到窗口后透明度改变<br>&lt;桌面&gt;<br>Desktop Cube –立方体特效设置<br>Desktop Plane –平面虚拟桌面切换特效设置<br>expo –设置 “按键组合”－－”Expo button”,把鼠标光标移到画面左上角，就有类似Mac OS X的expose特效<br>Rotate cube –旋转立方体<br>&lt;特效&gt;<br>Blur Windows    –窗口模糊设置<br>Wobbly Windows –窗口凝胶效果<br>动画                –最大/小化，开启的特效<br>&lt;窗口管理&gt;<br>Shift Switcher – 按键，实现Cover或Flip特效</p>
+<p>Ubuntu 8.04下设置Compiz Fusion<br>点击 系统-&gt;首选项-&gt;Advanced Desktop Effects Settings 打开CompizConfig设置管理器(即CCSM)</p>
+<p>1、3D桌面设置：点击General options，把Desktop Size选项卡里的”Horizontal Virtual Size（水平虚拟大小）”设置为4，”Vertical Virtual Size（垂直虚拟大小）”设置为1，”Number of Desktop（桌面数）”设置为4（论坛中有很多人提到这一点做不到，我的体会是这一点和上一点，默认设置是1，不用修改）。<br>后退，勾选 “Desktop Cube（桌面立方体）”、”Rotate Cube（旋转立方体）”、”立方体倒映” 、”Cube Caps “几项，按住Ctrl+alt，再按住鼠标左键移动，3D桌面效果出现。（”立方体倒映” 、”Cube Caps “并不是必须的，是为了增加效果）</p>
+<p>2、立方体变透明：在Cube Gears（立方体齿轮）（在特效类别中）前面打钩，然后点击Desktop Cube(桌面立方体)，选择Transparent Cube，将Opacity During Rotation降到50左右，再将3D桌面调出来，立方体成半透明的了，并且里面有三个齿轮在滚动！</p>
+<p>3、调节立方体的大小等：点击Rotate Cube（旋转立方体）（在桌面类别中） -&gt; 一般，把Zoom(缩放)调整到1.0，把Speed(速度调整)到0.7，再按Ctrl+alt+向左/向右键，可以看到立方体运动时的慢动作，并且立方体小了很多。</p>
+<p>4、自动把打开的窗口排列到屏幕：勾选Scale（在窗口管理类别中） -&gt; Bindings 点击Initiate Window Picker For All Window 项目右边的选择按钮，用鼠标点击弹出窗口的左下角，然后”确定”，按钮变为”Bottom Left”。将鼠标移动到桌面的左下角，窗口在自动排列在屏幕上（类似Mac os X的Expose特效）。</p>
+<p>5、自动把桌面排列在屏幕上：在Expo（在桌面类别中）前面打钩，点击Expo，点击”按键组合”页框，点击Expo Edgo项目右边的选项按钮，用鼠标点击弹出窗口的右上角，然后”确定”，按钮变为”Top Right”。将鼠标移动到桌面的右上角，4个桌面整齐排列在一个3D空间内（同 super+E 效果），可以将窗口从一个桌面拖动到另一个桌面，甚至放在两个桌面中间！ 再将鼠标移动到桌面的右上角，恢复正常桌面。</p>
+<p>6、添加立方体的背景：点击Desktop Cube（桌面立方体）（在桌面类别中），进入其属性，在Appearance选项中，点击Skydome,选中Skydome，并在Skydome image中添加图片（即3D桌面旋转时的天空背景图片）；选中Animate Skydome，可以使天空图片随立方体桌面移动。</p>
+<p>7、自动最小化桌面：点击General options，一般选项中 Show Desktop，点右边选择钮（默认显示为”无”），用鼠标点击弹出窗口的左下角，然后”确定”，按钮变为”BottomLeft”。将鼠标移动到桌面的左下角，桌面上的窗口则自动最小化。</p>
+<p>8、预览窗口内容：勾选Windows Previews（在额外功能类别中），这样将鼠标移动到任务栏会出现预览窗口。</p>
+<p>9、在屏幕上绘制火焰：勾选”在屏幕上绘制火焰”（在特效类别中），直接按住 Super+shift键，然后用鼠标左键在屏幕写了。火焰的默认颜色是红色，可以直接进入”在屏幕上绘制火焰”设置项里，调整火焰颜色，或者干脆”随机 “，取消火焰的时候同时按Super+Shift+C。</p>
+<p>10、水纹特效：够选Water Effect（在特效类别中）-&gt; （里面的说明很简单）</p>
+<p>11、窗口等移动时出现半透明：选择Move Window（移动窗口）（在未分类类别中），将其设置界面中的Opacity（不透明度）设置到60左右，这样你移动窗口的时候就会有半透明的效果。同样在主界面中选择General Options-&gt;Opacity Settings，点击新建，在OpacityWindows 中输入Dock（任务栏、系统栏或系统托盘），OpacityWIndow Values输入数值80，再以同样的方式新建DropDownMenu（下拉菜单）和PopupMenu(即弹出菜单)，数值都为80。输入完毕之后，不管是什么菜单，现在都是以半透明的方式显示了，包括右键菜单。</p>
+<p>12、窗口开启、关闭、最小化时动画效果：勾选动画（Animations）（在特效类别中）-&gt; （里面有许多效果，自己慢慢选）</p>
+<p>13、windows vista中的Flip3D特效：勾选Shift Switcher（在窗口管理类别中） -&gt; 组合按键 -&gt; Initial(All workspace)下，勾选Bottomleft。鼠标移动到桌面的左下角，出现iPhone的Cover Flow特效。可以用鼠标滚轮和方向键切换桌面。回到Shift Switcher，点击外观，在Switcher mode中选择Flip。鼠标移动到桌面的左下角，出现windows vista中的Flip3D特效。</p>
+<p>14、旋转立方体的上下两面加图片：Desktop Cube（桌面立方体）（在桌面类别中）-&gt; Appearance -&gt; 把Cube Caps里面的钩去掉，再到Cube Caps -&gt; 外观 把Top image files和Bottom image files里的默认图片删除，再把需要的图片”新建”进去。</p>
+<p>15、把旋转立方体的上、下面作为桌面：Rotate Cube（旋转立方体）（在桌面类别中） -&gt; 一般，将Snap To Top Face和Snap To Bottom Face 选中，具体放置桌面时，窗口处于最小化状态效果最好。</p>
+<p><span style="color: #800000;">+++++++++++++++++++++++++</span></p>
+<p>先简要说一下各插件的作用：</p>
+<p>Animation Effects<br>使得窗口的打开、关闭、聚焦等产生诸如神灯、梦幻、旋转、波浪、缩放等动画效果。</p>
+<p>Benchmark：测试compiz下的3D加速情况。调用方法：super+F12。</p>
+<p>Blur：使窗口边框产生磨砂玻璃的模糊特效，默认开启且质量为fast。</p>
+<p>Brightness and Saturation：设置窗口的亮度和色彩饱和度，默认启用。调用方法：按住ctrl并滚动鼠标滚轮调节色彩饱和度，按住shift并滚动鼠标滚轮调节亮度。</p>
+<p>Crash handler：XGL/compiz崩溃时可以自动重启XGL。</p>
+<p>Desktop Cube：设置3D立方体的背景、顶部和底部，速度等，默认开启。</p>
+<p>Window Decoration：窗口的边框，配合透明度、饱和度和亮度，默认开启。</p>
+<p>Fading Windows：给窗口和其他 GUI 部件提供淡入淡出效果，默认开启。</p>
+<p>Minimize Effect：对窗口最大化/最小化过程进行渲染，默认开启。</p>
+<p>Move Window：移动窗口，可以调整移动时的透明度，默认开启。调用方法：按住alt和鼠标左键，出现一个十字架，或者用组合键alt+F7。</p>
+<p>Negtive：使整个桌面或者当前窗口反色。调用方法：super+m，super+n。</p>
+<p>Place Windows：打开窗口时放到合适位置，默认开启。</p>
+<p>Dektop Plane<br>将所有窗口放在一个平面上。不是很好看。</p>
+<p>Put：将窗口放到当前工作区的上左、上中、上右、左、正中、右、左下、下中和右下，以及放到其他工作区。自己可以定义组合键。</p>
+<p>Implements reflections on decorations：将一张png格式的图片作为窗口边框的背景。不建议开启，与blur插件有点小冲突，特别是你有上面板的话。</p>
+<p>Resize Window：改变窗口的大小，默认开启。调用方法：alt+鼠标中键（即按下滚轮）或者alt+F8。</p>
+<p>Rotate Cube：旋转3D桌面。</p>
+<p>Scale：像mac一样的平铺窗口，默认开启。调用方法：鼠标移到屏幕四角（严格讲，右下角不是该插件的作用，而是Shows the desktop插件的）或者按F8，F10，F11，F12。</p>
+<p>Screenshot：抓鼠标选定的区域的图。调用方法：super+鼠标左键（按住并选定一块区域）。</p>
+<p>Shows the desktop：显示桌面，其实是将窗口向屏幕的上下或者其他方向移动，默认开启。调用方法：按F7，或者鼠标移到屏幕右下角。</p>
+<p>Set Window Attribs by various criteria：单独设置某些桌面元素如窗口、菜单、面板等的属性（如透明度、色彩饱和度、亮度等）。</p>
+<p>Application Switcher：切换窗口实现胶片预览效果。除了当前窗口其他都半透明。默认开启。调用方法：alt+tab等，可自定义。</p>
+<p>Window focus leaves a trial：依照窗口未被使用的时间改变亮度、色彩饱和度和不透明度。默认开启。</p>
+<p>Water Effect：使屏幕产生雨点效果，水波纹效果以及窗口标题栏的水波效果。调用方法：shift+F9，shift+F8，可自定义。</p>
+<p>Wobbly Windows：使窗口等产生凝胶效果（象橡皮糖一样），默认开启。</p>
+<p>Zoom Desktop：放大屏幕，默认开启。调用方法：super+鼠标滚轮或super+鼠标右键。</p>
+<p>下面说一下各插件的设置。一般情况下，默认设置就可以了，有些插件如果有特殊要求可以自己修改参数。</p>
+<p>先把几个通用的选项说一下。</p>
+<p>Keyboard：键盘组合键的设置，一般是ctrl, alt, super(win), shift+其他键。可以自定义。<br>Mouse：鼠标和键盘的组合键。button number就是鼠标上的按键。常用的有 1: 鼠标左键，2：鼠标中键（即按下滚轮），3：鼠标右键，4：滚轮向上，5：滚轮向下。<br>Screen Edges：鼠标移动到屏幕的某个角落并执行特定操作。<br>如果有可以更换或添加图片或者图标的框，一定要把图片转换成png格式，并完整填入图片所在地址。</p>
+<p>General Options<br>一般设置。Choices中除了TextFilter可以改成best以使窗口锯齿更平滑外，其他保持默认即可。Commands中可自定义用组合键打开的程序或者命令，和Keyboard联合使用。<br>比如，你在Commands的Command line 0中填入 gnome-system-monitor，然后在Keyboard找到Run Command 0，把Control、Alt 钩上，并在Key Name中填入Delete；你就可以用ctrl+alt+delete组合来打开系统监视器了。</p>
+<p>Animation Effects<br>可自己选择各种效果以及持续时间、波的宽度、波的幅度。grid resolution 越高，分辨率越大，资源占用越多。该插件调用时比较耗资源。</p>
+<p>Benchmark<br>保持默认即可。</p>
+<p>Blur<br>模糊质量可调成fast, best和nonfragment。nonfragment可以自己调节模糊程度，与Numeric Values配合使用。建议只用fast，其他的并不是很好。感觉这个插件非常耗资源，而且是一直都在消耗。关闭后benchmark可以增加100多，而且效果还不如换一个不是非常透明的边框主题来的好，有不少缺陷。大可把他关闭。</p>
+<p>Brightness and Saturation<br>保持默认。可以更改调节亮度和饱和度的步长。</p>
+<p>Crash handler<br>保持默认。</p>
+<p>Desktop Cube<br>可以钩上Scale image on top、Skydome、Animate Skydome、Scale image on bottom使立方体更漂亮。顶部、底部的图片可以更换。</p>
+<p>Window Decoration<br>保持默认。</p>
+<p>Fading Windows<br>保持默认。可以把Visual Bell 和 Urgent钩上，在某些情况下如系统出问题，msn对话中会使屏幕反复变暗。可在Urgent Count修改变暗的次数。</p>
+<p>Minimize Effect<br>可以把Window Types中的Unknown 钩上，使右键菜单和应用程序菜单有淡入淡出效果。</p>
+<p>Move Window<br>保持默认。</p>
+<p>Negtive<br>保持默认。</p>
+<p>Place Windows<br>保持默认。</p>
+<p>Desktop Plane<br>类似rotate cube的一个插件，不过似乎效果很差，不建议使用。（跟rotate也有一点冲突）</p>
+<p>Put<br>可以自己照着例子修改一下组合键。</p>
+<p>Implements reflections on decorations<br>填入一个png图片的地址即可。不建议使用。</p>
+<p>Resize Window<br>保持默认即可。可以更改resize的模式，有normal、stretch、outline、filled outline。透明度也可以改，我是把两个都设成75。</p>
+<p>Rotate Cube<br>保持默认即可。可自定义选装的组合键。</p>
+<p>Scale<br>保持默认。可更改平铺的算法，normal, enhanced, organic。建议将Initiate Window Picker for Current App键的F11改成F6，以免和全屏快捷键冲突。</p>
+<p>Screenshot<br>保持默认。可以修改图片的保存目录。</p>
+<p>Shows the desktop<br>保持默认。可以修改窗口的隐藏方向，在window direction。0是上，1是下，2是左，3是右，4是上下，5是左右。</p>
+<p>Set Window Attribs by various criteria<br>我只会调节透明度、饱和度和亮度。知道其他设置的朋友可否教我一下 Very Happy 。格式是<br>代码:<br>w:窗口类型名:整数</p>
+<p>比如：<br>代码:<br>w:Dock:60<br>w:Unknown:75<br>w:Splash:75<br>等等。</p>
+<p>Application Switcher<br>一般保持默认。如果觉得组合键不方便，可以自己改。建议钩上 Auto Rotate和Temp UnMinimize。</p>
+<p>Window focus leaves a trial<br>可以根据需要调节最低透明度、饱和度、亮度。</p>
+<p>Water Effect<br>可以把Title wave on System Bell钩上，最典型的效果就是在终端按Backspace，就会在标题栏显示水波纹。另外，可以把initiate 里面的键设成super+w，按住可以看到鼠标周围有水波纹。该插件被调用时非常耗资源。</p>
+<p>Wobbly Windows<br>该插件比较耗资源。如果有人不喜欢，可以不用把这个插件钩上。可以修改各种你喜欢的窗口类型，使其拥有凝胶效果，一般默认的即可。不过有些朋友讨厌菜单也这样的，可以把Map Window Types里的Unknown去掉前面的钩。可以任意修改各种窗口的弹度系数（Spring K）和摩擦系数（Friction）。另外可以把Grid Resolution（栅格分辨率）调到60，我调到60以上会有部分窗口出现褶皱；Minimun Grid Size可以调到4（越小越精细）。还可以把Keyboard中的Shiver（颤动）设成super+s，按住这两个键，当前窗口会颤动（非常耗资源）。</p>
+<p>Zoom Desktop<br>建议把Filter Linear 钩上，可使放大时比较平滑。其他保持默认。该插件调用时比较耗资源。</p>
+<p><span style="color: #800000;">+++++++++++++++++++++++++++</span></p>
+<p>compiz的一些快捷键</p>
+<ul>
+<li>切换窗口 = Alt + Tab</li>
+<li>铺开显示全部窗口 = 指针移到屏幕右上角作为开关；单击窗口使之缩放到前台。</li>
+<li>切换立方体桌面 = Ctrl + Alt + 左/右箭头</li>
+<li>切换立方体桌面 + 活动窗口跟随 = Ctrl + Shift + Alt + 左/右箭头</li>
+<li>手动旋转立方体 = Ctrl + Alt + 左键单击并拖拽桌面空白处</li>
+<li>窗口透明/不透明 = possible with the “transset” utility or Alt + 滚轮</li>
+<li>放大一次 = 超级键 + 右击</li>
+<li>手动放大 = 超级键 + 滚轮向上</li>
+<li>手动缩小 = 超级键 + 滚轮向下</li>
+<li>移动窗口 = Alt + 左键单击</li>
+<li>移动窗口时贴住边框 = 左键开始拖动后再 Ctrl + Alt</li>
+<li>调整窗口大小 = Alt + 中击</li>
+<li>Bring up the window below the top window = Alt + 右键单击</li>
+<li>动态效果减速 = Shift + F10</li>
+<li>水纹 = 按住 Ctrl+超级键</li>
+<li>雨点 = Shift + F9</li>
+<li>桌面展开＝ Ctrl + Alt + 下箭头，然后按住 Ctrl + Alt 和左/右箭头选择桌面</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\12\gnome-desktop-skills.html" rel="bookmark">Gnome的桌面技巧收集</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\05\first-install-ubuntu.html" rel="bookmark">终于安装上ubuntu了</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\05\samba-study.html" rel="bookmark">linux太强大了 ─ 之学习samba</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\ubuntu-710-after-install.html" rel="bookmark">Ubuntu 7.10安装后做的几件事</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\10\ubuntu-710-alternate-install.html" rel="bookmark">硬盘安装Ubuntu 7.10（alternate版）（转）</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2009/05/compiz-config.html" title="compiz设置">https://kisa747.top/2009/05/compiz-config.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag"># 快捷键</a>
+              <a href="/tags/compiz/" rel="tag"># compiz</a>
+              <a href="/tags/%E7%89%B9%E6%95%88/" rel="tag"># 特效</a>
+              <a href="/tags/%E9%80%8F%E6%98%8E/" rel="tag"># 透明</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2009/05/umask-config.html" rel="prev" title="Linux下umask的计算方法">
+      <i class="fa fa-chevron-left"></i> Linux下umask的计算方法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2009/06/graduation-project.html" rel="next" title="毕业设计把人给整疯了！">
+      毕业设计把人给整疯了！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

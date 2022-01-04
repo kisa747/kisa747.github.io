@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="主机今天搬家了，搬到了美国加州，发现博客的速度有变化么？ 其实访问速度貌似变化不大，所以就想写文章庆祝下，后来又想全面总结一下这几天的折腾，却发现自己很纠结。一方面，前不久域名转至Godaddy，今天终于把主机也转至美国加州，相当地开心；另一方面，想总结下经验，却发现那堵墙如影随从，像个无形的绳套，把我们小小的博主给套住了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="域名、主机和那堵墙">
+<meta property="og:url" content="https://kisa747.top/2010/09/domain-webhost-firewall.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="主机今天搬家了，搬到了美国加州，发现博客的速度有变化么？ 其实访问速度貌似变化不大，所以就想写文章庆祝下，后来又想全面总结一下这几天的折腾，却发现自己很纠结。一方面，前不久域名转至Godaddy，今天终于把主机也转至美国加州，相当地开心；另一方面，想总结下经验，却发现那堵墙如影随从，像个无形的绳套，把我们小小的博主给套住了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kisa747.top/2010/09/091801.jpg">
+<meta property="article:published_time" content="2010-09-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.163Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="三言二拍">
+<meta property="article:tag" content="域名">
+<meta property="article:tag" content="河蟹">
+<meta property="article:tag" content="godaddy">
+<meta property="article:tag" content="主机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kisa747.top/2010/09/091801.jpg">
+
+<link rel="canonical" href="https://kisa747.top/2010/09/domain-webhost-firewall.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>域名、主机和那堵墙 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2010/09/domain-webhost-firewall.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          域名、主机和那堵墙
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2010-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2010-09-18T00:00:00+08:00">2010-09-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="091801.jpg" alt="域名,主机" title="域名,主机"> 主机今天搬家了，搬到了美国加州，发现博客的速度有变化么？</p>
+<p>其实访问速度貌似变化不大，所以就想写文章庆祝下，后来又想全面总结一下这几天的折腾，却发现自己很纠结。一方面，前不久域名转至Godaddy，今天终于把主机也转至美国加州，相当地开心；另一方面，想总结下经验，却发现那堵墙如影随从，像个无形的绳套，把我们小小的博主给套住了。</p>
+<span id="more"></span>
+
+<p>不过，我还是决定要做一番总结。一方面算是庆祝博客全面出国成功，另一方面给刚进入独立博客圈的朋友一点建议。</p>
+<h3 id="一、域名"><a href="#一、域名" class="headerlink" title="一、域名"></a>一、域名</h3><p>域名注册，无非在国内和国外。但国内和国外的顶级注册商，下面都有不少的代理商，周围往往是代理商的广告满天飞，给人的错觉好像是代理商的名气更大，也有人迷信顶级注册商的价格会比较贵。</p>
+<p>事实是：国内的顶级注册商确实比较贵，像 .com/.net/.org 等主流后缀域名，在新网注册是128RMB/1年；而国内新网代理商那里的价格一般在50～60RMB/1年，比如我之前的域名注册商才50RMB/1年。</p>
+<p>于是呢，会给不少人错觉，会错以为顶级域名注册商的价格都很贵。其实呢，国外却恰恰相反，顶级注册商的价格一般都会比国内任何一家注册商的价格还要低，毕竟域名这玩意儿是美国佬的得意发明。比如Godaddy和Name.com注册 .com/.net/.org 等主流后缀域名的价格基本在$6～$8/1年，折合50RMB/1年左右，而且Godaddy基本每月都会推出$0.99/1年的优惠码，几乎是白菜价。</p>
+<p>既然有了价格优势，而且在国外注册的域名拥有真正意义的所有权。而在国内的注册的域名，说不定你钱花了，却连解析权都没有，太可怜了。（参看：<a target="_blank" rel="noopener" href="http://it.people.com.cn/GB/10624617.html">工信部五措施严管域名 未备案域名不予解析</a>）。</p>
+<p>所以注册域名基本可以直奔Godaddy或Name.com等国外一线注册商了，没有啥可商量的，国内注册太不靠谱了。</p>
+<p>问：攻心部会不会采取措施进行阻挠？攻心部很生气的话，后果会不会很严重？</p>
+<p>答：从道理上讲，如果都在国外注册域名，那攻心部肯定是看在眼里，狠在心里。所以攻心部肯定会采取各种小动作。</p>
+<p>首先：造势说国内的屁民在国外的域名注册商注册域名是非法行为，试图呼唤”有识之士”抵制”非法外货”，参看报道：<a target="_blank" rel="noopener" href="http://tech.163.com/10/0324/06/62H6QH81000915BF.html">在华促销国外域名服务商被指非法揽客</a>。</p>
+<p>然后：要求所有的域名的都需备案，不是说以前也是要备案么，那么现在备案就再增加点难度，看：<a target="_blank" rel="noopener" href="http://news.xinhuanet.com/newmedia/2010-07/12/c_12325480.htm">网站拍照备案正式启动 9月底前需全部完成</a>。而 .cn 作为中国国家顶级后缀域名，很明显在国外注册 .cn 已经几乎不可能了，一个外国人不可能屁颠地跑到中国来拍照备案，就为了个一文不值的破域名，所以几乎所有的国外的域名注册商几乎一致放弃了 .cn 的域名注册，.cn也就沦为了国内政客的玩物。这一点，攻心部算是十分成功，成功地瓦解了国内一大撮不明真相的群众、一小撮站长、国外别有用心的注册商这三股势力的阴阳谋。</p>
+<p>最后：上面的都只是些准备工作，下面才是真正的工作，看看2010年1月～5月的报道：<a target="_blank" rel="noopener" href="http://news.xinhuanet.com/newmedia/2010-01/17/content_12824590.htm">工信部部署第二阶段手机治黄</a>、<a target="_blank" rel="noopener" href="http://news.xinhuanet.com/internet/2010-05/18/content_13511985.htm">工信部首战告捷 灭掉1.4万个涉黄网站</a>、<a target="_blank" rel="noopener" href="http://news.xinhuanet.com/2010-05/16/c_12106510.htm">工信部整治手机淫秽色情专项行动取得阶段性成果</a>。何其壮观！你会好奇了，怎么中国突然冒出这么多涉黄网站？注意到了么，是”涉黄网站”，不是”黄色网站”。懂了吧！还不懂？攻心部的舆论和准备工作已经部署的差不多了，现在开始清剿那些边缘网站，谁敢做对，定性他个”涉黄”，谁敢保证说自己的网站没”涉黄”么，难道连类似”三<strong>台独</strong>立服务器”、”余款一次<strong>性交</strong>付”这类的词也没有么？所以只要攻心部说”涉黄”，那就一定涉黄了，所以格杀勿论。</p>
+<p>总结攻心部的这三步：</p>
+<p>第一步：舆论造势，同仇敌忾，把自己拉到正义的一边。所有与自己做对的都是敌人，什么”去他爹”之类的都是敌人。</p>
+<p>第二步：给全民套个枷锁。想建网站，先就让去拍照留底，折腾上几个月甚至半年，还不一定给批准，看谁还费劲去建网站。</p>
+<p>第三步：拳棒相加，假扫黄之名，扫除各个心腹之患。但凡不顺眼的，一律治以”涉黄”罪，清除网站内容、没收服务器等。</p>
+<p>经过这三步，”天下”基本太平。在重重逼迫下，该出国的出国了，比如：<a target="_blank" rel="noopener" href="http://www.kenengba.com/">可能吧</a>；该关闭的关闭网站了，比如：<a target="_blank" rel="noopener" href="http://fanfou.com/">饭否</a>；剩下的要么是嫡系部队的网站，要么是授权部队的几大门户网站，要么是半死不活的残疾了，比如：<a target="_blank" rel="noopener" href="http://zuosa.com/">做啥</a>。</p>
+<p>整体来说，攻心部很生气，后果确实很严重。所以我们最好的方法就是避开它，参考前面所说的方法，很简单，在国外注册域名，不要回头。</p>
+<h3 id="二、主机"><a href="#二、主机" class="headerlink" title="二、主机"></a>二、主机</h3><p>跟域名一样，要么选择国内的，要么选择国外的。</p>
+<p>1、国内的主机</p>
+<p>优点：国内的主机优势很明显，没有那堵墙的隔阂，一切都会十分太平，不可能被墙。所以速度上一般也比国外的快。</p>
+<p>缺点：仍逃不过”备案”的魔咒，既然选择国内，就要连带选择备案。所以一旦网站有用户乱发言，轻则有专员电话CALL你，制定你删除某某文章；重则一举端掉你的服务器，治你个涉黄罪。</p>
+<p>2、国外的主机</p>
+<p>优点：即国内主机的缺点。不用备案，不用担心有人CALL你去喝茶。</p>
+<p>缺点：即国内主机的优点。时刻都有被墙的危险，并不一定是你的网站上有敏感内容，而说不定只是墙抽风而已。因此速度一般也比国内主机慢。</p>
+<p>综合以上，只能各自斟酌了。其实我只是受不了以前我国内的主机老抽风，今天中午我在折腾代码时，再一次莫名抽风，于是猛然决定迁到国外，不再犹豫。</p>
+<h3 id="三、那堵墙"><a href="#三、那堵墙" class="headerlink" title="三、那堵墙"></a>三、那堵墙</h3><p>有了那堵墙，我们在上面涂鸦，我们有了发泄的对象；</p>
+<p>有了那堵墙，我们在墙内游离，我们在墙外彷徨；</p>
+<p>有了那堵墙，它阻挡了投枪、匕首，沉淀了麻药、粉脂、赞歌。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\09\transfer-domain-to-godaddy.html" rel="bookmark">域名转移至Godaddy旗下</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\forced-prostitution.html" rel="bookmark">逼良为娼，耻辱！</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\fuck-gfw.html" rel="bookmark">看你妹之《网瘾战争》 - 致敬</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\google-leave-china.html" rel="bookmark">Google考虑放弃谷歌 - 新年第二红</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\i-just-guess.html" rel="bookmark">『禁文』我只是在猜想</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2010/09/domain-webhost-firewall.html" title="域名、主机和那堵墙">https://kisa747.top/2010/09/domain-webhost-firewall.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D/" rel="tag"># 三言二拍</a>
+              <a href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag"># 域名</a>
+              <a href="/tags/%E6%B2%B3%E8%9F%B9/" rel="tag"># 河蟹</a>
+              <a href="/tags/godaddy/" rel="tag"># godaddy</a>
+              <a href="/tags/%E4%B8%BB%E6%9C%BA/" rel="tag"># 主机</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2010/09/transfer-domain-to-godaddy.html" rel="prev" title="域名转移至Godaddy旗下">
+      <i class="fa fa-chevron-left"></i> 域名转移至Godaddy旗下
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2010/09/auto-comment-author-info.html" rel="next" title="Wordpress一键填写评论者信息">
+      Wordpress一键填写评论者信息 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%9F%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">一、域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BB%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">二、主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%82%A3%E5%A0%B5%E5%A2%99"><span class="nav-number">3.</span> <span class="nav-text">三、那堵墙</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

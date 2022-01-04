@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kisa747.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="其实以现在电脑的主流配置，之前的所谓的各种系统优化，效果已不像从前的电脑那么明显和灵验了。即使对Windows 7做再多的优化设置，速度也不会有太大的变化。所以现在做优化，只需删除一些不必要的组件，减少系统许多弱智的判断和提示，从而满足一下洁癖的需求。 下面的大部分操作都是以管理员身份运行，所以如果失败，请尝试用管理员运行。或是直接开启 Administrator 帐户，先取得最高管理权限。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 7 简单优化指南">
+<meta property="og:url" content="https://kisa747.top/2010/07/windows-7-simple-optimization.html">
+<meta property="og:site_name" content="智行天下">
+<meta property="og:description" content="其实以现在电脑的主流配置，之前的所谓的各种系统优化，效果已不像从前的电脑那么明显和灵验了。即使对Windows 7做再多的优化设置，速度也不会有太大的变化。所以现在做优化，只需删除一些不必要的组件，减少系统许多弱智的判断和提示，从而满足一下洁癖的需求。 下面的大部分操作都是以管理员身份运行，所以如果失败，请尝试用管理员运行。或是直接开启 Administrator 帐户，先取得最高管理权限。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kisa747.top/2010/07/073101.jpg">
+<meta property="article:published_time" content="2010-07-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-25T12:57:58.163Z">
+<meta property="article:author" content="kisa747">
+<meta property="article:tag" content="技巧分享">
+<meta property="article:tag" content="设置">
+<meta property="article:tag" content="windows 7">
+<meta property="article:tag" content="优化">
+<meta property="article:tag" content="组策略">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kisa747.top/2010/07/073101.jpg">
+
+<link rel="canonical" href="https://kisa747.top/2010/07/windows-7-simple-optimization.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Windows 7 简单优化指南 | 智行天下</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">智行天下</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">不会编程的裁缝不是一个好管理者！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2010/07/windows-7-simple-optimization.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kisa747">
+      <meta itemprop="description" content="人生苦短，我用 Python！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="智行天下">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows 7 简单优化指南
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2010-07-31 00:00:00" itemprop="dateCreated datePublished" datetime="2010-07-31T00:00:00+08:00">2010-07-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="073101.jpg">其实以现在电脑的主流配置，之前的所谓的各种系统优化，效果已不像从前的电脑那么明显和灵验了。即使对Windows 7做再多的优化设置，速度也不会有太大的变化。所以现在做优化，只需删除一些不必要的组件，减少系统许多弱智的判断和提示，从而满足一下洁癖的需求。</p>
+<p>下面的大部分操作都是以管理员身份运行，所以如果失败，请尝试用管理员运行。或是直接开启 Administrator 帐户，先取得最高管理权限。</p>
+<span id="more"></span>
+
+<p>方法：右击计算机 → 管理 → 本地用户和组 → 用户，右键 Administrator → 属性，去除”帐户已禁用”前的勾，注销当前用户登录Administrator 帐户。</p>
+<h3 id="一、关闭休眠"><a href="#一、关闭休眠" class="headerlink" title="一、关闭休眠"></a>一、关闭休眠</h3><p>个人感觉休眠功能作用不大。以管理员身份运行命令提示符，运行以下命令：</p>
+<p><code>powercfg -h off </code></p>
+<h3 id="二、关闭系统保护"><a href="#二、关闭系统保护" class="headerlink" title="二、关闭系统保护"></a>二、关闭系统保护</h3><p>右击计算机 → 属性 → 高级系统设置 → 系统保护，然后关闭所有驱动器的系统保护。</p>
+<h3 id="三、转移虚拟内存"><a href="#三、转移虚拟内存" class="headerlink" title="三、转移虚拟内存"></a>三、转移虚拟内存</h3><p>计算机右键属性 → 高级管理设置 → 高级 → 性能 → 设置 → 高级 → 更改。</p>
+<h3 id="四、优化开始菜单"><a href="#四、优化开始菜单" class="headerlink" title="四、优化开始菜单"></a>四、优化开始菜单</h3><p>1、关闭记录历史文档</p>
+<p>2、关闭突出显示新安装程序</p>
+<p>2、为开始菜单添加”运行”按钮</p>
+<h3 id="六、关闭不必要的服务"><a href="#六、关闭不必要的服务" class="headerlink" title="六、关闭不必要的服务"></a>六、关闭不必要的服务</h3><p>开始→运行”services.msc”，然后禁止以下服务：</p>
+<p>1、DNS Client<br>2、IP Helper<br>3、Shell Hardware Detection</p>
+<h3 id="七、关闭不必要的功能"><a href="#七、关闭不必要的功能" class="headerlink" title="七、关闭不必要的功能"></a>七、关闭不必要的功能</h3><p>控制面板 → 程序和功能 → 打开或关闭windows功能。建议关闭的功能如下:</p>
+<p>1、电脑不带触摸屏的话，建议把Tablet PC组件关闭。这个组件是为平板电脑准备的。</p>
+<p>2、XPS文档目前用的还不多，建议关闭XPS Viewer、XPS服务。</p>
+<p>3、一般情况下，媒体功能里面的三项只保留Windows Media Player即可。如果像我一样有系统洁癖的，甚至可以不留WMP。</p>
+<p>4、远程差分压缩，鸡肋功能，直接关闭。</p>
+<h3 id="八、加快关机速度"><a href="#八、加快关机速度" class="headerlink" title="八、加快关机速度"></a>八、加快关机速度</h3><p>1、取消关机时提示终止正在运行的程序</p>
+<p>运行组策略编辑器，依次展开：计算机配置 → 管理模板 → 系统 → 关机选项，然后双击右侧窗口中的【关闭会阻止或取消关机的应用程序的自动终止功能】，在弹出的新对话框中奖配置修改为【已启用】即可。</p>
+<p>这样关机时屏幕就不会变暗，并提示有程序正在阻止关机。</p>
+<p>2、定位到计算机配置 → 管理模板 → Windows组件 → 关机选项 → 【关机期间挂起登录会话的超时时间】，将该设定调节为【已启用】，并在下方挂起会话的超时分钟数设定为 0 。</p>
+<p>3、设定关机时等待进程结束的时间为200毫秒</p>
+<p>导入以下注册表信息：</p>
+<p><code>Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control] &quot;WaitToKillServiceTimeout&quot;=&quot;200&quot;</code></p>
+<p>或是直接下载并导入，【下载地址】：<a target="_blank" rel="noopener" href="http://dl.dropbox.com/u/3633907/download/jiakuaiguanji.7z" title="http://dl.dropbox.com/u/3633907/download/jiakuaiguanji.7z">jiakuaiguanji.7z</a></p>
+<h3 id="九、组策略关闭自动播放"><a href="#九、组策略关闭自动播放" class="headerlink" title="九、组策略关闭自动播放"></a>九、组策略关闭自动播放</h3><p>打开：控制面板→自动播放，取消勾选最上方的”为所有媒体和设备使用自动播放”，完全关闭”自动播放”功能。更多设置围观 → <a target="_blank" rel="noopener" href="http://www.kisa747.com/windows7-kill-autorun.html">Windows 7上杜绝可移动磁盘病毒</a>。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\3-tips-of-win7.html" rel="bookmark">Windows 7三个小技巧</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\04\xp-lan-config.html" rel="bookmark">解决XP局域网访问故障(转)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\11\deepin-xp-settings.html" rel="bookmark">deepin xp lite V5.7 两点小设置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2010\01\group-policy-edit.html" rel="bookmark">用组策略武装你的Windows XP</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2007\12\gpedit-udisk.html" rel="bookmark">用组策略关闭U盘自动播放</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kisa747
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://kisa747.top/2010/07/windows-7-simple-optimization.html" title="Windows 7 简单优化指南">https://kisa747.top/2010/07/windows-7-simple-optimization.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
+              <a href="/tags/%E8%AE%BE%E7%BD%AE/" rel="tag"># 设置</a>
+              <a href="/tags/windows-7/" rel="tag"># windows 7</a>
+              <a href="/tags/%E4%BC%98%E5%8C%96/" rel="tag"># 优化</a>
+              <a href="/tags/%E7%BB%84%E7%AD%96%E7%95%A5/" rel="tag"># 组策略</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2010/07/windows-7-msdn.html" rel="prev" title="Windows 7 MSDN版介绍">
+      <i class="fa fa-chevron-left"></i> Windows 7 MSDN版介绍
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2010/08/flood.html" rel="next" title="扯不断的洪水">
+      扯不断的洪水 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E9%97%AD%E4%BC%91%E7%9C%A0"><span class="nav-number">1.</span> <span class="nav-text">一、关闭休眠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B3%E9%97%AD%E7%B3%BB%E7%BB%9F%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.</span> <span class="nav-text">二、关闭系统保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%BD%AC%E7%A7%BB%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">3.</span> <span class="nav-text">三、转移虚拟内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BC%98%E5%8C%96%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95"><span class="nav-number">4.</span> <span class="nav-text">四、优化开始菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%B3%E9%97%AD%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">六、关闭不必要的服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%85%B3%E9%97%AD%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">6.</span> <span class="nav-text">七、关闭不必要的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%8A%A0%E5%BF%AB%E5%85%B3%E6%9C%BA%E9%80%9F%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">八、加快关机速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E7%BB%84%E7%AD%96%E7%95%A5%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE"><span class="nav-number">8.</span> <span class="nav-text">九、组策略关闭自动播放</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kisa747"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kisa747</p>
+  <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2007 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kisa747</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
