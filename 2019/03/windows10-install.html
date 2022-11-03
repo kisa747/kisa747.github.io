@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="准备工具 windows 10的iso镜像，推荐使用 ltsc 长期支持版：cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso  记得校验一下 SHA1 值：24b59706d5eded392423936c82ba5a83596b50cc  一个不小于 8G 的U盘。  下载 Rufus，用来创建USB启动盘。   安装步骤 做好电脑的备">
+    <meta name="description" content="准备工具 windows 10的iso镜像，推荐使用 ltsc 长期支持版：cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso  记得校验一下 SHA1 值：24b59706d5eded392423936c82ba5a83596b50cc  一个不小于 8G 的U盘。  下载 Rufus，用来创建USB启动盘。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows10安装方法">
 <meta property="og:url" content="https://kisa747.top/2019/03/windows10-install.html">
 <meta property="og:site_name" content="智行天下">
-<meta property="og:description" content="准备工具 windows 10的iso镜像，推荐使用 ltsc 长期支持版：cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso  记得校验一下 SHA1 值：24b59706d5eded392423936c82ba5a83596b50cc  一个不小于 8G 的U盘。  下载 Rufus，用来创建USB启动盘。   安装步骤 做好电脑的备">
+<meta property="og:description" content="准备工具 windows 10的iso镜像，推荐使用 ltsc 长期支持版：cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso  记得校验一下 SHA1 值：24b59706d5eded392423936c82ba5a83596b50cc  一个不小于 8G 的U盘。  下载 Rufus，用来创建USB启动盘。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-03-27T01:13:00.000Z">
-<meta property="article:modified_time" content="2021-02-25T03:43:19.437Z">
+<meta property="article:modified_time" content="2022-11-03T13:17:49.444Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
@@ -62,9 +62,6 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -86,10 +83,6 @@
 
 
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
-  </ul>
-</nav>
 
 
 
@@ -151,11 +144,11 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <a href="https://twitter.com/kisa747" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="twitter fa-fw"></i>Twitter</a>
+        <a href="https://github.com/kisa747" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -224,6 +217,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-03 21:17:49" itemprop="dateModified" datetime="2022-11-03T21:17:49+08:00">2022-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -251,6 +251,8 @@
 <li><p>下载 <a target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a>，用来创建USB启动盘。</p>
 </li>
 </ul>
+<span id="more"></span>
+
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
 <li>做好电脑的备份工作。</li>
 <li>使用 Rufus 将 windows 10的iso镜像 创建USB启动盘。</li>
@@ -273,27 +275,8 @@
     
     
     
-      
-
 
     <footer class="post-footer">
-          
-
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>kisa747
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://kisa747.top/2019/03/windows10-install.html" title="windows10安装方法">https://kisa747.top/2019/03/windows10-install.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
           <div class="post-tags">
               <a href="/tags/windows/" rel="tag"># windows</a>
           </div>
@@ -326,7 +309,7 @@
 
 
 <div class="copyright">
-  &copy; 2007 – 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -334,8 +317,7 @@
   <span class="author" itemprop="copyrightHolder">kisa747</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
-
+  </div>
 
     </div>
   </footer>
