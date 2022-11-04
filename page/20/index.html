@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="人生苦短，我用 Python！">
 <meta property="og:type" content="website">
@@ -59,6 +59,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -80,6 +83,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">238</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
 
 
 
@@ -179,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2007/06/ubuntu-stardict-install.html">
+    <link itemprop="mainEntityOfPage" href="https://kisa747.top/2007/06/ubuntu-scim-config.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -197,7 +204,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2007/06/ubuntu-stardict-install.html" class="post-title-link" itemprop="url">ubuntu下安装星际译王</a>
+          <a href="/2007/06/ubuntu-scim-config.html" class="post-title-link" itemprop="url">ubuntu下设置scim输入法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -237,16 +244,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>1，安装主程序</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude install stardict</span><br></pre></td></tr></table></figure>
+          <p>突然发现opera不能输入中文，我不大经常用opera</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude install scim-qtimm</span><br></pre></td></tr></table></figure>
 
-<p>2，安装字典</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude install stardict-cdict-gb</span><br></pre></td></tr></table></figure>
+<p>好像是打个补丁，就ok了</p>
 
-<p>cdict-gb dictionary(en - zh_CN)  4.5M      57510 words</p>
-<p>3,一个命令就是     sudo aptitude install stardict-cdict-gb stardict</p>
-<p>可以到下面网站查找相应辞典<br><a target="_blank" rel="noopener" href="http://stardict.sourceforge.net/Dictionaries_zh_CN.php">http://stardict.sourceforge.net/Dictionaries_zh_CN.php</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2007/06/ubuntu-scim-config.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -432,6 +442,14 @@ yum install mplayer mplayer-gui
 <p>SoundDriver=1</p>
 <p>就OK了，不行的话，把1改为2</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2007/06/ubuntu-realplayer.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -532,6 +550,14 @@ yum install mplayer mplayer-gui
 </blockquote>
 <p>这两个设置快捷键和快捷键对应的命令。</p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2007/06/gconf-editor-config.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -629,8 +655,14 @@ yum install mplayer mplayer-gui
 </blockquote>
 <p>顺便介绍一下vsftpd命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分别是         重启｜停止｜启动          vsftpd服务</span></span><br><span class="line">sudo /etc/init.d/vsftpd restart stop start</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2007/06/vsftp-config.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -807,6 +839,14 @@ yum install mplayer mplayer-gui
     
     <div class="post-body" itemprop="articleBody">
           <div class="cnt">终于把ubuntu安装上了，好兴奋。以后要好好的学习linux，彻底摆脱windows的束缚。</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2007/05/first-install-ubuntu.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -901,6 +941,14 @@ yum install mplayer mplayer-gui
 <p>附上一个可以快速进行局域网设置的小软件： <a target="_blank" rel="noopener" href="http://cid-6abece639ad907b9.skydrive.live.com/self.aspx/public/%e5%b1%80%e5%9f%9f%e7%bd%91%e5%85%b1%e4%ba%ab%e8%ae%be%e7%bd%ae%e5%b7%a5%e5%85%b7.rar"><strong>局域网共享设置工具</strong>
 </a></p>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2007/04/xp-lan-config.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -937,7 +985,7 @@ yum install mplayer mplayer-gui
   </span>
   <span class="author" itemprop="copyrightHolder">kisa747</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
     </div>
@@ -945,7 +993,8 @@ yum install mplayer mplayer-gui
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
 

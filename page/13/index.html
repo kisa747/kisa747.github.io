@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="人生苦短，我用 Python！">
 <meta property="og:type" content="website">
@@ -59,6 +59,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -80,6 +83,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">238</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
 
 
 
@@ -578,6 +585,14 @@
 <p>PS：我是不会用它的，华丽的外表和官方信誓旦旦的承诺，仍然摆脱不了腾讯一贯病毒式营销的理念，即使现今扮好人，我也不会原谅它的过去，何况这个世界上有Mplayer，而且是开源的。对于开源，腾讯也许会说，国内的环境太差，我们也是迫不得已。但这仍然阻挡不了我追求美好事物的愿望。<br>腾讯的域名邮箱会更加拓宽他的业务面，但如果做得不好，就可能会成为个鸡肋产品。不过还是要表扬下，毕竟勇气可嘉嘛！<br>其它的自认为名门正派的公司连腾讯这点都不如。<br>纵观整个中国互联网，竟似一部笑傲江湖，一群所谓的名门正派。</p>
 </blockquote>
 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2009/11/comment-qq-domain-mail.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -761,14 +776,15 @@
 <p>搜狐读书频道      新浪读书频道      QQ读书频道</p>
 </blockquote>
 <h3 id="（2）博客导入"><a href="#（2）博客导入" class="headerlink" title="（2）博客导入"></a>（2）博客导入</h3><p>通过第一步得到了导出的XML文件，进入wordpress的后台→工具→导入→RSS，然后导入即可。</p>
-<h3 id="（3）博客迁移"><a href="#（3）博客迁移" class="headerlink" title="（3）博客迁移"></a>（3）博客迁移</h3><p>我们可以先选择一个免费的虚拟主机作为测试，免费的虚拟主机很多，我试过FreeWebHosting和Fibre-hosting，国内都被墙的厉害，也就是测试用下。在虚拟主机上安装wordpress与本地差不多，上传wordpress文件到虚拟主机上后，重新修改wp-config.php，然后导入数据库就OK啦！</p>
-<p>在本机测试后最终是要迁移到虚拟主机上的，所以光能导入导出还是不够滴，这时需要整个数据库的迁移，由于本机和虚拟主机上博客的URL不一样，所以迁移前需要修改一下才行。</p>
-<p>进入phpAdmin，修改表”wp_options”中的的第2行和第38行，换成新域名网址。</p>
-<blockquote>
-<p>第2行是站点url，不改进不了后台；</p>
-<p>第38行是主页地址，也可在后台设置常规里修改。<br>修改后导出sql文件，导入到服务器上，就可以将数据库从本地转移到服务器上啦！</p>
-</blockquote>
-
+<h3 id="（3）博客迁移"><a href="#（3）博客迁移" class="headerlink" title="（3）博客迁移"></a>（3）博客迁移</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2009/11/build-wordpress-03.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -866,39 +882,14 @@
 <ol start="2">
 <li>设置允许在任何目录中使用”.htaccess”文件，找到如下部分：</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># AllowOverride controls what directives may be placed in .htaccess files.</span><br><span class="line"># It can be &quot;All&quot;, &quot;None&quot;, or any combination of the keywords:</span><br><span class="line">#   Options FileInfo AuthConfig Limit</span><br><span class="line">#</span><br><span class="line">AllowOverride None</span><br></pre></td></tr></table></figure>
-
-<p>将 <code>AllowOverride None</code> 改为 <code>AllowOverride All</code></p>
-<p>至此就可以自由设置wordpress的固定链接格式了，我的固定链接格式是：”%postname%.html”。</p>
-<h3 id="（2）设置inove主题嵌入Google自定义搜索"><a href="#（2）设置inove主题嵌入Google自定义搜索" class="headerlink" title="（2）设置inove主题嵌入Google自定义搜索"></a>（2）设置inove主题嵌入Google自定义搜索</h3><p>以下参考自Let’s whisper的  <a target="_blank" rel="noopener" href="http://www.whisperer.name/2009/09/improve-the-google-custom-search-results-of-inove/">美化iNove的Google自定义搜索</a></p>
-<p>1、登陆到<a target="_blank" rel="noopener" href="http://www.google.com/coop/cse/">Google自定义搜索</a>，创建你的自定义搜索。</p>
-<p>2、创建一个搜索结果模板。把下面代码保存为cse.php，上传至iNove主题的文件夹（放到/themes/iNove/下）。（cse意为custom search engine，你可以换成其它。）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Template Name: cse</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> get_header(); <span class="meta">?&gt;</span></span><br><span class="line">&lt;div id=<span class="string">&quot;cse-search-results&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line"><span class="keyword">var</span> googleSearchIframeName = <span class="string">&quot;cse-search-results&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> googleSearchFormName = <span class="string">&quot;cse-search-box&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> googleSearchFrameWidth =<span class="number">605</span>;</span><br><span class="line"><span class="keyword">var</span> googleSearchDomain = <span class="string">&quot;www.google.com&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> googleSearchPath = <span class="string">&quot;/cse&quot;</span>;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span></span><br><span class="line">src=<span class="string">&quot;show_afs_search.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> get_footer(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>var googleSearchFrameWidth =605为搜索结果页面的宽度，iNove默认的宽度是605。</p>
-<p>3、在WordPress中创建一个页面，比如我的地址为<a target="_blank" rel="noopener" href="http://www.kisa747.com/cse%EF%BC%8C%E6%A0%87%E9%A2%98%E4%B8%BA&quot;%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C&quot;%EF%BC%8C%E6%A8%A1%E6%9D%BF%E9%80%89%E6%8B%A9%E5%88%9A%E5%88%9A%E5%88%9B%E5%BB%BA%E7%9A%84cse%E3%80%82">http://www.kisa747.com/cse，标题为&quot;搜索结果&quot;，模板选择刚刚创建的cse。</a></p>
-<p>然后在导航栏隐藏这个页面，在iNove的文件夹下找到/templates/header.php，找到下面一行：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp_list_pages(<span class="string">&#x27;title_li=0&amp;sort_column=menu_order&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>改成:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp_list_pages(<span class="string">&#x27;title_li=0&amp;sort_column=menu_order&amp;exclude=41&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>其中exclude=41意思是在导航栏隐藏这个cse页面，41是这个页面的ID，在/wp-admin/edit-pages.php页面，鼠标悬浮在页面的标题上，在下面状态栏就可以看到post=41。</p>
-<p>4、定义搜索框。仍然是templates/header.php，找到下面代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;http:&#x2F;&#x2F;www.google.com&#x2F;cse&quot; method&#x3D;&quot;get&quot;&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;content&quot;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;textfield&quot; name&#x3D;&quot;q&quot; size&#x3D;&quot;24&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;button&quot; name&#x3D;&quot;sa&quot; value&#x3D;&quot;&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;cx&quot; value&#x3D;&quot;&lt;?php echo $options[&#39;google_cse_cx&#39;]; ?&gt;&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;ie&quot; value&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-<p>改成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;&lt;?php bloginfo(&#39;wpurl&#39;) ?&gt;&#x2F;cse&quot; id&#x3D;&quot;cse-search-box&quot;&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;content&quot;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;cx&quot; value&#x3D;&quot;&lt;?php echo $options[&#39;google_cse_cx&#39;]; ?&gt;&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;cof&quot; value&#x3D;&quot;FORID:11&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;ie&quot; value&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;textfield&quot; id&#x3D;&quot;searchtxt&quot; name&#x3D;&quot;q&quot; size&#x3D;&quot;24&quot; &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;button&quot; id&#x3D;&quot;searchbtn&quot; name&#x3D;&quot;sa&quot; value&#x3D;&quot;&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>其中第一行的 <code>&lt; ?php bloginfo(&#39;wpurl&#39;) ?&gt;/cse</code> 是刚刚你创建的搜索结果页面的地址。</p>
-<p>5、在iNove的主题选项中，勾选使用Google自定义引擎，填上你的CX值。</p>
-<p>这样，所有的工作都做完了。你可以随时在WordPress默认搜索和Google自定义搜索之间进行切换。并且不需要再另外用css定义搜索框了，已经沿用原来的搜索框样式了。</p>
-<p>Update：感谢为我留言的网友 <a target="_blank" rel="noopener" href="http://www.lanpoly.cn/">林</a> ，热情地提醒我下面这个问题，并给出了解决方法。</p>
-<p>设置inove主题嵌入Google自定义搜索后，在IE6下会出现导航条下面有条空白的错位，连搜索框内输入内容的地方都跑到了下面。</p>
-<p>解决方法：是CSS的问题，修改iNove主题的style.css即可。只需要把搜索框的长度设置的短一点，IE6下就完全正常了。</p>
-<p>在style.css中找到以下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#searchbox</span> <span class="selector-class">.textfield</span> &#123;</span><br><span class="line"><span class="attribute">background</span>:none;</span><br><span class="line"><span class="attribute">border</span>:<span class="number">0px</span>;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">185px</span>;</span><br><span class="line"><span class="attribute">float</span>:left;</span><br><span class="line"><span class="attribute">margin-right</span>:<span class="number">2px</span>;</span><br><span class="line"><span class="attribute">padding-left</span>:<span class="number">2px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>将width值改为183即可。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2009/11/build-wordpress-02.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -997,21 +988,14 @@
 </blockquote>
 <p>一步步安装EasyPHP。安装完成后，更改语言为中文</p>
 <p>右击任务栏通知区域的小e图标→Configuration→EasyPHP→Language→Chinese，更改默认语言为中文。</p>
-<p>打开浏览器，在地址栏中输入 <code>http://localhost/home/mysql/</code></p>
-<p>进入phpAdmin界面，（用<a target="_blank" rel="noopener" href="http://127.0.0.1/home/mysql/">http://127.0.0.1/home/mysql/</a>也可以），然后按下面的步骤操作。</p>
-<p>（2）建立wordpress的数据库</p>
-<p>在phpAdmin下创建用户</p>
-<p>（3）创建数据库</p>
-<p>（4）配置wordpress</p>
-<blockquote>
-<p>PS:这一步非必需步骤，可以直接调至第五步。如果懒得配置wp-config.php，则在第五步会提示你填写数据库名和用户名，然后自动生成新的wp-config.php文件。<br>将WordPress的安装文件解压后放在 EasyPHP安装目录的www文件夹下，重命名wp-config-sample.php为wp-config.php，并用notepad2编辑wp-config.php文件（强烈建议用UTF-8编码），加入刚才建立的数据库的用户名和密码。</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ** MySQL设置 - 具体信息来自您正在使用的主机 ** //</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** WordPress数据库的名称，我的为&quot;wordpress&quot; */</span></span><br><span class="line">define(<span class="string">&#x27;DB_NAME&#x27;</span>, <span class="string">&#x27;wordpress&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL数据库用户名，我的为&quot;kisa747&quot; */</span></span><br><span class="line">define(<span class="string">&#x27;DB_USER&#x27;</span>, <span class="string">&#x27;kisa747&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL数据库密码，替换掉 &quot;你的密码&quot; */</span></span><br><span class="line">define(<span class="string">&#x27;DB_PASSWORD&#x27;</span>, <span class="string">&#x27;你的密码&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL主机名 */</span></span><br><span class="line">define(<span class="string">&#x27;DB_HOST&#x27;</span>, <span class="string">&#x27;localhost&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>（5）开始安装wordpress</p>
-<p>在浏览器中输入  <a target="_blank" rel="noopener" href="http://localhost/">http://localhost/</a></p>
-<p>进入wordpress的安装界面</p>
-<p>接着就可以一步步安装属于自己的wordpress喽!</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2009/11/build-wordpress-01.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1132,7 +1116,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">kisa747</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
     </div>
@@ -1140,7 +1124,8 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
 
