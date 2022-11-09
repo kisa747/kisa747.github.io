@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -31,8 +31,8 @@
 <meta property="article:modified_time" content="2019-08-25T12:57:58.038Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="linux">
-<meta property="article:tag" content="samba">
 <meta property="article:tag" content="局域网">
+<meta property="article:tag" content="samba">
 <meta name="twitter:card" content="summary">
 
 
@@ -254,7 +254,7 @@
         <p>以前用windows给别人局域网共享，捣鼓了好久怎么都搞不定，如今用linux共享，简直太easy了，配置一下samba.conf就ok了。<br>贴上咱的samba.conf</p>
 <span id="more"></span>
 
-<p><code>[global] workgroup = JIANHUAN server string = Ubuntu dns proxy = no log file = /var/log/samba/log.%m max log size = 1000 syslog = 0 security = share encrypt passwords = false wins support = yes [电影] path = /home/dianying available = yes browsable = yes public = yes writable = no </code><br>设置完成后<br>运行命令sudo /etc/init.d/samba restart<br>接下来我们再进行一次客户端的自我测试:<br>运行命令smbclient -L //localhost</p>
+<p><code>[global] workgroup = JIANHUAN server string = Ubuntu dns proxy = no log file = /var/log/samba/log.%m max log size = 1000 syslog = 0 security = share encrypt passwords = false wins support = yes [电影] path = /home/dianying available = yes browsable = yes public = yes writable = no </code><br>设置完成后<br>运行命令sudo &#x2F;etc&#x2F;init.d&#x2F;samba restart<br>接下来我们再进行一次客户端的自我测试:<br>运行命令smbclient -L &#x2F;&#x2F;localhost</p>
 <p>Samba有用的命令</p>
 <blockquote>
 <p>smbclient ：访问所有共享资源<br>smbstatus： 列出当前所有的samba连接状态<br>smbpasswd：修改samba用户口令、增加samba用户。<br>nmblookup：用于查询主机的NetBIOS名，并将其映射为IP地址<br>testparam： 用于检查配置文件中的参数设置是否正确<br>但是用share级别的共享安全性不太够，下面是user级的配置</p>
@@ -280,8 +280,8 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/linux/" rel="tag"># linux</a>
-              <a href="/tags/samba/" rel="tag"># samba</a>
               <a href="/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/" rel="tag"># 局域网</a>
+              <a href="/tags/samba/" rel="tag"># samba</a>
           </div>
 
         

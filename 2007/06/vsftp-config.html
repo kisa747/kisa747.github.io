@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -255,13 +255,13 @@
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务器以standalong模式运行,这样可以进行下面的控制</span></span><br><span class="line"><span class="attr">listen</span>=<span class="literal">YES</span></span><br><span class="line"><span class="comment">#接受匿名用户</span></span><br><span class="line"><span class="attr">anonymous_enable</span>=<span class="literal">YES</span></span><br><span class="line"><span class="comment">#匿名用户login时不询问口令</span></span><br><span class="line"><span class="attr">no_anon_password</span>=<span class="literal">YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#接受本地用户</span></span><br><span class="line"><span class="attr">local_enable</span>=<span class="literal">YES</span></span><br><span class="line"><span class="comment">#本地帐户登陆后有\\无权删除和修改文件</span></span><br><span class="line"><span class="attr">write_enable</span>=<span class="literal">NO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地用户上传文件的umask</span></span><br><span class="line"><span class="attr">local_umask</span>=<span class="number">022</span></span><br><span class="line"><span class="comment">#使用上传/下载日志,日志文件默认为/var/log/vsftpd.log,可以通过xferlog_file选项修改</span></span><br><span class="line"><span class="attr">xferlog_enable</span>=<span class="literal">YES</span></span><br><span class="line"><span class="comment">#login时的欢迎信息</span></span><br><span class="line"><span class="attr">ftpd_banner</span>=Welcome to XIAOMEI`s FTP service.</span><br><span class="line"></span><br><span class="line"><span class="comment">#本地用户login后所在目录,若没有设置此项,则本地用户login后将在他的home目录(/etc/passwd的第六个字段)中.</span></span><br><span class="line"><span class="attr">local_root</span>=/home/ftp</span><br><span class="line"><span class="comment">#匿名用户的对应选项</span></span><br><span class="line"><span class="comment">#anon_root=/home/ftp</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#启用FTP数据端口的数据连接</span></span><br><span class="line"><span class="attr">connect_from_port_20</span>=<span class="literal">YES</span></span><br><span class="line"><span class="comment">#验证方式</span></span><br><span class="line"><span class="attr">pam_service_name</span>=vsftpd</span><br></pre></td></tr></table></figure>
 
 <p>加#的是注释<br>经验介绍：<br>1，首先sudo apt-get install vsftpd来安装</p>
-<p>安装好vsftpd后，就配置/etc/vsftpd.conf</p>
+<p>安装好vsftpd后，就配置&#x2F;etc&#x2F;vsftpd.conf</p>
 <p>2,注意到了</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#接受本地用户</span></span><br><span class="line"><span class="attr">local_enable</span>=<span class="literal">YES</span></span><br></pre></td></tr></table></figure>
 
 <p>这一句，就是表示允许本地用户登录，因此要配置本地登录<br>执行命令： <code>sudo nano /etc/vsftp.user_list</code><br>输入：</p>
 <blockquote>
-<p>ftpuser<br>anonymous<br>保存后退出<br>3，执行命令sudo /etc/init.d/vsftpd start<br>重启vsftpd服务</p>
+<p>ftpuser<br>anonymous<br>保存后退出<br>3，执行命令sudo &#x2F;etc&#x2F;init.d&#x2F;vsftpd start<br>重启vsftpd服务</p>
 </blockquote>
 <p>顺便介绍一下vsftpd命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分别是         重启｜停止｜启动          vsftpd服务</span></span><br><span class="line">sudo /etc/init.d/vsftpd restart stop start</span><br></pre></td></tr></table></figure>
@@ -289,8 +289,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2007/06/ubuntu-realplayer.html" rel="next" title="Ubuntu下Realplayer的问题">
-                  Ubuntu下Realplayer的问题 <i class="fa fa-chevron-right"></i>
+                <a href="/2007/06/gconf-editor-config.html" rel="next" title="gconf-editor  的设置">
+                  gconf-editor  的设置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -250,8 +250,8 @@
 <p>域名更换全记录：首先备份主机上所有的文件和数据库，之后的操作就可以为所欲为了，即使出错也不用担心，咱们有备份。</p>
 <p>由于仅是域名迁移，所以没有涉及到主机转移，为新站点导入备份的就站点的数据库。然后修改数据库，参考<a target="_blank" rel="noopener" href="http://www.kisa747.com/build-wordpress-03.html">建立wordpress博客系列（3）</a>，进入phpAdmin，修改表”wp_options”中的的第2行和第38行，将alex.kisa747.com换成新域名alexslife.com。然后做以下几点设置。</p>
 <h3 id="一、对旧站点做301重定向"><a href="#一、对旧站点做301重定向" class="headerlink" title="一、对旧站点做301重定向"></a>一、对旧站点做301重定向</h3><p>将alex.kisa747.com上的所有地址重定向到域名alexslife.com下。先将alex.kisa747.com站点下除了.htaccess其它的文件和文件夹全部删除，然后修改.htaccess为以下内容。</p>
-<p>`# BEGIN WordPress<br>Options +FollowSymLinks<br>RewriteEngine on<br>rewritecond %{http_host} ^alex.kisa747.com [nc]<br>rewriterule ^(.*)$ <a target="_blank" rel="noopener" href="http://www.alexslife.com/$1">http://www.alexslife.com/$1</a> [L,R=301]</p>
-<h1 id="END-WordPress"><a href="#END-WordPress" class="headerlink" title="END WordPress"></a>END WordPress</h1><p>`</p>
+<p>&#96;# BEGIN WordPress<br>Options +FollowSymLinks<br>RewriteEngine on<br>rewritecond %{http_host} ^alex.kisa747.com [nc]<br>rewriterule ^(.*)$ <a target="_blank" rel="noopener" href="http://www.alexslife.com/$1">http://www.alexslife.com/$1</a> [L,R&#x3D;301]</p>
+<h1 id="END-WordPress"><a href="#END-WordPress" class="headerlink" title="END WordPress"></a>END WordPress</h1><p>&#96;</p>
 <p>所以旧站alex.kisa747.com还要保留一段时间，等alexslife.com正常收录后，再将它删除。</p>
 <h3 id="二、防盗链设置"><a href="#二、防盗链设置" class="headerlink" title="二、防盗链设置"></a>二、防盗链设置</h3><p>修改新站点下<a target="_blank" rel="noopener" href="http://www.alexslife.com/imges/.htaccess%E4%B8%BA%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9%EF%BC%9A">http://www.alexslife.com/imges/.htaccess为以下内容：</a></p>
 <p><code>RewriteEngine on RewriteCond %&#123;HTTP_REFERER&#125; !^$ RewriteCond %&#123;HTTP_REFERER&#125; !^http://www.alexslife.com(/)?.*$ [NC] RewriteCond %&#123;HTTP_REFERER&#125; !^http://alexslife.com(/)?.*$ [NC] RewriteCond %&#123;HTTP_REFERER&#125; !zhuaxia.com [NC] RewriteCond %&#123;HTTP_REFERER&#125; !google.com [NC] RewriteCond %&#123;HTTP_REFERER&#125; !xianguo.com [NC] RewriteCond %&#123;HTTP_REFERER&#125; !qq.com [NC] RewriteCond %&#123;HTTP_REFERER&#125; !yahoo.com [NC] RewriteCond %&#123;HTTP_REFERER&#125; !feedsky.com [NC] RewriteCond %&#123;HTTP_REFERER&#125; !feedburner.com [NC] RewriteRule .*\.(gif&#39;jpg&#39;jpeg&#39;bmp&#39;png&#39;swf&#39;mp3)$ http://www.alexslife.com/error.xpng [R,NC] </code></p>

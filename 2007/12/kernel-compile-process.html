@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -255,7 +255,7 @@
 <p>进入源码目录进行操作</p>
 <p><span style="color: #800000;">cd linux-2.6.22.14</span></p>
 <p>下面开始配置内核，使用现有内核的配置文件作为新内核配置文件的基础，这样 不容易出错。<br>先复制已经存在的配置文件到当前目录中</p>
-<p><span style="color: #800000;">cp /boot/config-<code>uname -r</code> ./.config</span></p>
+<p><span style="color: #800000;">cp &#x2F;boot&#x2F;config-<code>uname -r</code> .&#x2F;.config</span></p>
 <p>然后运行</p>
 <p><span style="color: #800000;">make menuconfig</span></p>
 <p>这将显示出内核配置菜单。在下面选择 “Load an Alternate Configuration File”，再选择你刚才拷贝过来的.config文件作为配置文件，然后确定。当结束后，你选择退出时，会提示问你 “Do you wish to save your new kernel configuration?”选择yes即可。</p>
@@ -288,8 +288,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2007/12/ubuntu-simple-optimization.html" rel="prev" title="ubuntu简单优化">
-                  <i class="fa fa-chevron-left"></i> ubuntu简单优化
+                <a href="/2007/12/ubuntu-useful-commands.html" rel="prev" title="ubuntu下一些有用的命令">
+                  <i class="fa fa-chevron-left"></i> ubuntu下一些有用的命令
                 </a>
             </div>
             <div class="post-nav-item">

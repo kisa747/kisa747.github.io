@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -286,11 +286,11 @@
 <p>然后下载一个grub for dos，下载地址：<span style="color: #ff0000; font-size: small;"><a target="_blank" rel="noopener" href="http://download.gna.org/grub4dos/grub4dos-0.4.3.zip">http://download.gna.org/grub4dos/grub4dos-0.4.3.zip</a></span></p>
 <p>将此文件解压到C:<span style="color: #333333;"> \ </span>，再用记事本打开menu.lst，并将里面的文字删掉后加</p>
 <p>入如下代码（”#”可包括也可不包括，”#”是用来注释用的）：</p>
-<p><span style="color: #0000ff;">############################<br>color black/cyan yellow/cyan<br>timeout 30<br>default 0<br>fallback 1</span></p>
-<p><span style="color: #0000ff;">title Install Ubuntu7.10<br>kernel (hd0,0)/vmlinuz<br>initrd (hd0,0)/initrd.gz<br>boot</span></p>
+<p><span style="color: #0000ff;">############################<br>color black&#x2F;cyan yellow&#x2F;cyan<br>timeout 30<br>default 0<br>fallback 1</span></p>
+<p><span style="color: #0000ff;">title Install Ubuntu7.10<br>kernel (hd0,0)&#x2F;vmlinuz<br>initrd (hd0,0)&#x2F;initrd.gz<br>boot</span></p>
 <p><span style="color: #0000ff;">title Back To (Windwos OS)<br>rootnoverify (hd0,0)<br>makeactive<br>chainloader                                 +1</span></p>
-<p><span style="color: #0000ff;">title commandline<br>savedefault –wait=2<br>commandline</span></p>
-<p><span style="color: #0000ff;">title Reboot<br>savedefault –wait=2<br>reboot<br>############################</span></p>
+<p><span style="color: #0000ff;">title commandline<br>savedefault –wait&#x3D;2<br>commandline</span></p>
+<p><span style="color: #0000ff;">title Reboot<br>savedefault –wait&#x3D;2<br>reboot<br>############################</span></p>
 <p>然后保存退出。</p>
 <p>注意：命令里面的 (hd0,0)不是绝对的，要看你文件放置的分区和目录决定。</p>
 <p>hd第一个0代表你第一个硬盘，第二个0代表第一个分区！！</p>

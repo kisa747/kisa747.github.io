@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="启动后提示如下 The VirtualBox kernel driver is not accessible to the current user. Make sure that the user has write permissions for &#x2F;dev&#x2F;vboxdrv by adding them to the vboxusers groups. You will need to logo">
+    <meta name="description" content="启动后提示如下 The VirtualBox kernel driver is not accessible to the current user. Make sure that the user has write permissions for &#x2F;dev&#x2F;vboxdrv by adding them to the vboxusers groups. You will ne">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox问题">
 <meta property="og:url" content="https://kisa747.top/2007/10/virtualbox-problem.html">
 <meta property="og:site_name" content="智行天下">
-<meta property="og:description" content="启动后提示如下 The VirtualBox kernel driver is not accessible to the current user. Make sure that the user has write permissions for &#x2F;dev&#x2F;vboxdrv by adding them to the vboxusers groups. You will need to logo">
+<meta property="og:description" content="启动后提示如下 The VirtualBox kernel driver is not accessible to the current user. Make sure that the user has write permissions for &#x2F;dev&#x2F;vboxdrv by adding them to the vboxusers groups. You will ne">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2007-10-22T16:00:00.000Z">
 <meta property="article:modified_time" content="2019-08-25T12:57:58.054Z">
@@ -252,7 +252,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>启动后提示如下</p>
-<p>The VirtualBox kernel driver is not accessible to the current user. Make sure that the user has write permissions for /dev/vboxdrv by adding them to the vboxusers groups. You will need to logout for the change to take effect..</p>
+<p>The VirtualBox kernel driver is not accessible to the current user. Make sure that the user has write permissions for &#x2F;dev&#x2F;vboxdrv by adding them to the vboxusers groups. You will need to logout for the change to take effect..</p>
 <span id="more"></span>
 
 <p>VBox status code: -1909 (VERR_VM_DRIVER_NOT_ACCESSIBLE).<br>Result Code:</p>
@@ -261,8 +261,8 @@
 <p>Console</p>
 <p>Interface:</p>
 <p>IConsole {1dea5c4b-0753-4193-b909-22330f64ec45}</p>
-<p>sudo usermod -G vboxusers -A myname搞不定，/dev/vboxdrv的权限改了不能保存，重启后要重新改。晕哦</p>
-<p>解决的方法：<br><span style="color: #ff0000;"> sudo chmod 777 /dev/vboxdrv</span></p>
+<p>sudo usermod -G vboxusers -A myname搞不定，&#x2F;dev&#x2F;vboxdrv的权限改了不能保存，重启后要重新改。晕哦</p>
+<p>解决的方法：<br><span style="color: #ff0000;"> sudo chmod 777 &#x2F;dev&#x2F;vboxdrv</span></p>
 
     </div>
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -246,10 +246,10 @@
 <p>sudo aptitude update &amp;&amp; sudo aptitude safe-upgrade          一键升级系统<br>apt-cache search name                                                   搜索包含”name”软件包<br>sudo apt-get autoremove                                               自动卸载不需要的软件包<br>sudo apt-get autoclean                                                清理旧版本的软件缓存<br>sudo apt-get clean                                                         清理所有apt下载的软件缓存</p>
 <span id="more"></span>
 
-<p>（2）硬件相关<br>sudo lshw                    显示系统详细硬件信息<br>uname -a                        查看系统、主机名称、内核版本、日期与时间、以及处理器等信息<br>df -h                                   查看磁盘的占用空间及可用空间<br>更改分区卷标，分别是ext和xfsd：<br>sudo e2label /dev/hda5 E_Download<br>sudo xfs_admin -L E_Backup /dev/hda12</p>
-<p>sudo hdparm -cdtT /dev/hda                       测试IDE硬盘的读写速度<br>以下仅适合IDE硬盘操作，sata硬盘勿试<br>=====================================<br>sudo hdparm -c 1 -d 1 /dev/hda                  设置硬盘到 I/O 32位，开启DMA。<br>sudo hdparm -k 1 /dev/hda                         保存更改<br>=====================================</p>
+<p>（2）硬件相关<br>sudo lshw                    显示系统详细硬件信息<br>uname -a                        查看系统、主机名称、内核版本、日期与时间、以及处理器等信息<br>df -h                                   查看磁盘的占用空间及可用空间<br>更改分区卷标，分别是ext和xfsd：<br>sudo e2label &#x2F;dev&#x2F;hda5 E_Download<br>sudo xfs_admin -L E_Backup &#x2F;dev&#x2F;hda12</p>
+<p>sudo hdparm -cdtT &#x2F;dev&#x2F;hda                       测试IDE硬盘的读写速度<br>以下仅适合IDE硬盘操作，sata硬盘勿试<br>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>sudo hdparm -c 1 -d 1 &#x2F;dev&#x2F;hda                  设置硬盘到 I&#x2F;O 32位，开启DMA。<br>sudo hdparm -k 1 &#x2F;dev&#x2F;hda                         保存更改<br>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <p>（3）用户和组<br>groups               查看你的帐号属于哪些用户组<br>hostname        显示主机名称<br>id                       查看用户 id、组 id 及你帐号的组<br>uname              查看系统、主机名称、内核版本、处理器等信息<br>w                       查看谁登录及他们在干什么<br>who                   查看谁登录了系统<br>whoami              查看你的用户名（或帐号名）<br>（4）进程。配合df命令可取代 gnome-system-monitor<br>ps -A                                                            查看当前有哪些进程<br>kill 进程号(就是ps -A中的第一列的数字)           中止一个进程<br>killall 进程名                                                  中止一个进程（同上）<br>kill -9 进程号                                                  强制中止一个进程(在上面进程中止不成功的时候使用)<br>killall -9 进程名                                               强制中止一个进程(同上)<br>xkill                                                               图形方式中止一个程序<br>top                                                              查看当前进程的实时状况<br>lsof -p                                                          查看进程打开的文件</p>
-<p>（4）其它<br>nautilus的地址栏里输入 fonts:///                    可以查看本机所有的fonts</p>
+<p>（4）其它<br>nautilus的地址栏里输入 fonts:&#x2F;&#x2F;&#x2F;                    可以查看本机所有的fonts</p>
 <p>sudo mkfontscale<br>sudo mkfontdir<br>fc-cache -f                                                   安装字体后刷新字体缓存（加上 -v 参数可以刷新所有字体缓存）<br>pwd：查看当前工作的目录<br>clear            清屏       <span style="color: #993300;"> <span style="color: #ff6600;"> Ctrl+L （快捷键） 擦除并且重写屏幕</span></p>
 
     </div>
@@ -269,13 +269,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2007/12/gnome-desktop-skills.html" rel="prev" title="Gnome的桌面技巧收集">
-                  <i class="fa fa-chevron-left"></i> Gnome的桌面技巧收集
+                <a href="/2007/12/ubuntu-simple-optimization.html" rel="prev" title="ubuntu简单优化">
+                  <i class="fa fa-chevron-left"></i> ubuntu简单优化
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2007/12/ubuntu-simple-optimization.html" rel="next" title="ubuntu简单优化">
-                  ubuntu简单优化 <i class="fa fa-chevron-right"></i>
+                <a href="/2007/12/kernel-compile-process.html" rel="next" title="实战内核编译全过程">
+                  实战内核编译全过程 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

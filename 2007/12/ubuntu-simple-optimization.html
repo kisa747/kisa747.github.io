@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -248,16 +248,16 @@
 <p>acpid      acpi-supp        高级电源管理。笔记本用户开启它。</p>
 <span id="more"></span>
 
-<p>avahi-daemon           Avahi 是 zeroconf 协议的实现。除非你有兼容的设备或使用 zeroconf 协议的服务，去掉。<br>ConsoleKit               Fast User Switchin,快速用户切换，关掉<br>dbus                       自动挂载服务，开着<br>dhcdbd                   D-BUS系统网络接口，主要为你提供网络连接设置，强烈建议开着，除非你用固定IP上网。<br>HAL                      （Hardware Abstraction Layer）硬件抽象层 服务，开着<br>hotkey-setup          只有笔记本可能需要，你可以尝试去掉，有副作用就改回来<br>klogd                      linux守护程序，接受来自内核和发送信息到syslogd的记录，并记录为一个文件，所以开着有用，关了也无妨<br>makedev                用来创建设备到/dev/，开着<br>powernowd             如果CPU支持变频，可以留着省电，没有的去掉<br>rc.local                    开着<br>rmnologin              如果发现nologin，就去掉，在笔记本上不用开启。<br>rsync                      rsync协议守护，如果不知道干嘛的 ，去掉<br>stop-read             不清楚，开着吧<br>sysklogd               用于记录系统日志信息，去掉也无妨<br>vbesave               显卡bios配置工具，开着<br>xserver-x             开着<br>cupsys                  如果你常用打印机，就留着<br>hdparm               如果都是SATA硬盘 去掉吧<br>dns-clean              如果是拨号上网的，留着<br>ppp　　                  拨号上网用的 不拨号的就关掉<br>ppp-dns　　           同上</p>
+<p>avahi-daemon           Avahi 是 zeroconf 协议的实现。除非你有兼容的设备或使用 zeroconf 协议的服务，去掉。<br>ConsoleKit               Fast User Switchin,快速用户切换，关掉<br>dbus                       自动挂载服务，开着<br>dhcdbd                   D-BUS系统网络接口，主要为你提供网络连接设置，强烈建议开着，除非你用固定IP上网。<br>HAL                      （Hardware Abstraction Layer）硬件抽象层 服务，开着<br>hotkey-setup          只有笔记本可能需要，你可以尝试去掉，有副作用就改回来<br>klogd                      linux守护程序，接受来自内核和发送信息到syslogd的记录，并记录为一个文件，所以开着有用，关了也无妨<br>makedev                用来创建设备到&#x2F;dev&#x2F;，开着<br>powernowd             如果CPU支持变频，可以留着省电，没有的去掉<br>rc.local                    开着<br>rmnologin              如果发现nologin，就去掉，在笔记本上不用开启。<br>rsync                      rsync协议守护，如果不知道干嘛的 ，去掉<br>stop-read             不清楚，开着吧<br>sysklogd               用于记录系统日志信息，去掉也无妨<br>vbesave               显卡bios配置工具，开着<br>xserver-x             开着<br>cupsys                  如果你常用打印机，就留着<br>hdparm               如果都是SATA硬盘 去掉吧<br>dns-clean              如果是拨号上网的，留着<br>ppp　　                  拨号上网用的 不拨号的就关掉<br>ppp-dns　　           同上</p>
 <p>evms，cron，anacron，apmd，atd，mdamd,lvm 如果不知道是什么，可以放心去掉</p>
 <p>关闭IPV6</p>
-<p><span style="color: #800000;"> sudo gedit /etc/modprobe.d/aliases</span></p>
+<p><span style="color: #800000;"> sudo gedit &#x2F;etc&#x2F;modprobe.d&#x2F;aliases</span></p>
 <p>找到           <span style="color: #0000ff;">alias net-pf-10 ipv6</span><br>改为           <span style="color: #0000ff;">alias net-pf-10 off #ipv6</span></p>
-<p><span style="color: #800000;"> sudo gedit /etc/hosts</span></p>
+<p><span style="color: #800000;"> sudo gedit &#x2F;etc&#x2F;hosts</span></p>
 <p>顺便将localhost化名为主机名ubuntu</p>
 <p><span style="color: #0000ff;"> 127.0.0.1 localhost ubuntu<br>127.0.1.1 ubuntu</span></p>
 <p>然后注释掉hosts文件中所有与IPV6有关的行，这将会禁止所有使用IPV6的网络接口，你需要重新启动计算机。</p>
-<p>禁用pango<br><span style="color: #800000;">sudo echo ‘MOZ_DISABLE_PANGO=”1”‘ &gt;&gt; /etc/environment</span></p>
+<p>禁用pango<br><span style="color: #800000;">sudo echo ‘MOZ_DISABLE_PANGO&#x3D;”1”‘ &gt;&gt; &#x2F;etc&#x2F;environment</span></p>
 
     </div>
 
@@ -276,13 +276,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2007/12/ubuntu-useful-commands.html" rel="prev" title="ubuntu下一些有用的命令">
-                  <i class="fa fa-chevron-left"></i> ubuntu下一些有用的命令
+                <a href="/2007/12/gnome-desktop-skills.html" rel="prev" title="Gnome的桌面技巧收集">
+                  <i class="fa fa-chevron-left"></i> Gnome的桌面技巧收集
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2007/12/kernel-compile-process.html" rel="next" title="实战内核编译全过程">
-                  实战内核编译全过程 <i class="fa fa-chevron-right"></i>
+                <a href="/2007/12/ubuntu-useful-commands.html" rel="next" title="ubuntu下一些有用的命令">
+                  ubuntu下一些有用的命令 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

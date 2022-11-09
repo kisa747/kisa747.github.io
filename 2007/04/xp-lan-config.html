@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -31,10 +31,10 @@
 <meta property="article:modified_time" content="2019-08-25T12:57:58.038Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="技巧分享">
-<meta property="article:tag" content="局域网">
-<meta property="article:tag" content="windows xp">
-<meta property="article:tag" content="故障">
 <meta property="article:tag" content="设置">
+<meta property="article:tag" content="windows xp">
+<meta property="article:tag" content="局域网">
+<meta property="article:tag" content="故障">
 <meta name="twitter:card" content="summary">
 
 
@@ -258,7 +258,7 @@
 <p>3.改网络访问模式<br>打开组策略编辑器，依次选择”<span style="color: #0000ff;">计算机配置→Windows设置→安全设置→本地策略→安全选项</span>“，双击”<span style="color: #0000ff;">网络访问：本地账号的共享和安全模式</span>“策略，将默认设置”<span style="color: #993366;">仅来宾-本地用户以来宾身份验证</span>“，更改为”<span style="color: #0000ff;">经典：本地用户以自己的身份验证</span>“。</p>
 <p>我们可能还会遇到另外一个问题，即当用户的口令为空时，即使你做了上述的所有的更改还是不能进行登录，访问还是会被拒绝。这是因为，在系统”<span style="color: #0000ff;">安全选项</span>“中有”<span style="color: #0000ff;">账户：使用空白密码的本地账户只允许进行控制台登录</span>“策略默认是启用的，根据Windows XP安全策略中拒绝优先的原则，密码为空的用户通过网络访问使用Windows XP的计算机时便会被禁止。我们只要将这个策略停用即可解决问题。在安全选项中，找到”<span style="color: #0000ff;">使用空白密码的本地账户只允许进行控制台登录</span>“项，停用就可以，否 则即使开了guest并改成经典模式还是不能登录。经过以上的更改基本就可以访问了，你可以尝试选择一种适合你的方法。下面在再补充点其它可能会遇到的问 题。</p>
 <p>5.关于用网络邻居访问不响应或者反应慢的问题<br>在WinXP和Win2000中浏览网上邻居时系统默认会延迟30秒，Windows将使用这段时间去搜寻远程计算机是否有指定的计划任务（甚至有可 能到Internet中搜寻）。如果搜寻时网络时没有反应便会陷入无限制的等待，那么10多分钟的延迟甚至报错就不足为奇了。下面是具体的解决方法。</p>
-<p>A.关掉WinXP的计划任务服务（Task Scheduler）<br>可以到”控制面板/管理工具/服务”中打开”Task Scheduler”的属性对话框，单击”停止”按钮停止该项服务，再将启动类型设为”手动”，这样下次启动时便不会自动启动该项服务了。</p>
+<p>A.关掉WinXP的计划任务服务（Task Scheduler）<br>可以到”控制面板&#x2F;管理工具&#x2F;服务”中打开”Task Scheduler”的属性对话框，单击”停止”按钮停止该项服务，再将启动类型设为”手动”，这样下次启动时便不会自动启动该项服务了。</p>
 <p>B.删除注册表中的两个子键<br>到注册表中找到主键”<span style="color: #0000ff;">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RemoteComputer\NameSpace</span>“<br>删除下面的两个子健：<span style="color: #0000ff;">{2227A280-3AEA-1069-A2DE-08002B30309D}和{D6277990-4C6A-11CF-87- 00AA0060F5BF}</span>。</p>
 <p>其中，第一个子健决定网上邻居是否要搜索网上的打印机（甚至要到Internet中去搜寻），如果网络中没有共享的打印机便可删除此键。第二个子健则决定是否需要查找指定的计划任务，这是网上邻居很慢的罪魁祸首，必须将此子健删除。</p>
 <p>附上一个可以快速进行局域网设置的小软件： <a target="_blank" rel="noopener" href="http://cid-6abece639ad907b9.skydrive.live.com/self.aspx/public/%e5%b1%80%e5%9f%9f%e7%bd%91%e5%85%b1%e4%ba%ab%e8%ae%be%e7%bd%ae%e5%b7%a5%e5%85%b7.rar"><strong>局域网共享设置工具</strong>
@@ -273,10 +273,10 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
-              <a href="/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/" rel="tag"># 局域网</a>
-              <a href="/tags/windows-xp/" rel="tag"># windows xp</a>
-              <a href="/tags/%E6%95%85%E9%9A%9C/" rel="tag"># 故障</a>
               <a href="/tags/%E8%AE%BE%E7%BD%AE/" rel="tag"># 设置</a>
+              <a href="/tags/windows-xp/" rel="tag"># windows xp</a>
+              <a href="/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/" rel="tag"># 局域网</a>
+              <a href="/tags/%E6%95%85%E9%9A%9C/" rel="tag"># 故障</a>
           </div>
 
         

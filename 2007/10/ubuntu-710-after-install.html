@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -258,7 +258,7 @@
 <blockquote>
 <p>sudo pppoeconf                     配置 ADSL</p>
 <p>pon dsl-provider                  ADSL手工拨号上线</p>
-<p>poff                                                  ADSL下线<br><span style="color: #ff0000;">sudo /etc/ppp/pppoe_on_boot    激活 ADSL</span><br>非拨号用户使用以下命令设置网络<br><span style="color: #ff0000;">sudo vi /etc/network/interfaces</span></p>
+<p>poff                                                  ADSL下线<br><span style="color: #ff0000;">sudo &#x2F;etc&#x2F;ppp&#x2F;pppoe_on_boot    激活 ADSL</span><br>非拨号用户使用以下命令设置网络<br><span style="color: #ff0000;">sudo vi &#x2F;etc&#x2F;network&#x2F;interfaces</span></p>
 </blockquote>
 <p>网卡通过DHCP自动获取IP地址</p>
 <blockquote>
@@ -280,15 +280,15 @@
 <p>broadcast 192.168.1.255</p>
 <p>gateway 192.168.1.1<br>激活以上设置</p>
 </blockquote>
-<p><span style="color: #ff0000;">sudo /etc/init.d/networking restart</span></p>
+<p><span style="color: #ff0000;">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span></p>
 <p>我的这样总是无法激活网络，但stop，再激活却可以，奇怪！</p>
-<p><span style="color: #ff0000;">sudo /etc/init.d/networking stop &amp;&amp; sudo /etc/init.d/networking start</span></p>
+<p><span style="color: #ff0000;">sudo &#x2F;etc&#x2F;init.d&#x2F;networking stop &amp;&amp; sudo &#x2F;etc&#x2F;init.d&#x2F;networking start</span></p>
 <p>DNS 设置</p>
-<p><span style="color: #ff0000;">sudo /etc/resolv.conf</span></p>
+<p><span style="color: #ff0000;">sudo &#x2F;etc&#x2F;resolv.conf</span></p>
 <p>加入</p>
 <p><span style="color: #3366ff;">nameserver 202.102.152.3</span></p>
 <p>1，重新设置apt的源，我使用的是cn99的源</p>
-<p><span style="color: #3366ff;">sudo gedit /etc/apt/sources.list</span></p>
+<p><span style="color: #3366ff;">sudo gedit &#x2F;etc&#x2F;apt&#x2F;sources.list</span></p>
 <p>把其中的内容改为</p>
 <p><code>deb http://ubuntu.cn99.com/ubuntu/ gutsy main restricted universe multiverse deb http://ubuntu.cn99.com/ubuntu/ gutsy-security main restricted universe multiverse deb http://ubuntu.cn99.com/ubuntu/ gutsy-updates main restricted universe multiverse deb http://ubuntu.cn99.com/ubuntu/ gutsy-proposed main restricted universe multiverse deb http://ubuntu.cn99.com/ubuntu/ gutsy-backports main restricted universe multiverse deb-src http://ubuntu.cn99.com/ubuntu/ gutsy main restricted universe multiverse deb-src http://ubuntu.cn99.com/ubuntu/ gutsy-security main restricted universe multiverse deb-src http://ubuntu.cn99.com/ubuntu/ gutsy-updates main restricted universe multiverse deb-src http://ubuntu.cn99.com/ubuntu/ gutsy-proposed main restricted universe multiverse deb-src http://ubuntu.cn99.com/ubuntu/ gutsy-backports main restricted universe multiverse deb http://ubuntu.cn99.com/ubuntu-cn/ gutsy main restricted universe multiverse </code><br>2，然后就可以升级系统到最新。</p>
 <p><span style="color: #3366ff;">sudo aptitude update &amp;&amp; sudo aptitude upgrade</span></p>
@@ -310,7 +310,7 @@
 </blockquote>
 <p><span style="color: #800000;">sudo aptitude install nautilus-gksu</span></p>
 <p>5,ubuntu右键在当前目录执行终端terminal程序</p>
-<p>在 $HOME/.gnome2/nautilus-scripts 目录下增加一个文件: Open in terminal</p>
+<p>在 $HOME&#x2F;.gnome2&#x2F;nautilus-scripts 目录下增加一个文件: Open in terminal</p>
 <p>设置它的权限成为可执行。</p>
 <p>然后编辑它的内容如下：</p>
 <p><code>gnome-terminal --working-directory= $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS</code></p>
@@ -330,18 +330,18 @@
 <p><span style="color: #ff0000;">im-switch -s fcitx -z default</span></p>
 <p>然后要稍微设置一下</p>
 <p>修改fcitx的配置文件,使它好看一点</p>
-<p><span style="color: #ff0000;">sudo gedit ~/.fcitx/config</span></p>
+<p><span style="color: #ff0000;">sudo gedit ~&#x2F;.fcitx&#x2F;config</span></p>
 <p>找到以下部分修改一下就行了</p>
 <blockquote>
-<p>[界面]<br>候选词个数=8</p>
-<p>主窗口是否使用3D界面=0</p>
-<p>输入条使用3D界面=2</p>
-<p>主窗口隐藏模式=0</p>
-<p>是否自动隐藏输入条=1<br>9,在7.04版里，可以通过”登录窗口”设置登录的背景颜色，但在7.10下这个方法不灵了，可能是BUG吧。这就需要边界GDM的配置文件了</p>
+<p>[界面]<br>候选词个数&#x3D;8</p>
+<p>主窗口是否使用3D界面&#x3D;0</p>
+<p>输入条使用3D界面&#x3D;2</p>
+<p>主窗口隐藏模式&#x3D;0</p>
+<p>是否自动隐藏输入条&#x3D;1<br>9,在7.04版里，可以通过”登录窗口”设置登录的背景颜色，但在7.10下这个方法不灵了，可能是BUG吧。这就需要边界GDM的配置文件了</p>
 </blockquote>
-<p><span style="color: #ff0000;">sudo gedit /etc/gdm/PreSession/Default</span></p>
+<p><span style="color: #ff0000;">sudo gedit &#x2F;etc&#x2F;gdm&#x2F;PreSession&#x2F;Default</span></p>
 <p>修改其中的字段</p>
-<p><span style="color: #3366ff;">BACKCOLOR=”#3C61D2”</span></p>
+<p><span style="color: #3366ff;">BACKCOLOR&#x3D;”#3C61D2”</span></p>
 <p>“#3C61D2”为对应的背景色，共有三处，都可以修改，”#3C61D2”是我配的蓝色调，你也可以自己配出来，简单方法就是依次点击</p>
 <p>系统－》系统管理－》登录窗口－》本地选项卡 》背景颜色</p>
 <p>然后调配出自己喜欢的颜色，下面就有对应的颜色的代码。</p>

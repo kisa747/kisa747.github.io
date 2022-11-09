@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -31,9 +31,9 @@
 <meta property="article:modified_time" content="2019-08-25T12:57:58.070Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="安装">
-<meta property="article:tag" content="wordpress">
 <meta property="article:tag" content="easyphp">
 <meta property="article:tag" content="notepad2">
+<meta property="article:tag" content="wordpress">
 <meta name="twitter:card" content="summary">
 
 
@@ -276,7 +276,7 @@
 <blockquote>
 <p>PS:这一步非必需步骤，可以直接调至第五步。如果懒得配置wp-config.php，则在第五步会提示你填写数据库名和用户名，然后自动生成新的wp-config.php文件。<br>将WordPress的安装文件解压后放在 EasyPHP安装目录的www文件夹下，重命名wp-config-sample.php为wp-config.php，并用notepad2编辑wp-config.php文件（强烈建议用UTF-8编码），加入刚才建立的数据库的用户名和密码。</p>
 </blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ** MySQL设置 - 具体信息来自您正在使用的主机 ** //</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** WordPress数据库的名称，我的为&quot;wordpress&quot; */</span></span><br><span class="line">define(<span class="string">&#x27;DB_NAME&#x27;</span>, <span class="string">&#x27;wordpress&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL数据库用户名，我的为&quot;kisa747&quot; */</span></span><br><span class="line">define(<span class="string">&#x27;DB_USER&#x27;</span>, <span class="string">&#x27;kisa747&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL数据库密码，替换掉 &quot;你的密码&quot; */</span></span><br><span class="line">define(<span class="string">&#x27;DB_PASSWORD&#x27;</span>, <span class="string">&#x27;你的密码&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL主机名 */</span></span><br><span class="line">define(<span class="string">&#x27;DB_HOST&#x27;</span>, <span class="string">&#x27;localhost&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ** MySQL设置 - 具体信息来自您正在使用的主机 ** //</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** WordPress数据库的名称，我的为&quot;wordpress&quot; */</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;DB_NAME&#x27;</span>, <span class="string">&#x27;wordpress&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL数据库用户名，我的为&quot;kisa747&quot; */</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;DB_USER&#x27;</span>, <span class="string">&#x27;kisa747&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL数据库密码，替换掉 &quot;你的密码&quot; */</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;DB_PASSWORD&#x27;</span>, <span class="string">&#x27;你的密码&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** MySQL主机名 */</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;DB_HOST&#x27;</span>, <span class="string">&#x27;localhost&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>（5）开始安装wordpress</p>
 <p>在浏览器中输入  <a target="_blank" rel="noopener" href="http://localhost/">http://localhost/</a></p>
 <p>进入wordpress的安装界面</p>
@@ -291,9 +291,9 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"># 安装</a>
-              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
               <a href="/tags/easyphp/" rel="tag"># easyphp</a>
               <a href="/tags/notepad2/" rel="tag"># notepad2</a>
+              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
           </div>
 
         

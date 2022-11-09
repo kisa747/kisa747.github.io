@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -31,8 +31,8 @@
 <meta property="article:modified_time" content="2019-08-25T12:57:58.038Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="linux">
-<meta property="article:tag" content="ubuntu">
 <meta property="article:tag" content="多媒体">
+<meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
 
 
@@ -259,16 +259,16 @@
 <p>sudo apt-get remove totem-mozilla</p>
 <p>sudo apt-get install mplayer mozilla-mplayer  audacious realplay smplayer</p>
 <p>装多媒体软件和相应解码器</p>
-<p>安装audacious      Ubuntu中类似千千静听的的播放器，<br>支持播放 ogg*, flac*, mp3, wma, wav, 3gp 这些格式。<br>安装 mplayer 和 totem (播放 xvid/divx 编码的 avi 格式视频, rm/rmvb/asf/wmv 等流媒体视频，外加 vcd/dvd和其他 mpeg2/mpeg4 视频。)<br>对于totem，播放对应格式的多媒体时会自动搜索所需的解码器，所以就不必专门安装解码器了，但mplayer需单独安装强大的win32codes解码器。<br>win32codes的下载地址:<br><a target="_blank" rel="noopener" href="http://archive.ubuntu.org.cn/ubuntu-cn/dists/edgy/main/binary-i386/media/w32codecs_20060611-1plf6.10_i386.deb">http://archive.ubuntu.org.cn/ubuntu-cn/dists/edgy/main/binary-i386/media/w32codecs_20060611-1plf6.10_i386.deb</a><br><a href="ftp://211.86.156.210/debian-multimedia/pool/main/w/w32codecs/w32codecs_20061022-0.0_i386.deb">ftp://211.86.156.210/debian-multimedia/pool/main/w/w32codecs/w32codecs_20061022-0.0_i386.deb</a></p>
-<p>Totem（或使用xine）播放rmvb没有声音的解决办法<br>打开主文件夹，按Ctrl+H显示所有文件<br>找到并编辑~/.xine/catalog.cache文件<br>[/usr/lib/xine/plugins/1.1.4/xineplug_decode_real_audio.so]<br>把decoder_priority增加到10</p>
+<p>安装audacious      Ubuntu中类似千千静听的的播放器，<br>支持播放 ogg*, flac*, mp3, wma, wav, 3gp 这些格式。<br>安装 mplayer 和 totem (播放 xvid&#x2F;divx 编码的 avi 格式视频, rm&#x2F;rmvb&#x2F;asf&#x2F;wmv 等流媒体视频，外加 vcd&#x2F;dvd和其他 mpeg2&#x2F;mpeg4 视频。)<br>对于totem，播放对应格式的多媒体时会自动搜索所需的解码器，所以就不必专门安装解码器了，但mplayer需单独安装强大的win32codes解码器。<br>win32codes的下载地址:<br><a target="_blank" rel="noopener" href="http://archive.ubuntu.org.cn/ubuntu-cn/dists/edgy/main/binary-i386/media/w32codecs_20060611-1plf6.10_i386.deb">http://archive.ubuntu.org.cn/ubuntu-cn/dists/edgy/main/binary-i386/media/w32codecs_20060611-1plf6.10_i386.deb</a><br><a href="ftp://211.86.156.210/debian-multimedia/pool/main/w/w32codecs/w32codecs_20061022-0.0_i386.deb">ftp://211.86.156.210/debian-multimedia/pool/main/w/w32codecs/w32codecs_20061022-0.0_i386.deb</a></p>
+<p>Totem（或使用xine）播放rmvb没有声音的解决办法<br>打开主文件夹，按Ctrl+H显示所有文件<br>找到并编辑~&#x2F;.xine&#x2F;catalog.cache文件<br>[&#x2F;usr&#x2F;lib&#x2F;xine&#x2F;plugins&#x2F;1.1.4&#x2F;xineplug_decode_real_audio.so]<br>把decoder_priority增加到10</p>
 <p>Audacious的设置<br>1）解决audacious中文乱码现象:在audacious上右键选择”首选项”，在”播放列表”中，把标题格式改为”Custom”,再把自定格式改为<br>“%f”（不要引号）。<br>2) 如果要让 audacious 播放 APE 格式的音乐：<br>sudo apt-get install audacious-mac<br>3) 如果需要把 APE 转换为 FLAC：<br>sudo apt-get install mac flac cuetools shntool<br>cuebreakpoints xx.cue ‘shnsplit -o flac -n xx xx.ape</p>
 <p>Mplayer 的中文字幕设置方法</p>
 <ol>
 <li>在 Preferences-Font 里面点击 “Browse” 选择一个中文字体，Encodeing 选择 Unicode。</li>
 <li>在 Preferences-Subtitle&amp;OSD 里面的 Encoding 选择：<br>Simplified Chinese Charset(cp936)</li>
-<li>在 Preferences-Font “Text scale” 这里调整字幕大小(我调整为 3.8 )。<br>如果播放时提示错误，设置一下：<br>Preferences-Video 选择 “xv X11/Xv” “Enable frame dropping”<br>Preferences-Codecs&amp;demuxer 选择 “FFmpeg/libavcodec audio decoders”<br>如果要让 Rhythmbox 和 Banshee 这些使用 gstreamer 为后端的播放器，能播放 mp3, wma, ra, ram, wav 等格式音乐，就装上：<br>sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-pitfdll gstreamer0.10-ffmpeg</li>
+<li>在 Preferences-Font “Text scale” 这里调整字幕大小(我调整为 3.8 )。<br>如果播放时提示错误，设置一下：<br>Preferences-Video 选择 “xv X11&#x2F;Xv” “Enable frame dropping”<br>Preferences-Codecs&amp;demuxer 选择 “FFmpeg&#x2F;libavcodec audio decoders”<br>如果要让 Rhythmbox 和 Banshee 这些使用 gstreamer 为后端的播放器，能播放 mp3, wma, ra, ram, wav 等格式音乐，就装上：<br>sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-pitfdll gstreamer0.10-ffmpeg</li>
 </ol>
-<p>2、安装Realplayer播放器<br>sudo apt-get install realplay<br>安装了realplay，如果打不开。可能是因为和SCIM输入法有冲突，可这样处理：<br>sudo gedit /usr/bin/realplay<br>在第二行也就是”#!/bin/sh”的下一行加入 CODE代码:<br>GTK_IM_MODULE=xim; export GTK_IM_MODULE</p>
+<p>2、安装Realplayer播放器<br>sudo apt-get install realplay<br>安装了realplay，如果打不开。可能是因为和SCIM输入法有冲突，可这样处理：<br>sudo gedit &#x2F;usr&#x2F;bin&#x2F;realplay<br>在第二行也就是”#!&#x2F;bin&#x2F;sh”的下一行加入 CODE代码:<br>GTK_IM_MODULE&#x3D;xim; export GTK_IM_MODULE</p>
 <p>3、安装smplayer：一个非常好的播放器！<br>sudo apt-get install smplayer</p>
 <p>4、使用 Firefox 在线播放解决办法</p>
 <ol>
@@ -278,7 +278,7 @@
 <p>这样firefox就会用MPLAYER的播放了</p>
 <p>5、安装LyricZilla （可能CPU占用比较高）<br>LyricZilla是为 Linux 下的多款音乐播放器做的插件（现在可插于 beep-media-player 和 audacious）。它能够自动搜索当前播放歌曲的歌词，而且当前行会在播放时滚动。</p>
 <ol>
-<li>加入APT源：<br>sudo wget <a target="_blank" rel="noopener" href="http://lyriczilla.googlecode.com/svn/trunk/package/lyriczilla.list">http://lyriczilla.googlecode.com/svn/trunk/package/lyriczilla.list</a> -O /etc/apt/sources.list.d/lyriczilla.list</li>
+<li>加入APT源：<br>sudo wget <a target="_blank" rel="noopener" href="http://lyriczilla.googlecode.com/svn/trunk/package/lyriczilla.list">http://lyriczilla.googlecode.com/svn/trunk/package/lyriczilla.list</a> -O &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;lyriczilla.list</li>
 <li>安装：sudo apt-get update<br>sudo apt-get install lyriczilla lyriczilla-plugin-audacious lyriczilla-plugin-bmp<br>安装好之后，在beep-media-player或audacious的首选项－插件－常规里面，勾选它。</li>
 </ol>
 
@@ -291,8 +291,8 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/linux/" rel="tag"># linux</a>
-              <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
               <a href="/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/" rel="tag"># 多媒体</a>
+              <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
           </div>
 
         

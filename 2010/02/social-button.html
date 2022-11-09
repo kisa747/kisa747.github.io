@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -27,19 +27,19 @@
 <meta property="og:site_name" content="智行天下">
 <meta property="og:description" content="之前使用过许多社会化分享的插件，后来转用Add Bookmarks插件，不过插件已经很老了，好多的按钮都已失效，而且又好多的估计已经没有在使用了。靠人不如靠自己，最终决定亲自对它进行大修。 其实挺简单的，根本不用插件，直接用代码就可以实现该功能。除了Twitter全是Java弹出窗口模式，尽管代码麻烦，但感觉弹出窗口模式很酷，我很喜欢。 使用方法：下载sharelink.7z，解压得到sharel">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://kisa747.top/2010/02/delicious.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/google.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/facebook.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/live.gif">
-<meta property="og:image" content="https://kisa747.top/2010/02/baidu.gif">
-<meta property="og:image" content="https://kisa747.top/2010/02/qq.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/renren.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/kaixin.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/douban.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/fanfou.gif">
-<meta property="og:image" content="https://kisa747.top/2010/02/tencent.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/sina.ico">
-<meta property="og:image" content="https://kisa747.top/2010/02/twitter.ico">
+<meta property="og:image" content="https://kisa747.top/delicious.ico">
+<meta property="og:image" content="https://kisa747.top/google.ico">
+<meta property="og:image" content="https://kisa747.top/facebook.ico">
+<meta property="og:image" content="https://kisa747.top/live.gif">
+<meta property="og:image" content="https://kisa747.top/baidu.gif">
+<meta property="og:image" content="https://kisa747.top/qq.ico">
+<meta property="og:image" content="https://kisa747.top/renren.ico">
+<meta property="og:image" content="https://kisa747.top/kaixin.ico">
+<meta property="og:image" content="https://kisa747.top/douban.ico">
+<meta property="og:image" content="https://kisa747.top/fanfou.gif">
+<meta property="og:image" content="https://kisa747.top/tencent.ico">
+<meta property="og:image" content="https://kisa747.top/sina.ico">
+<meta property="og:image" content="https://kisa747.top/twitter.ico">
 <meta property="article:published_time" content="2010-01-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2019-08-25T12:57:58.148Z">
 <meta property="article:author" content="kisa747">
@@ -48,7 +48,7 @@
 <meta property="article:tag" content="分享">
 <meta property="article:tag" content="插件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kisa747.top/2010/02/delicious.ico">
+<meta name="twitter:image" content="https://kisa747.top/delicious.ico">
 
 
 <link rel="canonical" href="https://kisa747.top/2010/02/social-button.html">
@@ -270,38 +270,38 @@
 <p>_Update：2010-07-02_，更新为单独的php文件和图标文件夹，放到主题内，方便调用。</p>
 <p>_Update_：新增了Google Buzz转发按钮。<br>sharelink.php里的代码如下：</p>
 </blockquote>
-<p>`</p>
+<p>&#96;</p>
 <style type="text/css">
 .sharelink {margin-right:3px;}
 </style>
 <p>» 收藏+分享：</p>
 <!-- Delicious -->
-<p><a href="http://delicious.com/save" onclick="window.open('http://delicious.com/save?v=5&noui&jump=close&url='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550,left=50,top=50,'); return false;"><img src="delicious.ico" alt="Delicious" title="收藏到Delicious"></a></p>
+<p><a href="http://delicious.com/save" onclick="window.open('http://delicious.com/save?v=5&noui&jump=close&url='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550,left=50,top=50,'); return false;"><img src="/delicious.ico" alt="Delicious" title="收藏到Delicious"></a></p>
 <!-- Google -->
-<p><a href="javascript:window.open('http://www.google.com/bookmarks/mark?op=add&bkmk='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=800,height=600,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="google.ico" alt="Google" title="添加到Google书签"></a></p>
+<p><a href="javascript:window.open('http://www.google.com/bookmarks/mark?op=add&bkmk='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=800,height=600,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/google.ico" alt="Google" title="添加到Google书签"></a></p>
 <!-- facebook -->
-<p><a href="javascript:window.open('http://www.facebook.com/share.php?u='+encodeURIComponent('<?php the_permalink() ?>')+'&t='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=800,height=600,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="facebook.ico" alt="facebook" title="分享到facebook"></a></p>
+<p><a href="javascript:window.open('http://www.facebook.com/share.php?u='+encodeURIComponent('<?php the_permalink() ?>')+'&t='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=800,height=600,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/facebook.ico" alt="facebook" title="分享到facebook"></a></p>
 <!-- Live -->
-<p><a href="javascript:window.open('https://skydrive.live.com/sharefavorite.aspx/.SharedFavorites/?url='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=640,height=600,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="live.gif" alt="Live收藏夹" title="添加到Live收藏夹"></a></p>
+<p><a href="javascript:window.open('https://skydrive.live.com/sharefavorite.aspx/.SharedFavorites/?url='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=640,height=600,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/live.gif" alt="Live收藏夹" title="添加到Live收藏夹"></a></p>
 <!-- baidu -->
-<p><a href="javascript:window.open('http://cang.baidu.com/do/add?it='+encodeURIComponent(document.title.substring(0,76))+'&iu='+encodeURIComponent('<?php the_permalink() ?>')+'&fr=ien#nw=1','_blank','scrollbars=no,width=600,height=450,left=50,top=50,status=no,resizable=yes'); void 0"><img src="baidu.gif" alt="百度搜藏" title="搜藏到百度搜藏"></a></p>
+<p><a href="javascript:window.open('http://cang.baidu.com/do/add?it='+encodeURIComponent(document.title.substring(0,76))+'&iu='+encodeURIComponent('<?php the_permalink() ?>')+'&fr=ien#nw=1','_blank','scrollbars=no,width=600,height=450,left=50,top=50,status=no,resizable=yes'); void 0"><img src="/baidu.gif" alt="百度搜藏" title="搜藏到百度搜藏"></a></p>
 <!-- QQ -->
-<p><a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent(document.title)+'&uri='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="qq.ico" alt="QQ书签" title="收藏到QQ书签"></a></p>
+<p><a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent(document.title)+'&uri='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/qq.ico" alt="QQ书签" title="收藏到QQ书签"></a></p>
 <!-- renren -->
-<p><a href="javascript:window.open('http://share.renren.com/share/buttonshare.do?link='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=600,height=400,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="renren.ico" alt="人人网" title="分享到人人网"></a></p>
+<p><a href="javascript:window.open('http://share.renren.com/share/buttonshare.do?link='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=600,height=400,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/renren.ico" alt="人人网" title="分享到人人网"></a></p>
 <!-- kaixin -->
-<p><a href="javascript:window.open('http://www.kaixin001.com/~repaste/repaste.php?rtitle='+encodeURIComponent(document.title)+'&url='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="kaixin.ico" alt="开心网" title="分享到开心网"></a></p>
+<p><a href="javascript:window.open('http://www.kaixin001.com/~repaste/repaste.php?rtitle='+encodeURIComponent(document.title)+'&url='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/kaixin.ico" alt="开心网" title="分享到开心网"></a></p>
 <!-- douban -->
-<p><a href="javascript:window.open('http://www.douban.com/recommend/?url='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=600,height=400,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="douban.ico" alt="豆瓣" title="推荐到豆瓣"></a></p>
+<p><a href="javascript:window.open('http://www.douban.com/recommend/?url='+encodeURIComponent('<?php the_permalink() ?>')+'&title='+encodeURIComponent(document.title)+'&jumpback=2&noui=1','favit','width=600,height=400,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/douban.ico" alt="豆瓣" title="推荐到豆瓣"></a></p>
 <!-- 饭否 -->
-<p><a href="javascript:var d=document,w=window,f='http://fanfou.com/share',l=d.location,e=encodeURIComponent,p='?u='+e(l.href)+'?t='+e(d.title)+'?d='+e(w.getSelection?w.getSelection().toString():d.getSelection?d.getSelection():d.selection.createRange().text)+'?s=bl';if(!w.open(f+'r'+p,'sharer','toolbar=0,status=0,width=640,height=440')){l.href=f+'.new'+p;}void(0)"><img src="fanfou.gif" alt="饭否" title="分享到饭否"></a></p>
+<p><a href="javascript:var d=document,w=window,f='http://fanfou.com/share',l=d.location,e=encodeURIComponent,p='?u='+e(l.href)+'?t='+e(d.title)+'?d='+e(w.getSelection?w.getSelection().toString():d.getSelection?d.getSelection():d.selection.createRange().text)+'?s=bl';if(!w.open(f+'r'+p,'sharer','toolbar=0,status=0,width=640,height=440')){l.href=f+'.new'+p;}void(0)"><img src="/fanfou.gif" alt="饭否" title="分享到饭否"></a></p>
 <!-- 腾讯微博 -->
-<p><a href="javascript:window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=600,height=400,left=200,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="tencent.ico" alt="腾讯微博" title="转发到腾讯微博"></a></p>
+<p><a href="javascript:window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=600,height=400,left=200,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/tencent.ico" alt="腾讯微博" title="转发到腾讯微博"></a></p>
 <!-- Sina -->
-<p><a href="javascript:window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=640,height=400,left=200,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="sina.ico" alt="新浪微博" title="转发到新浪微博"></a></p>
+<p><a href="javascript:window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent('<?php the_permalink() ?>')+'&jumpback=2&noui=1','favit','width=640,height=400,left=200,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="/sina.ico" alt="新浪微博" title="转发到新浪微博"></a></p>
 <!-- Twitter -->
-<p><a href="http://twitter.com/home?status=<?php the_title(); ?> « <?php bloginfo('name'); ?>+-+<?php the_permalink() ?>+" target="_blank"><img src="twitter.ico" alt="Twitter" title="转发到Twitter"></a>`</p>
-<p>&nbsp;</p>
+<p><a href="http://twitter.com/home?status=<?php the_title(); ?> « <?php bloginfo('name'); ?>+-+<?php the_permalink() ?>+" target="_blank"><img src="/twitter.ico" alt="Twitter" title="转发到Twitter"></a>&#96;</p>
+<p>&amp;nbsp;</p>
 
     </div>
 

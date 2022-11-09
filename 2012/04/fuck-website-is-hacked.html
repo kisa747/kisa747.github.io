@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
@@ -27,15 +27,18 @@
 <meta property="og:site_name" content="智行天下">
 <meta property="og:description" content="昨晚上突然发现博客 wp-config.php 里被插了一段代码，原代码如下： 1eval(base64_decode(&quot;DQplc&gt;&gt;&gt;&gt;&#x3D;&#x3D;&quot;));  解码后包含有 http:&#x2F;&#x2F;minkof.sellclassics.com&#x2F; 这个网址。 也懒的研究这段代码什么含义了，还好影响不大。于是直接直接K掉所有文件和数据库，重新安装wordpress，免得">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kisa747.top/img/040801.jpg">
+<meta property="og:image" content="https://kisa747.top/img/040802.jpg">
 <meta property="article:published_time" content="2012-04-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-03T13:19:41.076Z">
+<meta property="article:modified_time" content="2022-11-09T12:30:33.411Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="心情随笔">
 <meta property="article:tag" content="wordpress">
+<meta property="article:tag" content="数据库">
 <meta property="article:tag" content="安全">
 <meta property="article:tag" content="密码">
-<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kisa747.top/img/040801.jpg">
 
 
 <link rel="canonical" href="https://kisa747.top/2012/04/fuck-website-is-hacked.html">
@@ -232,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-03 21:19:41" itemprop="dateModified" datetime="2022-11-03T21:19:41+08:00">2022-11-03</time>
+      <time title="修改时间：2022-11-09 20:30:33" itemprop="dateModified" datetime="2022-11-09T20:30:33+08:00">2022-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,17 +258,18 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>昨晚上突然发现博客 wp-config.php 里被插了一段代码，原代码如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">eval</span>(base64_decode(<span class="string">&quot;DQplc&gt;&gt;&gt;&gt;==&quot;</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">eval</span>(<span class="title function_ invoke__">base64_decode</span>(<span class="string">&quot;DQplc&gt;&gt;&gt;&gt;==&quot;</span>));</span><br></pre></td></tr></table></figure>
 
 <p>解码后包含有 <code>http://minkof.sellclassics.com/</code> 这个网址。</p>
 <p>也懒的研究这段代码什么含义了，还好影响不大。于是直接直接K掉所有文件和数据库，重新安装wordpress，免得不知道哪里还有被插的地方。折腾了1个多小时才终于搞定。</p>
 <span id="more"></span>
 
 <p>网上随便一搜，还真有人遇到和我一模一样的情况，这位 <a target="_blank" rel="noopener" href="http://www.mintrix.net/blog/2012/04/04/damn-you-hackers-go-to-hell/">妹纸</a> 的火气还很大，直接就破口骂了。</p>
+<p><img src="/img/040801.jpg" alt="040801"><img src="/img/040802.jpg" alt="040802"></p>
 <p>还看到了另一篇文章，不仅详细讲了清楚类似(eval(base64_decode)的方法，而且还讲了wordpress应注意的安全事项，以免再次被黑，原文：<a target="_blank" rel="noopener" href="http://designpx.com/tutorials/wordpress-security/">WordPress Security</a> -Protect your WordPress blog from being hacked by (eval(base64_decode); Tips for WordPress security; make your WordPress blog secure from hackers.。</p>
 <p>我就不翻译了，下面是如何清除恶意代码：</p>
 <h3 id="一、清除所有的恶意代码"><a href="#一、清除所有的恶意代码" class="headerlink" title="一、清除所有的恶意代码"></a>一、清除所有的恶意代码</h3><p>这次我的只是config.php被注入了代码，其实直接删除恶意代码即可，但如果是每个php文件都被注入了代码，逐个删除显然不大可能。如果每个php文件的头部都出现以下代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(base64_decode(<span class="string">&quot;aWYoZnVuY3Rpb25fZXhpc3RzKCdvYl9zdG.......</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(<span class="title function_ invoke__">base64_decode</span>(<span class="string">&quot;aWYoZnVuY3Rpb25fZXhpc3RzKCdvYl9zdG.......</span></span><br></pre></td></tr></table></figure>
 
 <p>解决方法很简单，首先下载下面的文件：</p>
 <p>【下载地址】：<a target="_blank" rel="noopener" href="http://dl.dropbox.com/u/3633907/download/wordpress-fix.7z">wordpress-fix.7z</a></p>
@@ -303,9 +307,9 @@
           <div class="post-tags">
               <a href="/tags/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/" rel="tag"># 心情随笔</a>
               <a href="/tags/wordpress/" rel="tag"># wordpress</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
               <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
               <a href="/tags/%E5%AF%86%E7%A0%81/" rel="tag"># 密码</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
           </div>
 
         
