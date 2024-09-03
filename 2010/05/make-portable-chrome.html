@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="由于Chrome默认采用的是在线安装形式，秉承Google软件的一贯风格，甚至无法自定义安装位置。各个版本的在线安装地址如下： Chrome稳定版（Stable）在线安装: 【点击这里】Chrome测试版（Beta）在线安装： 【点击这里】Chrome开发版（Dev）在线安装： 【点击这里】Chromium下载地址: 【点击这里】 通过上面的地址安装，显然DIY度不高。显然这是一个Geeker不愿">
 <meta property="og:type" content="article">
@@ -32,8 +32,8 @@
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="技巧分享">
 <meta property="article:tag" content="google">
-<meta property="article:tag" content="软件">
 <meta property="article:tag" content="绿色版">
+<meta property="article:tag" content="软件">
 <meta property="article:tag" content="diy">
 <meta property="article:tag" content="chrome">
 <meta property="article:tag" content="谷歌浏览器">
@@ -55,6 +55,8 @@
 
 
 
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -64,8 +66,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -85,7 +87,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -100,15 +102,9 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -129,13 +125,13 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="kisa747"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">kisa747</p>
   <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -155,37 +151,24 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/kisa747" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/kisa747" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kisa747" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
+  <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -246,8 +229,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>由于Chrome默认采用的是在线安装形式，秉承Google软件的一贯风格，甚至无法自定义安装位置。各个版本的在线安装地址如下：</p>
+    <div class="post-body" itemprop="articleBody"><p>由于Chrome默认采用的是在线安装形式，秉承Google软件的一贯风格，甚至无法自定义安装位置。各个版本的在线安装地址如下：</p>
 <p>Chrome稳定版（Stable）在线安装: 【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html">点击这里</a>】<br>Chrome测试版（Beta）在线安装： 【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html?extra=betachannel">点击这里</a>】<br>Chrome开发版（Dev）在线安装： 【<a target="_blank" rel="noopener" href="http://www.google.com/chrome/eula.html?extra=devchannel">点击这里</a>】<br>Chromium下载地址: 【<a target="_blank" rel="noopener" href="http://build.chromium.org/buildbot/snapshots/chromium-rel-xp/?O=D">点击这里</a>】</p>
 <p>通过上面的地址安装，显然DIY度不高。显然这是一个Geeker不愿看到的，所以本文主要介绍制作绿色的Chrome，即使重装系统，仍可以使用，而且修改用户数据位置非系统盘。</p>
 <span id="more"></span>
@@ -296,8 +278,8 @@
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E5%B7%A7%E5%88%86%E4%BA%AB/" rel="tag"># 技巧分享</a>
               <a href="/tags/google/" rel="tag"># google</a>
-              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
               <a href="/tags/%E7%BB%BF%E8%89%B2%E7%89%88/" rel="tag"># 绿色版</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
               <a href="/tags/diy/" rel="tag"># diy</a>
               <a href="/tags/chrome/" rel="tag"># chrome</a>
               <a href="/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag"># 谷歌浏览器</a>
@@ -308,12 +290,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2010/05/ubuntu-auto-login-wireless.html" rel="prev" title="Ubuntu设置自动连接无线网络">
-                  <i class="fa fa-chevron-left"></i> Ubuntu设置自动连接无线网络
+                  <i class="fa fa-angle-left"></i> Ubuntu设置自动连接无线网络
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2010/05/use-https-google.html" rel="next" title="如何使用Google的https加密搜索引擎">
-                  如何使用Google的https加密搜索引擎 <i class="fa fa-chevron-right"></i>
+                  如何使用Google的https加密搜索引擎 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -332,15 +314,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">kisa747</span>
-</div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">kisa747</span>
+  </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
@@ -349,11 +330,30 @@
   </footer>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
 
 
 

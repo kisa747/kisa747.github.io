@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"kisa747.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="今天终于把Ubuntu 8.04给配置好了，刚好我配置的时候，也就是中午的时候，腾讯官方网站上刚好放出了QQ For Linux。 中国开始越来越来越重视Linux这个平台了，尽管它仍然是闭源的，但这对中国来说已经是很大的进步了，尤其在桌面应用方面，中国软件界一直都是空白，">
 <meta property="og:type" content="article">
@@ -32,8 +32,8 @@
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="ubuntu">
-<meta property="article:tag" content="腾讯">
 <meta property="article:tag" content="三言二拍">
+<meta property="article:tag" content="腾讯">
 <meta name="twitter:card" content="summary">
 
 
@@ -52,6 +52,8 @@
 
 
 
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -61,8 +63,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -82,7 +84,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -97,15 +99,9 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
@@ -125,13 +121,13 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="kisa747"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">kisa747</p>
   <div class="site-description" itemprop="description">人生苦短，我用 Python！</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -151,37 +147,24 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/kisa747" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kisa747" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/kisa747" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kisa747" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
+  <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -242,8 +225,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>今天终于把Ubuntu 8.04给配置好了，刚好我配置的时候，也就是中午的时候，腾讯官方网站上刚好放出了<a target="_blank" rel="noopener" href="http://im.qq.com/qq/linux/">QQ For Linux</a>。</p>
+    <div class="post-body" itemprop="articleBody"><p>今天终于把Ubuntu 8.04给配置好了，刚好我配置的时候，也就是中午的时候，腾讯官方网站上刚好放出了<a target="_blank" rel="noopener" href="http://im.qq.com/qq/linux/">QQ For Linux</a>。</p>
 <p>中国开始越来越来越重视Linux这个平台了，尽管它仍然是闭源的，但这对中国来说已经是很大的进步了，尤其在桌面应用方面，中国软件界一直都是空白，<span id="more"></span>从我接触Linux，大概就只用过Fictx输入法，LumaQQ等屈指可数的软件。</p>
 <p>其实我对腾讯公司从来就没有过好感，腾讯以抄袭OICQ起家的，后来歪打正着做了中国IM的老大，而且腾讯的抄袭，模仿能力实在是太厉害了，看如今的腾讯，业务面无所不至，但却没几个软件跟业务称得上是精品。</p>
 <p>但腾讯此次能推出Linux平台的软件，还是有一定的眼光，回想起年初百度年初力推它的百度HI聊天软件，广告和宣传作了不少，但没有一个吸引人的，其实夸平台开发软件本身没有什么技术含量，但就是国内人偏偏不愿迈出重要的一步。</p>
@@ -259,8 +241,8 @@
           <div class="post-tags">
               <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
-              <a href="/tags/%E8%85%BE%E8%AE%AF/" rel="tag"># 腾讯</a>
               <a href="/tags/%E4%B8%89%E8%A8%80%E4%BA%8C%E6%8B%8D/" rel="tag"># 三言二拍</a>
+              <a href="/tags/%E8%85%BE%E8%AE%AF/" rel="tag"># 腾讯</a>
           </div>
 
         
@@ -268,12 +250,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2008/06/firefox3-20-extension.html" rel="prev" title="让firefox3也兼容2.0的扩展">
-                  <i class="fa fa-chevron-left"></i> 让firefox3也兼容2.0的扩展
+                  <i class="fa fa-angle-left"></i> 让firefox3也兼容2.0的扩展
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2008/08/superhidden-for-xp.html" rel="next" title="SuperHidden(XP右键添加“显示隐藏文件”菜单)">
-                  SuperHidden(XP右键添加“显示隐藏文件”菜单) <i class="fa fa-chevron-right"></i>
+                  SuperHidden(XP右键添加“显示隐藏文件”菜单) <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -292,15 +274,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">kisa747</span>
-</div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">kisa747</span>
+  </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
@@ -309,11 +290,30 @@
   </footer>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
 
 
 
