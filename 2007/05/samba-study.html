@@ -28,10 +28,10 @@
 <meta property="og:description" content="以前用windows给别人局域网共享，捣鼓了好久怎么都搞不定，如今用linux共享，简直太easy了，配置一下samba.conf就ok了。贴上咱的samba.conf">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2007-05-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-08-25T12:57:58.038Z">
+<meta property="article:modified_time" content="2024-09-22T02:17:54.318Z">
 <meta property="article:author" content="kisa747">
-<meta property="article:tag" content="linux">
 <meta property="article:tag" content="局域网">
+<meta property="article:tag" content="linux">
 <meta property="article:tag" content="samba">
 <meta name="twitter:card" content="summary">
 
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2019-08-25 20:57:58" itemprop="dateModified" datetime="2019-08-25T20:57:58+08:00">2019-08-25</time>
+      <time title="修改时间：2024-09-22 10:17:54" itemprop="dateModified" datetime="2024-09-22T10:17:54+08:00">2024-09-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,23 +236,26 @@
     <div class="post-body" itemprop="articleBody"><p>以前用windows给别人局域网共享，捣鼓了好久怎么都搞不定，如今用linux共享，简直太easy了，配置一下samba.conf就ok了。<br>贴上咱的samba.conf</p>
 <span id="more"></span>
 
-<p><code>[global] workgroup = JIANHUAN server string = Ubuntu dns proxy = no log file = /var/log/samba/log.%m max log size = 1000 syslog = 0 security = share encrypt passwords = false wins support = yes [电影] path = /home/dianying available = yes browsable = yes public = yes writable = no </code><br>设置完成后<br>运行命令sudo &#x2F;etc&#x2F;init.d&#x2F;samba restart<br>接下来我们再进行一次客户端的自我测试:<br>运行命令smbclient -L &#x2F;&#x2F;localhost</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">workgroup</span> = JIANHUAN</span><br><span class="line">server <span class="attr">string</span> = Ubuntu</span><br><span class="line">dns <span class="attr">proxy</span> = <span class="literal">no</span></span><br><span class="line">log <span class="attr">file</span> = /var/log/samba/log.%m</span><br><span class="line">max log <span class="attr">size</span> = <span class="number">1000</span></span><br><span class="line"><span class="attr">syslog</span> = <span class="number">0</span></span><br><span class="line"><span class="attr">security</span> = share</span><br><span class="line">encrypt <span class="attr">passwords</span> = <span class="literal">false</span></span><br><span class="line">wins <span class="attr">support</span> = <span class="literal">yes</span></span><br><span class="line"><span class="section">[电影]</span></span><br><span class="line"><span class="attr">path</span> = /home/dianying</span><br><span class="line"><span class="attr">available</span> = <span class="literal">yes</span></span><br><span class="line"><span class="attr">browsable</span> = <span class="literal">yes</span></span><br><span class="line"><span class="attr">public</span> = <span class="literal">yes</span></span><br><span class="line"><span class="attr">writable</span> = <span class="literal">no</span></span><br></pre></td></tr></table></figure>
+<p>设置完成后<br>运行命令sudo &#x2F;etc&#x2F;init.d&#x2F;samba restart<br>接下来我们再进行一次客户端的自我测试:<br>运行命令smbclient -L &#x2F;&#x2F;localhost</p>
 <p>Samba有用的命令</p>
 <blockquote>
 <p>smbclient ：访问所有共享资源<br>smbstatus： 列出当前所有的samba连接状态<br>smbpasswd：修改samba用户口令、增加samba用户。<br>nmblookup：用于查询主机的NetBIOS名，并将其映射为IP地址<br>testparam： 用于检查配置文件中的参数设置是否正确<br>但是用share级别的共享安全性不太够，下面是user级的配置</p>
 </blockquote>
-<p><code>[global] workgroup = frog studio server string = Ubuntu Samba Server log file = /var/log/samba/log.%m security = user encrypt passwords = yes smb passwd file = /etc/samba/smbpasswd [Share Directory 2] comment = My Share Directory 2 path = /home/share2 writable = yes #有权限进入者为%S，表示当前的共享名 valid users = %S create mode = 0664 directory mode = 0775</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">workgroup</span> = frog studio</span><br><span class="line">server <span class="attr">string</span> = Ubuntu Samba Server</span><br><span class="line">log <span class="attr">file</span> = /var/log/samba/log.%m</span><br><span class="line"><span class="attr">security</span> = user</span><br><span class="line">encrypt <span class="attr">passwords</span> = <span class="literal">yes</span></span><br><span class="line">smb passwd <span class="attr">file</span> = /etc/samba/smbpasswd</span><br><span class="line"><span class="section">[Share Directory 2]</span></span><br><span class="line"><span class="attr">comment</span> = My Share Directory <span class="number">2</span></span><br><span class="line"><span class="attr">path</span> = /home/share2</span><br><span class="line"><span class="attr">writable</span> = <span class="literal">yes</span></span><br><span class="line"><span class="comment">#有权限进入者为%S，表示当前的共享名</span></span><br><span class="line">valid <span class="attr">users</span> = %S</span><br><span class="line">create <span class="attr">mode</span> = <span class="number">0664</span></span><br><span class="line">directory <span class="attr">mode</span> = <span class="number">0775</span>`</span><br></pre></td></tr></table></figure>
+
 <p>设置完成后,再次重启Samba服务器,但现在先不要急于跑到windows下去测试,因为这个是要用户名和密码的,下面我们先创建登录用户和登录密码:</p>
 <blockquote>
 <p>smbpasswd -a smb (在密码文件里新增一个用户(smb))</p>
 <p>#smbpasswd -d smb (暂停用户登录)</p>
 <p>#smbpasswd -e smb (恢复暂停用户)</p>
 <p>#smbpasswd -x smb (删除用户)</p>
-<p>更多操作请参考man smbpasswd<br>创建好密码文件后,测试Samba设置,testparm,测试正常后,查看一下我们的共享目录:</p>
-</blockquote>
+<p>更多操作请参考man smbpasswd</p>
+<p>创建好密码文件后,测试Samba设置,testparm,测试正常后,查看一下我们的共享目录:</p>
 <p><code>smbclient -L //localhost</code></p>
-<p>再贴个8.04下的配置文件<br><code>[global] workgroup = WORKGROUP server string = %h server (Samba, Ubuntu) wins support = yes log file = /var/log/samba/log.%m max log size = 1000 syslog = 0 security = user encrypt passwords = true socket options = TCP_NODELAY usershare max shares = 100 [public] path = /home/kisa/public browseable = yes read only = no public = yes writable=yes guest ok = yes create mask = 0775 directory mask = 0775 </code></p>
-
+</blockquote>
+<p>再贴个8.04下的配置文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">workgroup</span> = WORKGROUP</span><br><span class="line">server <span class="attr">string</span> = %h server (Samba, Ubuntu)</span><br><span class="line">wins <span class="attr">support</span> = <span class="literal">yes</span></span><br><span class="line">log <span class="attr">file</span> = /var/log/samba/log.%m</span><br><span class="line">max log <span class="attr">size</span> = <span class="number">1000</span></span><br><span class="line"><span class="attr">syslog</span> = <span class="number">0</span></span><br><span class="line"><span class="attr">security</span> = user</span><br><span class="line">encrypt <span class="attr">passwords</span> = <span class="literal">true</span></span><br><span class="line">socket <span class="attr">options</span> = TCP_NODELAY</span><br><span class="line">usershare max <span class="attr">shares</span> = <span class="number">100</span></span><br><span class="line"><span class="section">[public]</span></span><br><span class="line"><span class="attr">path</span> = /home/kisa/public</span><br><span class="line"><span class="attr">browseable</span> = <span class="literal">yes</span></span><br><span class="line">read <span class="attr">only</span> = <span class="literal">no</span></span><br><span class="line"><span class="attr">public</span> = <span class="literal">yes</span></span><br><span class="line"><span class="attr">writable</span>=<span class="literal">yes</span></span><br><span class="line">guest <span class="attr">ok</span> = <span class="literal">yes</span></span><br><span class="line">create <span class="attr">mask</span> = <span class="number">0775</span></span><br><span class="line">directory <span class="attr">mask</span> = <span class="number">0775</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -261,8 +264,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/" rel="tag"># 局域网</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/samba/" rel="tag"># samba</a>
           </div>
 
