@@ -27,9 +27,9 @@
 <meta property="og:site_name" content="智行天下">
 <meta property="og:description" content="其实以现在电脑的主流配置，之前的所谓的各种系统优化，效果已不像从前的电脑那么明显和灵验了。即使对Windows 7做再多的优化设置，速度也不会有太大的变化。所以现在做优化，只需删除一些不必要的组件，减少系统许多弱智的判断和提示，从而满足一下洁癖的需求。 下面的大部分操作都是以管理员身份运行，所以如果失败，请尝试用管理员运行。或是直接开启 Administrator 帐户，先取得最高管理权限。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://kisa747.top/073101.jpg">
+<meta property="og:image" content="https://kisa747.top/img/2010/073101.jpg">
 <meta property="article:published_time" content="2010-07-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-08-25T12:57:58.163Z">
+<meta property="article:modified_time" content="2024-09-23T01:16:30.770Z">
 <meta property="article:author" content="kisa747">
 <meta property="article:tag" content="技巧分享">
 <meta property="article:tag" content="设置">
@@ -37,7 +37,7 @@
 <meta property="article:tag" content="优化">
 <meta property="article:tag" content="windows 7">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kisa747.top/073101.jpg">
+<meta name="twitter:image" content="https://kisa747.top/img/2010/073101.jpg">
 
 
 <link rel="canonical" href="https://kisa747.top/2010/07/windows-7-simple-optimization.html">
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2019-08-25 20:57:58" itemprop="dateModified" datetime="2019-08-25T20:57:58+08:00">2019-08-25</time>
+      <time title="修改时间：2024-09-23 09:16:30" itemprop="dateModified" datetime="2024-09-23T09:16:30+08:00">2024-09-23</time>
     </span>
 
   
@@ -229,13 +229,14 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><img src="/073101.jpg">其实以现在电脑的主流配置，之前的所谓的各种系统优化，效果已不像从前的电脑那么明显和灵验了。即使对Windows 7做再多的优化设置，速度也不会有太大的变化。所以现在做优化，只需删除一些不必要的组件，减少系统许多弱智的判断和提示，从而满足一下洁癖的需求。</p>
+    <div class="post-body" itemprop="articleBody"><p><img src="/img/2010/073101.jpg" alt="windows优化">其实以现在电脑的主流配置，之前的所谓的各种系统优化，效果已不像从前的电脑那么明显和灵验了。即使对Windows 7做再多的优化设置，速度也不会有太大的变化。所以现在做优化，只需删除一些不必要的组件，减少系统许多弱智的判断和提示，从而满足一下洁癖的需求。</p>
 <p>下面的大部分操作都是以管理员身份运行，所以如果失败，请尝试用管理员运行。或是直接开启 Administrator 帐户，先取得最高管理权限。</p>
 <span id="more"></span>
 
 <p>方法：右击计算机 → 管理 → 本地用户和组 → 用户，右键 Administrator → 属性，去除”帐户已禁用”前的勾，注销当前用户登录Administrator 帐户。</p>
 <h3 id="一、关闭休眠"><a href="#一、关闭休眠" class="headerlink" title="一、关闭休眠"></a>一、关闭休眠</h3><p>个人感觉休眠功能作用不大。以管理员身份运行命令提示符，运行以下命令：</p>
-<p><code>powercfg -h off </code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg -h off</span><br></pre></td></tr></table></figure>
+
 <h3 id="二、关闭系统保护"><a href="#二、关闭系统保护" class="headerlink" title="二、关闭系统保护"></a>二、关闭系统保护</h3><p>右击计算机 → 属性 → 高级系统设置 → 系统保护，然后关闭所有驱动器的系统保护。</p>
 <h3 id="三、转移虚拟内存"><a href="#三、转移虚拟内存" class="headerlink" title="三、转移虚拟内存"></a>三、转移虚拟内存</h3><p>计算机右键属性 → 高级管理设置 → 高级 → 性能 → 设置 → 高级 → 更改。</p>
 <h3 id="四、优化开始菜单"><a href="#四、优化开始菜单" class="headerlink" title="四、优化开始菜单"></a>四、优化开始菜单</h3><p>1、关闭记录历史文档</p>
@@ -254,7 +255,8 @@
 <p>2、定位到计算机配置 → 管理模板 → Windows组件 → 关机选项 → 【关机期间挂起登录会话的超时时间】，将该设定调节为【已启用】，并在下方挂起会话的超时分钟数设定为 0 。</p>
 <p>3、设定关机时等待进程结束的时间为200毫秒</p>
 <p>导入以下注册表信息：</p>
-<p><code>Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control] &quot;WaitToKillServiceTimeout&quot;=&quot;200&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]</span><br><span class="line">&quot;WaitToKillServiceTimeout&quot;=&quot;200&quot;</span><br></pre></td></tr></table></figure>
+
 <p>或是直接下载并导入，【下载地址】：<a target="_blank" rel="noopener" href="http://dl.dropbox.com/u/3633907/download/jiakuaiguanji.7z" title="http://dl.dropbox.com/u/3633907/download/jiakuaiguanji.7z">jiakuaiguanji.7z</a></p>
 <h3 id="九、组策略关闭自动播放"><a href="#九、组策略关闭自动播放" class="headerlink" title="九、组策略关闭自动播放"></a>九、组策略关闭自动播放</h3><p>打开：控制面板→自动播放，取消勾选最上方的”为所有媒体和设备使用自动播放”，完全关闭”自动播放”功能。更多设置围观 → <a target="_blank" rel="noopener" href="http://www.kisa747.com/windows7-kill-autorun.html">Windows 7上杜绝可移动磁盘病毒</a>。</p>
 

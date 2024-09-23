@@ -28,10 +28,10 @@
 <meta property="og:description" content="wordpress强大的函数功能，让一切不可能都变成了现实。而wordpress 3.0显得更为复杂，甚至可以说是臃肿。不过借助它的强大，我们完全可以DIY属于自己的wordpress。 位于主题目录下的functions.php，就是我们自定义主题函数的集散地。通过在functions.php里添加短短几行代码，就可以实现众多的功能。 一、删除more标签截断处的跳转我一直使用的最为原始的方法，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2010-07-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-08-25T12:57:58.163Z">
+<meta property="article:modified_time" content="2024-09-23T01:14:45.806Z">
 <meta property="article:author" content="kisa747">
-<meta property="article:tag" content="wordpress">
 <meta property="article:tag" content="主题">
+<meta property="article:tag" content="wordpress">
 <meta property="article:tag" content="dropbox">
 <meta property="article:tag" content="函数">
 <meta property="article:tag" content="正则表达式">
@@ -215,7 +215,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2019-08-25 20:57:58" itemprop="dateModified" datetime="2019-08-25T20:57:58+08:00">2019-08-25</time>
+      <time title="修改时间：2024-09-23 09:14:45" itemprop="dateModified" datetime="2024-09-23T09:14:45+08:00">2024-09-23</time>
     </span>
 
   
@@ -230,22 +230,25 @@
     <div class="post-body" itemprop="articleBody"><p>wordpress强大的函数功能，让一切不可能都变成了现实。而wordpress 3.0显得更为复杂，甚至可以说是臃肿。不过借助它的强大，我们完全可以DIY属于自己的wordpress。</p>
 <p>位于主题目录下的functions.php，就是我们自定义主题函数的集散地。通过在functions.php里添加短短几行代码，就可以实现众多的功能。</p>
 <h3 id="一、删除more标签截断处的跳转"><a href="#一、删除more标签截断处的跳转" class="headerlink" title="一、删除more标签截断处的跳转"></a>一、删除more标签截断处的跳转</h3><p>我一直使用的最为原始的方法，用插入more标签实现文章截断功能，然而read more链接会变成如下的形式：</p>
-<p><code>&lt;a class=&quot;more-link&quot; href=&quot;http://www.kisa747.com/1.html&lt;span style=&quot;color: #ff0000;&quot;&gt;#more-447&lt;/span&gt;&quot;&gt;阅读全文&lt;/a&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a class=&quot;more-link&quot; href=&quot;http://www.kisa747.com/1.html&lt;span style=&quot;color: #ff0000;&quot;&gt;#more-447&lt;/span&gt;&quot;&gt;阅读全文&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
 <p>点击它会自动跳到#more-447的位置，很不爽。凭借wordpress强大的add_filter函数，实现这点太小kiss了。</p>
 <p>在functions.php内添加以下代码：</p>
 <p>代码参考自：<a target="_blank" rel="noopener" href="http://domety.com/">Domety</a>»<a target="_blank" rel="noopener" href="http://domety.com/archives/220/">《自定义more标签的more跳转》</a></p>
-<p><code>// 取消more截断的more标签 function remove_more_jump_link($link) &#123; return preg_replace(&#39;/#more-\d+/i&#39;,&#39;&#39;,$link); &#125; add_filter(&#39;the_content_more_link&#39;, &#39;remove_more_jump_link&#39;);</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 取消more截断的more标签</span><br><span class="line">function remove_more_jump_link($link) &#123;</span><br><span class="line">return preg_replace(&#x27;/#more-\d+/i&#x27;,&#x27;&#x27;,$link);</span><br><span class="line">&#125;</span><br><span class="line">add_filter(&#x27;the_content_more_link&#x27;, &#x27;remove_more_jump_link&#x27;);</span><br></pre></td></tr></table></figure>
+
 <h3 id="二、自动替换Dropbox的外链地址"><a href="#二、自动替换Dropbox的外链地址" class="headerlink" title="二、自动替换Dropbox的外链地址"></a>二、自动替换Dropbox的外链地址</h3><p>众所周知，Dropbox的所有外链地址，无论是http还是https，如今都被屏蔽了。其实Dropbox还有一个外链地址<a target="_blank" rel="noopener" href="https://dl-web.dropbox.com,暂时还能用.尽管它也岌岌可危,尽管我明白我这么做实在加速dropbox的离去./">https://dl-web.dropbox.com，暂时还能用。尽管它也岌岌可危，尽管我明白我这么做实在加速Dropbox的离去。</a></p>
 <p>1、替换dl.dropbox.com为dl-web.dropbox.com。</p>
 <p>同理，在functions.php内添加以下代码：</p>
-<p><code>// 自动替换Dropbox的外链地址 function replace_dropbox($content) &#123; return preg_replace(&#39;/https?:\/\/dl.dropbox.com\/+/i&#39;,&#39;https://dl-web.dropbox.com/&#39;,$content); &#125; add_filter(&#39;the_content&#39;, &#39;replace_dropbox&#39;);</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 自动替换Dropbox的外链地址</span><br><span class="line">function replace_dropbox($content) &#123;</span><br><span class="line">return preg_replace(&#x27;/https?:\/\/dl.dropbox.com\/+/i&#x27;,&#x27;https://dl-web.dropbox.com/&#x27;,$content);</span><br><span class="line">&#125;</span><br><span class="line">add_filter(&#x27;the_content&#x27;, &#x27;replace_dropbox&#x27;);</span><br></pre></td></tr></table></figure>
+
 <p>为什么我要用正则来匹配呢？</p>
 <p>嘿嘿，当有一天早上醒来，打开<a target="_blank" rel="noopener" href="https://dl-web.dropbox.com/">https://dl-web.dropbox.com/</a>，提示你该页被重置时。不要震惊，你可以淡定地将代码修改为下面的代码，其中红色文字，需做对应修改，你懂的。</p>
-<p><code>// 自动替换Dropbox的外链地址 function replace_dropbox($content) &#123; return preg_replace(&#39;/https?:\/\/dl.dropbox.com\/u\/&lt;span style=&quot;color: #ff0000;&quot;&gt;3633907&lt;/span&gt;\/+/i&#39;,&#39;&lt;span style=&quot;color: #ff0000;&quot;&gt;http://localhost/img/&lt;/span&gt;&#39;,$content); &#125; add_filter(&#39;the_content&#39;, &#39;replace_dropbox&#39;);</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 自动替换Dropbox的外链地址</span><br><span class="line">function replace_dropbox($content) &#123;</span><br><span class="line">return preg_replace(&#x27;/https?:\/\/dl.dropbox.com\/u\/&lt;span style=&quot;color: #ff0000;&quot;&gt;3633907&lt;/span&gt;\/+/i&#x27;,&#x27;&lt;span style=&quot;color: #ff0000;&quot;&gt;http://localhost/img/&lt;/span&gt;&#x27;,$content);</span><br><span class="line">&#125;</span><br><span class="line">add_filter(&#x27;the_content&#x27;, &#x27;replace_dropbox&#x27;);</span><br></pre></td></tr></table></figure>
+
 <h3 id="三、禁用半角符号自动转换为全角"><a href="#三、禁用半角符号自动转换为全角" class="headerlink" title="三、禁用半角符号自动转换为全角"></a>三、禁用半角符号自动转换为全角</h3><p>wordpress默认会转换文章中的半角符号为全角，可以借助下面代码去掉这个过度关心的功能。</p>
 <p>同理，在functions.php内添加以下代码：</p>
-<p><code>//禁用半角符号自动转换为全角 remove_filter(&#39;the_content&#39;, &#39;wptexturize&#39;); </code></p>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//禁用半角符号自动转换为全角</span><br><span class="line">remove_filter(&#x27;the_content&#x27;, &#x27;wptexturize&#x27;);</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -254,8 +257,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
               <a href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag"># 主题</a>
+              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
               <a href="/tags/dropbox/" rel="tag"># dropbox</a>
               <a href="/tags/%E5%87%BD%E6%95%B0/" rel="tag"># 函数</a>
               <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag"># 正则表达式</a>
