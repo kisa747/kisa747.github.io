@@ -1,0 +1,17 @@
+[project]
+name = "kevin_wiki"
+version = "0.1.0"
+description = "我个人的知识库"
+readme = "README.md"
+authors = [{ name = "kevin", email = "kevin@kisa747.top" }]
+requires-python = ">=3.13"
+dependencies = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-document-dates",
+]
+
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
