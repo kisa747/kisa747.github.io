@@ -1,4 +1,6 @@
-# 文档
+# 在线文档发布
+
+文档创建好后，本地可以预览了，下一步就可以发布了
 
 ## 方法一、手动推送
 
@@ -10,11 +12,11 @@ uv run mkdocs gh-deploy
 
 ## 方法二、让 GitHub 自动执行任务
 
+参考：https://squidfunk.github.io/mkdocs-material/publishing-your-site/
 
+创建 `.github/workflows/ci.yml` ，内容如下，每次 git push 后 github 就会自动build 并将 site 目录下内容推送至 `gh-pages` 分支。
 
-创建 `.github/workflows/ci.yml` ，内容如下：
-
-```
+```yaml
 name: ci 
 on:
   push:
@@ -42,7 +44,7 @@ jobs:
           path: ~/.cache 
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
+      - run: pip install mkdocs-material mkdocs-document-dates
       - run: mkdocs gh-deploy --force
 ```
 

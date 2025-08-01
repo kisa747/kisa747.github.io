@@ -1,3 +1,75 @@
+# 使用 mkdocs 创建在线文档
+
+参考：[ReadtheDocs文档](https://docs.readthedocs.io/en/stable/index.html)
+
+`Sphinx` 作为老牌工具，网上很多的文档也都是采用的 Sphinx 创作，但新兴的`mkdocs`现在貌似更受欢迎，[ReadtheDocs](https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html) 官方也更推荐使用 `mkdocs` 创作，`mkdocs` 优点更多：
+
+- 简单
+- 实时预览，主题和插件定制方便
+- 采用 Markdown 语法写作，语法简单
+
+<!-- more -->
+
+功能上，Sphinx 能实现的，mkdocs 通过插件基本也都能实现，两个都有漂亮的主题。
+
+参考：[MkDocs文档](https://www.mkdocs.org/user-guide/) 、 [Material for MkDocs 主题文档](https://squidfunk.github.io/mkdocs-material/getting-started/)
+
+mkdocs 本身是为创建项目文档而生，而现在要让他专一的作为博客使用，需要一些特殊的设置。
+
+## 创建项目
+
+创建项目，并安装需求的库：
+
+```sh
+mkdir blog && cd blog
+uv init -p 3.13
+# 安装 mkdocs 库
+uv add mkdocs
+# 安装 material 主题，非常漂亮，而且支持暗黑模式。
+uv add mkdocs-material
+```
+
+## 创建 mkdocs 项目
+
+创建项目，在项目目录 `D:\blog` 下执行以下操作：
+
+```sh
+uv run mkdocs new .
+```
+
+目录结构：
+
+```sh
+D:\blog
+│  .readthedocs.yaml      # ReadtheDocs主配置文件。需要自己手动创建。
+│  mkdocs.yml             # mkdocs 主配置文件。由 mkdocs 生成。
+│
+└─docs                    # 文档主目录
+        index.md          # 文档主页显示内容
+        requirements.txt  # ReadtheDocs 需要的依赖文件，必须。
+```
+
+运行以下命令，在浏览器中打开 <http://127.0.0.1:8000> 实时预览。
+
+```sh
+uv run mkdocs serve --watch-theme
+```
+
+Build the documentation site，生成静态文件至目录 `site` 。
+
+```sh
+uv run mkdocs build
+```
+
+## Material 主题
+
+采用 Material for MkDocs 主题的网站：
+
+https://101.ustclug.org
+
+https://hatch.pypa.io
+
+```yaml
 # mkdocs.yml
 # mkdocs 主配置文件
 # https://squidfunk.github.io/mkdocs-material/getting-started/
@@ -9,7 +81,6 @@ site_name: "Kevin's Wiki"
 #  - index.md
 #  - Blog:
 #    - blog/index.md
-
 
 theme:
   name: material
@@ -88,7 +159,7 @@ extra_css:
 # 版权声明
 copyright: Copyright &copy; 2025 - 2025 kisa747
 # 显示仓库地址
-repo_url: https://github.com/kisa747/kisa747.github.io
+repo_url: https://github.com/kisa747/note
 edit_uri: ""
 
 markdown_extensions:
@@ -122,3 +193,15 @@ extra_javascript:
   # 公式支持，参考：https://squidfunk.github.io/mkdocs-material/reference/math/
   - assets/js/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+```
+
+`docs/requirements.txt` 内容：
+
+```ini
+# docs/requirements.txt
+mkdocs
+mkdocs-material
+mkdocstrings[python]
+mkdocs-document-dates
+```
+好用的插件：[mkdocs-document-dates](https://github.com/jaywhj/mkdocs-document-dates)
