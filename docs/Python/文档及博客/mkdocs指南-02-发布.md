@@ -12,7 +12,7 @@ uv run mkdocs gh-deploy
 
 ## 方法二、让 GitHub 自动执行任务
 
-参考：https://squidfunk.github.io/mkdocs-material/publishing-your-site/
+参考：<https://squidfunk.github.io/mkdocs-material/publishing-your-site/>
 
 创建 `.github/workflows/ci.yml` ，内容如下，每次 git push 后 github 就会自动build 并将 site 目录下内容推送至 `gh-pages` 分支。
 

@@ -1,8 +1,8 @@
 # HTTP 请求
 
-参考：https://foofish.net/http-request-process.html
+参考：<https://foofish.net/http-request-process.html>
 
-https://www.cnblogs.com/WindSun/p/11489356.html
+<https://www.cnblogs.com/WindSun/p/11489356.html>
 
 一次完整的HTTP请求过程从TCP三次握手建立连接成功后开始，客户端按照指定的格式开始向服务端发送HTTP请求，服务端接收请求后，解析HTTP请求，处理完业务逻辑，最后返回一个HTTP的响应给客户端，HTTP的响应内容同样有标准的格式。无论是什么客户端或者是什么服务端，大家只要按照HTTP的协议标准来实现的话，那么它一定是通用的。
 
