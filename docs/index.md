@@ -1,6 +1,6 @@
 # 首页
 
- ![gpl3.0](assets/gpl3.0.svg)  ![build-passing](assets/build-passing.svg)  [![Documentation Status](https://readthedocs.org/projects/kisa747/badge/?version=latest)](https://kisa747.readthedocs.io/zh_CN/latest/?badge=latest)  [![ci](https://github.com/kisa747/kisa747.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/kisa747/kisa747.github.io/actions/workflows/ci.yml) 
+ ![gpl3.0](assets/gpl3.0.svg)  ![build-passing](assets/build-passing.svg)  ![Documentation Status](https://readthedocs.org/projects/kisa747/badge/?version=latest) [![ci](https://github.com/kisa747/kisa747.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/kisa747/kisa747.github.io/actions/workflows/ci.yml) 
 
 我的个人知识库
 

@@ -1,9 +1,11 @@
-# 打卡
+# playwright 学习
 
 ```sh
-# 打卡点2
+# 打卡点1
 纬度 34.283277
 longitude 经度 117.381175
+
+# 打卡点2
 ```
 
 下载 Chrome Drive
@@ -21,15 +23,18 @@ uv add selenium
 ```sh
 uv add playwright
 
-# 安装依赖
-uv run playwright install chromium --only-shell --with-deps
+# 安装测试用的 chromium 浏览器
+uv run playwright install chromium
 ```
 
 测试运行
 
 ```sh
-uv run playwright codegen --device="iPhone 13" --geolocation="34.283277,117.381175" "https://3bhr.cscec.com/#/time_punch"
+uv run playwright codegen --device="iPhone 13" --geolocation="34.283277,117.381175" "https://3bhr.cscec.com/#/time_punch" -o "test_pw.py"
 ```
+
+Github Actions
+
 
 ```yaml
 name: Time_Punch

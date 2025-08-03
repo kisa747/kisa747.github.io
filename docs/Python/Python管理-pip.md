@@ -2,15 +2,13 @@
 
 ## 配置pip
 
-参考：https://pip.readthedocs.io
+参考：<https://pip.readthedocs.io>
 
 Windows 用户配置文件： `%APPDATA%\pip\pip.ini`
 
 Linux 用户配置文件： `$HOME/.config/pip/pip.conf`，系统配置文件：`/etc/pip.conf`。
 
-参考：https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
-
-
+参考：<https://mirrors.tuna.tsinghua.edu.cn/help/pypi/>
 
 ```sh
 # 如果pip版本过低，可以先升级 pip 到最新的版本 (>=10.0.0)
@@ -18,6 +16,7 @@ python3 -m pip install -U -i https://pypi.tuna.tsinghua.edu.cn/simple pip
 # 换用国内源，推荐使用清华TUNA源
 # 清华TUNA源的文档：https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set global.extra-index-url "https://mirrors.ustc.edu.cn/pypi/simple"
 # pip config set global.timeout 60
 pip config set install.upgrade true
 
@@ -73,7 +72,7 @@ python -m pip install --user SomePackage
 
 参考官方文档：
 
-https://pip.pypa.io/en/stable/user_guide/#only-if-needed-recursive-upgrade
+<https://pip.pypa.io/en/stable/user_guide/#only-if-needed-recursive-upgrade>
 
 ```sh
 # 最大化升级软件包

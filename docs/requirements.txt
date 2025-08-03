@@ -4,4 +4,3 @@
 
 mkdocs
 mkdocs-material
-mkdocs-document-dates
