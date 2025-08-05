@@ -1,4 +1,5 @@
 # Git 忽略文件
+uv.lock
 
 # ---------------------------------------------
 # 参考：https://github.com/github/gitignore/blob/main/Python.gitignore

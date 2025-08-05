@@ -1,70 +1,64 @@
 # playwright 学习
 
-```sh
-# 打卡点1
-纬度 34.283277
-longitude 经度 117.381175
+Playwright 专为满足端到端测试的需求而创建。Playwright 支持所有现代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上进行测试，本地或持续集成 (CI)，无头或使用原生移动模拟进行有头测试。
 
-# 打卡点2
-```
+官方文档：<https://playwright.dev/python/docs/intro>
 
-下载 Chrome Drive
-
-<https://googlechromelabs.github.io/chrome-for-testing/#stable>
-
-安装  selenium
-
-```sh
-uv add selenium
-```
+## Quick Start
 
 使用playwright
 
 ```sh
+# 安装 playwright
 uv add playwright
 
-# 安装测试用的 chromium 浏览器
+# 安装测试用的浏览器，一般用 chromium 就够了
+# Windows 下安装位置：%LOCALAPPDATA%\ms-playwright
 uv run playwright install chromium
 ```
 
-测试运行
+代码助手运行
 
 ```sh
-uv run playwright codegen --device="iPhone 13" --geolocation="34.283277,117.381175" "https://3bhr.cscec.com/#/time_punch" -o "test_pw.py"
+uv run playwright codegen --device="iPhone 13" --timezone="Asia/Shanghai" --geolocation="34.283277,117.381175" -o "test_pw.py" "https://3bhr.cscec.com/#/time_punch"  --save-storage=auth.json
+
+# 登录完成后后保存登录信息，下次重复访问此网站，就不用重复登录了
+uv run playwright codegen --device="iPhone 13" --timezone="Asia/Shanghai" --geolocation="34.283277,117.381175" -o "test_pw.py" "https://3bhr.cscec.com/#/time_punch"  --load-storage=auth.json
 ```
 
-Github Actions
+## 笔记
 
+playwright 的操作命令，都会有一个自动等待功能，
 
-```yaml
-name: Time_Punch
-on: 
-  push:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 23 * * *' # 每天7点运行
-jobs:
-  test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Configure Git Credentials
-      run: |
-        git config user.name github-actions[bot]
-        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.x
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install -U playwright
-    - name: Ensure browsers are installed
-      run: python -m playwright install --with-deps
-    - name: Run Scripts
-      run: python scripts/time_punch/pw.py
+```python
+from playwright.sync_api import Playwright, expect, sync_playwright
+
+# 断言超时默认5秒钟，可以设置全局为30秒
+expect.set_options(timeout=30_000)
+
+# click()、fill()等操作命令默认等待时间10s，可以设置全局为30秒
+browser = playwright.chromium.launch(headless=True)
+context = browser.new_context()
+context.set_default_timeout(30_000)  # 设置默认超时时间 30s
 
 ```
+
+
+
+### 打卡点坐标
+
+```python
+_ = {  # 打卡地1
+'latitude': 34.283277,  # 纬度
+'longitude': 117.381175,  # 经度
+'accuracy': 99,  # GPS精度
+}
+_ = {  # 打卡地2
+'latitude': 34.28186,  # 纬度
+'longitude': 117.34710,  # 经度
+'accuracy': 99,  # GPS精度
+}
+```
+
+
 

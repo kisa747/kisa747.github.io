@@ -52,7 +52,11 @@ ruff format --check --diff
 
 Windows下用户配置文件为：`%APPDATA=%\ruff\ruff.toml` 或是 `%APPDATA%\ruff\pyproject.toml`
 
+勾选以下配置：
 
+- [x] Run ruff when the python file is saves
+- [x] Use Import Optimizer
+- [x] Use ruff format for version 0.0.289 or later
 
 #### black
 
