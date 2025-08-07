@@ -12,7 +12,7 @@
 
 ## 笔记
 
-Git标准操作流程：
+### Git 标准操作流程
 
 ```bash
 # 开始工作前，先把远程分支fetch回来
@@ -33,24 +33,7 @@ git commit -m "update"
 git reset --hard FETCH_HEAD
 ```
 
-## 分支管理
-
-```sh
-# 分支管理
-git branch
-
-# 切换分支
-git switch
-
-# 检出文件
-git checkout
-# 从指定分支中检出文件
-git checkout develop function1.js  # 会覆盖本地文件
-```
-
-
-
-## 常用命令
+### 常用命令
 
 ```bash
 # 另一台电脑有新的推送，本机也有修改，就需要合并操作
@@ -71,16 +54,15 @@ git merge --strategy-option ours
 # 如果提示 You have unmerged paths，说明有冲突
 # 查看冲突
 git diff
-# 
 
-# push -u参数，Git不但会把本地的master分支内容推送的远程新的master分支，
+# push [-u | --set-upstream]参数，Git不但会把本地的main分支内容推送的远程新的main分支，
 # 还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
 # 实际上是配置了 .git 目录下的 config 文件
-git push -u origin master
-# 停止追踪指定文件，但该文件会保留在工作区
-git rm --cached [file]
-# 停止追踪指定目录，但该目录会保留在工作区
-git rm -r --cached [folder]
+git push -u origin main
+# 停止追踪指定文件/目录，但该文件/目录会保留在工作区
+git rm --cached [file | folder]
+# 停止追踪所有文件、目录，重新 git add . 即可重新应用.gitignore 忽略规则
+git rm -r --cached .
 
 # 使用一次新的commit，替代上一次提交
 # 如果代码没有任何新变化，则用来改写上一次commit的提交信息
@@ -97,11 +79,11 @@ git add .   # 提交新文件(new)和被修改(modified)文件，不包括被删
 
 1、进入git官方网站：https://git-scm.com/download/win ，下载 `PortableGit-**-64-bit.7z.exe` ，然后解压到指定文件夹。
 
->git官方网站下载速度超慢，可以使用国内镜像下载：
->
-><https://npm.taobao.org/mirrors/git-for-windows/>
->
-><https://mirrors.huaweicloud.com/git-for-windows/>
+git官方网站下载速度超慢，可以使用国内镜像下载：
+
+<https://npm.taobao.org/mirrors/git-for-windows/>
+
+<https://mirrors.huaweicloud.com/git-for-windows/>
 
 2、双击 `post-install.bat`，安装git。
 
@@ -113,7 +95,7 @@ git add .   # 提交新文件(new)和被修改(modified)文件，不包括被删
 
 至此，git 已经可以正常工作了。可以新建一个本地仓库，也可以 clone 一个远程仓库。
 
-首次使用建议的方法（先创建远程仓库，再克隆至本地）：
+方法1：（**强烈推荐**）首次使用建议的方法（先创建远程仓库，再克隆至本地）：
 
 ```bash
 # 在 github 创建新仓库，还可以根据需要选择要添加的 README.md、.gitignore 文件
@@ -186,9 +168,14 @@ ssh-keygen -t rsa -b 4096 -C "**"
 # 设置git全局的用户名、邮箱
 git config --global user.name kevin
 git config --global user.email m@kisa747.top
+# 默认为main主线
+git config --global init.defaultBranch main
 
-git config --global core.autocrlf input
+git config --global core.autocrlf input  # [true | input | false]
 git config --global core.quotepath false
+
+# 提交包含混合换行符的文件策略：[拒绝|允许|警告] / [true|false|warn]
+git config --global core.safecrlf true  # 建议设为 true
 
 git config --global alias.f "fetch"
 git config --global alias.m "merge"
@@ -200,13 +187,18 @@ git config --global alias.ca "commit -a -m"
 git config --global alias.ch "checkout"
 git config --global alias.b "branch"
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
 
-#Windows上建议设为 input，因为批处理文件需要CRLF格式
-#提交时转换为LF，检出时转换为CRLF
+命令详细解释
+
+```sh
+# 提交时转换为LF，检出时转换为CRLF
 git config --global core.autocrlf true
-#提交时转换为LF，检出时不转换
+# 提交时转换为LF，检出时不转换（推荐设置）
+# 某些文件（比如批处理*.cmd）需要 CRLF 格式才能正常运行，
+# 可以配合 .gitattributes 文件实现 *.cmd 文件从仓库检出也是 CRLF 格式
 git config --global core.autocrlf input
-#提交检出均不转换
+# 提交检出均不转换
 git config --global core.autocrlf false
 
 # 建议设为 true
@@ -219,14 +211,13 @@ modified:   "\350\256\241\345\210\222\344\273\273\345\212\241/0-sync.cmd"
 git config --global core.quotepath false
 # Windows命令提示符下还有使用git log乱码等情况，就不要解决了，直接用 git-bash 是最好的解决方案。
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-# 默认为main主线
-git config --global init.defaultBranch main
 ```
 
-其实对应的就是配置文件，Widows 下： `%USERPOFILE%\.gitconfig` Linux 下：`~/.gitconfig`
+对应的配置文件
 
 ```ini
+# %USERPOFILE%\.gitconfig [Windows]
+# ~/.gitconfig [Linux]
 [user]
 	name = kevin
 	email = xx@qq.com
@@ -248,11 +239,79 @@ git config --global init.defaultBranch main
 
 ## 笔记
 
+### 分支管理
+
+```bash
+# 分支管理
+git branch
+# 创建 dev 分支
+git branch dev
+
+# 切换分支
+git switch
+# 切换至 dev 分支
+git switch dev
+
+# 时光穿梭机、检出文件
+git restore
+# 从指定分支中检出文件
+git restore --source=origin/dev function1.js  # 会覆盖本地文件
+# 在版本的历史之间穿梭
+git reset --hard commit_id
+
+# 创建dev分支
+git branch dev
+# 切换到dev分支
+git swith dev
+
+# git branch 命令列出所有分支，当前分支前面会标一个*号
+git branch
+
+# 然后所有的操作都是在 dev 分支上了。
+git add readme.txt 
+git commit -m "branch test"
+
+# 推送至远程仓库，建立追踪关系，在现有分支与指定的远程分支之间，简写参数为 -u
+git push --set-upstream origin dev
+
+git checkout master
+# 合并dev到主分支
+git merge dev
+# 可能会提示错误
+# Automatic merge failed; fix conflicts and then commit the result.
+# 需要手动解决冲突
+git diff
+# 然后手动合并冲突的部分
+git c "update"
+
+# 顺便打个标签
+git tag "V1.0"
+# 然后 master 分支也可以推送至远程仓库了
+git push
+
+# 就可以愉快地删除 dev 分支了
+git branch -d dev
+
+# 一般情况下，正常情况下都在dev分支上工作，正式版合并到 main 上，打上tag，然后继续回到dev上工作。
+
+# 检出文件
+git checkout
+# 从指定分支中检出文件
+git checkout develop function1.js  # 会覆盖本地文件
+```
+
 ### 同时推送至两个仓库
 
-打开仓库隐藏的`.git`目录，手动修改 `config` 文件：
+命令
+
+```sh
+git remote set-url --add origin git@gitee.com:kisa747/pycode.git
+```
+
+其实就是修改了仓库目录下的 `.git/config` 文件：
 
 ```ini
+# .git/config
 [core]
 	repositoryformatversion = 0
 	filemode = false
@@ -262,70 +321,22 @@ git config --global init.defaultBranch main
 	ignorecase = true
 [remote "origin"]
 	url = git@github.com:kisa747/pycode.git
-	# 添加下面一行
-	url = git@gitee.com:kisa747/pycode.git
+	url = git@gitee.com:kisa747/pycode.git  # 添加了本行内容
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
 	remote = origin
 	merge = refs/heads/main
 ```
 
-### git LFS
 
-参考：<https://git-lfs.github.com/>
-
-<https://blog.csdn.net/peterxiaoq/article/details/77851921>
-
-```sh
-# windows 下安装
-scoop install git-lfs
-# Debian下安装
-sudo apt install git-lfs
-# initialize the Git LFS project，此仓库启用 Git LFS
-git lfs install
-
-# 进入到仓库目录后操作。
-git lfs track "*.xz"
-# 这个仓库就会自动使用 lfs 追踪 xz 后缀的文件。
-# 其实就是保存在了 .gitattributes 文件中。
-$ cat .gitattributes
-*.xz filter=lfs diff=lfs merge=lfs -text
-# 然后就可以正常使用git，跟以前没有什么区别。
-git add .
-git commit -m "u"
-git push origin master
-
-# 查看当前正在追踪的实际文件的列表
-git lfs ls-files
-```
-
-LFS原理：
-
-由于 git 会保存文件的所有更改，如果是文本文件，这没什么问题，git只需以 diff 形式保存更改就行了，对于二进制文件，只要文件发生了变化，git 无法知道它到底哪里发生了更改，只能原封不动地记录所有更改，也就是每当提交一个 100MB 的 Photoshop 文件中的细微改变，仓库的大小当然也会增长 100MB。如果二进制文件较多、较大，而且更改又比较频繁，就会导致本地仓库急剧增大。
-
-LFS 并没有改变 git 本身的原理，被提交到仓库中的文件还会保留在仓库和本地。
-
-当然，LFS 并不能像"变魔术一样"处理所有的大型数据：它需要记录并保存每一个变化。然而，这就把负担转移给了远程服务器 - 允许本地仓库保持相对的精简。
-
-为了实现这个可能，LFS 耍了一个小把戏：它在本地仓库中并不保留所有的文件版本，而是仅根据需要提供检出版本中必需的文件。
-
-但这引发了一个有意思的问题：如果这些庞大的文件本身没有出现在你的本地仓库中....改用什么来代替呢? [LFS 保存轻量级指针](https://www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/git-lfs?utm_source=gitlab-blog&utm_campaign=GitLab LFS&utm_medium=guest-post)中有真实的文件数据。当你用一个这样的指针去迁出一个修订版时，LFS 会很轻易地找到源文件（不在他上面可能就在服务器上，特殊缓存）然后你下载就行了。
-
-因此，你最终只会得到你真正想要的文件 - 而不是一些你可能永远都不需要冗余数据。
-
-> 这意味着应该在文件没有提交到仓库前就让 LFS 进行追踪。不然，它就成了项目历史的一部分，令项目增大数 MB 或数 GB 的大小...
-
-### Keep your fork synced
-
-参考：<https://help.github.com/en/articles/fork-a-repo>
 
 ### 忽略文件.gitignore文件配置
 
-```sh
-# 不必从头写.gitignore文件，github上提供了很多的模板供使用。
-# https://github.com/github/gitignore
-# 更多设置参考：https://www.cnblogs.com/kevingrace/p/5690241.html
+不必从头写.gitignore文件，github上提供了很多的模板供使用。<https://github.com/github/gitignore>
 
+更多设置参考：<https://www.cnblogs.com/kevingrace/p/5690241.html>
+
+```sh
 # 定义Git全局的 .gitignore 文件
 git config --global core.excludesfile ~/.gitignore_global
 
@@ -335,31 +346,36 @@ git config --global core.excludesfile ~/.gitignore_global
 /TODO           表示仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
 build/          表示忽略 build/目录下的所有文件，过滤整个build文件夹；
 doc/*.txt       表示会忽略doc/notes.txt但不包括 doc/server/arch.txt
-
-
 ```
 
-### 解决修改.gitignore文件后规则不生效
+### 修改 .gitignore 文件后规则不生效
 
 ```sh
 # 解决 .gitignore 文件规则不生效。 
-# .gitignore 文件只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。
+# .gitignore 文件只能忽略那些原来没有被track的文件
+# 如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。
 # 解决方法就是先把本地缓存删除（改变成未track状态），然后再提交
 git rm -r --cached .
 git add .
 ```
 
-### 属性.gitattributes文件配置
+### 属性 .gitattributes 文件配置
 
 ```bash
-# .gitattributes文件内容
-# 行尾自动转换
-*           text=auto
-*.txt		text
-*.jpg		-text
-*.vcproj	text eol=crlf
+# .gitattributes
+
+# windows特有文件，必须 crlf 格式
+*.cmd		text eol=crlf
+*.vbs		text eol=crlf
+
+# 文本文件
+*.txt		text eol=lf
 *.sh		text eol=lf
-*.py		eol=lf
+*.py		text eol=lf
+
+# 非文本文件
+*.jpg		-text
+*.pdf       -text
 ```
 
 ### 清除所有的 commit 痕迹
@@ -535,62 +551,6 @@ git checkout -- [file]
 
 若要删除文件，可先rm掉文件，再使用`git remove`。若要恢复误删文件，可使用`git checkout -- [file]`
 
-### 分支管理
-
-```bash
-# 创建dev分支，然后切换到dev分支
-git checkout -b dev
-# 相当于
-git branch dev
-git checkout dev
-
-# 用git branch命令查看当前分支
-#git branch命令会列出所有分支，当前分支前面会标一个*号
-git branch
-
-# 然后所有的操作都是在 dev 分支上了。
-git add readme.txt 
-git commit -m "branch test"
-
-# 推送至远程仓库
-# 建立追踪关系，在现有分支与指定的远程分支之间
-git push --set-upstream origin dev
-
-git checkout master
-# 合并dev到主分支
-git merge dev
-# 可能会提示错误
-# Automatic merge failed; fix conflicts and then commit the result.
-# 需要手动解决冲突
-git diff
-# 然后手动合并冲突的部分
-git c "update"
-
-# 顺便打个标签
-git tag "V1.0"
-# 然后 master 分支也可以推送至远程仓库了
-git push
-
-# 就可以愉快地删除 dev 分支了
-git branch -d dev
-
-# 一般情况下，正常情况下都在dev分支上工作，正式版合并到master上，打上tag，然后继续回到dev上工作。
-
-```
-
-### 强制覆盖本地，与远程合并
-
-```bash
-# 获取远程分支
-git fetch
-# 强制将本地恢复为远程分支状态
-git reset --hard FETCH_HEAD
-# 与远程分支合并，然后手动解决冲突
-git merge FETCH_HEAD
-# 查看冲突文件、内容
-git diff
-```
-
 ### 修改仓库 https 、git 地址
 
 使用ssh 更为方便，如果clone时使用了 https，使用下面命令可以修改为ssh
@@ -654,22 +614,51 @@ git push -u origin main
 git push origin :master
 ```
 
-### 更新至最新的 tag 标签
+### git LFS
+
+参考：<https://git-lfs.github.com/>
+
+<https://blog.csdn.net/peterxiaoq/article/details/77851921>
 
 ```sh
-pwd_dir="`pwd`"
-# 升级 next 主题
-cd themes/next && git checkout master &&  git pull origin master:master; git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
-cd source/lib/canvas-nest && git pull && cd $pwd_dir
-pwd
+# windows 下安装
+scoop install git-lfs
+# Debian下安装
+sudo apt install git-lfs
+# initialize the Git LFS project，此仓库启用 Git LFS
+git lfs install
+
+# 进入到仓库目录后操作。
+git lfs track "*.xz"
+# 这个仓库就会自动使用 lfs 追踪 xz 后缀的文件。
+# 其实就是保存在了 .gitattributes 文件中。
+$ cat .gitattributes
+*.xz filter=lfs diff=lfs merge=lfs -text
+# 然后就可以正常使用git，跟以前没有什么区别。
+git add .
+git commit -m "u"
+git push origin master
+
+# 查看当前正在追踪的实际文件的列表
+git lfs ls-files
 ```
 
-或是：
+**LFS原理**
 
-```sh
-#cd themes/next
-#git pull origin master:master
-#git tag -l
-#git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
-```
+由于 git 会保存文件的所有更改，如果是文本文件，这没什么问题，git只需以 diff 形式保存更改就行了，对于二进制文件，只要文件发生了变化，git 无法知道它到底哪里发生了更改，只能原封不动地记录所有更改，也就是每当提交一个 100MB 的 Photoshop 文件中的细微改变，仓库的大小当然也会增长 100MB。如果二进制文件较多、较大，而且更改又比较频繁，就会导致本地仓库急剧增大。
 
+LFS 并没有改变 git 本身的原理，被提交到仓库中的文件还会保留在仓库和本地。
+
+当然，LFS 并不能像"变魔术一样"处理所有的大型数据：它需要记录并保存每一个变化。然而，这就把负担转移给了远程服务器 - 允许本地仓库保持相对的精简。
+
+为了实现这个可能，LFS 耍了一个小把戏：它在本地仓库中并不保留所有的文件版本，而是仅根据需要提供检出版本中必需的文件。
+
+但这引发了一个有意思的问题：如果这些庞大的文件本身没有出现在你的本地仓库中....改用什么来代替呢? [LFS 保存轻量级指针](https://www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/git-lfs?utm_source=gitlab-blog&utm_campaign=GitLab LFS&utm_medium=guest-post)中有真实的文件数据。当你用一个这样的指针去迁出一个修订版时，LFS 会很轻易地找到源文件（不在他上面可能就在服务器上，特殊缓存）然后你下载就行了。
+
+因此，你最终只会得到你真正想要的文件 - 而不是一些你可能永远都不需要冗余数据。
+
+> 这意味着应该在文件没有提交到仓库前就让 LFS 进行追踪。不然，它就成了项目历史的一部分，令项目增大数 MB 或数 GB 的大小...
+
+### Keep your fork synced
+
+参考：<https://help.github.com/en/articles/fork-a-repo>

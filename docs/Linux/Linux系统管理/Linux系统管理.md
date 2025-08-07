@@ -2,6 +2,17 @@
 
 参考：[Linux 二零](https://itboon.github.io/linux-20/)
 
+## 安装cockpit管理面板
+
+Debian下安装
+
+```sh
+sudo apt install cockpit
+
+# 安装磁盘管理插件
+
+```
+
 ## sudo权限
 
 参考：https://man.linuxde.net/sudo

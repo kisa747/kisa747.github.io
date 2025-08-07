@@ -1,16 +1,18 @@
-# Pelican博客笔记
+# Pelican笔记
 
-官方文档：http://docs.getpelican.com/en/stable/
+Pelican：一个 Python 静态网站生成器
 
-官方主题：https://github.com/getpelican/pelican-themes
+官方文档：<http://docs.getpelican.com/en/stable/>
 
-官方插件：https://github.com/getpelican/pelican-plugins
+官方主题：<https://github.com/getpelican/pelican-themes>
+
+官方插件：<https://github.com/getpelican/pelican-plugins>
 
 参考：
 
-https://www.linuxzen.com/
+<https://www.linuxzen.com/>
 
-http://wklken.me/posts.html
+<http://wklken.me/posts.html>
 
 ## 安装Pelican
 

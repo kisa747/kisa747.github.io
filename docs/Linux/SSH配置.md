@@ -38,12 +38,12 @@ SSH配置
 ```ini
 # ~/.ssh/config
 Host syno
-    Hostname *
+    Hostname hostname
     User kevin
     Port 20002 
 
 Host debian
-    Hostname debian.local
+    Hostname hostname.local
     User kevin
     Port 22
 ```

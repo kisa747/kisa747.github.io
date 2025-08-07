@@ -28,24 +28,39 @@ uv run playwright codegen --device="iPhone 13" --timezone="Asia/Shanghai" --geol
 
 ## 笔记
 
-playwright 的操作命令，都会有一个自动等待功能，
+### 模拟设备、时区、语言、位置
+
+参考：https://playwright.dev/python/docs/emulation
+
+常见的 `iphone 15` ，支持的字段参考：[registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) 
 
 ```python
-from playwright.sync_api import Playwright, expect, sync_playwright
+from playwright.sync_api import sync_playwright, Playwright
 
-# 断言超时默认5秒钟，可以设置全局为30秒
-expect.set_options(timeout=30_000)
+def run(playwright: Playwright):
+    webkit = playwright.webkit
+    iphone = playwright.devices["iPhone 6"]
+    browser = webkit.launch()
+    context = browser.new_context(**iphone)
+    page = context.new_page()
+    page.goto("http://example.com")
+    # other actions...
+    browser.close()
 
-# click()、fill()等操作命令默认等待时间10s，可以设置全局为30秒
-browser = playwright.chromium.launch(headless=True)
-context = browser.new_context()
-context.set_default_timeout(30_000)  # 设置默认超时时间 30s
-
+with sync_playwright() as playwright:
+    run(playwright)
 ```
 
+模拟 Locale & Timezone
 
+```python
+context = browser.new_context(
+  locale='zh-CN',
+  timezone_id: 'Asia/Shanghai',
+)
+```
 
-### 打卡点坐标
+坐标
 
 ```python
 _ = {  # 打卡地1
@@ -60,5 +75,20 @@ _ = {  # 打卡地2
 }
 ```
 
+### 自动等待
 
+playwright 的操作命令，都会有一个自动等待功能，
+
+```python
+from playwright.sync_api import Playwright, expect, sync_playwright
+
+# 断言超时默认5秒钟，可以设置全局为30秒
+expect.set_options(timeout=30_000)
+
+# click()、fill()等操作命令默认等待时间10s，可以设置全局为30秒
+browser = playwright.chromium.launch(headless=True)
+context = browser.new_context()
+context.set_default_timeout(30_000)  # 设置默认超时时间 30s
+
+```
 

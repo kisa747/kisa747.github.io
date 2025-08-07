@@ -2,48 +2,7 @@
 
 Debian 适合作为服务器，不太适合作为桌面环境，如果桌面环境推荐使用 Linux Mint。
 
-## Debian版本更新
 
-### Debian 12
-
-发行信息：https://www.debian.org/releases/stable/amd64/release-notes/ch-whats-new.zh-cn.html
-
-* Linux 主线内核 6.1
-* 在安装程序中的非自由软件包
-* GNOME 在默认情况下，使用 Pipewire 和 Wireplumber 管理器 作为声音服务器，取代了 Pulseaudio 
-* Debian 12 引入 Apt 软件包管理器的最新的版本APT2.
-* Python 3.11
-* Debian 12 现在在双启动设置时可以检测到 Windows 11
-* [“合并的 `/usr`” 现在是必需的](https://www.debian.org/releases/stable/amd64/release-notes/ch-information.zh-cn.html#a-merged-usr-is-now-required)
-* [Python 解释器标记为由外部管理](https://www.debian.org/releases/stable/amd64/release-notes/ch-information.zh-cn.html#python3-pep-668)
-
-### Debian 11
-
-发行信息：https://www.debian.org/releases/bullseye/amd64/release-notes/index.zh-cn.html
-
-* 本软件源中 `buster` 换成 `bullseye`，注意其中的安全更新的路径废弃了之前 buster/update 的命令方式，使用了 bullseye-security 格式。
-
-* 持久化 systemd 日志。在 bullseye 中的 systemd 默认启用了持久日志的功能，日志文件存放于 `/var/log/journal/`。请参见 [systemd-journald.service(8)](https://manpages.debian.org//bullseye/systemd/systemd-journald.service.8.html) 以了解细节；请注意 Debian 中的日志除了默认的 `systemd-journal` 组外，还可以被 `adm` 用户组内的成员阅读。
-
-* 新的 Fcitx 5 输入法。Fcitx 5 是用于中文、日语、韩语和其它许多语言的一个输入法。它是 buster 提供的 Fcitx 4 的后续版本。新版本增加了对 Wayland 的支持并改进了扩展支持。您可以在 [维基页面上](https://wiki.debian.org/I18n/Fcitx5) 阅读更多信息以及从旧版本迁移的方法。
-
-* 内核 exFAT 支持
-
-    bullseye 是第一个提供支持 exFAT 文件系统的 Linux 内核的发行版本，且它默认使用该实现挂载 exFAT 文件系统。因此，用户不再需要使用 `exfat-fuse` 软件包所提供的用户空间文件系统实现。如果您要继续使用用户空间文件系统的实现，您需要在挂载 exFAT 文件系统时直接调用 **mount.exfat-fuse** 命令。
-
-    创建和检查 exFAT 文件系统的工具位于 `exfatprogs` 软件包，它由 Linux 内核 exFAT 实现的作者编写。由已有的 `exfat-utils` 软件包提供的独立实现仍然可用，但它不能与新的实现共同安装在系统上。我们推荐您迁移到使用 `exfatprogs` 软件包，尽管您需要注意并处理两者可能不互相兼容的命令行选项。
-
-### Debian 10
-
-更新日志参考官方文档：<https://www.debian.org/releases/buster/amd64/release-notes/>
-
-Debian 从版本10 开始支持 UEFI 安全启动，推荐使用 UEFI + GPT 安装 Debian。
-
-unattended-upgrades 支持 Stable 版的小版本号的无人值守升级。
-
-Cryptsetup 默认在磁盘上使用 LUKS2 格式。
-
-在全新安装系统时，/bin、/sbin 和 /lib 目录下的内容将默认安装至对应的 /usr 目录下的位置。/bin、/sbin 和 /lib 将变成指向 /usr/ 下面真实目录的软链接。
 
 ## 安装
 
@@ -79,6 +38,8 @@ lsb-release -a
 
 ## 配置
 
+### 安装 sudo
+
 如果设置了 root 密码，系统默认没有安装 `sudo`，需要先安装 `sudo`。
 
 ```sh
@@ -89,12 +50,14 @@ su - $USER
 
 如果没有设置 root 密码，则会默认安装 `sudo` ，并且安装系统时创建的用户是sudo 用户组，可以使用 `sudo` 命令。
 
-配置 `sudo` 命令免密：
+### 配置 sudo 免密
 
 ```sh
 # sudo命令免密
 echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010-$USER
 ```
+
+### 修改更新源
 
 Debian 官方源列表：<https://www.debian.org/mirror/list>
 
@@ -109,19 +72,11 @@ if [ ! -f /etc/apt/sources.list.bk ]; then sudo cp /etc/apt/sources.list /etc/ap
 #sudo sed -i 's|http://security.debian.org|https://mirrors.ustc.edu.cn|g' /etc/apt/sources.list
 # 推荐直接修改，更直接，而且可以添加非自有软件库。
 cat << "EOF" | sudo tee /etc/apt/sources.list
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
-
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
-
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
 deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
 EOF
 
 sudo apt update && sudo apt upgrade
@@ -153,7 +108,7 @@ uu
 # ---------------------------------------------------------------------
 ```
 
-### 修改中文目录
+### 修改中文目录为英文
 
 参考：<https://wiki.archlinux.org/index.php/XDG_user_directories_(简体中文)>
 
@@ -230,6 +185,15 @@ Ubuntu与Debian的不太一样，LinuxMint 甚至还使用了 [slick-greeter](ht
 
 修改登录界面自动打开 numlock。
 
+### 删除不常用软件
+
+```sh
+# 卸载 libreoffice
+dpkg -l | grep "libreoffice"
+sudo apt remove --purge libreoffice*
+sudo apt autoremove
+```
+
 ### Samba工具
 
 ```sh
@@ -256,10 +220,25 @@ sudo apt install gvfs-backends
 #### 最佳实践
 
 ```sh
-# 安装uv
-pip install uv
-# 或是脚本安装，是从github上下载的
-wget -qO- https://astral.sh/uv/install.sh | sh
+# 安装pip
+sudo apt install python3-pip
+# 安装uv，以后更新uv也要用这个命令。官方脚本安装是从github上下载的，所以不推荐
+python3.13 -m pip install -U -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages uv
+
+# 安装最新版的python
+uv python install
+
+# 配置uv
+# Linux下命令，更新UV用户配置
+mkdir -p ~/.config/uv/
+cat << "EOF" | tee ~/.config/uv/uv.toml
+# ~/.config/uv/uv.toml
+python-downloads = "manual"
+
+[[index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+EOF
 ```
 
 使用uv 管理python
@@ -315,8 +294,6 @@ uv python install 3.13 --default
 python3 -V
 python -V
 ```
-
-
 
 #### 官方推荐的方法
 
@@ -436,27 +413,11 @@ sudo apt install fonts-noto
 
 ### SSH
 
-ssh支持的加密协议
-
 ```sh
-$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
-$ cat /etc/ssh/sshd_config
-
-KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
-
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-
-MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
-
-#-----------------------------------------------------------
-# sudo cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config
-systemctl status sshd.service
-sudo systemctl restart sshd.service
+ssh-copy-id kevin@debian.local
 ```
 
-
-
-## 安装xfce桌面
+### 安装xfce桌面
 
 如果安装时没有选择桌面环境，手动安装xfce桌面
 
@@ -618,14 +579,62 @@ echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010-$USER
 if [ ! -f /etc/apt/sources.list.bak ]; then sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak; fi
 # 推荐直接修改，更直接，而且可以添加非自有软件库。
 cat << "EOF" | sudo tee /etc/apt/sources.list
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-updates main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-backports main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-updates main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-backports main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free non-free-firmware
 EOF
 # 更新系统
 sudo apt update && sudo apt upgrade
 ```
+
+## Debian版本更新
+
+### Debian 13
+
+代号：Trixie
+
+### Debian 12
+
+发行信息：https://www.debian.org/releases/stable/amd64/release-notes/ch-whats-new.zh-cn.html
+
+* Linux 主线内核 6.1
+* 在安装程序中的非自由软件包
+* GNOME 在默认情况下，使用 Pipewire 和 Wireplumber 管理器 作为声音服务器，取代了 Pulseaudio 
+* Debian 12 引入 Apt 软件包管理器的最新的版本APT2.
+* Python 3.11
+* Debian 12 现在在双启动设置时可以检测到 Windows 11
+* [“合并的 `/usr`” 现在是必需的](https://www.debian.org/releases/stable/amd64/release-notes/ch-information.zh-cn.html#a-merged-usr-is-now-required)
+* [Python 解释器标记为由外部管理](https://www.debian.org/releases/stable/amd64/release-notes/ch-information.zh-cn.html#python3-pep-668)
+
+### Debian 11
+
+发行信息：https://www.debian.org/releases/bullseye/amd64/release-notes/index.zh-cn.html
+
+* 本软件源中 `buster` 换成 `bullseye`，注意其中的安全更新的路径废弃了之前 buster/update 的命令方式，使用了 bullseye-security 格式。
+
+* 持久化 systemd 日志。在 bullseye 中的 systemd 默认启用了持久日志的功能，日志文件存放于 `/var/log/journal/`。请参见 [systemd-journald.service(8)](https://manpages.debian.org//bullseye/systemd/systemd-journald.service.8.html) 以了解细节；请注意 Debian 中的日志除了默认的 `systemd-journal` 组外，还可以被 `adm` 用户组内的成员阅读。
+
+* 新的 Fcitx 5 输入法。Fcitx 5 是用于中文、日语、韩语和其它许多语言的一个输入法。它是 buster 提供的 Fcitx 4 的后续版本。新版本增加了对 Wayland 的支持并改进了扩展支持。您可以在 [维基页面上](https://wiki.debian.org/I18n/Fcitx5) 阅读更多信息以及从旧版本迁移的方法。
+
+* 内核 exFAT 支持
+
+    bullseye 是第一个提供支持 exFAT 文件系统的 Linux 内核的发行版本，且它默认使用该实现挂载 exFAT 文件系统。因此，用户不再需要使用 `exfat-fuse` 软件包所提供的用户空间文件系统实现。如果您要继续使用用户空间文件系统的实现，您需要在挂载 exFAT 文件系统时直接调用 **mount.exfat-fuse** 命令。
+
+    创建和检查 exFAT 文件系统的工具位于 `exfatprogs` 软件包，它由 Linux 内核 exFAT 实现的作者编写。由已有的 `exfat-utils` 软件包提供的独立实现仍然可用，但它不能与新的实现共同安装在系统上。我们推荐您迁移到使用 `exfatprogs` 软件包，尽管您需要注意并处理两者可能不互相兼容的命令行选项。
+
+### Debian 10
+
+更新日志参考官方文档：<https://www.debian.org/releases/buster/amd64/release-notes/>
+
+Debian 从版本10 开始支持 UEFI 安全启动，推荐使用 UEFI + GPT 安装 Debian。
+
+unattended-upgrades 支持 Stable 版的小版本号的无人值守升级。
+
+Cryptsetup 默认在磁盘上使用 LUKS2 格式。
+
+在全新安装系统时，/bin、/sbin 和 /lib 目录下的内容将默认安装至对应的 /usr 目录下的位置。/bin、/sbin 和 /lib 将变成指向 /usr/ 下面真实目录的软链接。
 
 ## BUG
 

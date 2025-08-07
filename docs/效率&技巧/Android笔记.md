@@ -1,6 +1,14 @@
-# 环境配置
+# Android 笔记
 
-## 配置 Java JDK
+
+
+## F-Droid 使用指南
+
+参考：<https://sspai.com/post/63647>
+
+## Android 开发
+
+环境配置，配置 Java JDK
 
 ```sh
 # 添加 java 的软件库。

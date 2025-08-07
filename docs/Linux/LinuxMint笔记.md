@@ -251,6 +251,7 @@ sudo apt install git git-lfs
 #sudo snap install snap-store
 # 安装 chromium
 # sudo apt install chromium-browser
+
 # 更新 snap 软件列表
 sudo apt install snapd
 sudo snap refresh
@@ -260,6 +261,9 @@ snap find pycharm-community
 # 安装 pycharm ，软件包比较大，速度会比较慢。晚上慢，白天快。
 # --classic 参数。The --classic option is required because the PyCharm snap requires full access to the system, like a traditionally packaged application.
 sudo snap install pycharm-community --classic
+
+# 安装 Vscode 参考：https://code.visualstudio.com/docs/setup/linux
+sudo snap install --classic code
 ```
 
 [pycharm 官方 snap 安装说明](https://www.jetbrains.com/help/pycharm/installation-guide.html#snap-install)

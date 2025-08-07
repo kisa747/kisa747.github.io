@@ -1,9 +1,4 @@
----
-date:
-  created: 2025-07-29
----
-
-# 使用 mkdocs 创建博客指南
+# 使用 mkdocs 创建在线文档
 
 参考：[ReadtheDocs文档](https://docs.readthedocs.io/en/stable/index.html)
 
@@ -12,8 +7,6 @@ date:
 - 简单
 - 实时预览，主题和插件定制方便
 - 采用 Markdown 语法写作，语法简单
-
-<!-- more -->
 
 功能上，Sphinx 能实现的，mkdocs 通过插件基本也都能实现，两个都有漂亮的主题。
 

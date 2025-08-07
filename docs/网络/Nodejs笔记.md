@@ -3,23 +3,17 @@
 ## nmp常用命令
 
 ```sh
-# 查看全局安装软件
-npm ls -g
-# 查看当前目录安装的软件
-npm ls
-
-# 检查全局安装需要更新的包
-npm outdatet -g
-# 检查当前目录需要更新的包
-npm outdated
-
-# 更新全局安装的包：npm、hexo-cli
-npm update -g
-# 更新当前目录安装的包hexo、主题、插件等
-npm update
-
 # 查看 npm 版本
 npm -v
+# 查看当前目录安装的软件
+npm ls
+# 查看全局安装软件
+npm ls -g
+
+# 检查全局安装需要更新的包
+npm outdated -g
+# 更新全局安装的包：npm、hexo-cli
+npm update -g
 ```
 
 ## 安装

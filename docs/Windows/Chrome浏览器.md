@@ -11,3 +11,15 @@
 https://cn.bing.com/search?q=%s
 ```
 
+### 启动参数
+
+```sh
+# 指定 user-agent
+--user-agent="Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+
+# 以app形式打开网页
+--app="https://3bhr.cscec.com/#/time_punch"
+
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --user-agent="Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1" --app="https://3bhr.cscec.com/#/time_punch"
+```
+

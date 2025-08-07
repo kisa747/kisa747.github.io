@@ -8,7 +8,7 @@ Hexo 官方文档：<https://hexo.io/zh-cn/docs/>
 
 ```sh
 # scoop 依赖 git，所以只要有scoop，Git肯定已经安装。
-# 安装 nodejs长期支持版本
+# 安装最新的 nodejs 长期支持版本
 scoop install nodejs-lts
 ```
 
@@ -39,11 +39,12 @@ npm info express
 # 全局安装Hexo，为了能够使用hexo命令。
 npm install hexo-cli -g
 
-# 初始化Hexo
-hexo init blog
+# 在 blog 目录下初始化 Hexo
+cd blog
+hexo init
 
 # 创建网站，npm将会自动安装你需要的组件，只需要等待npm操作即可。
-cd blog && npm install
+npm install
 
 # 下面这两个没必要全局安装
 # 局部安装 Git 部署工具
@@ -51,11 +52,15 @@ npm install hexo-deployer-git --save
 
 # 局部安装服务器模块
 npm install hexo-server --save
+
+# 安装主题
+npm install hexo-theme-fluid --save
 ```
 
-启动 hexo 本地服务器：
+本地预览
 
 ```sh
+start http://localhost:4000 
 hexo clean && hexo server
 ```
 
@@ -63,7 +68,7 @@ hexo clean && hexo server
 
 以上都没有问题了，就可以继续下面的工作。
 
-## 配置 Git
+### 配置 Git
 
 1、设置Git的user name和email：
 
@@ -80,30 +85,20 @@ git config --global user.email "**@qq.com"
 
 3、如果已经有密钥。复制公钥内容，即 `id_rsa.pub`  里的内容，进入 `GitHub— Personal settings—SSH andGPG keys—New SSH key`，粘贴公钥内容。
 
-## 配置 GitHub
+### 配置 GitHub
 
 参考：https://help.github.com/articles/setting-up-an-apex-domain/
 
-1. 创建一个名为：kisa747.github.io 的仓库
-2. 在仓库的 Setting 绑定域名 kisa747.com
+1. 创建一个名为：`kisa747.github.io` 的仓库
+2. 在仓库的 Setting 绑定域名 `kisa747.com`
 3. 勾选 github 绑定域名的 `Enforce HTTPS` 
 
 解析域名到 GitHub
 
-为确保只使用不带 www 的网址格式，就不要使用 `CNAME` 记录。
-
-| 主机记录 | 记录类型 |     记录值      |
-| :------: | :------: | :-------------: |
-|    @     |    A     | 185.199.108.153 |
-|    @     |    A     | 185.199.109.153 |
-|    @     |    A     | 185.199.110153  |
-|    @     |    A     | 185.199.111.153 |
-
-如果要使用 www 格式的网址形式，只需要 `CNAME` 记录即可。
-
 | 主机记录 | 记录类型 |      记录值       |
 | :------: | :------: | :---------------: |
 |    @     |  CNAME   | kisa747.github.io |
+|   www    |  CNAME   | kisa747.github.io |
 
 刷新本机DNS： `ipconfig /flushdns`
 
@@ -116,83 +111,127 @@ git config --global user.email "**@qq.com"
 echo kisa747.com > source/CNAME
 ```
 
-## 配置 Hexo
+### 配置 Hexo
 
 修改网站配置 `_config.yml`，记得编码修改为 `utf8` 。
 
 ```yaml
+# _config.yml
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
 # Site
 title: 智行天下
-subtitle: 人生苦短，我用Python！
-description: 智行天下
-keywords:
+subtitle: 不会编程的裁缝不是一个好管理者！
+description: 人生苦短，我用 Python！
+keywords: linux, python, wordpress, 技术
 author: kisa747
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://kisa747.top
+url: http://blog.kisa747.top
 root: /
-permalink: :title/
+permalink: :title.html
 permalink_defaults:
 
-# -----------------------
-# 中间的代码不用修改
-# -----------------------
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: lang
+skip_render: README.md
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+    enable: true # Open external links in new tab
+    field: site # Apply to the whole site
+    exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+    enable: true
+    line_number: true
+    auto_detect: false
+    tab_replace:
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+    path: ''
+    per_page: 10
+    order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# 自动截断
+#excerpt:
+#    depth: 5
+#    excerpt_excludes: []
+#    more_excludes: []
+#    hideWholePostExcerpts: true
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: fluid  # [next | fluid]
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-#username换成自己的用户名和仓库名,去掉括号
+# username换成自己的用户名和仓库名,去掉括号
 deploy:
-  type: git
-  repo: git@github.com:kisa747/kisa747.github.io.git
-  branch: master
+    type: git
+    repo: git@github.com:kisa747/blog-backup.git
+    branch: gh-pages
 ```
 
-修改主题后，预览下效果：
+### 主题 hexo-theme-fluid
+
+地址：<https://github.com/fluid-dev/hexo-theme-fluid>
+
+文档：<https://hexo.fluid-dev.com/docs/>
+
+预览：<https://hexo.fluid-dev.com/>
+
+配置：
 
 ```sh
-# hexo clean 清除缓存文件、静态文件。修改`_config.yml` 后应该clean一下。 
-hexo clean && hexo server
+# 获取最新版本
+npm install --save hexo-theme-fluid
+
+# 更新主题
+npm update --save hexo-theme-fluid
 ```
 
-完成后，部署到github。就可以在github上看到博客了。
-
-```sh
-hexo clean && hexo d -g   # 生成静态文件后发布网站。
-```
-
-命令解释：`hexo g`  生成静态文件，`hexo d` 部署网站。
-
-hexo 的一些命令：
-
-```sh
-hexo new [layout] <title>    #新建一片文章
-```
-
-## 更新 hexo
-
-```sh
-# 查看 npm 版本
-npm -v
-# 更新 npm 至最新版本
-npm install -g npm@latest
-npm -v
-
-# 检查需要升级的包
-npm outdated
-# 升级全局安装的包： npm、hexo-cli
-npm update -g
-# 更新当前目录安装的包
-npm update
-```
-
-## NexT 主题
+### 主题 NexT
 
 NexT 主题官方文档：https://theme-next.js.org/docs/getting-started/
 
@@ -200,13 +239,56 @@ next 主题现在开发活跃，功能众多，配置也较多。
 
 ```sh
 # 安装主题
-npm install hexo-theme-next
+npm install hexo-theme-next --save
 
-# 升级主题，或者 npm update 所有当前目录的包
+# 升级主题
 npm install hexo-theme-next@latest
+```
 
-# 查看当前版本
-npm ls
+旧版 NexT 主题升级方法
+
+```sh
+pwd_dir="`pwd`"
+# 升级 next 主题
+cd themes/next && git checkout master &&  git pull origin master:master; git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+cd source/lib/canvas-nest && git pull && cd $pwd_dir
+pwd
+```
+
+### 更新包
+
+npm 默认其实是最小化升级，仅检查当前安装是否满足 `package.json` 中声明的依赖要求，只要当前包的版本满足 `package.json` 的要求，他就不提示升级。
+
+ncu 会检查哪些包有新的版本，并将新的版本号写入 `package.json` 文件中，这才是我们升级的本意
+
+```sh
+# 全局安装
+npm install -g npm-check-updates
+
+# 检查工作区 package.json 依赖项是否有更新
+ncu
+# 更新 package.json
+ncu -u
+# 根据 package.json 更新依赖项
+npm install
+
+# 查看全局的安装包是否有更新
+ncu -g
+# 
+ncu -u -g
+```
+
+版本控制规则：
+
+```json
+"dependencies": {
+    "hexo": "^7.3.0",                     /* ^ 开头的版本会固定首个大版本，后面的两个小版本会更新到最新 */
+    "hexo-deployer-git": "~4.0.0",        /* ~ 开头的版本会前两个版本，后面的小版本会更新到最新 */
+    "hexo-generator-archive": "2.0.0",    /* 不带符号，直接写版本号会安装固定的版本，不更新 */
+    "hexo-generator-tag": "latest",       /* 最新稳定版，不推荐这种写法*/
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1"
+}
 ```
 
 ## 插件
@@ -359,98 +441,3 @@ permalink: 404.html
 当然, 也可能是我搞错了... 
 ```
 
-## 其他主题
-
-下载主题，所有的命令都必须在 hexo 目录下操作
-
-```sh
-# 默认主题
-# theme: landscape
-# 从Github下载主题
-git clone https://github.com/A-limon/pacman.git themes/pacman
-# 修改_config.yml中的theme配置
-# theme : pacman
-git clone https://github.com/theme-next/hexo-theme-next themes/next
-# theme: next
-git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
-# theme: yilia
-# 更新主题
-cd themes/yilia
-git pull
-```
-
-### yilia 主题
-
-使用 yilia 主题，需要安装 `hexo-generator-json-content` 库。
-
-## Hexo博客笔记
-
-参考：https://theme-next.js.org/docs/theme-settings/#NexT-Quick-Start
-
-https://zhiho.github.io/
-
-https://www.jianshu.com/p/6f77c96b7eff
-
-重装系统系统，只需要依次下面操作即可：
-
-```sh
-# 安装 nodejs-lts
-scoop install nodejs-lts
-
-# 全局安装 hexo-cli
-npm install hexo-cli -g
-
-# 升级全局安装的包： npm、hexo-cli
-npm install npm -g
-npm update -g
-# 更新当前目录安装的包：hexo、插件、hexo-theme-next主题等
-npm update
-
-# 查看全局安装的包
-npm ls -g
-# 查看当前目录安装的包
-npm ls
-
-# 检查需要升级的包
-npm outdated
-npm outdated -g
-
-npm install -g npm-check-updates
-
-# 显示当前目录中项目的所有最新依赖项（不包括 peerDependencies）
-ncu
-# 查看全局的安装包最新版本
-ncu -g
-
-通过上述安装后得到的版本可得知
-
-
-^ 开头的版本会固定首个大版本，后面的两个小版本会更新到最新，如 vue ^2.5.0 => vue 2.6.14
-
-
-~ 开头的版本会前两个版本，后面的小版本会更新到最新 vuex ~3.1.0 => vuex 3.1.3
-
-
-不带符号，直接写版本号会安装固定的版本 vue-router 3.5.3 => vue-router 3.5.3
-
-
-最小的版本设置为 x 或者 *，其最小的版本号会更新到最新 react 15.4.x => react 15.4.2
-
-
-依次类推任何一位版本设置为 x 或者 *，其当前位置的版本号都会更新到最新
-
-
-永远保持最新版本可以将版本号设置为 x 或者 *，如 pinia * => pinia 2.0.12
-
-
-
-# 更新 package.json 的最新依赖项
-ncu -u
-npm install
-# 更新 package.json 的最新依赖项
-ncu -u -g
-```
-
-## 更新包
-
-npm工具仅能检查哪些有更新版本，无法批量更新至最新版，如果要 
