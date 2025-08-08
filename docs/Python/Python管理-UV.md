@@ -28,6 +28,9 @@ uv sync -U
 # 升级 UV 管理的python
 # 注意：这还是试验中的功能
 uv python --managed-python upgrade --preview
+
+# 打包为 wheel
+uv build --wheel
 ```
 
 ## 创建项目

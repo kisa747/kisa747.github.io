@@ -242,15 +242,22 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ### 分支管理
 
 ```bash
-# 分支管理
+# 列出所有分支，当前分支前面会标一个*号
 git branch
 # 创建 dev 分支
 git branch dev
+# 删除分支（需先切换至别的分支）
+git switch main
+git branch -d dev
+
 
 # 切换分支
 git switch
 # 切换至 dev 分支
 git switch dev
+# 创建并切换到新分支 dev
+git switch -c dev
+
 
 # 时光穿梭机、检出文件
 git restore
@@ -259,13 +266,6 @@ git restore --source=origin/dev function1.js  # 会覆盖本地文件
 # 在版本的历史之间穿梭
 git reset --hard commit_id
 
-# 创建dev分支
-git branch dev
-# 切换到dev分支
-git swith dev
-
-# git branch 命令列出所有分支，当前分支前面会标一个*号
-git branch
 
 # 然后所有的操作都是在 dev 分支上了。
 git add readme.txt 

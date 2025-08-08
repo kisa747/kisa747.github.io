@@ -14,43 +14,39 @@ scoop install nodejs-lts
 
 ### 安装 Hexo
 
-选一块风水宝地作为hexo博客的主目录，比如：`E:\Hexo` ，在此目录下打开 Git Bash 。
-
->为保证命令都能顺利执行，推荐下面所有的命令都在 Git Bash 下操作。并且所有的操作都是在 Hexo 目录下。
-
-Nodejs 的 npm 默认源实在太慢了，可以使用淘宝源或华为源。
+Nodejs 的 npm 默认源实在太慢了，更换源。
 
 ```sh
-# 临时使用
-#npm --registry https://registry.npm.taobao.org install express
-# 持久使用
+# 临时使用淘宝源
+#npm --registry https://registry.npmmirror.com install express
+# 持久使用淘宝源
 npm config set registry https://registry.npmmirror.com
 #npm config set registry https://mirrors.huaweicloud.com/repository/npm/
 
-# 配置后可通过下面方式来验证是否成功 
+# 配置后验证是否成功 
 npm config get registry
-# 或是
+# 或是查看详细配置信息
 npm info express
 ```
 
-没有问题后就可以使用 npm安装了。
+下一步选一块风水宝地作为hexo博客的主目录，比如：`E:\blog` ，在此目录下打开 Git Bash 。
+
+>为保证命令都能顺利执行，推荐下面所有的命令都在 Git Bash 下操作，并且所有的操作都是在 `E:\blog` 目录下进行。
 
 ```sh
 # 全局安装Hexo，为了能够使用hexo命令。
 npm install hexo-cli -g
 
 # 在 blog 目录下初始化 Hexo
-cd blog
 hexo init
 
-# 创建网站，npm将会自动安装你需要的组件，只需要等待npm操作即可。
+# 创建网站，npm将会自动安装你需要的组件，只需要等待npm操作即可
 npm install
 
-# 下面这两个没必要全局安装
-# 局部安装 Git 部署工具
+# 安装 Git 部署工具
 npm install hexo-deployer-git --save
 
-# 局部安装服务器模块
+# 安装服务器模块
 npm install hexo-server --save
 
 # 安装主题

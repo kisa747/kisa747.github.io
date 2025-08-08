@@ -199,10 +199,10 @@ python -m pip install --upgrade twine
 
 采用 `setuptools_scm` 自动管理版本，使用 git 打上 tag 标签，就能自动生成新的正式版本，其它的小版本号他会自动生成，非常的方便。
 
-安装 `setuptools_scm[toml]` 软件：
+安装 `setuptools_scm` 软件：
 
 ```sh
-python -m pip install setuptools_scm[toml]
+uv install setuptools_scm --dev
 ```
 
 ### 1) 配置 pyproject.toml
@@ -212,7 +212,7 @@ python -m pip install setuptools_scm[toml]
 ```toml
 # pyproject.toml
 [build-system]
-requires = ["setuptools", "setuptools_scm[toml]"]
+requires = ["setuptools", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -222,23 +222,24 @@ build-backend = "setuptools.build_meta"
 dynamic = ["version"]
 
 [tool.setuptools_scm]
-write_to = "src/pyexcel/__version__.py"
+# 如果不设置version_file，会自动把包的版本信息写到 METADATA
+version_file = "src/pyexcel/_version.py"
 ```
 
 查看当前项目的版本：
 
 ```sh
->>> python -m setuptools_scm
+>>> uv run -m setuptools_scm
 1.0.3.dev1+g12ab31e
 ```
 
 打包：
 
 ```sh
-python -m build -w
+uv build --wheel
 ```
 
-查看 `src/pyexcel/__version__.py` 内容。
+查看 `src/pyexcel/_version.py` 内容。
 
 ```python
 # coding: utf-8
@@ -248,18 +249,10 @@ __version__ = version = '1.0.3.dev1+g12ab31e'
 __version_tuple__ = version_tuple = (1, 0, 3, 'dev1', 'g12ab31e')
 ```
 
-不设置 `write_to` 参数，直接把版本号写到包的元信息中也可以实现。
-
-```toml
-# pyproject.toml
-# 这里就只写一个标签就行了，build 包时会自动把包的版本信息写到 METADATA
-[tool.setuptools_scm]
-```
-
-在包内获取版本信息采用下面的方法（需要python3.8+，参考 [Retrieving package version at runtime](https://github.com/pypa/setuptools_scm/#retrieving-package-version-at-runtime)），修改 `src/pyexcel/__version__.py   `：
+在包内获取版本信息采用下面的方法（需要python3.8+，参考 [Retrieving package version at runtime](https://github.com/pypa/setuptools_scm/#retrieving-package-version-at-runtime)），修改 `src/pyexcel/_version.py   `：
 
 ```python
-# src/pyexcel/__version__.py
+# src/pyexcel/_version.py
 from importlib.metadata import version, PackageNotFoundError
 
 try:
@@ -269,13 +262,13 @@ except PackageNotFoundError:
     __version__ = "unknown version"
 ```
 
-### 2) 修改 .gitignore
+### 2) 停止追踪 `_version.py` 文件
 
 项目的 git 忽略文件`.gitignore`，添加一下内容，git 不再管理 `__version__.py` 文件。
 
 ```ini
 # .gitignore
-__version__.py
+_version.py
 ```
 
 ### 版本命名规则
@@ -297,18 +290,18 @@ For Git projects, the version relies on [git describe](https://git-scm.com/docs/
 
 即使是手动设置版本号，也有便捷的方案，每次只需要修改一处即可。**推荐使用此方法**。
 
-在 `src/pyexcel/__version__.py` ，里面记录版本号。
+在 `src/pyexcel/_version.py` ，里面记录版本号。
 
 ```python
-# src/pyexcel/__version__.py
+# src/pyexcel/_version.py
 
 __version__ = '1.0.1'
 ```
 
-在  `src/pyexcel/__version__.py` 里引用它：
+在  `src/pyexcel/_version.py` 里引用它：
 
 ```python
-from .__version__ import __version__
+from .__version_ import __version__
 ```
 
 配置 pyproject.toml 文件：
