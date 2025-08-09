@@ -1,8 +1,18 @@
 # Nodejs笔记
 
+## Nodejs管理
+
+```sh
+# 固定项目版本
+node --version > .node-version
+```
+
 ## nmp常用命令
 
 ```sh
+# 持久使用淘宝源
+npm config set registry https://registry.npmmirror.com
+
 # 查看 npm 版本
 npm -v
 # 查看当前目录安装的软件
@@ -10,15 +20,41 @@ npm ls
 # 查看全局安装软件
 npm ls -g
 
-# 检查全局安装需要更新的包
-npm outdated -g
-# 更新全局安装的包：npm、hexo-cli
-npm update -g
+# 检查是否有更新
+# 如果输出结果 wanted 小于 latest，想要更新的化，需要手动临时修改 package.json
+# 可以临时将 ^ 改为 >，后面update 会自动更新为 ^
+npm outdated
+# 更新包，并将包的版本信息更新至 package.json
+npm update --save
+
+# 如果想更简单一点，可以使用 npm-check-updates
+# 安装 ncu 命令
+npm install -g npm-check-updates
+# 检查项目包更新情况
+ncu
+# 写入 package.json
+ncu -u
+#安装更新
+npm install
 ```
 
-## 安装
+## 安装 nodejs
 
-推荐使用 scoop 安装 `nodejs-lts` 版，下面介绍的是从官方下载安装的版本
+### Windows 下安装 nodejs
+
+1. 使用 scoop 安装 `nodejs-lts` 版
+
+```sh
+scoop install nodejs-lts
+```
+
+2、使用 fnm 工具安装并管理 `nodejs`
+
+```sh
+scoop install fnm
+```
+
+下面介绍的是从官方下载安装的方法，不推荐。
 
 地址：<https://nodejs.org>，推荐使用 LTS 版。
 
@@ -53,5 +89,38 @@ echo.
 echo 设置成功！
 echo.
 pause & exit
+```
+
+### Linux下安装
+
+参考：<https://github.com/Schniz/fnm>
+
+```sh
+# 安装curl
+sudo apt install curl
+# 安装 fnm，需要从 github下载，哎...
+curl -fsSL https://fnm.vercel.app/install | bash
+# 如果不成功，就手动下载脚本：https://github.com/Schniz/fnm/blob/master/.ci/install.sh
+# 升级
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+
+# 安装成功后需要重新登录shell
+fnm -V  # 显示版本号，说明安装成功
+
+# 更换国内源
+export FNM_NODE_DIST_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
+# List all remote Node.js versions
+fnm list-remote --lts --latest
+# 安装最新的 lts 版，Install latest LTS
+fnm install --lts
+
+# 检查安装版本
+node -v
+npm -v
+
+fnm use 16.5.0            # 切换到已经安装的某个版本（16.5.0）
+fnm alias default 16.6.2  # 设置默认的Node.js版本（16.6.2）
+fnm ls                    # 列出所有已经安装的Node.js版本
+fnm uninstall 16.5.0      # 卸载某个已经安装的Node.js版本（16.5.0）
 ```
 

@@ -31,6 +31,9 @@ uv python --managed-python upgrade --preview
 
 # 打包为 wheel
 uv build --wheel
+
+# 查看项目已安装包的版本，仅查看直接安装的，不查看依赖
+uv tree -d 1
 ```
 
 ## 创建项目

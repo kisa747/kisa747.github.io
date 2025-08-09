@@ -2,53 +2,58 @@
 
 Debian 适合作为服务器，不太适合作为桌面环境，如果桌面环境推荐使用 Linux Mint。
 
-
-
 ## 安装
 
 镜像下载地址：<https://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/>
 
-VMware 使用 UEFI，虚拟磁盘类型选择 `IDE`，创建完虚拟机后，编辑虚拟机设置 - 选项 - 高级 - 固件类型UEFI。或是手动在 `*.vmx` 文件末尾添加 `firmware = "efi"`。参考：<https://communities.vmware.com/docs/DOC-28494>
+镜像选择 `netinst.iso` 即可，网络安装（大部分软件可以从国内源下载，但 security 源还是用的官方源，所以国内速度会比较慢）。
 
-如果不安装桌面，可以使用 `netinst.iso` 进行网络安装（因为要从官方的 security 源下载东西，所以国内速度奇慢无比，）。安装时记得勾选 `SSH Server`。
+VMware 使用 UEFI，虚拟磁盘类型选择 `IDE`，创建完虚拟机后，编辑虚拟机设置 - 选项 - 高级 - 固件类型UEFI。
+
+> 或是手动在 `*.vmx` 文件末尾添加 `firmware = "efi"`。
+>
+> 参考：<https://communities.vmware.com/docs/DOC-28494>
 
 如果安装桌面，推荐勾选：
 
->√    Debian桌面环境
+>✅ Debian桌面环境
 >
->√    Xfce 桌面
+>✅ Cinnamon 桌面
 >
->√    SSH Server
+>✅ SSH Server
 >
->√    标准系统工具
+>✅ 标准系统工具
 
 说明
 
->Debian 默认没有 sudo。Debian 在安装过程中设置 root 密码，并提示创建一个普通用户，SSH server 需要手动勾选安装，root 默认不允许 SSH 登录，同时默认并没有 sudo，所以第一步必须配置 sudo，或者开启 root 账号 SSH 登录（存在安全性风险，不推荐）。
+>* Debian 在安装过程中设置 root 密码，就不会安装sudo工具。
+>* 建议不设置 root 密码，创建普通用户，此用户默认在 sudo 用户组中。
 >
->UEFI + GPT 安装 Debian，使用 Debian 安装系统的分区工具，会在磁盘两端留1M的空闲空间。
+>* 如果需要远程SSH登录，建议勾选SSH Server。
+>* 建议 UEFI + GPT 安装 Debian。使用 Debian 安装系统的分区工具，会在磁盘两端留1M的空闲空间。
 >
->Debian 仍推荐使用 swap 分区，Ubuntu 早就默认取消 swap 分区了。其实使用 swap 分区的意义不大，个人建议不使用 swap 分区，而是使用 swap 文件。
+>* 建议不创建 swap 分区。Ubuntu 早就默认取消 swap 分区了，Debian 仍推荐使用 swap 分区，其实使用 swap 分区的意义不大，个人用户建议使用 swap 文件即可。
 
-查看版本
+查看系统信息
 
 ```sh
-lsb-release -a
+python3 -c "import platform;import pprint;pprint.pp(platform.freedesktop_os_release())"
 ```
 
 ## 配置
 
-### 安装 sudo
-
-如果设置了 root 密码，系统默认没有安装 `sudo`，需要先安装 `sudo`。
+### 常用配置
 
 ```sh
-su
-apt update && apt install sudo
-su - $USER
+# 设置命令简写
+cat << "EOF" | tee ~/.bash_aliases
+# 自定义命令部分
+alias uu='sudo apt update && sudo apt upgrade'
+alias ll='ls -alF'
+alias la='ls -A'
+EOF
+. ~/.bashrc
 ```
-
-如果没有设置 root 密码，则会默认安装 `sudo` ，并且安装系统时创建的用户是sudo 用户组，可以使用 `sudo` 命令。
 
 ### 配置 sudo 免密
 
@@ -61,7 +66,7 @@ echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010-$USER
 
 Debian 官方源列表：<https://www.debian.org/mirror/list>
 
-TUNA的Debian源 [官方说明](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
+TUNA的Debian源 [TUNA 官方说明](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
 
 ```sh
 # 配置APT更新源
@@ -80,32 +85,6 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 EOF
 
 sudo apt update && sudo apt upgrade
-# ---------------------------------------------
-# 安装开源版本的 VM tools，Debian 11 已经自动安装了这两个包。
-# 查看 VM tools 版本
-vmtoolsd -v
-# 查看运行状态
-systemctl status vmtoolsd
-# sudo apt-get install open-vm-tools open-vm-tools-desktop
-# 注销然后重新登录后生效。
-# sudo reboot
-
-# ---------------------------------------------------------------------
-#  GRUB 默认超时时间是 5 秒。GRUB 启动时间设置为 3 秒
-# if [ ! -f /etc/default/grub.bak ]; then sudo cp /etc/default/grub /etc/default/grub.bak; fi
-# sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=3/' /etc/default/grub
-# sudo update-grub
-# ---------------------------------------------------------------------
-
-# ---------------------------------------------------------------------
-# 设置命令别名
-# 测试下命令别名是否生效
-uu
-# ---------------------------------------------------------------------
-# 设置ssh免密自动登录
-# ---------------------------------------------------------------------
-# 配置python
-# ---------------------------------------------------------------------
 ```
 
 ### 修改中文目录为英文
@@ -128,9 +107,9 @@ sudo systemctl restart lightdm
 
 参考：<https://github.com/CanonicalLtd/lightdm>
 
-https://wiki.debian.org/zh_CN/LightDM
+<https://wiki.debian.org/zh_CN/LightDM>
 
-https://wiki.ubuntu.com/LightDM
+<https://wiki.ubuntu.com/LightDM>
 
 <https://wiki.archlinux.org/index.php/LightDM_(简体中文)>
 
@@ -140,14 +119,9 @@ https://wiki.ubuntu.com/LightDM
 sudo apt-get install numlockx -y
 # 这个能使登录后自动打开numlock，但是登录界面还是无法自动打开。
 sudo dpkg-reconfigure numlockx
-
-# 登录界面自动打开 numlock，推荐使用下面的方法
-#if [ ! -f /etc/lightdm/lightdm.conf.bak ]; then sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak; fi
-#sudo sed -i -e 's|^#greeter-setup-script=|greeter-setup-script=/usr/bin/numlockx on|g' /etc/lightdm/lightdm.conf
-
 # ---------------------------------------------
-# Debian 默认没有这个目录
-sudo mkdir -p /etc/lightdm/lightdm.conf.d
+# 配置登录界面自动打开小键盘
+sudo mkdir -p /etc/lightdm/lightdm.conf.d  # Debian 默认没有这个目录
 cat << EOF | sudo tee /etc/lightdm/lightdm.conf.d/${USER}.conf
 [Seat:*]
 # 显示用户列表。Debian默认不显示用户列表，因为Debian认为不应该暴露系统的用户名。
@@ -159,6 +133,10 @@ greeter-setup-script=/usr/bin/numlockx on
 EOF
 # 重新登录后生效
 sudo systemctl restart lightdm
+
+# [不推荐] 直接修改主配置文件登录界面自动打开 numlock，
+#if [ ! -f /etc/lightdm/lightdm.conf.bak ]; then sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak; fi
+#sudo sed -i -e 's|^#greeter-setup-script=|greeter-setup-script=/usr/bin/numlockx on|g' /etc/lightdm/lightdm.conf
 ```
 
 Cinnamon 和 Xfce 都使用了 LightDM 登录模块，按照以下顺序读取配置文件。普通用户，修改 `/etc/lightdm/lightdm.conf`即可。
@@ -192,20 +170,6 @@ Ubuntu与Debian的不太一样，LinuxMint 甚至还使用了 [slick-greeter](ht
 dpkg -l | grep "libreoffice"
 sudo apt remove --purge libreoffice*
 sudo apt autoremove
-```
-
-### Samba工具
-
-```sh
-# ---------------------------------------------------------------------
-# 文件管理器访问 smb 协议的后端工具
-sudo apt install gvfs-backends
-# 安装网络共享samba
-# sudo apt install samba
-# 命令行访问 smb 共享
-#sudo apt install smbclient
-# 挂载共享目录的工具
-#sudo apt install cifs-utils
 ```
 
 ### 配置 python
@@ -379,6 +343,45 @@ pip -V
 python -m pip -V
 ```
 
+### 安装 sudo
+
+如果设置了 root 密码，系统默认没有安装 `sudo`，需要先安装 `sudo`。
+
+```sh
+user_name=$USER
+
+su
+apt update && apt install sudo
+usermod -a -G sudo ￥user_name
+
+# 切换至当前用户
+su - $USER
+# 测试是否有效
+sudo apt update && sudo apt upgrade
+```
+
+### Samba工具
+
+```sh
+# 安装网络共享samba
+sudo apt install samba
+# 命令行访问 smb 共享
+#sudo apt install smbclient
+# 挂载共享目录的工具
+#sudo apt install cifs-utils
+# 文件管理器访问 smb 协议的后端工具
+#sudo apt install gvfs-backends
+```
+
+### 修改GRUB启动时间
+
+```sh
+#  GRUB 默认超时时间是 5 秒。GRUB 启动时间设置为 3 秒
+if [ ! -f /etc/default/grub.bak ]; then sudo cp /etc/default/grub /etc/default/grub.bak; fi
+sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=3/' /etc/default/grub
+sudo update-grub
+```
+
 ### 中文配置
 
 安装Debian过程中，如果不使用网络，可能存在中文的问题（未安装中文输入法，中文显示乱码）。
@@ -411,10 +414,26 @@ sudo apt install ssh
 sudo apt install fonts-noto
 ```
 
-### SSH
+### SSH配置
 
 ```sh
+# 设置免密登录至虚拟机
 ssh-copy-id kevin@debian.local
+```
+
+### 检查虚拟机工具
+
+在 VMWare 中安装的Debian，会自动安装开源版本的 VM tools，如果有问题，可以检查一下包的安装情况
+
+```sh
+# 安装开源版本的 VM tools，Debian 11 已经自动安装了这两个包。
+# 查看 VM tools 版本
+vmtoolsd -v
+# 查看运行状态
+systemctl status vmtoolsd
+# sudo apt-get install open-vm-tools open-vm-tools-desktop
+# 注销然后重新登录后生效。
+# sudo reboot
 ```
 
 ### 安装xfce桌面
@@ -439,7 +458,7 @@ sudo apt install fonts-wqy-zenhei
 sudo apt install chromium chromium-l10n
 ```
 
-## 知识
+## 其他
 
 ### 使用 Swapfile 交换文件
 

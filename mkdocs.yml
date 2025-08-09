@@ -3,6 +3,7 @@
 # https://squidfunk.github.io/mkdocs-material/getting-started/
 
 site_name: "Kevin's Wiki"
+site_url: https://kisa747.top
 
 # 手动设置导航栏内容
 #nav:
@@ -32,6 +33,8 @@ theme:
     - navigation.footer
     # 回到页面顶部
     - navigation.top
+    # 代码复制按钮
+    - content.code.copy
 
   # 根据系统设置切换 light、dark 模式
   palette:

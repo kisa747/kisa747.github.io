@@ -44,13 +44,13 @@ hexo init
 npm install
 
 # 安装 Git 部署工具
-npm install hexo-deployer-git --save
+npm install hexo-deployer-git
 
 # 安装服务器模块
-npm install hexo-server --save
+npm install hexo-server
 
 # 安装主题
-npm install hexo-theme-fluid --save
+npm install hexo-theme-fluid
 ```
 
 本地预览
@@ -258,7 +258,7 @@ npm 默认其实是最小化升级，仅检查当前安装是否满足 `package.
 ncu 会检查哪些包有新的版本，并将新的版本号写入 `package.json` 文件中，这才是我们升级的本意
 
 ```sh
-# 全局安装
+# 安装 ncu 命令
 npm install -g npm-check-updates
 
 # 检查工作区 package.json 依赖项是否有更新
