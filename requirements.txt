@@ -1,0 +1,6 @@
+## docs/requirements.txt
+
+## 此文件必须。readthedocs 构建需要的依赖文件。
+
+mkdocs
+mkdocs-material
