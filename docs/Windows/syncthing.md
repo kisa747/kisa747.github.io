@@ -1,4 +1,4 @@
-## Syncthing 笔记
+# Syncthing 笔记
 
 1. syncthing 应该一直作为服务运行，如果停止运行期间新增了文件，而这个目录又一直没有修改增删文件，那么这个变动将一直不会被监视掉，即使重新扫描也不行。
 2. 如果要彻底完全地重新扫描一遍，我现在感觉唯一的办法就是：删除 `index-v0.14.0.db` 。
@@ -97,7 +97,7 @@ winsw 免费开源，推荐使用 winsw。以 syncthing 为例，将 syncthing �
     <description>syncthing 文件同步工具</description>
     <executable>%BASE%\syncthing.exe</executable>
     <onfailure action="restart" delay="20 sec"/>
-    <arguments>-home="%BASE%\config" -no-console -no-browser</arguments>
+    <arguments>--home="%BASE%\config" --no-console -no-browser</arguments>
     <!---仅保留这次启动的日志-->
     <log mode="reset"></log>
     <startmode>Automatic</startmode>

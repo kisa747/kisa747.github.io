@@ -392,13 +392,13 @@ git add -A
 # 提交一个 commit
 git commit -m "First commit"
 # 关联远程仓库
-git remote add origin git@github.com:kisa747/note.git
+git remote add origin git@github.com:***/***.git
 # 强制提交到远程仓库
 # 把本地仓库的内容推送到 GitHub 仓库，并建立关联（-u 参数）
 git push -u origin main -f
 
 # 检查是否成功
-git r
+git remote -v
 ```
 
 方法二（未尝试过）

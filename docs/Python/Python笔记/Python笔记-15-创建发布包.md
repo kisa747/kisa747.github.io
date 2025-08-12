@@ -1,8 +1,12 @@
 # 创建并发布包
 
-参考：官方文档 [Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects)
+参考：
+
+ [Packaging Python Projects 文档](https://packaging.python.org/en/latest/tutorials/packaging-projects)
 
 [Setuptools 文档](https://setuptools.pypa.io/en/latest/userguide/quickstart.html)
+
+[setuptools scm 文档](https://setuptools-scm.readthedocs.io/en/latest/)
 
 [OpenAstronomy Python Packaging Guide](https://packaging-guide.openastronomy.org/en/latest/index.html#)
 
@@ -37,11 +41,17 @@ D:\MyProject                 # 项目目录
 
 在 pycharm 下，将 `src` 目录标记为：源代码根目录；将 `tests` 目录标记为：测试源代码根目录。python 程序中的引用就不会报错了。
 
-SetupTools 文档强烈建议软件包放到 `src` 目录下，即 `src` 布局（src-layout），参考： [官方文档](https://setuptools.pypa.io/en/latest/userguide/package_discovery.html)  。
+SetupTools 文档强烈建议软件包放到 `src` 目录下，即 `src` 布局（src-layout），参考： [SetupTools 文档](https://setuptools.pypa.io/en/latest/userguide/package_discovery.html)  。
 
 许可证选择参考阮一峰的文章：[如何选择开源许可证？](https://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
 
 配置信息 `pyproject.toml` 内容如下：
+
+参考：[Writing your `pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+
+classifiers 解释：<https://pypi.org/classifiers/>
+
+可填的 License 字段：<https://spdx.org/licenses/>
 
 ```toml
 # pyproject.toml
@@ -58,11 +68,12 @@ authors = [
 description = "一个处理Excel文件的工具"
 # 大部分打包工具都会自动识别 LICENSE 文件，所以不需要指定 LICENSE 文件
 readme = "README.md"
+license = "GPL-3.0-or-later"  # 参考：https://spdx.org/licenses/
 requires-python = ">=3.8"
 dependencies = [
     "xlwings>=0.28",
 ]
-classifiers = [
+classifiers = [  # 参考：https://pypi.org/classifiers/
     "Programming Language :: Python :: 3 :: Only",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
@@ -72,9 +83,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://example.com"
 "Bug Tracker" = "https://github.com/example"
-
-[tool.setuptools.dynamic]
-version = {attr = "pyexcel.__version__"}
 ```
 
 ### 额外的依赖包
@@ -90,12 +98,13 @@ name = "pyexcel"
 # 额外的包
 [project.optional-dependencies]
 PDF = ["ReportLab>=1.2", "RXP"]
+CLI = ["ReportLab>=1.2", "RXP"]
 ```
 
 如果要安装额外的包，使用下面的命令：
 
 ```sh
-python -m pip install pyexcel[PDF]
+python -m pip install pyexcel[PDF, CLI]
 ```
 
 如果另一个包 Package-B 依赖 pyexcel 包且支持 PDF 额外包，需要这样写：
@@ -110,28 +119,6 @@ dependencies = [
 ]
 ```
 
-classifiers 解释：<https://pypi.org/classifiers/>
-
-> Programming Language :: Python :: 3
->
-> Programming Language :: Python :: 3 :: Only
->
-> Programming Language :: Python :: 3.10
->
-> License :: OSI Approved :: BSD License
->
-> License :: OSI Approved :: GNU General Public License v3 (GPLv3)
->
-> Operating System :: OS Independent
->
-> Operating System :: Microsoft :: Windows
->
-> Operating System :: POSIX :: Linux
->
-> Development Status :: 4 - Beta
->
-> Development Status :: 5 - Production/Stable
-
 ## 3、执行 build 命令创建包
 
 ```sh
@@ -141,9 +128,6 @@ python -m build
 
 # 使用 -w 或 --wheel 参数，仅生成 wheel 文件
 python -m build -w
-
-# 运行完可以再改回来
-pip config set install.user true
 ```
 
 执行完后，得到一个 dist 目录：
@@ -164,11 +148,11 @@ pip install pyexcel-1.0.0-py3-none-any.whl
 
 ```sh
 git add .
-git commit -m '发布版 1.0.0'
+git commit -m '发布版 v1.0.0'
 # 给上一次 commit 打标签
-git tag 1.0.0
+git tag v1.0.0
 # 默认情况下，git push 并不会把 tag 标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。
-git push origin 1.0.0
+git push origin v1.0.0
 git push
 # 查看本地 tag 列表
 git tag
@@ -264,7 +248,7 @@ except PackageNotFoundError:
 
 ### 2) 停止追踪 `_version.py` 文件
 
-项目的 git 忽略文件`.gitignore`，添加一下内容，git 不再管理 `__version__.py` 文件。
+项目的 git 忽略文件`.gitignore`，添加一下内容，git 不再管理 `_version.py` 文件。
 
 ```ini
 # .gitignore

@@ -24,7 +24,7 @@ autocorrect --fix docs/**/*.md
 
 参考：[markdownlint 仓库](https://github.com/DavidAnson/markdownlint) | [markdownlint-cli 仓库](https://github.com/igorshubovych/markdownlint-cli) | [markdownlint-cli2 仓库](https://github.com/DavidAnson/markdownlint-cli2)
 
-**缺点**：2 个工具都无法正常使用 `pre-commit` 
+**缺点**：2 个工具都无法正常使用 `pre-commit`
 
 * `pre-commit` 下 `markdownlint-cli2` 无法运行
 * `pre-commit` 下 `markdownlint-cli` 乱码。
