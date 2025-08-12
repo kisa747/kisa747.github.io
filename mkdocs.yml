@@ -1,0 +1,120 @@
+# mkdocs.yml
+# mkdocs 主配置文件
+# https://squidfunk.github.io/mkdocs-material/getting-started/
+
+site_name: "Kevin's Wiki"
+site_url: https://kisa747.top
+
+# 手动设置导航栏内容
+#nav:
+#  - index.md
+#  - Blog:
+#    - blog/index.md
+
+
+theme:
+  name: material
+  language: zh
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  # 不使用 google font
+  font: false
+
+  features:
+    # instant loading
+    - navigation.instant
+    # 导航栏
+    - navigation.tabs
+    # 固定导航栏
+    - navigation.tabs.sticky
+    # 搜索关键字高亮
+    - search.highlight
+    # 底部导航箭头
+    - navigation.footer
+    # 回到页面顶部
+    - navigation.top
+    # 代码复制按钮
+    - content.code.copy
+
+  # 根据系统设置切换 light、dark 模式
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+
+plugins:
+  - search
+  - blog
+
+
+extra:
+  social:
+#    - icon: fontawesome/brands/github
+#      link: https://github.com/kisa747
+
+
+# 加载额外的 css 样式
+extra_css:
+  - assets/extra.css
+
+
+# 是否显示 Made with Material for MkDocs
+#generator: false
+# 版权声明
+copyright: Copyright &copy; 2025 - 2025 kisa747
+# 显示仓库地址
+repo_url: https://github.com/kisa747/kisa747.github.io
+edit_uri: ""
+
+markdown_extensions:
+  # 注释标题支持
+  - admonition
+  - def_list  # 列表
+  - pymdownx.tasklist:  # 任务列表
+      custom_checkbox: true
+  - pymdownx.details
+  - pymdownx.superfences
+  #  - mkautodoc
+
+  # 代码标题支持
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+  # 表格支持
+  - tables
+
+  # 公式支持，参考：https://squidfunk.github.io/mkdocs-material/reference/math/
+  - pymdownx.arithmatex:
+      generic: true
+
+  # 扩展语法支持
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+extra_javascript:
+  # 公式支持，参考：https://squidfunk.github.io/mkdocs-material/reference/math/
+  - assets/js/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

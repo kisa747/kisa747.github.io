@@ -1,0 +1,11 @@
+# markdownlint 配置文件
+gitignore: true
+
+MD013: false  # line-length - Line length
+MD024: false  # no-duplicate-heading - Multiple headings with the same content
+MD029: false  # ol-prefix - Ordered list item prefix
+MD033:        # no-inline-html - Inline HTML
+  allowed_elements: ["br","p"]
+MD036: false  # no-emphasis-as-heading - Emphasis used instead of a heading
+MD041: false  # first-line-heading/first-line-h1 - First line in a file should be a top-level heading
+#MD056: false  # table-column-count - Table column count

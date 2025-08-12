@@ -1,0 +1,47 @@
+rules:
+    # 参数值设为：0 - 禁用，1 - 报错，2 - 警告
+
+    # 自动在英文单词与中文之间加空格
+    space-word: 1
+
+    # 在某些标点符号之间加空格
+    space-punctuation: 1
+
+    # 在括号 () [] 与中文之间加空格
+    space-bracket: 1
+
+    # 转换成全角
+    fullwidth: 1
+
+    # 去除全角标点周围的空格
+    on-space-fullwidth: 1
+
+    # 全角字母、数字转换成半角
+    halfwidth-word: 1
+
+    # 在英文内容中将全角标点转换为半角
+    halfwidth-punctuation: 1
+
+    # 检查拼写
+    spellcheck: 2
+
+textRules:
+    # 为某些文本单独配置规则
+    # "Hello你好": 2
+    # "Hi你好": 0
+fileTypes:
+    # 指定文件后缀名对应的编程语言
+    "py": python
+    # "Rakefile": ruby
+    # "*.js": javascript
+    # ".mdx": markdown
+spellcheck:
+    # 专有名词的正确写法
+    words:
+        - GitHub
+        - App Store
+        - AppStore = App Store
+        #- Git
+        - Node.js
+        - nodejs = Node.js
+        # - DNS
