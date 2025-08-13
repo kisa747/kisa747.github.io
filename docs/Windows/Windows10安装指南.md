@@ -19,10 +19,12 @@ Windows 安装 ISO 镜像信息：
 >SHA1：C19D7DAFBAFEB26C36E31D97C465E87C7A6E8A4C
 >SHA256：C117C5DDBC51F315C739F9321D4907FA50090BA7B48E7E9A2D173D49EF2F73A3
 >
->magnet:?xt=urn:btih:366ADAA52FB3639B17D73718DD5F9E3EE9477B40&dn=SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO&xl=5044211712
+>`magnet:?xt=urn:btih:366ADAA52FB3639B17D73718DD5F9E3EE9477B40&dn=SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO&xl=5044211712`
 >
->ed2k://|file|SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO|5044211712|1555B7DCA052B5958EE68DB58A42408D|/
->
+>`ed2k://|file|SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO|5044211712|1555B7DCA052B5958EE68DB58A42408D|/`
+
+Windows 10 LTSC 2019 信息
+
 >Windows 10 LTSC 2019 信息：
 >
 >文件名：cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso
@@ -66,7 +68,7 @@ cscript //Nologo %windir%\system32\slmgr.vbs /xpr
 
 ### 1、工具类
 
-[PDFCreator](http://www.pdfforge.org/download) | [Chrome](https://www.google.cn/chrome/index.html)
+[PDFCreator](http://www.pdfforge.org/download) | [Chrome](https://www.google.cn/chrome/index.html) | [VMwareWorkstation](https://github.com/201853910/VMwareWorkstation/releases)
 
 [TeraCopy](http://codesector.com/teracopy)  最好安装在系统盘默认位置，因为升级后会自动安装至 `%programfiles%`
 

@@ -37,6 +37,9 @@ Scoop 主要支持开源软件、没有图形界面的 CLI 工具，开发工具
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 # 下载脚本并执行
 irm get.scoop.sh | iex
+
+# 重装系统后恢复所有软件
+scoop reset *
 ```
 
 ### 添加源

@@ -8,6 +8,11 @@
   --md-code-font: SFMono-Regular, Consolas, Menlo, monospace;
 }
 
+h1 {
+  font-family: MiSans, "Source Han Sans SC", system-ui, sans-serif;
+  font-weight: bold;
+}
+
 /* mkautodoc 的 css 配置*/
 div.autodoc {
   font-family: SFMono-Regular, consolas, monospace, "Roboto Mono";

@@ -65,10 +65,10 @@ uv tree -d 1
 
 ```sh
 # 经常全局使用的命令行工具，可以使用 uv tool 安装
-uv tool install you-get
+
 uv tool install ruff
-uv tool install pyright
-# 更新环境变量
+uv tool install notebook
+# 更新环境变量，注销后重新登录有效
 uv tool update-shell
 # 查看所有 uv tool 安装的工具
 uv tool list

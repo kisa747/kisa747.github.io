@@ -4,14 +4,23 @@
 
 ### 段落
 
-Markdown 标准语法：这是内嵌 `python` 代码， **这是加粗字体**，*这是斜体*，这是链接：<https://docs.python.org>。
-
-Markdown 常用扩展语法：~~这是删除线~~ ，==高亮显示==，^^下划线^^ ，下标：H~2~O，上标：x^2^+y^2^=z，内嵌公式：$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$
+|                           效果                           |                            代码                             |         语法标准         |
+| :------------------------------------------------------: | :---------------------------------------------------------: | :----------------------: |
+|                    内嵌 `python` 代码                    |                    内嵌 \`python\` 代码                     | GitHub Flavored Markdown |
+|                         **加粗**                         |                         `**加粗**`                          | GitHub Flavored Markdown |
+|                          *斜体*                          |                          `*斜体*`                           | GitHub Flavored Markdown |
+|                        ~~删除线~~                        |                        `~~删除线~~`                         | GitHub Flavored Markdown |
+|                        ^^下划线^^                        |                        `^^下划线^^`                         |    PyMdown Extensions    |
+|                       ==高亮显示==                       |                       `==高亮显示==`                        |    PyMdown Extensions    |
+|                       下标：H~2~O                        |                        `下标：H~2~O`                        |    PyMdown Extensions    |
+|                    上标：x^2^+y^2^=z                     |                     `上标：x^2^+y^2^=z`                     |    PyMdown Extensions    |
+| 内嵌公式：$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$ | `内嵌公式：$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$` |    PyMdown Extensions    |
+|               快捷键：++ctrl+alt+delete++                |               `快捷键：++ctrl+alt+delete++`                |    PyMdown Extensions    |
 
 ### 任务列表
 
 - [x] Run ruff when the python file is saves
-- [x] Use Import Optimizer
+- [ ] Use Import Optimizer
 
 ### 无序列表
 
@@ -61,10 +70,16 @@ if __name__ == '__main__':
 ### 表格
 
 |  Method  | Description                          |
-|:--------:|--------------------------------------|
+| :------: | ------------------------------------ |
 |  `GET`   | :material-check:     Fetch resource  |
 |  `PUT`   | :material-check-all: Update resource |
 | `DELETE` | :material-close:     Delete resource |
+
+### 整行公式
+
+$$
+\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
+$$
 
 ### 思维导图
 
@@ -83,21 +98,15 @@ graph LR
 
 ```
 
-### 行内内嵌公式
-
-内嵌公式：$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$
-
-### 整行公式
-
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-
 ## 扩展语法
 
-下面是 Material for MkDocs 支持的一些扩展语法
+扩展语法参考：<https://facelessuser.github.io/pymdown-extensions/>
+
+下面是常用的扩展语法
 
 ### Admonitions
+
+Material for MkDocs 支持的扩展语法
 
 !!! note "这是一个 note 标记，支持 tittle 标题"
     支持的标记：note, abstract, info, tip, success, question, warning, failure, danger, bug, example, quote。
@@ -116,3 +125,10 @@ $$
 
 !!! quote
     这是一个 quote 标记
+
+### 警报
+
+GitHub 独有的警报格式
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.

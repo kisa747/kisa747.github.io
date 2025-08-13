@@ -42,7 +42,7 @@ hexo init
 # 安装依赖包
 npm install
 
-# 安装 Git 部署工具
+# 安装 Git 部署工具，npm install 命令会自动将依赖写入 package.json
 npm install hexo-deployer-git
 
 # 安装服务器模块
@@ -223,7 +223,7 @@ deploy:
 npm install hexo-theme-fluid
 
 # 更新主题
-npm update --save hexo-theme-fluid
+npm update hexo-theme-fluid --save
 ```
 
 ### 主题 NexT

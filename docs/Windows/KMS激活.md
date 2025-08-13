@@ -1,6 +1,6 @@
 # KMS 激活
 
-开源激活工具：<https://massgrave.dev/，包含> 下载 windows 的地址。
+开源激活工具： <https://massgrave.dev> ，包含 下载 windows 的地址。
 
 > 确保安装的 Windows 和 Office 是 VL 版。
 

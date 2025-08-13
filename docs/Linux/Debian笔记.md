@@ -455,7 +455,7 @@ sudo sed -i 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=3/' /etc/default/grub
 sudo update-grub
 ```
 
-### 检查虚拟机工具
+### VM Tools 工具
 
 在 VMWare 中安装的 Debian，会自动安装开源版本的 VM tools，如果有问题，可以检查一下包的安装情况
 
@@ -465,9 +465,10 @@ sudo update-grub
 vmtoolsd -v
 # 查看运行状态
 systemctl status vmtoolsd
-# sudo apt-get install open-vm-tools open-vm-tools-desktop
+# 如果没有安装，就手动安装
+sudo apt-get install open-vm-tools open-vm-tools-desktop
 # 注销然后重新登录后生效。
-# sudo reboot
+sudo reboot
 ```
 
 ### 安装 xfce 桌面

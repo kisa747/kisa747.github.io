@@ -38,6 +38,10 @@ ncu
 ncu -u
 #安装更新
 npm install
+
+# 常用命令简写
+
+npm up  # npm update
 ```
 
 ## 安装 Node.js

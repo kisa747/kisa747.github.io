@@ -79,3 +79,19 @@ Retouch4me 系列插件是 PS 智能 AI 修图插件合集，用于更快速、�
 10. Retouch4me Clean Backdrop 背景净化（也适合花卉、静物等题材）
 11. Retouch4me Fabric 去除服装上的褶皱、折痕
 12. Retouch4me Frequency Separation  高低频率分离，自定义特定图像的频率范围
+
+使用
+
+1. 使用动作
+2. 滤镜 - Retouch4me 选择需要的操作
+
+便捷动作
+
+Heal - Dodge & Burn - Skin Tone(50%透明度) ，基本这三步就可以了
+
+快速修图
+
+1. 打开图片，执行动作
+2. 选中 `R4M` 图层组，使用套索工具选择脸部区域
+3. `Shift + F7` 反转选区
+4. `D` 恢复默认前景色/背景色，`Ctrl + Backspace` 填充背景色（黑色）

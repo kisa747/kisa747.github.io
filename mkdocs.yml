@@ -17,8 +17,7 @@ theme:
   language: zh
   logo: assets/logo.png
   favicon: assets/favicon.png
-  # 不使用 google font
-  font: false
+  font: false  # 不使用 google font
 
   features:
     # instant loading
@@ -71,11 +70,6 @@ extra:
 #      link: https://github.com/kisa747
 
 
-# 加载额外的 css 样式
-extra_css:
-  - assets/extra.css
-
-
 # 是否显示 Made with Material for MkDocs
 #generator: false
 # 版权声明
@@ -85,35 +79,43 @@ repo_url: https://github.com/kisa747/kisa747.github.io
 edit_uri: ""
 
 markdown_extensions:
-  # 注释标题支持
-  - admonition
-  - def_list  # 列表
-  - pymdownx.tasklist:  # 任务列表
-      custom_checkbox: true
-  - pymdownx.details
-  - pymdownx.superfences
-  #  - mkautodoc
+  - admonition                # 警告栏 !!! note
+  - footnotes                 # 脚注
+  - tables                    # 表格
+  - pymdownx.tasklist:        # 列表   - * + 1.2. a.b.
+      custom_checkbox: true   # 任务列表 - [x]
 
-  # 代码标题支持
-  - pymdownx.highlight:
+  - pymdownx.highlight:  # 代码标题支持
       anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-
-  # 表格支持
-  - tables
-
-  # 公式支持，参考：https://squidfunk.github.io/mkdocs-material/reference/math/
-  - pymdownx.arithmatex:
-      generic: true
 
   # 扩展语法支持
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+  - pymdownx.critic  # 高亮、删除、下划线等
+  - pymdownx.caret   # 上下标
+  - pymdownx.keys    # 转化为好看的快捷键图标 ++ctrl+alt+delete++
+  - pymdownx.mark    # ==高亮显示==，相当于添加 <mark></mark> tags
+  - pymdownx.tilde   # ~~删除~~、下~标~
 
+  # 公式支持，参考：https://squidfunk.github.io/mkdocs-material/reference/math/
+  - pymdownx.arithmatex:  # 需要额外的 js
+      generic: true
+  
+  - pymdownx.superfences:  # 流程图、思维图
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+###--------------------
+## 下面是第三方扩展，需要安装相应的扩展
+  # - mkautodoc  # mkautodoc扩展支持
+###--------------------
+
+
+# 额外的 css 样式
+extra_css:
+  - assets/extra.css
+
+# 额外的 js 脚本
 extra_javascript:
   # 公式支持，参考：https://squidfunk.github.io/mkdocs-material/reference/math/
   - assets/js/mathjax.js

@@ -97,7 +97,7 @@ winsw 免费开源，推荐使用 winsw。以 syncthing 为例，将 syncthing �
     <description>syncthing 文件同步工具</description>
     <executable>%BASE%\syncthing.exe</executable>
     <onfailure action="restart" delay="20 sec"/>
-    <arguments>--home="%BASE%\config" --no-console -no-browser</arguments>
+    <arguments>--home="%BASE%\home" --no-console -no-browser</arguments>
     <!---仅保留这次启动的日志-->
     <log mode="reset"></log>
     <startmode>Automatic</startmode>

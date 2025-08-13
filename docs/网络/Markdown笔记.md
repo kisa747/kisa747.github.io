@@ -2,22 +2,21 @@
 
 参考：[简明语法](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown) 、 [高阶语法](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-%E9%AB%98%E9%98%B6%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C)
 
-* Markdown 书写语法以 GitHub 的 [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 为准，尽量使用标准唯一的语法。比如：标题使用 `#` 而不是 `==`。
+* Markdown 书写语法以 GitHub 的 [GitHub Flavored Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 为准，尽量使用标准唯一的语法。比如：标题使用 `#` 而不是 `==`。
 * GitHub 不支持 ==高亮==、行内公式
-
-无序列表使用 `-` `*` `+` 都可以。
+* 无序列表使用 `-` `*` `+` 都可以
 
 ## 常用命令
 
 ```sh
 # 修复能修复的语法问题
-markdownlint --fix docs/**/*.md
+markdownlint --fix **/*.md
 
 # 需要在 Git Bash 下运行
 # 检查文档
-autocorrect --lint kisa747.github.io/docs/**/*.md
+autocorrect --lint **/*.md
 # 纠正目录下的所有文档
-autocorrect --fix docs/**/*.md
+autocorrect --fix **/*.md
 ```
 
 ## markdownlint 工具
