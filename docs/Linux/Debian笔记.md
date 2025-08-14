@@ -69,19 +69,23 @@ Debian 官方源列表：<https://www.debian.org/mirror/list>
 TUNA 的 Debian 源 [TUNA 官方说明](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
 
 ```sh
-# 配置 APT 更新源
-if [ ! -f /etc/apt/sources.list.bk ]; then sudo cp /etc/apt/sources.list /etc/apt/sources.list.bk; fi
-# 修改更新源
-#sudo sed -i -e 's|^deb-src.*$|## &|g' -e 's|http://deb.debian.org|https://mirrors.ustc.edu.cn|g' /etc/apt/sources.list
-# 修改 security 源
-#sudo sed -i 's|http://security.debian.org|https://mirrors.ustc.edu.cn|g' /etc/apt/sources.list
-# 推荐直接修改，更直接，而且可以添加非自有软件库。
-cat << "EOF" | sudo tee /etc/apt/sources.list
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ trixie main contrib non-free non-free-firmware
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ trixie-updates main contrib non-free non-free-firmware
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ trixie-backports main contrib non-free non-free-firmware
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security trixie-security main contrib non-free non-free-firmware
-EOF
+# DEB822 格式
+if [ ! -f /etc/apt/sources.list.d/debian.sources.bk ]; then sudo cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bk; fi
+
+cat << "EOF" | sudo tee /etc/apt/sources.list.d/debian.sources
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
+Suites: trixie trixie-updates trixie-backports
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/debian-security
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
 # 更新系统
 sudo apt update && sudo apt upgrade
 ```

@@ -62,6 +62,8 @@ theme:
 plugins:
   - search
   - blog
+  - statistics:
+      page_statistics: false
 
 
 extra:

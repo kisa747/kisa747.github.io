@@ -5,7 +5,11 @@ description = "我个人的知识库"
 readme = "README.md"
 authors = [{ name = "kevin", email = "kevin@kisa747.top" }]
 requires-python = ">=3.13"
-dependencies = ["mkdocs", "mkdocs-material"]
+dependencies = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-statistics-plugin>=0.1.5",
+]
 
 
 [[tool.uv.index]] # uv 默认不会读取 pip 的配置，可以配置多个地址

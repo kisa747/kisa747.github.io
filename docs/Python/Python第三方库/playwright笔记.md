@@ -26,32 +26,49 @@ uv run playwright codegen --device="iPhone 13" --timezone="Asia/Shanghai" --geol
 uv run playwright codegen --device="iPhone 13" --timezone="Asia/Shanghai" --geolocation="34.283277,117.381175" -o "test_pw.py" "https://3bhr.cscec.com/#/time_punch"  --load-storage=auth.json
 ```
 
-## 笔记
-
-### 模拟设备、时区、语言、位置
-
-参考：<https://playwright.dev/python/docs/emulation>
-
-常见的 `iphone 15` ，支持的字段参考：[registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)
+同步模式访问一个网站
 
 ```python
-from playwright.sync_api import sync_playwright, Playwright
+from playwright.sync_api import Playwright, sync_playwright
+
 
 def run(playwright: Playwright):
     webkit = playwright.webkit
-    iphone = playwright.devices["iPhone 6"]
+    device = playwright.devices['iPhone 15']
     browser = webkit.launch()
-    context = browser.new_context(**iphone)
+    context = browser.new_context(
+        **device,
+        locale='zh-CN',
+        timezone_id='Asia/Shanghai',
+        geolocation={
+            'latitude': 34,  # 纬度
+            'longitude': 117,  # 经度
+            'accuracy': 99,  # GPS精度
+        },
+        permissions=['geolocation'],
+        storage_state='auth.json',
+    )
     page = context.new_page()
-    page.goto("http://example.com")
-    # other actions...
-    browser.close()
+    page.goto('http://example.com')
+
 
 with sync_playwright() as playwright:
     run(playwright)
 ```
 
-模拟 Locale & Timezone
+## 配置
+
+### 模拟设备
+
+参考：<https://playwright.dev/python/docs/emulation>
+
+设备支持的字段参考：[registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)
+
+常见的设备： `iphone 15`  `Galaxy S24`  `iPad Pro 11` `iPad Mini` `Desktop Chrome` `Desktop Edge`
+
+### 模拟语言、时区
+
+模拟 `Locale & Timezone` ，CI部署中非常重要，操作系统语言可能是英语。
 
 ```python
 context = browser.new_context(
@@ -60,19 +77,29 @@ context = browser.new_context(
 )
 ```
 
-坐标
+### 模拟位置
 
 ```python
-_ = {  # 打卡地 1
-'latitude': 34.283277,  # 纬度
-'longitude': 117.381175,  # 经度
-'accuracy': 99,  # GPS 精度
-}
-_ = {  # 打卡地 2
-'latitude': 34.28186,  # 纬度
-'longitude': 117.34710,  # 经度
-'accuracy': 99,  # GPS 精度
-}
+context = browser.new_context(
+    geolocation={
+        'latitude': 34,  # 纬度
+        'longitude': 117,  # 经度
+        'accuracy': 99,  # GPS精度
+    },
+    permissions=['geolocation'],
+)
+```
+
+### 加载回话
+
+```python
+# 保存会话
+context.storage_state(path='auth.json')
+
+# 加载之前保存的会话
+context = browser.new_context(
+    storage_state='auth.json',
+)
 ```
 
 ### 自动等待

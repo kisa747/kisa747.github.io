@@ -6,7 +6,7 @@ rem 使用UTF-8编码
 rem cp936编码下
 rem set dt_1=%date:~0,10%
 
-echo markdownlint 正在语法检查...
+echo. markdownlint 正在语法检查...
 call markdownlint --fix docs/**/*.md
 if errorlevel 1 goto lint_error
 echo.

@@ -9,4 +9,4 @@
 | Office LTSC 专业增强版 2024 | XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB |
 | Project Professional 2024   | FQQ23-N4YCY-73HQ3-FM9WC-76HF4 |
 
-只要 windows 是通过 KMS 激活的，Office 就无须单独激活，换句话说，Office 激活方式与 Windows 的 KMS 激活方式一致。
+只要 Windows 是通过 KMS 激活的，Office 就无须单独激活，换句话说，Office 激活方式与 Windows 的 KMS 激活方式一致。

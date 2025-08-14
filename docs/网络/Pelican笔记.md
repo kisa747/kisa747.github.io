@@ -19,7 +19,7 @@ Pelican：一个 Python 静态网站生成器
 安装好 Python3，然后安装 Pelican。
 
 ```sh
-pip install pelican markdown
+pip install pelican[markdown]
 ```
 
 创建博客主目录：
@@ -155,28 +155,4 @@ EXTRA_PATH_METADATA = {
     # 'favicon.ico',
     # 'CNAME',
     # ]
-```
-
-## 博客迁移
-
-参考：<https://github.com/dreikanter/wp2md>
-
-<https://github.com/ytechie/wordpress-to-markdown>
-
-配置好 Node.js
-
-### Usage
-
-Clone the repo and go into its directory to install dependencies:
-
-```sh
-git clone https://github.com/ytechie/wordpress-to-markdown.git
-cd wordpress-to-markdown/
-npm install xml2js to-markdown
-```
-
-Copy your Wordpress content export into the folder as `export.xml`. Then run the script
-
-```sh
-node convert.js
 ```

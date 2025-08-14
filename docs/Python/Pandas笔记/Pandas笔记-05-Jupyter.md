@@ -1,6 +1,26 @@
 # Jupyter 笔记
 
-## 笔记
+[Jupyter Notebook 文档](https://jupyter-notebook.readthedocs.io/en/latest/)
+
+## Quik Start
+
+参考：<https://docs.astral.sh/uv/guides/integration/jupyter/>
+
+<https://rosefinch-midsummer.github.io/zh/posts/tech/如何在jupyter-notebook中使用虚拟环境完整配置指南/>
+
+在项目中使用，不过每次都需要联网、安装依赖、重新构建虚拟环境，速度较慢
+
+```sh
+# 启动 jupyter lab
+uv run --with jupyter jupyter lab
+```
+
+在 VSCode 中使用，需要安装 ipykernel 内核
+
+```sh
+# 添加 ipykernel 作为开发依赖项
+uv add --dev ipykernel
+```
 
 ## 快捷键
 
@@ -34,7 +54,7 @@ x=np.sin(20)
 np.cos(-x)
 ```
 
-安装
+安装扩展
 
 ```sh
 # 安装并配置扩展

@@ -1,5 +1,36 @@
 # Excel 笔记
 
+## 文本中提取数据
+
+```vb
+Function regextract(rng As String, pat As String, Optional group As Boolean = False)
+'正则表达式函数
+'用法：
+'默认不分组，根据正则表达式返回第一个匹配
+'group 为 True 时，正则表达式必须要要有括号分组，则返回第一个匹配的的第一个分组
+'暂时就这样写函数了，根据需求，如果有更高级的需求，在调整函数
+
+'参数1 rng: String 选择要匹配的单元格
+'参数2 str: String 正则表达式
+'参数3：group: Boolean 是否分组
+
+
+With CreateObject("VBscript.regexp")
+    .Global = True
+    .pattern = pat   '表达式,直接从函数的第二个参数中调用
+    If .Execute(rng).Count = 0 Then
+        GetStr = ""
+    Else
+        If group Then
+            regextract = .Execute(rng)(0).SubMatches(0)
+        Else
+            regextract = .Execute(rng)(0)
+        End If
+    End If
+End With
+End Function
+```
+
 ## 组合查询
 
 利用 `IF({1,0}` 创建数组进行查询。
