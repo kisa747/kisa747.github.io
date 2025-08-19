@@ -1,4 +1,4 @@
-## 文件系统层次结构标准 (FHS)(for Linux)
+# Linux 文件系统层次结构标准 (FHS)
 
 参考：<https://blog.csdn.net/qq_29753285/article/details/69791332>
 
@@ -22,7 +22,7 @@ Debian 10 在全新安装的系统上默认启用 /usr 合并。也就是说，�
 
 这次变更应当不会影响只运行由 Debian 提供软件的用户，但安装或构建第三方软件包的用户需要注意。
 
-# 文件系统层次结构标准 - 简介
+## 文件系统层次结构标准 - 简介
 
 **开发者** [Linux 基金会](https://en.wikipedia.org/wiki/Linux_Foundation)
 

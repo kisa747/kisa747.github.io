@@ -8,7 +8,7 @@
 
 <https://rosefinch-midsummer.github.io/zh/posts/tech/如何在jupyter-notebook中使用虚拟环境完整配置指南/>
 
-在项目中使用，不过每次都需要联网、安装依赖、重新构建虚拟环境，速度较慢
+在项目中使用
 
 ```sh
 # 启动 jupyter lab
@@ -31,7 +31,7 @@ uv add --dev ipykernel
 - **Ctrl-Enter** : 运行本单元
 - **Alt-Enter** : 运行本单元，在其下插入新单元
 
-## Jupyter Notebook 常用魔法命令
+## Jupyter 常用魔法命令
 
 ```python
 # 单元格内显示图像

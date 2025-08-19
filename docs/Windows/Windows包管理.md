@@ -34,9 +34,9 @@ Scoop 主要支持开源软件、没有图形界面的 CLI 工具，开发工具
 
 ```powershell
 # Optional: Needed to run a remote script the first time
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # 下载脚本并执行
-irm get.scoop.sh | iex
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
 # 重装系统后恢复所有软件
 scoop reset *
@@ -62,7 +62,7 @@ scoop install 7zip
 
 
 # 开发工具
-scoop install python311
+scoop install python313
 scoop install nodejs-lts
 
 # 启用 aria2 加速

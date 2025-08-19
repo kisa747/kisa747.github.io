@@ -1979,13 +1979,11 @@ whoami
 cat /etc/group
 # 查看指定用户组下的所有成员
 getent group family
-
-
 ```
 
 1）管理用户（user）的工具或命令；
 
- ```bash
+```bash
 # debian 下，useradd 命令创建用户是不会在/home 下自动创建与用户名同名的用户目录，而且不会自动选择 shell 版本，也没有设置密码，那么这个用户是不能登录的，需要使用 passwd 命令修改密码。会同时创建同名群组
 useradd
 # 创建用户，并附加到 family 组，不创建同名的组，主组仍是 users 用户组
@@ -2016,7 +2014,7 @@ sudo
 visudo
 # 和 sudo 功能差不多
 sudoedit
- ```
+```
 
 2）管理用户组（group）的工具或命令
 

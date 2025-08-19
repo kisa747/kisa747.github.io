@@ -1,8 +1,8 @@
-# Linux 系统管理
+# Systemd 服务管理
 
 参考：[Linux 二零](https://itboon.github.io/linux-20/)
 
-## Systemd 服务管理
+## 介绍
 
 LinuxMint 默认采用 systemd 管理服务，Systemd 是 Linux 系统工具，用来启动[守护进程](http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html)，已成为大多数发行版的标准配置。
 
@@ -389,5 +389,4 @@ systemctl --user daemon-reload
 sudo loginctl enable-linger $USER
 # 查看用户日志
 journalctl -e --user-unit=monitor_photos.path
-
 ```

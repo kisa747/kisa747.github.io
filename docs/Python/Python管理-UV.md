@@ -184,14 +184,14 @@ uv venv -p 3.13 -c
 
 ```sh
 # 升级 UV 管理的 python。注意：试验中的功能
-uv python --managed-python upgrade --preview
+uv python upgrade
 # 比如 3.13.5 --> 3.13.6
 # 将最新版的更新为默认版本
-uv python install 3.13 --force
+# uv python install 3.13 --force
 # 卸载旧版
-uv python uninstall 3.13.5
+uv python uninstall 3.13.6
 # 更新当前项目 python
-uv venv -p 3.13.6 -c
+uv venv -p 3.13.7 -c
 ```
 
 ## 其他

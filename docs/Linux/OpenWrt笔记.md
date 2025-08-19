@@ -40,13 +40,13 @@ Newifi 的设备名称是 `Newifi mini Y1`，这款设备的 U-boot 并没有锁
 
 2、在 openwrt 的 web 界面 - 系统 - 管理权，粘贴 SSH 公钥。
 
-2、打开 putty，填写地址（192.168.2.1），端口号（22），选择“ssh”协议；
+2、打开 putty，填写地址（192.168.2.1），端口号（22），选择 “ssh” 协议；
 
-在左侧找到“Connection”，在“Data”项，在“Auto-login username”项填写用户名；
+在左侧找到 “Connection”，在 “Data” 项，在 “Auto-login username” 项填写用户名；
 
-在“SSH”->“Auth”，在“Private key file for authentication”项，点击“Browse...”，选择第 2 步转换的“.ppk”格式的证书；
+在 “SSH” -> “Auth”，在 “Private key file for authentication” 项，点击 “Browse...”，选择第 2 步转换的 “.ppk” 格式的证书；
 
-保存当前的“Session”后；
+保存当前的 “Session” 后；
 
 点击“Open” ，即可自动登录。
 
@@ -81,7 +81,7 @@ if [ ! -f /etc/config/network.bak ]; then sudo cp /etc/config/network /etc/confi
 sed -i "s|option ipaddr '192.168.1.1'|option ipaddr '192.168.2.1'|g" /etc/config/network
 ```
 
-重启路由，即可使用 192.168.2.1 访问。
+重启路由，即可使用 `192.168.2.1` 访问。
 
 ```sh
 reboot
@@ -220,7 +220,6 @@ config mount
 config swap
         option enabled '1'
         option device '/dev/sda2'
-
 ```
 
 创建必要的目录、文件：
@@ -317,7 +316,6 @@ client ntlmv2 auth = yes
         create mask = 0744
         directory mask = 0755
         browseable = yes
-
 ```
 
 点击 luci 底部的 `save & apply` 或者执行 `/etc/init.d/samba restart`  重启 samba 服务。
