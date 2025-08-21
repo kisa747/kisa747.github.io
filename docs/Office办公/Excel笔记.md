@@ -1,9 +1,11 @@
 # Excel 笔记
 
+参考：[阿凯的 Excel](<https://cloud.tencent.com/developer/column/2107>)
+
 ## 文本中提取数据
 
 ```vb
-Function regextract(rng As String, pat As String, Optional group As Boolean = False)
+Function regextract(rng As String, pat As String, Optional group As Integer = 0)
 '正则表达式函数
 '用法：
 '默认不分组，根据正则表达式返回第一个匹配
@@ -12,17 +14,17 @@ Function regextract(rng As String, pat As String, Optional group As Boolean = Fa
 
 '参数1 rng: String 选择要匹配的单元格
 '参数2 str: String 正则表达式
-'参数3：group: Boolean 是否分组
+'参数3：group: Integer 如果值大于0，则返回第 group-1 项分组
 
 
 With CreateObject("VBscript.regexp")
     .Global = True
-    .pattern = pat   '表达式,直接从函数的第二个参数中调用
+    .pattern = pat '正则表达式
     If .Execute(rng).Count = 0 Then
-        GetStr = ""
+        regextract = ""
     Else
         If group Then
-            regextract = .Execute(rng)(0).SubMatches(0)
+            regextract = .Execute(rng)(0).SubMatches(group - 1)
         Else
             regextract = .Execute(rng)(0)
         End If
@@ -95,3 +97,50 @@ End Function
 =LOOKUP(1,0/(B3:B9=H3),D3:D9)
 =LOOKUP(1,0/((B3:B9=H3)*(E3:E9=I3)),D3:D9)
 ```
+
+## Excel 去除换行符的方法
+
+方法一：
+
+ ```vb
+=SUBSTITUTE(A1,CHAR(10),"")
+ ```
+
+该公式可以将 LF 换行符去除，要去除 CR 换行符可以用
+
+ ```vb
+=SUBSTITUTE(A1,CHAR(13),"")
+ ```
+
+方法二：
+
+```vb
+=CLEAN(A1)
+```
+
+从文本中删除所有非打印字符。
+
+方法三（不推荐）：
+
+按键 `CTRL+F` 调出查找替换对话框，选择替换 查找中输入：按住 `ALT`，小键盘输入 10，然后松开 ALT 按全部替换 如此，即可将所有内容中的换行符去除。
+
+## 创建序列
+
+重复序列
+
+使用 `mod` 函数求余数。
+
+```vb
+=(MOD(A1-1,3))+1
+```
+
+得到 `((1,2,3);(1,2,3)...)` 。
+
+循环序列数
+
+```vb
+=INT((A41+2)/3)
+=ROUNDUP(A38/3,0)
+```
+
+得到：`((1,1,1);(2,2,2)...)`

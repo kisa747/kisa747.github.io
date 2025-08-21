@@ -183,7 +183,7 @@ uv venv -p 3.13 -c
 或是将 `.python-version` 内容改为 `3.13` ，然后运行 `uv sync` 即可，没有看错，就是这么简单。
 
 ```sh
-# 升级 UV 管理的 python。注意：试验中的功能
+# 升级 UV 管理的 python。注意：试验中的功能，会有 Warning 提示
 uv python upgrade
 # 比如 3.13.5 --> 3.13.6
 # 将最新版的更新为默认版本

@@ -247,19 +247,21 @@ skip_gitignore = true
 
 ```python
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 说明文档
 """
 __author__ = 'kevin'
 __date__ = '${DATE}'
+
 import logging
-from pathlib import Path
 def _test():
-    logging.info('处理完成！')
+    logging.info('Done!')
 def main():
-    pass
+    logging.info('Done!')
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')
+    
     _test()
     # main()
 ```
@@ -274,6 +276,7 @@ if __name__ == '__main__':
 """
 __author__ = 'kevin'
 __date__ = '${DATE}'
+
 import logging
 import unittest
 class MyTestCase(unittest.TestCase):
@@ -530,11 +533,17 @@ VSCode 安装 Python 扩展后自动安装的，主要是语法检查。
 
 官方文档：<https://code.visualstudio.com/docs/editor/userdefinedsnippets>
 
-输入 `py` 然后回车，自动生成代码片段。
+显示并运行命令（Ctrl + Shift + P），输入：`Snippets: Configure Snippets`，选择`python` ，添加以下内容：
+
+输入 `py` 然后回车，就能自动生成代码片段。
 
 ```json
 {
- "Print to console": {
+ // Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+ // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+ // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+ // same ids are connected.
+ "Create python": {
   "prefix": "py",
   "body": [
    "#!/usr/bin/env python3",
@@ -545,28 +554,13 @@ VSCode 安装 Python 扩展后自动安装的，主要是语法检查。
    "__author__ = 'kevin'",
    "__date__ = '${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DATE}'",
    "",
-   "# from pathlib import Path",
    "import logging",
-   "",
-   "",
    "def _test():$0",
-   "    logging.info('--> 处理完成！')",
-   "",
-   "",
+   "    logging.info('Done!')",
    "def main():",
-   "    pass",
-   "",
-   "",
+   "    logging.info('Done!')",
    "if __name__ == '__main__':",
-   "    logging.basicConfig(level=logging.INFO, format='[%(levelname)s]: %(message)s')",
-   "    # -------以下为将日志同时输出至文件的代码-------",
-   "    # 定义一个 FileHandler，将日志信息写入到文件，并将其添加到当前的日志处理对象",
-   "    # handler = logging.FileHandler(filename=Path(__file__).with_suffix('.log'), mode='a')",
-   "    # handler.setLevel(logging.WARNING)",
-   "    # formatter = logging.Formatter('%(asctime)s - %(module)s:%(lineno)s - [%(levelname)s]: %(message)s')",
-   "    # handler.setFormatter(formatter)",
-   "    # logging.getLogger('').addHandler(handler)",
-   "    # ---------------------------------------",
+   "    logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')",
    "",
    "    _test()",
    "    # main()"
@@ -581,7 +575,7 @@ VSCode 安装 Python 扩展后自动安装的，主要是语法检查。
 市场上安装 `autodocstring` 插件，vscode 没发现有完美的方案解决注释文档的方法。
 
 ```json
-"autoDocstring.docstringFormat": "sphinx-notypes",
+"autoDocstring.docstringFormat": "google-notypes",
 ```
 
 ## Notepad++

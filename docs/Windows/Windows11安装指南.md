@@ -10,17 +10,17 @@
 >
 >大小：4.92GB
 >
->MD5：1A13ADE0178082432F90DF951A88842F
+>MD5:1A13ADE0178082432F90DF951A88842F
 >
 >SHA1：AB7CD740E6CD495A69E3A90FCD7FB56BA0C5C62E
 >
->SHA256：2CB21649590C8CF770CD93556596DFF4FD800F24D267A9BE9D9CE0EE9E03F5AC
+>SHA256:2CB21649590C8CF770CD93556596DFF4FD800F24D267A9BE9D9CE0EE9E03F5AC
 >
 >`magnet:?xt=urn:btih:b84e74c1dbcc88a02c5b24a6f84383f353a2e1dd&dn=zh-cn_windows_11_enterprise_ltsc_2024_x64_dvd_cff9cd2d.iso&xl=5287520256`
 >
 >`ed2k://|file|zh-cn_windows_11_enterprise_ltsc_2024_x64_dvd_cff9cd2d.iso|5287520256|D6E4FE0BA5FD8A2F22FC9C0326481791|/`
 
-## KEY信息
+## KEY 信息
 
 |           名称           |      代称      |              KEY              |
 | :----------------------: | :------------: | :---------------------------: |
@@ -55,7 +55,7 @@ irm https://get.activated.win | iex
 cscript //Nologo %windir%\system32\slmgr.vbs /xpr
 ```
 
-如果不行就下在最新的脚本手动运行，[最新脚本下载地址1](https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)   [最新脚本下载地址2](https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip) ，运行  `All-In-One-Version/MAS_AIO.cmd` 。
+如果不行就下在最新的脚本手动运行，[最新脚本下载地址 1](https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)   [最新脚本下载地址 2](https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip) ，运行  `All-In-One-Version/MAS_AIO.cmd` 。
 
 ![mas](img/mas.png)
 
@@ -71,12 +71,12 @@ cscript //Nologo %windir%\system32\slmgr.vbs /xpr
 |   Ohook    |         Office         | Permanent  | 直接激活，无须联网，重装系统失效         |
 |  TSforge   | Windows / ESU / Office | Permanent  |                                          |
 |   KMS38    |     Windows 10-11      | Year 2038  | 直接激活，无须联网                       |
-| Online KMS |    Windows / Office    |  180 Days  | 需连接KMS服务器激活，需联网，会自动续期  |
+| Online KMS |    Windows / Office    |  180 Days  | 需连接 KMS 服务器激活，需联网，会自动续期  |
 
-HWID：HWID（HWID Activation），也就是我们平时所说的数字权利激活。本质上它也是一种软件密钥管理的一种形式，通过在安装软件时收集计算机的硬件信息(主要是主板信息)，并将这些硬件信息与软件密钥绑定，在联网时候，请求远程服务器判断是否激活当前设备。在电脑激活后，就是绑定主板信息的，**如果你再次重装系统，只要你的主板不更换，当Windows连接网络后，从微软服务器上获取信息，判断你的电脑是否已经激活**。
+HWID：HWID（HWID Activation），也就是我们平时所说的数字权利激活。本质上它也是一种软件密钥管理的一种形式，通过在安装软件时收集计算机的硬件信息 (主要是主板信息)，并将这些硬件信息与软件密钥绑定，在联网时候，请求远程服务器判断是否激活当前设备。在电脑激活后，就是绑定主板信息的，**如果你再次重装系统，只要你的主板不更换，当 Windows 连接网络后，从微软服务器上获取信息，判断你的电脑是否已经激活**。
 
-Ohook：仅支持 Office ，通过劫持的方式，直接激活；在内网也可以进行激活，只要你不重装Office、重装系统，那么它就是一直保持激活状态。
+Ohook：仅支持 Office，通过劫持的方式，直接激活；在内网也可以进行激活，只要你不重装 Office、重装系统，那么它就是一直保持激活状态。
 
-KMS38：它既不需要搭建KMS服务器，也不需要联网，甚至不需要设置KMS的IP地址。**只适用于Windows10/11所有版本，以及Windows Server(Build 14393以上)，不适用于Office**。
+KMS38：它既不需要搭建 KMS 服务器，也不需要联网，甚至不需要设置 KMS 的 IP 地址。**只适用于 Windows10/11 所有版本，以及 Windows Server(Build 14393 以上)，不适用于 Office**。
 
 KMS：传统的方法，每 180 天联网续租。

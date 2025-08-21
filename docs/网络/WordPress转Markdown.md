@@ -1,4 +1,4 @@
-# WordPress转Markdown
+# WordPress 转 Markdown
 
 参考：<https://github.com/dreikanter/wp2md>
 

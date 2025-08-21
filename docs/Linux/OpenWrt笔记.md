@@ -40,13 +40,13 @@ Newifi 的设备名称是 `Newifi mini Y1`，这款设备的 U-boot 并没有锁
 
 2、在 openwrt 的 web 界面 - 系统 - 管理权，粘贴 SSH 公钥。
 
-2、打开 putty，填写地址（192.168.2.1），端口号（22），选择 “ssh” 协议；
+2、打开 putty，填写地址（192.168.2.1），端口号（22），选择“ssh”协议；
 
-在左侧找到 “Connection”，在 “Data” 项，在 “Auto-login username” 项填写用户名；
+在左侧找到“Connection”，在“Data”项，在“Auto-login username”项填写用户名；
 
-在 “SSH” -> “Auth”，在 “Private key file for authentication” 项，点击 “Browse...”，选择第 2 步转换的 “.ppk” 格式的证书；
+在“SSH” -> “Auth”，在“Private key file for authentication”项，点击“Browse...”，选择第 2 步转换的“.ppk”格式的证书；
 
-保存当前的 “Session” 后；
+保存当前的“Session”后；
 
 点击“Open” ，即可自动登录。
 

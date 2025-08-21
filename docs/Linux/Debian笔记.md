@@ -70,8 +70,6 @@ TUNA 的 Debian 源 [TUNA 官方说明](https://mirrors.tuna.tsinghua.edu.cn/hel
 
 ```sh
 # DEB822 格式
-if [ ! -f /etc/apt/sources.list.d/debian.sources.bk ]; then sudo cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bk; fi
-
 cat << "EOF" | sudo tee /etc/apt/sources.list.d/debian.sources
 Types: deb
 URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
@@ -84,7 +82,7 @@ Types: deb
 URIs: https://mirrors.tuna.tsinghua.edu.cn/debian-security
 Suites: trixie-security
 Components: main contrib non-free non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+EOF
 
 # 更新系统
 sudo apt update && sudo apt upgrade

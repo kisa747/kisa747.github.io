@@ -1,12 +1,6 @@
 # Excel 学习笔记
 
-参考：[阿凯的 Excel](<https://cloud.tencent.com/developer/column/2107>)
-
-安装 Office 2021 LTSC：
-
-```sh
-mklink /J "C:\Program Files\Microsoft Office" "D:\Program Files\Microsoft Office"
-```
+这是 2017 年的 Excel 学习笔记
 
 ## 一、基本操作
 
@@ -63,11 +57,11 @@ mklink /J "C:\Program Files\Microsoft Office" "D:\Program Files\Microsoft Office
 
 14、批量重命名工作表 Sheet
 
-​         将要建立的名称录入到 1 个列表里—→制作数据透视表—→报表筛选—→选项（显示报表筛选项—→全选 Sheet 并全部清除内容。
+​    将要建立的名称录入到 1 个列表里—→制作数据透视表—→报表筛选—→选项（显示报表筛选项—→全选 Sheet 并全部清除内容。
 
-15、选择性粘贴—→跳过空单元格
+15、选择性粘贴 —→ 跳过空单元格
 
-选择性粘贴—→粘贴链接
+选择性粘贴 —→ 粘贴链接
 
 16、双击格式刷，即可多次使用格式刷。
 

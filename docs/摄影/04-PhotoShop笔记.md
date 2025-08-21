@@ -87,7 +87,7 @@ Retouch4me 系列插件是 PS 智能 AI 修图插件合集，用于更快速、�
 
 便捷动作
 
-Heal - Dodge & Burn - Skin Tone(50%透明度) ，基本这三步就可以了
+Heal - Dodge & Burn - Skin Tone(50% 透明度) ，基本这三步就可以了
 
 快速修图
 
