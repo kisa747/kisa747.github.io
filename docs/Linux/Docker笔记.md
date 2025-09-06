@@ -2,6 +2,8 @@
 
 参考：<https://docs.docker.com/engine/install/debian/>
 
+<https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/>
+
 Debian 下安装 Docker：
 
 ```sh
@@ -9,14 +11,18 @@ sudo systemctl restart systemd-timesyncd.service
 #------------------------------------------------
 sudo apt-get update
 # 安装依赖
-sudo apt-get install ca-certificates curl gnupg lsb-release
+sudo apt-get install ca-certificates curl gnupg
 # 添加 Docker 官方的 GPG 密钥
-curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 # 设置稳定版仓库
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# 最后安装
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add your user to the docker group.
 sudo usermod -aG docker $USER

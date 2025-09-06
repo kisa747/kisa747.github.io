@@ -221,20 +221,22 @@ sudo smbpasswd -a selina
 
 ## 安装 syncthing
 
+官方网站：<https://syncthing.net/downloads/>
+
 在 官网 直接下载程序包，将 `syncthing` 文件放至 `~/.local/bin/` 目录下：
 
 ```sh
 chmod 744 ~/.local/bin/syncthing
 
 # 启动一下，让它自动生成配置文件
-syncthing -gui-address="0.0.0.0:8384" -no-browser &
-sleep 20
-pkill syncthing
-sleep 2
+syncthing --gui-address="0.0.0.0:8384" --no-browser
+# ctrl + C 终止运行
 
-# 修改配置文件
+# 修改监听地址：127.0.0.1 --> 0.0.0.0，远程可以访问
 sed -i 's/127\.0\.0\.1/0\.0\.0\.0/' ~/.local/state/syncthing/config.xml
 
+
+# 创建服务文件
 mkdir -p ~/.config/systemd/user
 cat << EOF | tee ~/.config/systemd/user/syncthing.service
 [Unit]
@@ -249,7 +251,7 @@ After=network.target local-fs.target
 [Service]
 # 自定义配置，运行等级低一点
 Nice=10
-ExecStart=$HOME/.local/bin/syncthing -no-browser -no-restart -logflags=0
+ExecStart=$HOME/.local/bin/syncthing serve --no-browser --no-restart --logflags=0
 Restart=on-failure
 RestartSec=1
 SuccessExitStatus=3 4
@@ -268,12 +270,19 @@ NoNewPrivileges=true
 WantedBy=default.target
 EOF
 
+
+# 设置服务开机自动启动
 systemctl --user enable syncthing.service
+# 现在就启动服务
 systemctl --user start syncthing.service
 # 随系统自动启动 systemd 用户实例
 sudo loginctl enable-linger $USER
-
+# 查看服务的状态
 systemctl --user status syncthing.service
+# 重启服务
+systemctl --user restart syncthing.service
+# 修改服务配置文件后，重新加载服务配置文件
+systemctl --user daemon-reload
 ```
 
 ## OMV

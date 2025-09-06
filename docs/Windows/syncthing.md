@@ -92,17 +92,22 @@ winsw 免费开源，推荐使用 winsw。以 syncthing 为例，将 syncthing �
 ```xml
 <!-- syncthing-winsw.xml -->
 <service>
+    <!-- ID[必需]: 指定服务 ID。此 ID 在系统中安装的所有服务中必须是唯一的，并且应完全由字母数字字符组成。-->
     <id>syncthing-winsw</id>
     <name>syncthing-winsw Service</name>
+    <!-- 描述[可选] -->
     <description>syncthing 文件同步工具</description>
+    <!-- 工作目录[可选]: 指定服务的工作目录。 -->
+    <workingdirectory>%BASE%</workingdirectory>
     <executable>%BASE%\syncthing.exe</executable>
+    <arguments>--home=%BASE%\home --no-console --no-browser</arguments>
     <onfailure action="restart" delay="20 sec"/>
-    <arguments>--home="%BASE%\home" --no-console -no-browser</arguments>
-    <!---仅保留这次启动的日志-->
-    <log mode="reset"></log>
+    <!-- 启动模式[可选]: 指定服务的启动模式。Automatic(自动,默认) 或 Manual(手动) -->
     <startmode>Automatic</startmode>
     <!---延时启动-->
     <delayedAutoStart>true</delayedAutoStart>
+    <!---仅保留本次启动的日志-->
+    <log mode="reset"></log>
     <!---非管理员身份运行，开机后即使没有登录用户，也自动运行该服务-->
     <serviceaccount>
         <domain>NT AUTHORITY</domain>
@@ -126,7 +131,7 @@ winsw 免费开源，推荐使用 winsw。以 syncthing 为例，将 syncthing �
 
 同时创建一个管理批处理文件 `管理syncthing服务.cmd` ，内容如下：
 
-```cmd
+```bat
 rem 管理syncthing服务.cmd
 @echo off
 echo 必须以管理员身份运行该程序
@@ -153,9 +158,6 @@ if %errorlevel%==5 exit
 :install
 rem 注册服务并启动服务
 syncthing-winsw.exe install && syncthing-winsw.exe start
-rem 将服务设置为延时启动
-rem sc config syncthing-winsw start=delayed-auto
-rem net start syncthing-winsw
 goto menu
 
 :uninstall

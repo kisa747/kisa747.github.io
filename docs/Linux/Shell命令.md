@@ -425,16 +425,14 @@ ls >/dev/null 2>&1
 
 ```sh
 # rsync [OPTION] SRC DEST
-rsync -avP /media/mint/MEDIA/Backup /media/mint/openwrt/sync
-rsync -avzP --delete /media/mint/MEDIA/Backup/ /media/mint/openwrt/sync/Backup
+rsync -avP --delete /media/mint/MEDIA/Backup/ /media/mint/openwrt/sync/Backup
 # -a, --archive 归档模式，表示以递归方式传输文件，并保持元信息（权限、属性），等于-rlptgoD。
 # -v, --verbose 详细模式输出。
 # -P  显示进度、断点续传。-P 参数是--progress（显示进度）和--partial（断点续传）这两个参数的结合。
 # -h, --human-readable 以人类可读的格式显示，自动转换 G/M/K 单位（默认 1000 进制，重复使用 2 个该参数使用 1024 进制）。
 # -hh 以 1024 进制格式显示
+# -n, --dry-run 干运行 perform a trial run with no changes made
 # --debug=FILTER 调试模式，显示过滤规则效果
-#  -n, --dry-run 干运行 perform a trial run with no changes made
-
 
 # --delete 删除那些 DST 中 SRC 没有的文件。
 # -f 过滤规则
@@ -442,10 +440,6 @@ rsync -avzP --delete /media/mint/MEDIA/Backup/ /media/mint/openwrt/sync/Backup
 
 # --exclude=PATTERN 指定排除不需要传输的文件模式。
 # --include=PATTERN 指定不排除而需要传输的文件模式。
-
-# -b, --backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用--suffix 选项来指定不同的备份文件前缀。(see --suffix & --backup-dir)
-#     --backup-dir=DIR        make backups into hierarchy based in DIR
-#     --suffix=SUFFIX         set backup suffix (default ~ w/o --backup-dir)
 ```
 
 注意：rsync 与 robocopy 不同。
@@ -485,22 +479,26 @@ rsync -avP --delete -f'-p @eaDir' /volume1/homes/kevin/备份/sync/Home/Pictures
 
 排除规则：
 
-`-F` 参数，相当于`-f': /.rsync-filter'`，规则不好使，他会查找源目录及上级目录下的所有 `.rsync-filter` 排除文件，并不符合一般理解，一般我们只需要查找源目录下的所有排除文件，使用 `--filter=': .rsync-filter'` 参数即可，冒号等同于 `dir-merge` 合并目录下的过滤规则文件
+`-F` 参数，相当于`-f': /.rsync-filter'`，他会查找源目录及上级目录下的所有 `.rsync-filter` 排除文件，并不符合我们一般的理解，一般我们只需要查找源目录下的所有排除文件，使用 `-f': .rsync-filter'` 参数即可，冒号等同于 `dir-merge` 合并目录下的过滤规则文件。
 
 ```sh
-rsync -avP --delete --filter=': .rsync-filter' ~/test/photo/ ~/test/photo_new
+rsync -avPhh --delete -f': .rsync-filter' ~/test/photo/ ~/test/photo_new
+# 等同于下面的命令
+rsync -avPhh --delete --filter='dir-merge .rsync-filter' ~/test/photo/ ~/test/photo_new
 ```
 
-增量备份
+增量备份：
 
 ```sh
 rsync -avP --delete -f'-p @eaDir/' --link-dest=kevin@192.168.109.128:/home/kevin/photo /cygdrive/E/test/rsync-test/照片/ kevin@192.168.109.128:/home/kevin/photo_new
 ```
 
-测试
+测试模式：
 
 ```sh
-rsync -avPn --delete -f': .rsync-filter' --debug=FILTER ~/test/photo/ ~/test/photo_new
+rsync -avPhhn --debug=FILTER ~/test/photo/ ~/test/photo_new
+# 等同于下面的命令
+rsync -avPhh --dry-run --debug=FILTER ~/test/photo/ ~/test/photo_new
 ```
 
 ### nice 命令
