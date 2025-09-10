@@ -242,7 +242,7 @@ dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=de0f354a-
 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/sda2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
 ```
 
-调整后，boot 分区不变，主分区调整为 10G，扩展分区 4.7G 格式化 ext4 分区，稍后将它挂载到 /home
+调整后，boot 分区不变，主分区调整为 10G，扩展分区 4.7G 格式化 ext4 分区，稍后将它挂载到 `/home`
 
 ### 开启 SSH
 

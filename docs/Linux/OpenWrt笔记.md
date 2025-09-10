@@ -22,7 +22,7 @@
 
 Newifi 的设备名称是 `Newifi mini Y1`，这款设备的 U-boot 并没有锁，所以您完全可以直接刷入 OpenWrt 系统的，方法如下：
 
-1. 前往 OpenWrt 官网下载对应固件，设备实际型号名为 [Lenovo Y1](https://openwrt.org/toh/lenovo/lenovo_y1_v1) 。
+1. 前往 OpenWrt 官网下载对应固件，设备实际型号名为 [Lenovo Y1](https://openwrt.org/toh/lenovo/y1) 。
 2. 通过有线连接设备，并将 PC 端设备 IP 设定为 `192.168.1.11`，子网掩码 `255.255.255.0`，网关 `192.168.1.1` 。
 3. 拔下路由器后面的电源，拿在手里，然后再次通电，之后 **迅速按下 RESET 按钮**，若是设备上出现两个蓝灯连续闪烁，代表已经进入 U-boot 恢复模式。
 4. 在浏览器中输入 192.168.1.1 进入恢复模式页面，选择之前下载的 bin 文件即可开始刷机
@@ -146,7 +146,8 @@ sed -n '/zonename/p' /etc/config/system
 
 ```sh
 if [ ! -f /etc/opkg/distfeeds.conf.bak ]; then cp /etc/opkg/distfeeds.conf /etc/opkg/distfeeds.conf.bak; fi
-sed -i 's|downloads\.openwrt\.org|mirrors.ustc.edu.cn/lede|' /etc/opkg/distfeeds.conf
+
+sed -i 's/downloads.openwrt.org/mirrors.ustc.edu.cn\/openwrt/g' /etc/opkg/distfeeds.conf
 ```
 
 ### 软件安装
