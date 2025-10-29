@@ -564,7 +564,7 @@ systemctl daemon-reload
 sudo mount -a
 ```
 
-### 自动挂载USB设备
+### 自动挂载 USB 设备
 
 参考：[Linux 下用 udevil 实现 USB 存储设备自动挂载](https://ruohai.wang/202307/linux-auto-mount-usb-storage/)
 
