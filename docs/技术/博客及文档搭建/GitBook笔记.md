@@ -1,4 +1,4 @@
-# GItBook 笔记
+# GitBook 笔记
 
 参考： [GitBook 简明教程](http://www.chengweiyang.cn/gitbook/)
 

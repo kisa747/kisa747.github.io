@@ -2,7 +2,7 @@
 
 # Read more: https://zensical.org/docs/setup/basics
 site_name = "Kevin's Wiki"
-site_description = "A new project generated from the default template project."
+site_description = "个人知识库"
 site_author = "kisa747"
 site_url = "https://kisa747.top"
 copyright = "Copyright &copy; 2026 kisa747"

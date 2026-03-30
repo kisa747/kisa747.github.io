@@ -3,39 +3,26 @@
 ## 笔记
 
 * Windows 和 Office 推荐安装 VL 版，激活方便。尤其推荐 LTSC 版，更纯净，没有功能更新，只有安全更新。
+* Windows 10 IoT Enterprise LTSC 2021 延长结束日期为 2032 年 1 月 13 日
 * PS：安装 Windows10，系统盘推荐 `100G+` ；如果是固态硬盘可以考虑使用`/compact`参数，减小系统的大小（机械硬盘一定不能使用此功能）。
 * 硬盘分区推荐使用 GPT。必须要有 ESP 分区（推荐 `1G`），没有必要创建 MSR 分区。
 * 建议关闭 BIOS 的 Secure Boot 选项，使用 GRUB 作为 BootLoader。
 * 软件选择策略，优先选择开源免费的软件，以实用、精致为主要目的。
 
-Windows 安装 ISO 镜像信息：
+Windows 10 LTSC 2021 镜像 ISO 信息：
 
 >Windows 10 LTSC 2021 信息：
 >
 >Windows 10 Enterprise LTSC 2021 (x64) - DVD (Chinese-Simplified)
 >文件：SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO
 >大小：4.7GB
->MD5:2579B3865C0591EAD3A2B45AF3CABEEE
->SHA1：C19D7DAFBAFEB26C36E31D97C465E87C7A6E8A4C
->SHA256：C117C5DDBC51F315C739F9321D4907FA50090BA7B48E7E9A2D173D49EF2F73A3
+>MD5：`2579B3865C0591EAD3A2B45AF3CABEEE`
+>SHA1：`C19D7DAFBAFEB26C36E31D97C465E87C7A6E8A4C`
+>SHA256：`C117C5DDBC51F315C739F9321D4907FA50090BA7B48E7E9A2D173D49EF2F73A3`
 >
 >`magnet:?xt=urn:btih:366ADAA52FB3639B17D73718DD5F9E3EE9477B40&dn=SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO&xl=5044211712`
 >
 >`ed2k://|file|SW_DVD9_WIN_ENT_LTSC_2021_64BIT_ChnSimp_MLF_X22-84402.ISO|5044211712|1555B7DCA052B5958EE68DB58A42408D|/`
-
-Windows 10 LTSC 2019 信息
-
->Windows 10 LTSC 2019 信息：
->
->文件名：cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso
->
->SHA1:24b59706d5eded392423936c82ba5a83596b50cc
->
->文件大小：4.17GB
->
->发布时间：2019-03-15
->
->下载地址：`ed2k://|file|cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso|4478906368|E7C526499308841A4A6D116C857DB669|/`
 
 将 Windows 10 Enterprise LTSC 2021 激活为 Windows 10 IoT Enterprise LTSC 2021
 
@@ -64,7 +51,7 @@ echo 正在当前许可证的过期日期...
 cscript //Nologo %windir%\system32\slmgr.vbs /xpr
 ```
 
-支持日期
+Windows 10 IoT 企业版 LTSC 2021 支持日期
 
 | 版本                            | 开始日期       | 主流结束日期  | 延长结束日期  |
 | :------------------------------ | -------------- | ------------- | ------------- |
