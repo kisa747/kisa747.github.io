@@ -62,8 +62,8 @@ theme:
 plugins:
   - search
   - blog
-  - statistics:
-      page_statistics: false
+#  - statistics:
+#      page_statistics: false
 
 
 extra:
@@ -77,8 +77,8 @@ extra:
 # 版权声明
 copyright: Copyright &copy; 2025 - 2025 kisa747
 # 显示仓库地址
-repo_url: https://github.com/kisa747/kisa747.github.io
-edit_uri: ""
+#repo_url: https://github.com/kisa747/kisa747.github.io
+#edit_uri: ""
 
 markdown_extensions:
   - admonition                # 警告栏 !!! note

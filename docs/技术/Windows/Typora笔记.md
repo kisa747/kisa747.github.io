@@ -3,7 +3,7 @@
 参考：<https://zhuanlan.zhihu.com/p/543941703>
 
 1. 打开注册表 `regedit` 。
-2. 输入：`计算机\HKEY_CURRENT_USER\SOFTWARE\Typora` .
+2. 输入：`计算机\HKEY_CURRENT_USER\SOFTWARE\Typora` 。
 3. 找到 `typora` 这一项，然后点击 右键，选择 权限；
 4. 在 权限 里面把各个用户的权限，全部选择 拒绝；有人说，仅关闭当前使用的用户即可，但我觉得保险起见，还是把所有用户都拒绝掉吧。【最后别忘了 应用 + 确认】
 

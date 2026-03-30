@@ -19,8 +19,6 @@ statistics: True
 
 ## 其他
 
-🎉🎉🎉 本站共有 `{{ pages }}` 个页面，`{{ words }}` 个字，`{{ codes }}` 行代码，`{{ images }}` 张图片。
-
 备用地址：<https://kisa747.readthedocs.io>
 
 ## 参考
