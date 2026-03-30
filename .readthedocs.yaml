@@ -9,11 +9,15 @@ build:
   os: ubuntu-lts-latest
   tools:
     python: latest
-
-mkdocs:
-  configuration: mkdocs.yml
-
-# Optionally declare the Python requirements required to build your docs
-python:
-  install:
-  - requirements: docs/requirements.txt
+  jobs:
+    # We recommend using a requirements file for reproducible builds.
+    # This is just a quick example to get started.
+    # https://docs.readthedocs.io/page/guides/reproducible-builds.html
+    install:
+      - pip install zensical
+    build:
+      html:
+        - zensical build
+    post_build:
+      - mkdir -p $READTHEDOCS_OUTPUT/html/
+      - cp --recursive site/* $READTHEDOCS_OUTPUT/html/
