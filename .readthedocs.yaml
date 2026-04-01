@@ -4,6 +4,11 @@
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 version: 2
 
+# Optionally declare the Python requirements required to build your docs
+python:
+  install:
+  - requirements: docs/requirements.txt
+
 # Set the version of Python and other tools you might need
 build:
   os: ubuntu-lts-latest
@@ -22,7 +27,4 @@ build:
       - mkdir -p $READTHEDOCS_OUTPUT/html/
       - cp --recursive site/* $READTHEDOCS_OUTPUT/html/
 
-# Optionally declare the Python requirements required to build your docs
-python:
-  install:
-  - requirements: docs/requirements.txt
+
