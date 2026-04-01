@@ -4,11 +4,6 @@
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 version: 2
 
-# Optionally declare the Python requirements required to build your docs
-python:
-  install:
-  - requirements: docs/requirements.txt
-
 # Set the version of Python and other tools you might need
 build:
   os: ubuntu-lts-latest
@@ -18,7 +13,8 @@ build:
     # We recommend using a requirements file for reproducible builds.
     # This is just a quick example to get started.
     # https://docs.readthedocs.io/page/guides/reproducible-builds.html
-#    install:
+    install:
+      - requirements: docs/requirements.txt
 #      - pip install zensical
     build:
       html:
