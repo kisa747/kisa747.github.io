@@ -1,5 +1,4 @@
 [project]
-
 # Read more: https://zensical.org/docs/setup/basics
 site_name = "Kevin's Wiki"
 site_description = "个人知识库"
@@ -89,7 +88,7 @@ features = [
     # Zensical includes an announcement bar. This feature allows users to
     # dismiss it when they have read the announcement.
     # https://zensical.org/docs/setup/header/#announcement-bar
-    "announce.dismiss",
+    "announce.dismiss", # 可关闭公告栏
 
     # If you have a repository configured and turn on this feature, Zensical
     # will generate an edit button for the page. This works for common
@@ -106,17 +105,17 @@ features = [
     # Code annotations allow you to add an icon with a tooltip to your
     # code blocks to provide explanations at crucial points.
     # https://zensical.org/docs/authoring/code-blocks/#code-annotations
-    "content.code.annotate",
+    "content.code.annotate", # 代码注释功能
 
     # This feature turns on a button in code blocks that allow users to
     # copy the content to their clipboard without first selecting it.
     # https://zensical.org/docs/authoring/code-blocks/#code-copy-button
-    "content.code.copy",
+    "content.code.copy", # 代码复制按钮
 
     # Code blocks can include a button to allow for the selection of line
     # ranges by the user.
     # https://zensical.org/docs/authoring/code-blocks/#code-selection-button
-    "content.code.select",
+    "content.code.select", # 代码选择功能
 
     # Zensical can render footnotes as inline tooltips, so the user can read
     # the footnote without leaving the context of the document.
@@ -132,7 +131,7 @@ features = [
     # With this feature enabled users can add tooltips to links that will be
     # displayed when the mouse pointer hovers the link.
     # https://zensical.org/docs/authoring/tooltips/#improved-tooltips
-    "content.tooltips",
+    "content.tooltips", # 内容提示框
 
     # With this feature enabled, Zensical will automatically hide parts
     # of the header when the user scrolls past a certain point.
@@ -142,12 +141,12 @@ features = [
     # Turn on this feature to expand all collapsible sections in the
     # navigation sidebar by default.
     # https://zensical.org/docs/setup/navigation/#navigation-expansion
-    # "navigation.expand",
+    # "navigation.expand", # 默认展开导航
 
     # This feature turns on navigation elements in the footer that allow the
     # user to navigate to a next or previous page.
     # https://zensical.org/docs/setup/footer/#navigation
-    "navigation.footer",
+    "navigation.footer", # 上一页/下一页导航
 
     # When section index pages are enabled, documents can be directly attached
     # to sections, which is particularly useful for providing overview pages.
@@ -173,22 +172,22 @@ features = [
     # When navigation paths are activated, a breadcrumb navigation is rendered
     # above the title of each page
     # https://zensical.org/docs/setup/navigation/#navigation-path
-    "navigation.path",
+    "navigation.path", # 路径
 
     # When pruning is enabled, only the visible navigation items are included
     # in the rendered HTML, reducing the size of the built site by 33% or more.
     # https://zensical.org/docs/setup/navigation/#navigation-pruning
-    #"navigation.prune",
+    #"navigation.prune", # 只渲染可见导航项
 
     # When sections are enabled, top-level sections are rendered as groups in
     # the sidebar for viewports above 1220px, but remain as-is on mobile.
     # https://zensical.org/docs/setup/navigation/#navigation-sections
-    #"navigation.sections",
+    #"navigation.sections", # 侧边栏分组
 
     # When tabs are enabled, top-level sections are rendered in a menu layer
     # below the header for viewports above 1220px, but remain as-is on mobile.
     # https://zensical.org/docs/setup/navigation/#navigation-tabs
-    "navigation.tabs",
+    "navigation.tabs", # 一级导航显示为顶部Tab
 
     # When sticky tabs are enabled, navigation tabs will lock below the header
     # and always remain visible when scrolling down.
@@ -198,13 +197,13 @@ features = [
     # A back-to-top button can be shown when the user, after scrolling down,
     # starts to scroll up again.
     # https://zensical.org/docs/setup/navigation/#back-to-top-button
-    "navigation.top",
+    "navigation.top", # 返回顶部按钮
 
     # When anchor tracking is enabled, the URL in the address bar is
     # automatically updated with the active anchor as highlighted in the table
     # of contents.
     # https://zensical.org/docs/setup/navigation/#anchor-tracking
-    "navigation.tracking",
+    "navigation.tracking", # 滚动时URL锚点自动更新
 
     # When search highlighting is enabled and a user clicks on a search result,
     # Zensical will highlight all occurrences after following the link.
@@ -214,7 +213,7 @@ features = [
     # When anchor following for the table of contents is enabled, the sidebar
     # is automatically scrolled so that the active anchor is always visible.
     # https://zensical.org/docs/setup/navigation/#anchor-following
-    # "toc.follow",
+    # "toc.follow", # 目录跟随滚动
 
     # When navigation integration for the table of contents is enabled, it is
     # always rendered as part of the navigation sidebar on the left.
@@ -264,21 +263,21 @@ logo = "assets/logo.png"
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
 toggle.icon = "lucide/sun-moon"
-toggle.name = "Switch to light mode"
+toggle.name = "切换至日间模式"
 
 # Palette toggle for light mode
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
 toggle.icon = "lucide/sun"
-toggle.name = "Switch to dark mode"
+toggle.name = "切换至夜间模式"
 
 # Palette toggle for dark mode
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 toggle.icon = "lucide/moon"
-toggle.name = "Switch to system preference"
+toggle.name = "切换至自动模式"
 
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.
@@ -301,5 +300,3 @@ linenums = true
 # 流程图、思维图
 [project.markdown_extensions.pymdownx.superfences]
 
-
-[project.plugins.blog]

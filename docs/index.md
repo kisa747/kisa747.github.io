@@ -1,6 +1,6 @@
 # 首页
 
- ![gpl3.0](assets/gpl3.0.svg)  ![build-passing](assets/build-passing.svg)  ![Documentation Status](https://readthedocs.org/projects/kisa747/badge/?version=latest) [![ci](https://github.com/kisa747/kisa747.github.io/actions/workflows/docs.yml/badge.svg)](https://github.com/kisa747/kisa747.github.io/actions/workflows/docs.yml)
+ ![gpl3.0](assets/gpl3.0.svg)  ![Documentation Status](https://readthedocs.org/projects/kisa747/badge/?version=latest) [![ci](https://github.com/kisa747/kisa747.github.io/actions/workflows/docs.yml/badge.svg)](https://github.com/kisa747/kisa747.github.io/actions/workflows/docs.yml)
 
 ## 为什么需要一个知识库？
 

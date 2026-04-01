@@ -2,9 +2,7 @@
 
 我的知识库
 
-GitHub Actions 配置参考：<https://squidfunk.github.io/mkdocs-material/publishing-your-site/>
-
-## 快速构建本文档
+## 构建
 
 ```sh
 # 安装依赖
@@ -16,4 +14,13 @@ npm i markdownlint-cli -g
 markdownlint docs/**/*.md
 # 修复语法问题
 markdownlint --fix docs/**/*.md
+
+# 预览（-o 打开预览地址）
+uv run zensical serve -o
+
+# 本地构建
+zensical build
 ```
+## 发布
+
+GitHub Actions 配置参考：<https://zensical.org/docs/publish-your-site/>
