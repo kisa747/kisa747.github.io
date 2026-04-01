@@ -12,7 +12,7 @@
 
     如果要转载或使用本站的文章
     
-    **请遵循许可协议**：[署名—非商业性使用—相同方式共享](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)
+    **请遵循许可协议**：[署名—非商业性使用—相同方式共享 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)
 
 ## 其他
 

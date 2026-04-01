@@ -4,6 +4,8 @@
 
 ## 文本中提取数据
 
+Excel 没有此功能的函数，需要自己用 VBA 实现。
+
 ```vb
 Function regextract(rng As String, pat As String, Optional group As Integer = 0)
 '正则表达式函数
@@ -31,6 +33,13 @@ With CreateObject("VBscript.regexp")
     End If
 End With
 End Function
+```
+
+使用方法：
+
+```vb
+' 提取第一组中文
+=regextract(A2,"^([一-龟]+)\d",1)
 ```
 
 ## 组合查询
