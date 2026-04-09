@@ -220,7 +220,7 @@ sudo apt autoremove
 ```sh
 sudo apt update
 sudo apt install pipx python3-pip
-pipx ensurepath
+pipx ensurepath --force
 
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip config set global.extra-index-url "https://mirrors.ustc.edu.cn/pypi/simple"

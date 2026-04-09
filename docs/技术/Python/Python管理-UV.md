@@ -116,10 +116,19 @@ Pinned `.config/uv/.python-version` to `3.13`
 
 ```sh
 sudo apt update
-sudo apt install python3-pip
-# 后续升级 uv 一定要使用指定的 Python 版本
-python3.11 -m pip install -U -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages uv
+sudo apt install pipx python3-pip
+pipx ensurepath --force
 
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set global.extra-index-url "https://mirrors.ustc.edu.cn/pypi/simple"
+pip config set install.upgrade true
+
+# pipx install --index-url https://pypi.tuna.tsinghua.edu.cn/simple -U uv
+pipx install uv
+# 更新所有工具
+pipx upgrade-all
+
+# 配置 uv
 # Linux 下命令，更新 UV 用户配置
 mkdir -p ~/.config/uv/
 cat << "EOF" | tee ~/.config/uv/uv.toml
@@ -129,12 +138,15 @@ python-downloads = "manual"
 [[index]]
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = true
-EOF
-cat ~/.config/uv/uv.toml
 
-# 安装指定版本的 python，并设为系统默认的 python
-# 也就是 python3、python 命令都指向这个版本的 python
-uv python install --default 3.13
+[[index]]
+url = "https://mirrors.ustc.edu.cn/pypi/simple"
+EOF
+
+# 更新 shell
+uv tool update-shell
+# 安装最新版的 python
+uv python install
 ```
 
 ### 项目配置
