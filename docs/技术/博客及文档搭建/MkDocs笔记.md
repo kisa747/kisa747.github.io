@@ -1,18 +1,20 @@
-# 使用 mkdocs 创建在线文档
+# 使用 MkDocs 创建在线文档
 
 参考：[ReadtheDocs 文档](https://docs.readthedocs.io/en/stable/index.html)
 
-`Sphinx` 作为老牌工具，网上很多的文档也都是采用的 Sphinx 创作，但新兴的`mkdocs`现在貌似更受欢迎，[ReadtheDocs](https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html) 官方也更推荐使用 `mkdocs` 创作，`mkdocs` 优点更多：
+`Sphinx` 作为老牌工具，网上很多的文档也都是采用的 Sphinx 创作，但新兴的`MkDocs`现在貌似更受欢迎，[ReadtheDocs](https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html) 官方也更推荐使用 `MkDocs` 创作，`MkDocs` 优点更多：
 
 - 简单
 - 实时预览，主题和插件定制方便
 - 采用 Markdown 语法写作，语法简单
 
+>MkDocs 从 2024 起就不再更新，管理层也出现了一些分歧和问题，未来不一定能继续维护了。
+
 功能上，Sphinx 能实现的，mkdocs 通过插件基本也都能实现，两个都有漂亮的主题。
 
 参考：[MkDocs 文档](https://www.mkdocs.org/user-guide/) 、 [Material for MkDocs 主题文档](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
-mkdocs 本身是为创建项目文档而生，而现在要让他专一的作为博客使用，需要一些特殊的设置。
+`MkDocs` 本身是为创建项目文档而生，而现在要让他专一的作为博客使用，需要一些特殊的设置。
 
 ## 创建项目
 

@@ -32,8 +32,8 @@ net start w32time
 w32tm /stripchart /computer:127.0.0.1
 ```
 
-开启防火墙，允许其他计算机连接本地计算机搭建的 NTP 服务器，管理员权限运行 powershell
+开启防火墙，允许其他计算机连接本地计算机搭建的 NTP 服务器，管理员权限运行 `powershell`
 
-```cmd
+```powershell
 New-NetFirewallRule -DisplayName "NTP Outbound" -Direction Outbound -Protocol UDP -LocalPort 123 -Action Allow
 ```

@@ -9,3 +9,4 @@ MD033:        # no-inline-html - Inline HTML
 MD036: false  # no-emphasis-as-heading - Emphasis used instead of a heading
 MD041: false  # first-line-heading/first-line-h1 - First line in a file should be a top-level heading
 #MD056: false  # table-column-count - Table column count
+MD060: false  # Table column style

@@ -2,6 +2,8 @@
 
 Hexo 官方文档：<https://hexo.io/zh-cn/docs/>
 
+Hexo 是一个快速、简洁且高效的博客框架，使用 Node.js 解析 Markdown 生成静态网页。
+
 ## 环境搭建
 
 ### 安装 Node.js、Git
@@ -284,6 +286,19 @@ ncu -u -g
     "hexo-renderer-ejs": ">=2.0.0",       /* >= 大于等于指定版本，npm、ncu 更新后会自动将他改为 ^ */
     "hexo-renderer-marked": "^7.0.1"
 }
+```
+
+#### 原生方法更新包
+
+```sh
+# 根据当前 package.json 中的 semver 规范升级版本
+npm update
+
+# 无视规范，使用最新版本
+npm update --latest
+
+# 更新全局范围的依赖，可通过 npm ls -g 查看当前拥有哪些全局依赖
+npm update -g
 ```
 
 ## 插件

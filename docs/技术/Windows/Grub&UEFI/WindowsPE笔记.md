@@ -21,10 +21,6 @@ rem -h 包括隐藏文件和目录。
 rem -l -llabelname 指定卷标。不能在 l 和 labelname 之间使用空格。例如，-lMYLABEL
 ```
 
-## 使用 DISM 安装系统
-
-参考：[使用 Dism++ 安装系统](https://www.chuyu.me/zh-Hans/Document.html?file=Best/使用Dism++安装系统.md)
-
 ## 制作隐藏的 UEFI 启动盘
 
 参考：<https://www.iruanmi.com/mbr-and-gpt-partition-type-and-attributes/>
@@ -131,15 +127,16 @@ sudo apt-get install mtools
 mkdir -p efi/boot
 # 将 bootx64.efi 文件放至 efi/boot 目录下
 
-# 创建一个空的 efi.img 软盘镜像，并格式化为 FAT16
-mformat -C -f 2880 -L 16 -i ./efi.img ::.
+# 创建一个 2.8M 的 efi.img 软盘镜像，并格式化默认为 FAT12
+# :: 表示镜像根目录
+mformat -C -f 2880 -i ./efi.img ::
 # 将 efi 目录复制至 efi.img 镜像内
-mcopy -s -i ./efi.img ./efi ::/.
+mcopy -s -i ./efi.img ./efi ::/
 ```
 
-将得到的 efi.iimg 复制到 windows 环境下，在 windows 下操作。
+将得到的 `efi.img` 复制到 windows 环境下，在 windows 下操作。
 
-将 efi.img 复制至光盘根目录，使用 oscdimg 命令创建可启动光盘
+将 `efi.img` 复制至光盘根目录，使用 oscdimg 命令创建可启动光盘
 
 ```sh
 oscdimg -u1 -o -m -h -b"iso\efi.img" -l"iso" iso "grub.iso"

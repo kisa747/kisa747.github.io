@@ -1,6 +1,6 @@
 # GRUB2 配置文件 grub.cfg 详解
 
-## 作者：[金步国](http://www.jinbuguo.com/)
+## 作者：[金步国](https://www.jinbuguo.com/linux/grub.cfg.html)
 
 ### 版权声明
 

@@ -22,7 +22,7 @@ uv run zensical new .
 zen
 │  .gitignore          # git忽略文件
 │  .python-version
-│  main.py             # 无用，可以删除   
+│  main.py             # 无用，可以删除
 │  pyproject.toml
 │  README.md
 │  uv.lock
@@ -35,7 +35,7 @@ zen
 ├─.venv
 │  └─Scripts
 │  │ ......
-│  │
+│  
 └─docs                 # 文档目录
         index.md
         markdown.md

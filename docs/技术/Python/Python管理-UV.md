@@ -20,13 +20,14 @@ uv 可以方便地创建、管理项目。
 ```sh
 # 在当前目录下创建新项目
 # 类型为 python 库
-# --app 默认啥也不指定，就是-app 参数，创建脚本、命令行应用程序
+# --app 默认啥也不指定，就是 -app 参数，创建脚本、命令行应用程序
 # --lib 创建 python 库，可以被其他 python 程序 import 引用
 # --package 创建可以打包、发布的命令行工具。
-# --build-backend "setuptools" 指定构建后端为 setuptools，如果不指定，默认为 uv_build，官方文档里说了，未来会抛弃 uv_buil，改用 hatch
+# --build-backend "setuptools" 指定构建后端为 setuptools，如果不指定，默认为 uv_build，官方文档里指出，未来会抛弃 uv_buil，改用 hatch
 # -p 3.13 指定虚拟环境使用的 python 版本
-uv init --lib --build-backend "setuptools" -p 3.13 myproject
-cd myproject
+mkdir myproject && cd myproject
+uv init --lib --build-backend "setuptools" -p 3.14
+
 
 # 安装并添加包至当前项目
 uv add requests
@@ -83,7 +84,7 @@ uvx pycowsay "Hello!"
 
 ### Windows 下用户配置
 
-参考：[uv 官方文档](https://docs.astral.sh/uv/concepts/configuration-files/)
+参考：[UV 官方文档](https://docs.astral.sh/uv/concepts/configuration-files/)
 
 主要两个文件：`%APPDATA%\uv\uv.toml`、`%APPDATA%\uv\.python-version`
 
@@ -184,26 +185,34 @@ link-mode = "copy"
 
 ### 更新 python
 
+#### 手动更新 python 版本
+
 大版本更新项目 python，如果配置了 uv 手动下载 python，需要先手动下载 python。
 
 ```sh
-uv python install 3.13
-# 更新当前项目 python
-uv venv -p 3.13 -c
+# 更新 python 至最新版本
+uv python upgrade
 ```
 
-或是将 `.python-version` 内容改为 `3.13` ，然后运行 `uv sync` 即可，没有看错，就是这么简单。
+#### 更新项目 python 版本
+
+即使 python 版本已经更新，但项目虚拟环境使用的 python 版本并不会同步更新，需要根据情况进行更新，方法如下：
+
+方法一：更新`.python-version` 文件
+
+更新用户或项目的 `.python-version` 内容，比如将改为 `3.14.2`改为`3.14.4`  ，然后运行 `uv sync` 即可，没有看错，就是这么简单。
+
+方法二：手动更新项目虚拟环境
 
 ```sh
-# 升级 UV 管理的 python。注意：试验中的功能，会有 Warning 提示
-uv python upgrade
-# 比如 3.13.5 --> 3.13.6
-# 将最新版的更新为默认版本
-# uv python install 3.13 --force
-# 卸载旧版
-uv python uninstall 3.13.6
 # 更新当前项目 python
-uv venv -p 3.13.7 -c
+# --clear, -c Remove any existing files or directories at the target path.
+uv venv -c
+# 更新当前项目 python，并指定 python 版本
+uv venv -p 3.14.4 -c
+
+# 卸载旧版 python
+uv python uninstall 3.14.2
 ```
 
 ## 其他
