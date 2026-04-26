@@ -1,4 +1,4 @@
-# AutoHotkey
+# AutoHotkey 笔记
 
 ## 创建脚本
 

@@ -43,7 +43,7 @@ def run(playwright: Playwright):
         geolocation={
             'latitude': 34,  # 纬度
             'longitude': 117,  # 经度
-            'accuracy': 99,  # GPS精度
+            'accuracy': 99,  # GPS 精度
         },
         permissions=['geolocation'],
         storage_state='auth.json',
@@ -68,7 +68,7 @@ with sync_playwright() as playwright:
 
 ### 模拟语言、时区
 
-模拟 `Locale & Timezone` ，CI部署中非常重要，操作系统语言可能是英语。
+模拟 `Locale & Timezone` ，CI 部署中非常重要，操作系统语言可能是英语。
 
 ```python
 context = browser.new_context(
@@ -84,7 +84,7 @@ context = browser.new_context(
     geolocation={
         'latitude': 34,  # 纬度
         'longitude': 117,  # 经度
-        'accuracy': 99,  # GPS精度
+        'accuracy': 99,  # GPS 精度
     },
     permissions=['geolocation'],
 )

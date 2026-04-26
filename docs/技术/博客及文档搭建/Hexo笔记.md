@@ -1,20 +1,23 @@
-# Hexo+Github Page 搭建静态博客
+# Hexo 笔记
 
 Hexo 官方文档：<https://hexo.io/zh-cn/docs/>
 
-Hexo 是一个快速、简洁且高效的博客框架，使用 Node.js 解析 Markdown 生成静态网页。
+Hexo 是一个快速、简洁且高效的博客框架，使用 `Node.js` 解析 Markdown 生成静态网页。
 
-## 环境搭建
+## 本地部署
 
 ### 安装 Node.js、Git
 
 ```sh
-# scoop 依赖 git，所以只要有 scoop，Git 肯定已经安装。
-# 安装最新的 Node.js 长期支持版本
+# 安装 Git
+scoop install git
+# 安装 Node.js 长期支持版本
 scoop install nodejs-lts
 ```
 
 ### 安装 Hexo
+
+配置更新源：
 
 ```sh
 # Node.js 的 npm 默认源实在太慢了，需要更换国内源。
@@ -74,13 +77,13 @@ git config --global user.name "**"
 git config --global user.email "**@qq.com"
 ```
 
-2、如果没有密钥，运行 Git Bash，输入命令生成密钥，默认位置在 `C:\User\用户名` 下
+2、如果没有密钥，运行 `Git Bash`，输入命令生成密钥，默认位置在 `C:\User\用户名` 下
 
 ```sh
- ssh-keygen -t rsa -C "**@qq.com"
+ ssh-keygen -C "**@qq.com"
 ```
 
-3、如果已经有密钥。复制公钥内容，即 `id_rsa.pub`  里的内容，进入 `GitHub— Personal settings—SSH andGPG keys—New SSH key`，粘贴公钥内容。
+3、如果已经有密钥。复制公钥内容，即 `id_ed25519.pub`  里的内容，进入 `GitHub — Personal settings — SSH andGPG keys — New SSH key`，粘贴公钥内容。
 
 ### 配置 GitHub
 
@@ -210,7 +213,7 @@ deploy:
     branch: gh-pages
 ```
 
-### 主题 hexo-theme-fluid
+### 主题 Fluid
 
 地址：<https://github.com/fluid-dev/hexo-theme-fluid>
 
@@ -225,7 +228,7 @@ deploy:
 npm install hexo-theme-fluid
 
 # 更新主题
-npm update hexo-theme-fluid --save
+npm update hexo-theme-fluid
 ```
 
 ### 主题 NexT
@@ -252,27 +255,39 @@ cd source/lib/canvas-nest && git pull && cd $pwd_dir
 pwd
 ```
 
-### 更新包
+## 更新
 
-npm 遵循 `package.json` 中声明的依赖声明要求，如果某个包出现大版本更新，或是更新版本不满足依赖声明规则，就无法更新，要么修改`package.json` ，要么单个更新指定包。
+npm 遵循 `package.json` 中的依赖声明，如果某个包出现大版本更新，或是更新版本不满足依赖声明规则，就无法更新，要么修改`package.json` ，要么单个更新指定包。
+
+### 使用 ncu 工具更新
 
 ncu 会检查哪些包有新的版本，并将新的版本号写入 `package.json` 文件中，无视依赖声明规则，比较方便，**推荐使用**。
 
 ```sh
-# 安装 ncu 命令
+# 全局安装 npm-check-updates
 npm install -g npm-check-updates
+```
 
-# 检查工作区 package.json 依赖项是否有更新
+项目更新：
+
+```sh
+# 检查项目 package.json 依赖项是否有更新
 ncu
-# 更新 package.json
+# 更新项目的 package.json 文件
 ncu -u
-# 根据 package.json 更新依赖项
+# 根据项目的 package.json 版本声明更新项目的所有依赖项
 npm install
+```
 
+全局更新：
+
+```sh
 # 查看全局的安装包是否有更新
 ncu -g
-#
-ncu -u -g
+
+# 全局安装的包并无对应的 package.json 文件，因此可以直接更新
+# 更新全局安装的包
+npm update -g
 ```
 
 版本控制规则：
@@ -288,16 +303,27 @@ ncu -u -g
 }
 ```
 
-#### 原生方法更新包
+### 原生方法更新
+
+项目更新：
 
 ```sh
-# 根据当前 package.json 中的 semver 规范升级版本
-npm update
+# 检查项目有哪些更新
+npm outdated
 
-# 无视规范，使用最新版本
-npm update --latest
+# 根据当前 package.json 中的 semver 声明升级版本，并将新版本号写入 package.json 中
+# 不支持 主版本号 major 大版本更新
+# 比如 "hexo": "^7.1.1" 可以更新至 7.3.0，无法更新至 8.1.1
+npm update -S
+```
 
-# 更新全局范围的依赖，可通过 npm ls -g 查看当前拥有哪些全局依赖
+全局更新：
+
+```sh
+# 检查全局有哪些更新
+npm outdated -g
+
+# 更新全局安装的包
 npm update -g
 ```
 

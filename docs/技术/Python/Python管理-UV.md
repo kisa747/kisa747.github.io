@@ -4,11 +4,19 @@
 
 [uv] 一个用 Rust 编写的极速 Python 包和项目管理工具。虚拟环境管理、多 python 版本管理、包管理、项目管理、构建包、发布包，简直是神器，而且速度超快，之前的各种类似工具都可以丢弃了。
 
-可以使用 pip 命令安装
+## 安装
 
 ```sh
-# uv 安装脚本需要从 GitHub 下载，所以推荐通过 pip 安装，可以使用国内源
+# 推荐通过 pip 安装，可以使用国内源，速度更快更稳定
 python -m pip install uv
+
+# 也可以使用 scoop 安装
+scoop isntall uv
+
+# 或者使用官方脚本安装
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+# 使用官方脚本安装，通过自身的命令更新版本
+uv self update
 ```
 
 ## Quick Start
@@ -24,7 +32,7 @@ uv 可以方便地创建、管理项目。
 # --lib 创建 python 库，可以被其他 python 程序 import 引用
 # --package 创建可以打包、发布的命令行工具。
 # --build-backend "setuptools" 指定构建后端为 setuptools，如果不指定，默认为 uv_build，官方文档里指出，未来会抛弃 uv_buil，改用 hatch
-# -p 3.13 指定虚拟环境使用的 python 版本
+# -p 3.14 指定虚拟环境使用的 python 版本
 mkdir myproject && cd myproject
 uv init --lib --build-backend "setuptools" -p 3.14
 
@@ -210,12 +218,77 @@ uv python upgrade
 uv venv -c
 # 更新当前项目 python，并指定 python 版本
 uv venv -p 3.14.4 -c
+```
 
+卸载旧版 python
+
+```sh
 # 卸载旧版 python
 uv python uninstall 3.14.2
 ```
 
 ## 其他
+
+### 命令别称
+
+日常使用中，需要使用某个虚拟环境作为默认的工作环境，比如要运行某个项目下的模块，标准用法是：
+
+```sh
+# 运行命令行工具
+uv run --project "D:\Home\Git-Repo\pycode" -m xpdf
+```
+
+很明显命令太长，太难记了，最简单的方法是使用命令别称，管理员权限下命令提示符下运行一下命令，添加命令别称。
+
+```sh
+reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "doskey uvr=uv run --project \"D:\Home\Git-Repo\pycode\" $*" /f
+```
+
+然后就可以在命令提示符下愉快地使用 `uvc` 命令了，Nice！
+
+```sh
+uvr -m xpdf
+```
+
+### 双击运行 python 文件
+
+Windows 下双击 `.py` 文件，会关联系统的 `python` 执行，但不会激活当前的虚拟环境。
+
+🚀 方案 1：添加右键菜单 `UV RUN ...` ，添加以下注册表：
+
+```ini
+Windows Registry Editor Version 5.00
+
+;Python文件右键添加 UV RUN ...
+[HKEY_CLASSES_ROOT\.py]
+@="Python.File"
+[HKEY_CLASSES_ROOT\Python.File]
+@="Python File"
+[HKEY_CLASSES_ROOT\Python.File\shell\uv_run]
+@="UV RUN ..."
+"ICon"="D:\\Home\\Icons\\uv.ico"
+[HKEY_CLASSES_ROOT\Python.File\shell\uv_run\command]
+@="cmd.exe /s /c \"pushd & uv run %1\""
+```
+
+🦄 方案 2：备用方案，创建一个同名的 `.cmd` 批处理文件，然后运行这个批处理文件。
+
+比如：`获取历史天气数据.py` 目录下创建 `获取历史天气数据.cmd` 批处理文件，内容如下：
+
+```sh
+@echo off
+title [uv run %~n0.py]
+
+rem 确保 UTF-8 编码
+chcp 65001 >NUL
+
+cd /d "%~dp0"
+uv run "%~n0.py"
+
+pause & exit
+```
+
+以后只用双击运行`获取历史天气数据.cmd` 批处理文件即可。
 
 ### 使用 UV 管理别人的项目
 

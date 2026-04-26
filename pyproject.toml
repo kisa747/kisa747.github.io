@@ -1,7 +1,7 @@
 [project]
 name = "kevin_wiki"
 version = "0.1.0"
-description = "我个人的知识库"
+description = "我的个人知识库"
 readme = "README.md"
 authors = [{ name = "kevin", email = "kevin@kisa747.top" }]
 requires-python = ">=3.13"

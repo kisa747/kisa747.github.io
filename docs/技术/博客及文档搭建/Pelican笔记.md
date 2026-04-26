@@ -132,7 +132,7 @@ THEME = r'pelican-themes\tuxlite_tbs'
 
 <https://docs.getpelican.com/en/stable/settings.html#using-pagination-patterns>
 
-FILES_TO_COPY 参数已经废弃。
+`FILES_TO_COPY` 参数已经废弃。
 
 ```python
 # 如果我们定义静态的文件，该如何将它在每次生成的时候拷贝到 output 目录呢？
