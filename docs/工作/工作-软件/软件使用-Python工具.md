@@ -11,9 +11,12 @@ python -m glodon -merge_report8 目录
 ## PDF 处理
 
 ```sh
+# PDF 文件添加页码
+uvr -m xpdf -a test.pdf
+
 # 非递归合并目录下的所有 pdf
-python -m xpdf -m 目录
+uvr -m xpdf -m 目录
 
 # 递归合并目录下的所有 pdf
-python -m pdf -mr 目录
+uvr -m pdf -mr 目录
 ```

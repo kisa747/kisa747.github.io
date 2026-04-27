@@ -1,4 +1,4 @@
-# 使用 MkDocs 创建在线文档
+# MkDocs 笔记
 
 参考：[ReadtheDocs 文档](https://docs.readthedocs.io/en/stable/index.html)
 
@@ -21,7 +21,10 @@
 创建项目，并安装需求的库：
 
 ```sh
+# 创建项目文件夹并进入
 mkdir blog && cd blog
+
+# 初始化项目
 uv init -p 3.13
 # 安装 mkdocs 库
 uv add mkdocs
@@ -55,7 +58,7 @@ D:\blog
 uv run mkdocs serve --watch-theme
 ```
 
-Build the documentation site，生成静态文件至目录 `site` 。
+生成静态文件至目录 `site` 。
 
 ```sh
 uv run mkdocs build
@@ -211,15 +214,7 @@ mkdocs-document-dates
 
 文档创建好后，本地可以预览了，下一步就可以发布了
 
-### 方法一、手动推送
-
-运行命令将 site 目录推送，默认推送至 `gh-pages` 分支
-
-```sh
-uv run mkdocs gh-deploy
-```
-
-### 方法二、让 GitHub 自动执行任务
+### 方法一、让 GitHub 自动执行任务
 
 参考：<https://squidfunk.github.io/mkdocs-material/publishing-your-site/>
 
@@ -255,6 +250,14 @@ jobs:
             mkdocs-material-
       - run: pip install mkdocs-material mkdocs-document-dates
       - run: mkdocs gh-deploy --force
+```
+
+### 方法二、手动推送
+
+运行命令将 site 目录推送，默认推送至 `gh-pages` 分支
+
+```sh
+uv run mkdocs gh-deploy
 ```
 
 ## 添加徽章
