@@ -5,36 +5,17 @@
 version: 2
 
 # Set the version of Python and other tools you might need
-#build:
-#  os: ubuntu-lts-latest
-#  tools:
-#    python: latest
-#  jobs:
-#    install:
-#      - pip install -r docs/requirements.txt
-###      - pip install zensical
-#    build:
-#      html:
-#        - zensical build
-#    post_build:
-#      - mkdir -p $READTHEDOCS_OUTPUT/html/
-#      - cp --recursive site/* $READTHEDOCS_OUTPUT/html/
-
-
 build:
   os: ubuntu-lts-latest
   tools:
     python: latest
-
-python:
-  install:
-    - method: uv
-      command: sync
-
-jobs:
-  build:
-    html:
-      - uv run zensical build  # uv 环境下运行 Zensical
-  post_build:
-    - mkdir -p $READTHEDOCS_OUTPUT/html/
-    - cp --recursive site/* $READTHEDOCS_OUTPUT/html/
+  jobs:
+    install:
+      - pip install -r docs/requirements.txt
+##      - pip install zensical
+    build:
+      html:
+        - zensical build
+    post_build:
+      - mkdir -p $READTHEDOCS_OUTPUT/html/
+      - cp --recursive site/* $READTHEDOCS_OUTPUT/html/
