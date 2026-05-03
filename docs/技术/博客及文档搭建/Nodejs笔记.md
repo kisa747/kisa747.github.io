@@ -1,12 +1,5 @@
 # Node.js 笔记
 
-## Node.js 管理
-
-```sh
-# 固定项目版本
-node --version > .node-version
-```
-
 ## nmp 常用命令
 
 ```sh
@@ -48,17 +41,29 @@ npm up  # npm update
 
 ### Windows 下安装 Node.js
 
-1. 使用 scoop 安装 `nodejs-lts` 版
+1. 🐬 使用 scoop 安装 `nodejs-lts` 版
 
 ```sh
 scoop install nodejs-lts
 ```
 
-2、使用 fnm 工具安装并管理 `nodejs`
+2. 🐵 如果需要多版本的 Node.js，可以使用 fnm 工具安装并管理 `Node.js`
 
 ```sh
+# Windows 下安装 fnm
 scoop install fnm
+
+# Linux 下安装 fnm
+# 安装 curl
+sudo apt install curl
+# 安装 fnm，需要从 GitHub 下载，哎...
+curl -fsSL https://fnm.vercel.app/install | bash
+# 如果不成功，就手动下载脚本：https://github.com/Schniz/fnm/blob/master/.ci/install.sh
+# 升级 fnm
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 ```
+
+3. Windows 下手动下载安装（不推荐）
 
 下面介绍的是从官方下载安装的方法，不推荐。
 
@@ -97,24 +102,22 @@ echo.
 pause & exit
 ```
 
-### Linux 下安装
+## fnm 管理 Node.js
 
 参考：<https://github.com/Schniz/fnm>
 
-```sh
-# 安装 curl
-sudo apt install curl
-# 安装 fnm，需要从 GitHub 下载，哎...
-curl -fsSL https://fnm.vercel.app/install | bash
-# 如果不成功，就手动下载脚本：https://github.com/Schniz/fnm/blob/master/.ci/install.sh
-# 升级
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+fnm 是一个快速简便的 Node.js 版本管理器，使用 Rust 构建。
 
-# 安装成功后需要重新登录 shell
-fnm -V  # 显示版本号，说明安装成功
+fnm 其实在 Linux 下使用更佳，下面的命令都是基于 Linux 下 Shell 操作。
+
+```sh
+# 安装 fnm 成功后需要重新登录 shell
+# 显示版本号，说明安装成功
+fnm -V  
 
 # 更换国内源
 export FNM_NODE_DIST_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
+
 # List all remote Node.js versions
 fnm list-remote --lts --latest
 # 安装最新的 lts 版，Install latest LTS
@@ -122,10 +125,17 @@ fnm install --lts
 
 # 检查安装版本
 node -v
-npm -v
 
+# 管理 Node.js
 fnm use 16.5.0            # 切换到已经安装的某个版本（16.5.0）
 fnm alias default 16.6.2  # 设置默认的 Node.js 版本（16.6.2）
 fnm ls                    # 列出所有已经安装的 Node.js 版本
 fnm uninstall 16.5.0      # 卸载某个已经安装的 Node.js 版本（16.5.0）
+```
+
+## Node.js 项目管理
+
+```sh
+# 固定项目版本
+node --version > .node-version
 ```

@@ -275,7 +275,7 @@ npm install -g npm-check-updates
 ncu
 # 更新项目的 package.json 文件
 ncu -u
-# 根据项目的 package.json 版本声明更新项目的所有依赖项
+# 更新后，根据项目的 package.json 文件中的版本声明更新项目的所有依赖项
 npm install
 ```
 
@@ -304,6 +304,8 @@ npm update -g
 ```
 
 ### 原生方法更新
+
+**不推荐使用**
 
 项目更新：
 

@@ -13,7 +13,7 @@ uv sync -U
 # 预览并在浏览器中打开
 uv run zensical serve -o
 ```
-本地预览地址：<地址：http://127.0.0.1:8000>
+本地预览地址：<http://127.0.0.1:8000>
 
 ## Markdown 语法检查
 

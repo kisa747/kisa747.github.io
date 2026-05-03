@@ -2,6 +2,8 @@
 
 参考：[ReadtheDocs 文档](https://docs.readthedocs.io/en/stable/index.html)
 
+构建项目文档，有很多工具可选，经典的有 `MkDocs`、`Sphinx`，新兴的有 `Zensical`。
+
 `Sphinx` 作为老牌工具，网上很多的文档也都是采用的 Sphinx 创作，但新兴的`MkDocs`现在貌似更受欢迎，[ReadtheDocs](https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html) 官方也更推荐使用 `MkDocs` 创作，`MkDocs` 优点更多：
 
 - 简单
