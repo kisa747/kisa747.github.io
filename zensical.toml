@@ -5,6 +5,7 @@ site_description = "个人知识库"
 site_author = "kisa747"
 site_url = "https://kisa747.top"
 copyright = "Copyright &copy; 2026 kisa747"
+validation = false
 
 # Zensical supports both implicit navigation and explicitly defined navigation.
 # If you decide not to define a navigation here then Zensical will simply
