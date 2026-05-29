@@ -1,4 +1,4 @@
-# 说明文档
+# Kevin's Wiki
 
 ![GitHub Pages](https://github.com/kisa747/kisa747.github.io/actions/workflows/docs.yml/badge.svg)  ![Documentation Status](https://readthedocs.org/projects/kisa747/badge/?version=latest)
 
@@ -7,7 +7,10 @@
 ## 本地部署
 
 ```sh
-# 安装依赖
+# 克隆项目
+git clone https://github.com/kisa747/kisa747.github.io
+
+# 安装依赖并更新
 uv sync -U
 
 # 预览并在浏览器中打开
