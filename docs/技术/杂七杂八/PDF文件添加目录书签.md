@@ -10,7 +10,7 @@ scoop install pdftk
 
 使用 Deepseek（豆包怎么试都不行），上传 PDF 文件，对话框中输入：
 
->生成 PDF 文件的 pdftk 格式目录，包含“前言、目录”
+>生成 PDF 文件的 pdftk 格式目录，包含所有章节
 
 输出：
 
