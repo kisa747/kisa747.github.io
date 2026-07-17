@@ -122,11 +122,12 @@ pytest 支持 python 标准的 `pyproject.toml` 配置文件。
 
 ```toml
 # pyproject.toml
-# pytest 配置
+
+# pytest 测试框架配置
 [tool.pytest.ini_options]
-# 运行参数
+# 运行参数解释
 # addopts = "-ra -q --strict-config --strict-markers --cov --cov-report html"
-# --cov --cov-report html  测试代码覆盖率，生成 html 报告
+# --cov --cov-report html  测试代码覆盖率，生成 HTML 报告
 # -rs    显示额外的信息 (f)ailed, (E)rror, (s)kipped, (x)failed, (X)passed, (p)assed,
 # (P)assed with output, (a)ll except passed (p/P), or (A)ll.
 # (w)arnings are enabled by default (see --disable-warnings),
@@ -139,18 +140,18 @@ pytest 支持 python 标准的 `pyproject.toml` 配置文件。
 # -s --capture=no  显示程序中的 print/logging 输出
 # -x, --exitfirst  遇到错误或失败立即退出
 # -v, --verbose    报告模式：Increase verbosity
-# --color=yes      让 pycharm 控制台也显示彩色
-addopts = "-s -x -p no:faulthandler"
+# --color=yes      控制台显示彩色
+addopts = "-s -x --color=yes"
 # 源码目录，即添加路径至 sys.path，避免 import 找不到包。
 pythonpath = "src"
 # 测试目录
-testpaths = ["src", "scripts"]
+testpaths = ["src", "scripts", "tests", "学习"]
 # 配置控制台 logging 日志
 junit_logging = "all"
 log_cli = true
-log_cli_level = 'INFO'
-log_cli_format = '[%(levelname)s]: %(message)s'
-log_cli_date_format = '%Y-%m-%d %H:%M:%S'
+log_cli_level = "INFO"
+log_cli_format = "[%(levelname)s] %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
 ```
 
 ### 常用的断言

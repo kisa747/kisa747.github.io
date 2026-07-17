@@ -188,6 +188,14 @@ class Other(Leaf):  # Error reported by type checker
 ## mypy 工具
 
 ```sh
+# mypy 静态类型检查工具配置
+[tool.mypy]
+explicit_package_bases = true                            # 目录中不包含 __init__.py 文件，则认为不是包
+ignore_missing_imports = true                            # 忽略缺失的导入
+disable_error_code = ["import-untyped"]                  # 哪些错误代码不让 mypy 提示
+exclude_gitignore = true                                 # 从 .gitignore 文件中读取忽略列表
+exclude = ["smart-extract/", "scripts/photo_watermark/"]
+
 # 提示 Library stubs not installed for "requests"
 # 方法 1：忽略所有第三方库缺失的 types 包，在配置文件 pyproject.toml 中添加以下内容：
 [tool.mypy]
