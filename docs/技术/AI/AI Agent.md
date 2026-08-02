@@ -1,6 +1,8 @@
-# 本地部署 AI
+# AI Agent
 
 ## 手动安装 Hermes
+
+Hermes 官方文档：<https://hermes-agent.nousresearch.com/docs>
 
 配置环境
 
@@ -28,23 +30,8 @@ scoop install ffmpeg
 安装
 
 ```sh
-# 克隆仓库并进入目录
-git clone --recurse-submodules https://github.com/NousResearch/hermes-agent.git
-cd hermes-agent
-
-# 使用 Python 3.11 创建虚拟环境
-uv venv --python 3.11
-
-# 安装依赖
-uv pip install -e ".[mcp]"
-
-# 可选：浏览器工具和 WhatsApp 桥接需要它
-npm install
-
-# 让 hermes 成为全局命令
-# 管理员权限运行
-del %USERPROFILE%\.local\bin\hermes.exe
-mklink %USERPROFILE%\.local\bin\hermes.exe "D:\App\Hermes\hermes-agent\.venv\Scripts\hermes.exe"
+# 安装 Run in powershell
+iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 
 # 验证安装
 hermes doctor
@@ -56,22 +43,20 @@ hermes doctor --fix
 
 ```sh
 # 临时切换模型
-hermes --provider Z.AI -m glm-4.7-flash
+hermes - --provider Z.AI -m glm-4.7-flash
+
+# 备份配置
+hermes backup
 ```
 
 创建快捷方式
 
 ```sh
 # pwsh
-C:\Users\kevin\scoop\apps\pwsh\current\pwsh.exe -NoExit -WorkingDirectory "E:\test\hermes" -c "D:\Home\Git-Repo\Hermes\.venv\Scripts\hermes.exe"
-
-# git bash
-C:\Users\kevin\scoop\apps\git\current\git-bash.exe -c "/D/Home/Git-Repo/Hermes/.venv/Scripts/hermes;bash"
+C:\Users\kevin\scoop\apps\pwsh\current\pwsh.exe -NoExit -WorkingDirectory "E:\test\hermes" -c "hermes --tui"
 ```
 
-安装 Playwright CLI with SKILLS
-
-<https://github.com/microsoft/playwright-cli>
+安装 `Playwright CLI with SKILLS`，<https://github.com/microsoft/playwright-cli>
 
 ```sh
 npm install -g @playwright/cli@latest
@@ -112,11 +97,4 @@ ollama pull qwen3.5
 
 # bge-m3 模型，嵌入模型
 ollama pull bge-m3
-```
-
-## MimoCode
-
-```sh
-# 安装 MiMo Code
-npm install -g @mimo-ai/cli
 ```
