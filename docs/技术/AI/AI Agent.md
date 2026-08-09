@@ -43,10 +43,13 @@ hermes doctor --fix
 
 ```sh
 # 临时切换模型
-hermes - --provider Z.AI -m glm-4.7-flash
+hermes --provider Z.AI -m glm-4.7-flash
 
 # 备份配置
 hermes backup
+
+# 配置工具
+hermes tools
 ```
 
 创建快捷方式
