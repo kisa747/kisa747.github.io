@@ -2,6 +2,32 @@
 
 Python 各版本更新内容
 
+## python3.15 新功能
+
+* [**PEP 810**](https://peps.python.org/pep-0810/): [显式惰性导入以加速启动时间](https://docs.python.org/zh-cn/3.15/whatsnew/3.15.html#whatsnew315-lazy-imports)，`lazy import models`
+* [**PEP 686**](https://peps.python.org/pep-0686/): [Python 现在使用 UTF-8 作为默认编码格式](https://docs.python.org/zh-cn/3.15/whatsnew/3.15.html#whatsnew315-utf8-default)，不需要显式设置 `setx PYTHONUTF8 1` 即可。
+* [**PEP 798**](https://peps.python.org/pep-0798/): 推导式中的解包
+
+```python
+lists = [[1, 2], [3, 4], [5]]
+[*L for L in lists]  # 等价于 [x for L in lists for x in L]
+[1, 2, 3, 4, 5]
+
+
+sets = [{1, 2}, {2, 3}, {3, 4}]
+{*s for s in sets}  # 等价于 {x for s in sets for x in s}
+{1, 2, 3, 4}
+
+dicts = [{'a': 1}, {'b': 2}, {'a': 3}]
+{**d for d in dicts}  # 等价于 {k: v for d in dicts for k,v in d.items()}
+{'a': 3, 'b': 2}
+```
+
+## python3.14 新功能
+
+* [标注的迟延求值](https://docs.python.org/zh-cn/3/whatsnew/3.14.html#whatsnew314-deferred-annotations)
+* [**PEP 750**](https://peps.python.org/pep-0750/): 模板字符串字面值 `t-string`
+
 ## python3.13 新功能
 
 * 实验性无 GIL 线程支持 (Free-threaded CPython)

@@ -94,6 +94,44 @@ x: Sequence[int] = [3, 4]
 PI: Final = 3.1415926
 ```
 
+## 装饰器类型注解
+
+参考：<https://mypy.readthedocs.io/en/stable/generics.html#declaring-decorators>
+
+不带参数的装饰器 (Python 3.12+ 语法)：
+
+```python
+from collections.abc import Callable
+from typing import Any, cast
+
+# A decorator that preserves the signature.
+def printing_decorator[F: Callable[..., Any]](func: F) -> F:
+    def wrapper(*args, **kwds):
+        print("Calling", func)
+        return func(*args, **kwds)
+    return cast(F, wrapper)
+
+@printing_decorator
+def add_forty_two(value: int) -> int:
+    return value + 42
+
+a = add_forty_two(3)
+reveal_type(a)      # Revealed type is "builtins.int"
+add_forty_two('x')  # Argument 1 to "add_forty_two" has incompatible type "str"; expected "int"
+```
+
+带参数的装饰器 (Python 3.12+ 语法)：
+
+```python
+from collections.abc import Callable
+
+def printing_decorator[**P, T](func: Callable[P, T]) -> Callable[P, T]:
+    def wrapper(*args: P.args, **kwds: P.kwargs) -> T:
+        print("Calling", func)
+        return func(*args, **kwds)
+    return wrapper
+```
+
 ## 其他的类型注解
 
 ### 容器抽象基类

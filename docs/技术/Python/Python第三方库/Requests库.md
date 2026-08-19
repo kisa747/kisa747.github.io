@@ -6,6 +6,7 @@ requests 不支持 http2 协议，如果要使用 http2 协议，可以使用 [h
 
 ```sh
 pip install requests
+
 # 导入模块
 import requests
 ```

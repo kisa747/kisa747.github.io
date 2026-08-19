@@ -3,14 +3,14 @@
 ## 笔记
 
 ```python
-from datetime import datetime, date
+import datetime as dt
 import time
 
 # 快速获取当前年月，赋给变量。
-t = date.today()  # date 类无法处理时间，无法处理时间戳
+t = dt.date.today()  # date 类无法处理时间，无法处理时间戳
 year, month, day = t.year, t.month, t.day
 
-t = datetime.now()  # 没有指定时区，等价于 datetime.today()
+t = dt.datetime.now()  # 没有指定时区，等价于 dt.datetime.today()
 year, month, day = t.year, t.month, t.day
 
 year, month, day, *_ = time.localtime()
@@ -53,15 +53,15 @@ time 只能处理 1970 年~3001 年的日期，基本够用了。而且比较简
 
 ```python
 import time
-import datetime
-dt = datetime.datetime.now()  # 获取当前 datetime 对象
+import datetime as dt
+now = dt.datetime.now()  # 获取当前 datetime 对象
 ts = time.time()  # 返回当前时间的时间戳，精度为 7 的浮点数
 
 # time 转换为 datetime 对象
-datetime.datetime.fromtimestamp(ts)
+dt.datetime.fromtimestamp(ts)
 Out[]: datetime.datetime(2022, 11, 1, 12, 9, 44, 287057)
 # time 转换为 date 对象
-datetime.date.fromtimestamp(ts)
+dt.date.fromtimestamp(ts)
 Out[]: datetime.date(2022, 11, 1)
 
 # datetime 转换为 time
@@ -114,8 +114,8 @@ ISO 格式：`YYYY-MM-DD[*HH[:MM[:SS[.fff[fff]]]][+HH:MM[:SS[.ffffff]]]]`
 
 ```python
 import time
-import datetime
-dt = datetime.datetime.now()  # 获取当前 datetime 对象
+import datetime as dt
+now = dt.datetime.now()  # 获取当前 datetime 对象
 ts = time.time()  # 返回当前时间的时间戳，精度为 7 的浮点数
 
 dt
@@ -133,16 +133,16 @@ Out[]: '2022-11-01 12:09:44.287056'
 
 # 字符串转换为 datetime 对象
 datetime_str = '2021-12-26 20:09:14.000'
-datetime.datetime.fromisoformat(datetime_str)
-datetime.datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S.%f')
+dt.datetime.fromisoformat(datetime_str)
+dt.datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S.%f')
 
 # timestamp 转换为 datetime 对象
-datetime.datetime.fromtimestamp(ts, timezone=None)
+dt.datetime.fromtimestamp(ts, timezone=None)
 Out[]: datetime.datetime(2022, 11, 1, 12, 9, 44, 287057)
 
 # 将一个时间戳格式化输出
 t = 1536280520.7295556
-datetime.fromtimestamp(t).strftime('%Y-%m-%d %H:%M:%S %A %B')
+dt.datetime.fromtimestamp(t).strftime('%Y-%m-%d %H:%M:%S %A %B')
 ut[]: datetime.datetime(2018, 9, 7, 9, 10, 27, 439027)
 ```
 
@@ -154,8 +154,8 @@ date 对象是 datetime 对象的子类。date 对象的大部分方法与 datet
 
 ```python
 import time
-import datetime
-dt = datetime.date.today() # 获取当前 datetime 对象
+import datetime as dt
+now = dt.date.today() # 获取当前 datetime 对象
 ts = time.time()  # 返回当前时间的时间戳，精度为 7 的浮点数
 
 dt
@@ -172,19 +172,19 @@ dt.strftime('%Y-%m-%d')
 [输出：]'2018-09-25'
 
 # 字符串转换为 date 对象
-datetime.date.fromisoformat('2018-09-25')
+dt.date.fromisoformat('2018-09-25')
 [输出：]datetime.date(2018, 9, 25)
 
-datetime.date.strptime('2018-09-25', '%Y-%m-%d %H:%M:%S.000')
+dt.date.strptime('2018-09-25', '%Y-%m-%d %H:%M:%S.000')
 [输出：]datetime.date(2018, 9, 25)
 
 # timestamp 转换为 date 对象
-datetime.date.fromtimestamp(ts)
+dt.date.fromtimestamp(ts)
 [输出：]datetime.date(2018, 9, 25)
 
 # ----------------------------------------------------------
 # 快速创建日期
-datetime.date(2018, 2, 5)
+dt.date(2018, 2, 5)
 [输出：]datetime.date(2018, 2, 5)
 
 # 获取年、月、日，星期几
@@ -215,21 +215,17 @@ Out[]: time.struct_time(tm_year=2022, tm_mon=11, tm_mday=1, tm_hour=12, tm_min=9
 
 ```python
 import time
-import datetime
+import datetime as dt
 
 # 获取当前 datetime 对象（不包含时区信息）
-datetime.datetime.now()
+dt.datetime.now()
 
 # 字符串创建 UTC 时间（包含时区信息）
-datetime.datetime.fromisoformat('2021-12-26 20:09:14.000+00:00')
-
-# 当前 UTC 时间（不包含时区信息）
-datetime.datetime.utcnow()
-Out[8]: datetime.datetime(2022, 11, 1, 8, 26, 24, 981620)
+dt.datetime.fromisoformat('2021-12-26 20:09:14.000+00:00')
 
 # 当前 UTC 时间（包含时区信息）
-datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
-Out[13]: datetime.datetime(2022, 11, 1, 8, 30, 20, 801034, tzinfo=datetime.timezone.utc)
+dt.datetime.now(dt.UTC)
+Out[8]: datetime.datetime(2026, 8, 17, 13, 29, 40, 442893, tzinfo=datetime.timezone.utc)
 ```
 
 ### timezone 时区信息对象
@@ -243,23 +239,23 @@ Out[5]: ('中国标准时间', '中国夏令时')
 Out[6]: 28800
 
 # 当前时区的 timedelta 偏移对象
-datetime.timedelta(seconds=-time.timezone)
+dt.timedelta(seconds=-time.timezone)
 # 当前时区的 timezone 对象
-datetime.timezone(datetime.timedelta(hours=-time.timezone/3600))
+dt.timezone(dt.timedelta(hours=-time.timezone/3600))
 ```
 
 ### 添加时区信息
 
 ```python
 # 1：当前时间，带当前时区信息的 datetime 对象
-datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(seconds=-time.timezone)))
-# 2：当前 UTC 时间，带 UTC 时区信息的 datetime 对象
-datetime.datetime.utcnow().replace(tzinfo=None)
+TZ_CN = dt.timezone(dt.timedelta(hours=-time.timezone/3600))
+dt.datetime.now(TZ_CN)
+
 
 # 手动创建东八区时区对象
-datetime.timezone(datetime.timedelta(hours=8))
+TZ_CN = dt.timezone(dt.timedelta(hours=8))
 # 当前时间绑定东八时区信息，不调整时间
-datetime.datetime.utcnow().replace(tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
+dt.datetime.now(TZ_CN)
 ```
 
 ### 时区转换
@@ -268,34 +264,38 @@ datetime.datetime.utcnow().replace(tzinfo=datetime.timezone(datetime.timedelta(h
 
 ```python
 # 当前时间（包含时区信息）
-dt = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(seconds=-time.timezone)))
+now = dt.datetime.now().replace(tzinfo=dt.timezone(dt.timedelta(seconds=-time.timezone)))
 # 转换至 UTC 时间
-dt_utc = dt.astimezone(tz=datetime.timezone.utc)
+now_utc = now.astimezone(tz=dt.UTC)
 # 转换至本地时间时间，携带时区信息
-dt_utc.astimezone(tz=None)
+now_utc.astimezone(tz=None)
 # 转换至东京时间，携带时区信息
-dt_utc.astimezone(datetime.timezone(datetime.timedelta(hours=9)))
+now_utc.astimezone(dt.timezone(dt.timedelta(hours=9)))
 
 # 删除时区信息
-dt_utc.replace(tzinfo=None)
+now_utc.replace(tzinfo=None)
 
 # timezone 对象
-dt.tzinfo
+now.tzinfo
 # 时区名称
-dt.tzname()
+now.tzname()
 # 相对 UTC 时区偏差
-dt.utcoffset()
+now.utcoffset()
 ```
 
 ### zoneinfo 库
 
 zoneinfo 库是一个时区数据库，包含了不同国家城市的时区数据。需要安装 `tzdata` 库。
 
+```python
+pip install tzdata
+```
+
 ### 技巧
 
 ```python
 # 创建带时区信息的当前时间，最简单的方法是从 UTC 时间转换
-datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).astimezone(tz=None)
+dt.datetime.utcnow().replace(tzinfo=dt.timezone.utc).astimezone(tz=None)
 ```
 
 ### 总结
@@ -317,7 +317,7 @@ calendar.monthrange(2018, 8)  # 返回两个整数。第一个是该月第一天
 
 # 快速创建日期序列
 prng = (
-    pd.date_range('2021-01', datetime.now(), freq='M')
+    pd.date_range('2021-01', dt.datetime.now(), freq='M')
     .map(lambda x: [x.year, x.month])
     .tolist()
 )

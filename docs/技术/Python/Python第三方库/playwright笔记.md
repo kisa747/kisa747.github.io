@@ -62,13 +62,21 @@ with sync_playwright() as playwright:
 
 参考：<https://playwright.dev/python/docs/emulation>
 
-设备支持的字段参考：[registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)
+设备支持的字段参考：
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    devices = [x for x in p.devices]
+print(devices)
+```
 
 常见的设备： `iphone 15`  `Galaxy S24`  `iPad Pro 11` `iPad Mini` `Desktop Chrome` `Desktop Edge`
 
 ### 模拟语言、时区
 
-模拟 `Locale & Timezone` ，CI 部署中非常重要，操作系统语言可能是英语。
+模拟 `Locale & Timezone` ，CI 部署中非常重要，操作系统语言默认是英语。
 
 ```python
 context = browser.new_context(

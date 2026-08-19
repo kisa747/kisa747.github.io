@@ -1,4 +1,4 @@
-# python 模块与包
+# 模块与包
 
 参考：<https://python3-cookbook.readthedocs.io/zh_CN/latest/chapters/p10_modules_and_packages.html>
 
