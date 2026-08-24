@@ -1,4 +1,4 @@
-# 编辑器
+# Python 编辑器
 
 ## Pycharm
 

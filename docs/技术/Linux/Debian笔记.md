@@ -63,16 +63,40 @@ EOF
 echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010-$USER
 ```
 
-### 修改 Debian 更新源
+### 配置 Debian 更新源
 
 Debian 官方源列表：<https://www.debian.org/mirror/list>
 
-TUNA 的 Debian 源 [TUNA 官方说明](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
-
-<https://mirrors.ustc.edu.cn/help/debian.html>
+科大 Debian 源：<https://mirrors.ustc.edu.cn/help/debian.html>
 
 ```sh
-# DEB822 格式
+# 科大 Debian 源，DEB822 格式
+cat << "EOF" | sudo tee /etc/apt/sources.list.d/debian.sources
+Types: deb
+URIs: https://mirrors.ustc.edu.cn/debian
+Suites: trixie trixie-updates
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb
+URIs: https://mirrors.ustc.edu.cn/debian-security
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+EOF
+```
+
+更新系统
+
+```sh
+# 更新系统
+sudo apt update && sudo apt upgrad
+```
+
+TUNA 的 Debian 源 [TUNA Debian 软件源](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
+
+```sh
+# TUNA 的 Debian 源，DEB822 格式
 cat << "EOF" | sudo tee /etc/apt/sources.list.d/debian.sources
 Types: deb
 URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
@@ -87,23 +111,7 @@ Suites: trixie-security
 Components: main contrib non-free non-free-firmware
 EOF
 
-# 更新系统
-sudo apt update && sudo apt upgrade
 
-# DEB822 格式
-cat << "EOF" | sudo tee /etc/apt/sources.list.d/debian.sources
-Types: deb
-URIs: http://mirrors.ustc.edu.cn/debian
-Suites: trixie trixie-updates
-Components: main contrib non-free non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
-
-Types: deb
-URIs: http://mirrors.ustc.edu.cn/debian-security
-Suites: trixie-security
-Components: main contrib non-free non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
-EOF
 ```
 
 ### SSH 免密登录

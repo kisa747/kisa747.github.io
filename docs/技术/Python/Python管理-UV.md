@@ -7,14 +7,18 @@
 ## 安装
 
 ```sh
-# 推荐通过 pip 安装，可以使用国内源，速度更快更稳定
+# 通过 pip 安装，可以使用国内源，速度更快更稳定
 python -m pip install uv
 
-# 也可以使用 scoop 安装
+# 通过 scoop 安装
 scoop isntall uv
 
-# 或者使用官方脚本安装
+# Windows 下使用官方脚本安装
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Linux 下使用官方脚本安装
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # 使用官方脚本安装，通过自身的命令更新版本
 uv self update
 ```
@@ -145,11 +149,11 @@ cat << "EOF" | tee ~/.config/uv/uv.toml
 python-downloads = "manual"
 
 [[index]]
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-default = true
+url = "https://mirrors.ustc.edu.cn/pypi/simple"
 
 [[index]]
-url = "https://mirrors.ustc.edu.cn/pypi/simple"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
 EOF
 
 # 更新 shell

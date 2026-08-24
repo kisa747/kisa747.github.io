@@ -1,4 +1,4 @@
-# Python 静态类型注解
+# 静态类型注解
 
 ## 快速开始
 
@@ -22,35 +22,21 @@ Python 运行时不强制执行函数和变量类型注解，但这些注解可�
 >
 > int 是 float 的子类
 
-| Type                | Description                                                      |
-|:-------------------:| ---------------------------------------------------------------- |
-| `list[str]`         | list of `str` objects                                            |
-| `tuple[int, int]`   | tuple of two `int` objects (`tuple[()]` is the empty tuple)      |
-| `tuple[int, ...]`   | tuple of an arbitrary number of `int` objects                    |
-| `dict[str, int]`    | dictionary from `str` keys to `int` values                       |
-| `Iterable[int]`     | iterable object containing ints                                  |
-| `Sequence[bool]`    | sequence of booleans (read-only)                                 |
-| `Mapping[str, int]` | mapping from `str` keys to `int` values (read-only)              |
-| `type[C]`           | type object of `C` (`C` is a class/type variable/union of types) |
-
 ## CheetSheet
 
 ```python
-# 常用的内置类型
-x: list[int | float | str | bytes]
-# 常用的数据容器
-x: list[int]
-x: tuple[int]
-x: set[int]
-x: set[int]
-x: dict[int]
+# 常用
+x: int = 1
+x: float = 1.0
+x: bool = True
+x: str = "test"
+x: bytes = b"test"
+x: str | None= "something"
+x: type[C]           # type object of `C` (`C` is a class/type variable/union of types)
 
-# 2 个元素，第一个整数、第二个字符串
-x: tuple[int, str] = (1, 'a')
-# 单个元素，整数或字符串
-x: tuple[int | str] = (1, )
-# 任意多元素，整数或字符串
-x: tuple[int | str, ...] = ('a', 1, 'b', 'c', 3)
+# 序列
+x: list[int]
+x: list[int | float | str | bytes]
 
 # list 这三种写法效果一样。都表示：任意多元素，整数或字符串
 # 一般采用第一种写法
@@ -58,12 +44,34 @@ x: list[int, str] = [1, 'a', 2, 'c', 'd']
 x: list[int | str] = [1, 'a', 2, 'c', 'd']
 x: list[int | str, ...] = [1, 'a', 2, 'c', 'd']
 
-from typing import Optional, Any, Final, Literal
-from collections.abc import Sequence, Iterator, Callable, Generator
+x: tuple[int]
+# 2 个元素，第一个整数、第二个字符串
+x: tuple[int, str] = (1, 'a')
+# 单个元素，整数或字符串
+x: tuple[int | str] = (1, )
+tuple[int, ...] # tuple of an arbitrary number of `int` objects
+# 任意多元素，整数或字符串
+x: tuple[int | str, ...] = ('a', 1, 'b', 'c', 3)
 
-# Optional[X] is the same as X | None or Union[X, None]
-# Optional 仅接受一个参数
-x: Optional[str] = "something"
+x: Sequence[bool]  # sequence of booleans (read-only)
+# 鸭子类型，Sequence 表示可以序列化对象（可以下标访问、可以切片访问），比如：list、tuple、str
+# 做注解时，基本表示 list 或 tuple，与 list 使用方法一致
+# Sequence 仅接受一个参数
+x: Sequence[int] = [3, 4]
+
+# 集合字典
+x: set[int]
+x: set[str | int]
+x: Set[int] = {6, 7}
+# 字典
+x: dict[int]
+x: dict[str, int]    # dictionary from `str` keys to `int` values
+x: Mapping[str, int] # mapping from `str` keys to `int` values (read-only)
+
+
+########################################################
+from typing import Any, Final, Literal
+from collections.abc import Iterator, Iterable, Callable, Generator
 
 # 任意类型
 x: Any
@@ -83,12 +91,6 @@ x: Callable[[int, float], float] = f
 
 # 类
 x: type[Wrapper]
-
-
-# 鸭子类型，Sequence 表示可以序列化对象（可以下标访问、可以切片访问），比如：list、tuple、str
-# 做注解时，基本表示 list 或 tuple，与 list 使用方法一致
-# Sequence 仅接受一个参数
-x: Sequence[int] = [3, 4]
 
 # 不可更改的常量
 PI: Final = 3.1415926
@@ -144,6 +146,7 @@ list、dict、set 等用于注解返回类型，注解参数时，最好使用 S
 list tuple -> Sequence -> Collection -> Iterable
 dict  ->  Mapping -> Collection -> Iterable
 set  -> Set -> Collection -> Iterable
+Generator -> Iterator -> Iterable
 ```
 
 ### 重载 @overload

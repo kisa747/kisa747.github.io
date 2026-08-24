@@ -1,5 +1,8 @@
 # markdownlint 配置文件
-gitignore: true
+# Default state for all rules
+default: true
+# Path to configuration file to extend
+extends: null
 
 MD013: false  # line-length - Line length
 MD024: false  # no-duplicate-heading - Multiple headings with the same content

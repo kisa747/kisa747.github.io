@@ -124,7 +124,7 @@ pytest 支持 python 标准的 `pyproject.toml` 配置文件。
 # pyproject.toml
 
 # pytest 测试框架配置
-[tool.pytest.ini_options]
+[tool.pytest]
 # 运行参数解释
 # addopts = "-ra -q --strict-config --strict-markers --cov --cov-report html"
 # --cov --cov-report html  测试代码覆盖率，生成 HTML 报告
@@ -141,7 +141,7 @@ pytest 支持 python 标准的 `pyproject.toml` 配置文件。
 # -x, --exitfirst  遇到错误或失败立即退出
 # -v, --verbose    报告模式：Increase verbosity
 # --color=yes      控制台显示彩色
-addopts = "-s -x --color=yes"
+addopts = ['-s', '-x']
 # 源码目录，即添加路径至 sys.path，避免 import 找不到包。
 pythonpath = "src"
 # 测试目录

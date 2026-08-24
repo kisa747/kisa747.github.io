@@ -9,6 +9,8 @@
 ## 常用命令
 
 ```sh
+# 检查语法问题
+markdownlint **/*.md
 # 修复能修复的语法问题
 markdownlint --fix **/*.md
 
