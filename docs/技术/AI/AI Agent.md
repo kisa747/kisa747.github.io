@@ -1,31 +1,8 @@
 # AI Agent
 
-## 手动安装 Hermes
+## Hermes Agent
 
 Hermes 官方文档：<https://hermes-agent.nousresearch.com/docs>
-
-配置环境
-
-```sh
-# Hermes 核心运行环境：uv, Python3.11, Node.js, ripgrep, ffmpeg, Git Bash
-
-# 安装 uv
-scoop install uv
-# 安装 python3.11
-uv python install 3.11
-
-# 安装 nodejs-lt
-scoop install nodejs-lts
-
-# 安装 git
-scoop isntall git-bash
-scoop install git-lfs
-
-# 安装 ripgrep
-scoop install ripgrep
-# 安装 ffmpeg
-scoop install ffmpeg
-```
 
 安装
 
@@ -50,6 +27,10 @@ hermes backup
 
 # 配置工具
 hermes tools
+
+# 配置 hermes 仅更新 stable，不更新所有的 commit
+# 默认为 main
+hermes update --set-channel stable
 ```
 
 创建快捷方式
@@ -68,6 +49,31 @@ playwright-cli --help
 playwright-cli install --skills
 
 playwright-cli install-browser chromium
+```
+
+### 手动安装 Hermes
+
+配置环境
+
+```sh
+# Hermes 核心运行环境：uv, Python3.11, Node.js, ripgrep, ffmpeg, Git Bash
+
+# 安装 uv
+scoop install uv
+# 安装 python3.11
+uv python install 3.11
+
+# 安装 nodejs-lt
+scoop install nodejs-lts
+
+# 安装 git
+scoop isntall git-bash
+scoop install git-lfs
+
+# 安装 ripgrep
+scoop install ripgrep
+# 安装 ffmpeg
+scoop install ffmpeg
 ```
 
 ## 安装 opencode

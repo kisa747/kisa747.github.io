@@ -37,6 +37,24 @@ npm install
 npm up  # npm update
 ```
 
+## Node.js 项目管理
+
+```sh
+# 固定项目版本
+node --version > .node-version
+```
+
+或者在 `package.json` 中写入 `engines.node` 字段：
+
+```sh
+npm pkg set engines.node="24.x"
+
+# 即在 package.json 中添加以下字段
+  "engines": {
+    "node": "24.x"
+  }
+```
+
 ## 安装 Node.js
 
 ### Windows 下安装 Node.js
@@ -131,11 +149,4 @@ fnm use 16.5.0            # 切换到已经安装的某个版本（16.5.0）
 fnm alias default 16.6.2  # 设置默认的 Node.js 版本（16.6.2）
 fnm ls                    # 列出所有已经安装的 Node.js 版本
 fnm uninstall 16.5.0      # 卸载某个已经安装的 Node.js 版本（16.5.0）
-```
-
-## Node.js 项目管理
-
-```sh
-# 固定项目版本
-node --version > .node-version
 ```
